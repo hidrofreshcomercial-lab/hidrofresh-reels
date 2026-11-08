@@ -1,0 +1,43 @@
+name: Armar reels
+on:
+  push:
+    branches: [main]
+    paths: ["guiones/**", "armar.py", "fotos/**"]
+  workflow_dispatch:
+    inputs:
+      reels:
+        description: "Reels a rearmar, separados por espacio (ej: reel1 reel2). Vacío = todos"
+        required: false
+permissions:
+  contents: write
+concurrency: reels
+jobs:
+  armar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Dependencias
+        run: |
+          which ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+          pip install pillow numpy soundfile
+      - name: Elegir guiones
+        id: cuales
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ -n "${{ github.event.inputs.reels }}" ]; then L=""; for r in ${{ github.event.inputs.reels }}; do L="$L guiones/$r.json"; done
+            else L=$(ls guiones/*.json); fi
+          elif git diff --name-only HEAD~1 HEAD | grep -qE '^(armar.py|fotos/)'; then L=$(ls guiones/*.json)
+          else L=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'guiones/*.json'); fi
+          echo "lista=$(echo $L)" >> "$GITHUB_OUTPUT"
+      - name: Armar videos (voz Google Gemini "Kore" desde Supabase)
+        if: steps.cuales.outputs.lista != ''
+        run: for g in ${{ steps.cuales.outputs.lista }}; do echo "== $g"; python3 armar.py "$g"; done
+      - name: Guardar videos
+        if: steps.cuales.outputs.lista != ''
+        run: |
+          git config user.name "reels-bot"
+          git config user.email "reels-bot@users.noreply.github.com"
+          git add salida/*.mp4
+          git diff --cached --quiet || (git commit -m "Videos armados [skip ci]" && git push)

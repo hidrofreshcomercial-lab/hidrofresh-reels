@@ -1,15 +1,16 @@
-# Arma un reel vertical 1080x1920 a partir de un guion JSON: voz Kokoro (gratis, local), fotos con zoom lento, subtítulos y cierre de marca.
-# Uso: python3 armar.py reel1.json
-import json, os, subprocess, sys, textwrap
+# Arma un reel vertical 1080x1920 a partir de un guion JSON: fotos con zoom lento, subtítulos y cierre de marca.
+# Voz: Google Gemini TTS (voz "Kore", gratis) ya generada por la función ia-voz de Supabase en redes/voz/<nombre>.wav;
+# si no existe, cae a Kokoro local.  Uso: python3 armar.py guiones/reel1.json
+import io, json, os, subprocess, sys, textwrap, urllib.request
 import numpy as np, soundfile as sf
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
-from kokoro_onnx import Kokoro
 
 W, H, FPS = 1080, 1920, 30
-F_BLACK = "/usr/share/fonts/opentype/inter/Inter-Black.otf"
-F_BOLD = "/usr/share/fonts/opentype/inter/Inter-Bold.otf"
-AZUL = (0, 120, 200)
 BASE = os.path.dirname(os.path.abspath(__file__))
+F_BLACK = os.path.join(BASE, "fuentes", "Inter-Black.otf")
+F_BOLD = os.path.join(BASE, "fuentes", "Inter-Bold.otf")
+AZUL = (0, 120, 200)
+VOCES = "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/voz/"
 FOTOS = os.path.join(BASE, "fotos")
 MODELOS = os.environ.get("KOKORO_DIR", "/home/claude/tts")
 
@@ -17,7 +18,54 @@ spec = json.load(open(sys.argv[1]))
 nombre = spec["nombre"]
 tmp = os.path.join(BASE, ".tmp", nombre)
 os.makedirs(tmp, exist_ok=True)
-k = Kokoro(os.path.join(MODELOS, "kokoro-v1.0.int8.onnx"), os.path.join(MODELOS, "voices-v1.0.bin"))
+
+
+def partir(audio, sr, n, textos):
+    """Corta la locución completa en n trozos usando las n-1 pausas más largas; si no calzan, reparte por largo del texto."""
+    x = audio.astype(np.float32)
+    if x.ndim > 1:
+        x = x.mean(axis=1)
+    fr = int(sr * 0.02)
+    rms = np.array([np.sqrt(np.mean(x[i:i + fr] ** 2)) for i in range(0, len(x) - fr, fr)])
+    umbral = max(rms.max() * 0.04, 1e-4)
+    voz_on = np.where(rms > umbral)[0]
+    ini, fin = voz_on[0], voz_on[-1]
+    pausas, k0 = [], None
+    for j in range(ini, fin + 1):
+        if rms[j] <= umbral and k0 is None:
+            k0 = j
+        elif rms[j] > umbral and k0 is not None:
+            if j - k0 >= 6:  # >= 120 ms
+                pausas.append((j - k0, k0, j))
+            k0 = None
+    pausas = sorted(sorted(pausas, reverse=True)[: n - 1], key=lambda p: p[1])
+    if len(pausas) == n - 1:
+        cortes = [int((a + b) / 2) * fr for _, a, b in pausas]
+    else:
+        largo = np.cumsum([len(t) for t in textos])[:-1] / sum(len(t) for t in textos)
+        cortes = [int(ini * fr + c * (fin - ini) * fr) for c in largo]
+    bordes = [max(0, ini * fr - int(sr * 0.05))] + cortes + [min(len(x), (fin + 1) * fr + int(sr * 0.1))]
+    print("pausas detectadas:", len(pausas), "de", n - 1)
+    return [x[bordes[i]:bordes[i + 1]] for i in range(n)]
+
+
+def voces(spec):
+    textos = [s["texto"] for s in spec["segmentos"]]
+    try:
+        datos = urllib.request.urlopen(spec.get("audio", VOCES + spec["nombre"] + ".wav"), timeout=60).read()
+        a, sr = sf.read(io.BytesIO(datos))
+        print("voz Gemini:", round(len(a) / sr, 1), "s")
+        return partir(a, sr, len(textos), textos), sr
+    except Exception as e:
+        print("sin voz Gemini (", e, ") -> Kokoro")
+    from kokoro_onnx import Kokoro
+    k = Kokoro(os.path.join(MODELOS, "kokoro-v1.0.int8.onnx"), os.path.join(MODELOS, "voices-v1.0.bin"))
+    out = []
+    for t in textos:
+        a, sr = k.create(t, voice=spec.get("voz", "ef_dora"), speed=spec.get("velocidad", 1.05), lang=spec.get("lang", "es-419"))
+        out.append(a)
+    return out, sr
+
 
 
 def fondo(foto):
@@ -60,10 +108,11 @@ def capa(seg, i, final):
 
 
 clips, audios = [], []
+trozos, sr = voces(spec)
 for i, seg in enumerate(spec["segmentos"]):
     final = i == len(spec["segmentos"]) - 1
-    s, sr = k.create(seg["texto"], voice=spec.get("voz", "ef_dora"), speed=spec.get("velocidad", 1.05), lang=spec.get("lang", "es-419"))
-    pausa = np.zeros(int(sr * (0.6 if final else 0.18)), dtype=s.dtype)
+    s = trozos[i].astype(np.float32)
+    pausa = np.zeros(int(sr * (0.6 if final else 0.08)), dtype=s.dtype)
     s = np.concatenate([np.zeros(int(sr * 0.05), dtype=s.dtype), s, pausa])
     if final:
         s = np.concatenate([s, np.zeros(int(sr * 1.2), dtype=s.dtype)])
