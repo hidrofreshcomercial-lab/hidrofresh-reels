@@ -1,7 +1,31 @@
-{"nombre":"reel4","gancho":"El último paso que muchos olvidan","segmentos":[
-{"texto":"Tu planta puede funcionar perfecto y aun así no cumplir. ¿Sabes por qué?","foto":37},
-{"texto":"Porque al final del proceso el agua se tiene que desinfectar antes de salir.","foto":23},
-{"texto":"Para eso se usan tabletas de cloro en el clorador.","foto":19},
-{"texto":"Si se acaban, el agua sale sin desinfectar y la planta no cumple la norma.","foto":22},
-{"texto":"La clave es tener stock y un plan de despacho según tu consumo.","foto":31},
-{"texto":"Te calculamos cuántas tabletas usa tu planta al mes. Escríbenos al WhatsApp.","foto":5}]}
+{
+ "nombre": "reel4",
+ "gancho": "El último paso que muchos olvidan",
+ "segmentos": [
+  {
+   "texto": "Tu planta puede funcionar perfecto y aun así no cumplir. ¿Sabes por qué?",
+   "foto": 37
+  },
+  {
+   "texto": "Porque al final del proceso el agua se tiene que desinfectar antes de salir.",
+   "foto": 23
+  },
+  {
+   "texto": "Para eso se usan tabletas de cloro en el clorador.",
+   "foto": 19
+  },
+  {
+   "texto": "Si se acaban, el agua sale sin desinfectar y la planta no cumple la norma.",
+   "foto": 22
+  },
+  {
+   "texto": "La clave es tener stock y un plan de despacho según tu consumo.",
+   "foto": 31
+  },
+  {
+   "texto": "Te calculamos cuántas tabletas usa tu planta al mes. Escríbenos al WhatsApp.",
+   "foto": 5
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

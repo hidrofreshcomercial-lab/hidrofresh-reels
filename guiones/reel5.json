@@ -1,7 +1,31 @@
-{"nombre":"reel5","gancho":"Sin alcantarillado: ¿qué hago?","segmentos":[
-{"texto":"¿Vas a construir donde no llega el alcantarillado? Esta decisión te puede salir muy cara.","foto":28},
-{"texto":"Un condominio, un hotel o una faena necesitan una planta de tratamiento,","foto":21},
-{"texto":"dimensionada para su caudal y aprobada por la Seremi.","foto":11},
-{"texto":"En Hidro Fresh la diseñamos, la fabricamos y la instalamos,","foto":17},
-{"texto":"con planos, memoria e instalación de drenes incluidos.","foto":18},
-{"texto":"Cuéntanos tu proyecto por WhatsApp y te orientamos sin costo.","foto":4}]}
+{
+ "nombre": "reel5",
+ "gancho": "Sin alcantarillado: ¿qué hago?",
+ "segmentos": [
+  {
+   "texto": "¿Vas a construir donde no llega el alcantarillado? Esta decisión te puede salir muy cara.",
+   "foto": 28
+  },
+  {
+   "texto": "Un condominio, un hotel o una faena necesitan una planta de tratamiento,",
+   "foto": 21
+  },
+  {
+   "texto": "dimensionada para su caudal y aprobada por la Seremi.",
+   "foto": 11
+  },
+  {
+   "texto": "En Hidro Fresh la diseñamos, la fabricamos y la instalamos,",
+   "foto": 17
+  },
+  {
+   "texto": "con planos, memoria e instalación de drenes incluidos.",
+   "foto": 18
+  },
+  {
+   "texto": "Cuéntanos tu proyecto por WhatsApp y te orientamos sin costo.",
+   "foto": 4
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

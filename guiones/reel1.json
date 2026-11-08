@@ -1,14 +1,39 @@
 {
-  "nombre": "reel1",
-  "gancho": "¿Tu planta de tratamiento huele mal?",
-  "segmentos": [
-    {"texto": "Si tu planta de tratamiento huele mal, no es normal.", "foto": 37},
-    {"texto": "Te está avisando que algo está fallando.", "foto": 33},
-    {"texto": "Puede ser el soplador, que dejó de mandar aire,", "foto": 2},
-    {"texto": "difusores tapados,", "foto": 9},
-    {"texto": "o bacterias que ya no están trabajando.", "foto": 29},
-    {"texto": "En Hidro Fresh la revisamos y la reparamos.", "foto": 1},
-    {"texto": "Y si quedó chica o anticuada, la modernizamos.", "foto": 34},
-    {"texto": "Escríbenos al WhatsApp y te ayudamos al tiro.", "foto": 24}
-  ]
+ "nombre": "reel1",
+ "gancho": "¿Tu planta de tratamiento huele mal?",
+ "segmentos": [
+  {
+   "texto": "Si tu planta de tratamiento huele mal, no es normal.",
+   "foto": 37
+  },
+  {
+   "texto": "Te está avisando que algo está fallando.",
+   "foto": 33
+  },
+  {
+   "texto": "Puede ser el soplador, que dejó de mandar aire,",
+   "foto": 2
+  },
+  {
+   "texto": "difusores tapados,",
+   "foto": 9
+  },
+  {
+   "texto": "o bacterias que ya no están trabajando.",
+   "foto": 29
+  },
+  {
+   "texto": "En Hidro Fresh la revisamos y la reparamos.",
+   "foto": 1
+  },
+  {
+   "texto": "Y si quedó chica o anticuada, la modernizamos.",
+   "foto": 34
+  },
+  {
+   "texto": "Escríbenos al WhatsApp y te ayudamos al tiro.",
+   "foto": 24
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
 }
