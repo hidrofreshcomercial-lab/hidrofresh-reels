@@ -43,8 +43,9 @@ fin = len(voz) - np.argmax(np.abs(voz[::-1]) > umbral)
 voz = voz[max(0, ini - int(sr * 0.05)):min(len(voz), fin + int(sr * 0.15))]
 DUR_VOZ = len(voz) / sr
 TREN = ["SUSTENTABILIDAD", "INNOVACIÓN", "TECNOLOGÍA", "MEDIO AMBIENTE", "ENERGÍA", "AHORRO DE AGUA", "RECICLAJE DE AGUA", "FUTURO"]
-PASO = 0.42    # segundos por palabra del tren
-FIN = 0.15 + 0.25 + len(TREN) * PASO + 1.9  # cierre: página blanca, tren de palabras y la marca
+PASO = 0.36    # una palabra nueva cada 0,36 s; cada una vive 0,9 s alejándose hacia el fondo
+VIDA = 0.9
+FIN = 0.15 + 0.25 + (len(TREN) - 1) * PASO + VIDA + 1.9  # cierre: página blanca, palabras al fondo y la marca
 TOTAL = DUR_VOZ + FIN
 
 
@@ -158,14 +159,18 @@ def fondo(t):
     sombra = Image.new("L", (w2 + 60, h2 + 60), 0); ImageDraw.Draw(sombra).rounded_rectangle([30, 36, w2 + 30, h2 + 36], 40, fill=150)
     fr.paste(Image.new("RGB", sombra.size, (0, 0, 0)), (x - 30, y - 30), sombra.filter(ImageFilter.GaussianBlur(18)))
     fr.paste(img, (x, y), m)
-    if t - a < 0.07 and a > 0:                                # destello blanco en el corte
-        fr = Image.blend(fr, Image.new("RGB", (W, H), BLANCO), 0.55 * (1 - (t - a) / 0.07))
+    if a > 0 and t - a < 0.1:                                 # barrido: la imagen entra deslizándose con desenfoque
+        k = 1 - (t - a) / 0.1
+        desp = int(k * 140) * (1 if d % 2 == 0 else -1)
+        fr = fr.transform(fr.size, Image.AFFINE, (1, 0, desp, 0, 1, 0)).filter(ImageFilter.BoxBlur(int(6 + 18 * k)))
+        fr = Image.blend(fr, Image.new("RGB", (W, H), BLANCO), 0.25 * k)
     return fr, a
 
 
 # ---------- capas de texto ----------
 f_sub = ImageFont.truetype(F_BLACK, 92)
 f_sub_g = ImageFont.truetype(F_BLACK, 104)
+F_POP = [ImageFont.truetype(F_BLACK, z) for z in (118, 112, 108, 104)]  # la palabra activa entra grande y se asienta
 f_hook = ImageFont.truetype(F_BLACK, 88)
 f_peq = ImageFont.truetype(F_BOLD, 30)
 f_marca = ImageFont.truetype(F_BLACK, 110)
@@ -184,7 +189,12 @@ def subtitulo(d, t):
     pop = 0.85 + 0.15 * ease((t - g[0]["a"]) / 0.12)
     palabras_ = [s["t"].upper() for s in g]
     activos = [s["a"] <= t < s["b"] + 0.05 for s in g]
-    fonts = [f_sub_g if act else f_sub for act in activos]
+    fonts = []
+    for s_, act in zip(g, activos):
+        if act:
+            k = ease((t - s_["a"]) / 0.09); fonts.append(F_POP[min(len(F_POP) - 1, int(k * (len(F_POP) - 1)))])
+        else:
+            fonts.append(f_sub)
     esp = 24
     anchos = [d.textlength(p, font=f) for p, f in zip(palabras_, fonts)]
     total = sum(anchos) + esp * (len(palabras_) - 1)
@@ -205,7 +215,7 @@ def subtitulo(d, t):
 def gancho(d, t):
     if t > 2.6 or not spec.get("gancho"):
         return
-    entra = ease(t / 0.25); sale = 1 - ease((t - 2.3) / 0.3)
+    entra = 0.75 + 0.25 * ease(t / 0.15); sale = 1 - ease((t - 2.3) / 0.3)
     txt = spec["gancho"].upper()
     lineas, cur = [], ""
     for p in txt.split():
@@ -214,7 +224,7 @@ def gancho(d, t):
         else:
             cur = (cur + " " + p).strip()
     lineas.append(cur)
-    y = 260 - int((1 - entra) * 200)
+    y = 230 - int((1 - entra) * 120)
     for l in lineas:
         w_l = d.textlength(l, font=f_hook)
         x = (W - w_l) / 2 + math.sin(t * 40) * 6 * (1 - ease(t / 0.4))
@@ -223,6 +233,12 @@ def gancho(d, t):
         y += 124
 
 
+_FC = {}
+def fuente(z):
+    z = max(10, z - z % 2)
+    if z not in _FC: _FC[z] = ImageFont.truetype(F_BLACK, z)
+    return _FC[z]
+
 COLORES_TREN = [(11, 110, 117), (0, 120, 200), (29, 140, 70), (11, 110, 117), (230, 140, 0), (0, 120, 200), (29, 140, 70), (11, 110, 117)]
 def f_ajuste(txt, maxw, size=118):
     f = ImageFont.truetype(F_BLACK, size)
@@ -230,36 +246,53 @@ def f_ajuste(txt, maxw, size=118):
         size -= 6; f = ImageFont.truetype(F_BLACK, size)
     return f
 
-def cierre(d, t):
+_dm = ImageDraw.Draw(Image.new("L", (1, 1)))
+TAM_TREN = []
+for _t in TREN:   # tamaño inicial: la palabra llena el ancho (máx. 170 px de alto)
+    z = 170
+    while _dm.textlength(_t, font=fuente(z)) > W - 110 and z > 60: z -= 4
+    TAM_TREN.append(z)
+
+def cierre(d, t, im=None):
     u = t - (DUR_VOZ + 0.15)
     if u < 0:
         return
-    d.rectangle([0, 0, W, H], fill=(255, 255, 255, int(255 * ease(u / 0.25))))   # página blanca
+    a0 = ease(u / 0.22)
+    d.rectangle([0, 0, W, H], fill=(255, 255, 255, int(255 * a0)))   # página blanca
+    if im is not None and a0 >= 1:
+        im.alpha_composite(VINETA_CLARA)
     v = u - 0.25
     if v < 0:
         return
-    i = int(v // PASO)
-    if i < len(TREN):                                       # tren: entra por la derecha, pasa al centro y sale por la izquierda
-        r = (v - i * PASO) / PASO
-        x0 = W if r < 0.3 else 0
-        if r < 0.3: off = (1 - ease(r / 0.3)) * W
-        elif r < 0.72: off = 0
-        else: off = -ease((r - 0.72) / 0.28) * W
-        txt = TREN[i]; f = f_ajuste(txt, W - 120)
-        wl = d.textlength(txt, font=f)
-        d.text(((W - wl) / 2 + off, H * 0.45), txt, font=f, fill=(*COLORES_TREN[i % len(COLORES_TREN)], 255))
-        # rieles del tren
-        d.rectangle([0, int(H * 0.45) + 150, W, int(H * 0.45) + 156], fill=(11, 110, 117, 90))
+    fin_tren = (len(TREN) - 1) * PASO + VIDA
+    if v < fin_tren:
+        # cada palabra nace grande y se va al fondo (se achica, sube un poco y se desvanece), con estela
+        for i in range(len(TREN) - 1, -1, -1):
+            r = (v - i * PASO) / VIDA
+            if not 0 <= r <= 1:
+                continue
+            base = TAM_TREN[i]
+            for k, (dr, alfa) in enumerate([(0.0, 1.0)]):
+                rr = max(0.0, r - dr)
+                esc = 1 - ease(rr) * 0.86
+                op = (1 - ease(max(0, rr - 0.35) / 0.65)) * min(1, rr / 0.05 + 0.4) * alfa
+                if esc <= 0.05 or op <= 0.02:
+                    continue
+                f = fuente(int(base * esc))
+                wl = d.textlength(TREN[i], font=f)
+                y = H * 0.47 - base * 0.42 * esc - 420 * ease(rr)
+                col = COLORES_TREN[i % len(COLORES_TREN)]
+                d.text(((W - wl) / 2, y), TREN[i], font=f, fill=(*col, int(255 * op)))
         return
-    w = v - len(TREN) * PASO                                # marca
-    pop = 0.6 + 0.4 * ease(w / 0.25) + 0.06 * math.sin(min(w, 0.6) * 12) * (1 - min(1, w / 0.6))
-    f = ImageFont.truetype(F_BLACK, max(20, int(150 * pop)))
+    w = v - fin_tren                                         # marca: llega desde el fondo con rebote
+    pop = ease(w / 0.3) * (1 + 0.08 * math.sin(min(w, 0.7) * 14) * (1 - min(1, w / 0.7)))
+    f = fuente(int(150 * pop))
     txt = "HIDRO FRESH"; wl = d.textlength(txt, font=f)
     d.text(((W - wl) / 2, H * 0.40 - 75 * pop), txt, font=f, fill=(0, 120, 200, 255))
     sub = "Plantas de tratamiento · Cloro · Bacterias"; wl = d.textlength(sub, font=f_med)
-    d.text(((W - wl) / 2, H * 0.40 + 110), sub, font=f_med, fill=(11, 110, 117, int(255 * ease((w - 0.2) / 0.3))))
-    if w > 0.35:
-        a = ease((w - 0.35) / 0.3); pulso = 1 + 0.03 * math.sin(w * 9)
+    d.text(((W - wl) / 2, H * 0.40 + 110), sub, font=f_med, fill=(11, 110, 117, int(255 * ease((w - 0.25) / 0.3))))
+    if w > 0.4:
+        a = ease((w - 0.4) / 0.3); pulso = 1 + 0.03 * math.sin(w * 9)
         txt = "WhatsApp +56 9 8494 6508"; wt = d.textlength(txt, font=f_wa)
         bw = wt * pulso; bx = (W - bw) / 2
         d.rounded_rectangle([bx - 36, 1180, bx + bw + 36, 1300], 60, fill=(*VERDE, int(250 * a)))
@@ -272,13 +305,42 @@ _g[:, :, 3] = (np.clip((_y - H * 0.62) / (H * 0.18), 0, 1) * 110).astype(np.uint
 SOMBRA = Image.fromarray(_g, "RGBA")
 
 
+# viñeta (bordes oscuros) y viñeta clara para la página blanca
+_yy, _xx = np.mgrid[0:H, 0:W]; _r = np.sqrt(((_xx - W / 2) / (W * 0.62)) ** 2 + ((_yy - H / 2) / (H * 0.62)) ** 2)
+_v = np.zeros((H, W, 4), np.uint8); _v[:, :, 3] = (np.clip(_r - 0.55, 0, 1) * 150).astype(np.uint8)
+VINETA = Image.fromarray(_v, "RGBA")
+_c = np.zeros((H, W, 4), np.uint8); _c[:, :, :3] = (205, 225, 228); _c[:, :, 3] = (np.clip(_r - 0.45, 0, 1) * 160).astype(np.uint8)
+VINETA_CLARA = Image.fromarray(_c, "RGBA")
+# grano de película: 6 texturas que rotan
+_rng = np.random.default_rng(7)
+GRANOS = []
+for _ in range(6):
+    gn = _rng.normal(128, 40, (H // 2, W // 2)).clip(0, 255).astype(np.uint8)
+    g4 = np.zeros((H // 2, W // 2, 4), np.uint8); g4[:, :, :3] = gn[:, :, None]; g4[:, :, 3] = 14
+    GRANOS.append(Image.fromarray(g4, "RGBA").resize((W, H), Image.NEAREST))
+# destello de luz cálida (light leak) que cruza la pantalla en algunos cortes
+_lx = np.linspace(-1, 1, W)[None, :]; _ly = np.linspace(-1, 1, H)[:, None]
+_l = np.exp(-((_lx * 1.2 + _ly * 0.6) ** 2) / 0.08)
+_lk = np.zeros((H, W, 4), np.uint8); _lk[:, :, 0] = 255; _lk[:, :, 1] = 170; _lk[:, :, 2] = 80; _lk[:, :, 3] = (_l * 120).astype(np.uint8)
+LEAK = Image.fromarray(_lk, "RGBA")
+
+
 def capa(t):
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     # degradado oscuro abajo para que se lean los subtítulos
     if t < DUR_VOZ + 0.15:
         im.alpha_composite(SOMBRA)
-    gancho(d, t); subtitulo(d, t); cierre(d, t)
+    if t < DUR_VOZ + 0.15:
+        im.alpha_composite(VINETA)
+        for (a, b, f_, d_) in TOMAS[2::3]:                  # destello cálido cada 3 cortes
+            if 0 <= t - a < 0.45:
+                k = (t - a) / 0.45
+                im.alpha_composite(Image.eval(LEAK.transform(LEAK.size, Image.AFFINE, (1, 0, int((k - 0.5) * W * 1.4), 0, 1, 0)), lambda x: x).copy(), (0, 0))
+                break
+    gancho(d, t); subtitulo(d, t); cierre(d, t, im)
+    if t < DUR_VOZ + 0.15:
+        im.alpha_composite(GRANOS[int(t * FPS) % len(GRANOS)])
     # barra de progreso
     d.rectangle([0, 0, int(W * min(1, t / TOTAL)), 12], fill=(*VERDE, 255))
     d.text((40, H - 70), "Voz generada con IA", font=f_peq, fill=(255, 255, 255, 170) if t < DUR_VOZ + 0.3 else (90, 110, 112, 200))
@@ -298,11 +360,36 @@ def whoosh(dur=0.32):
 ws = whoosh()
 pista = np.zeros(int(TOTAL * sr) + sr, np.float32)
 pista[:len(voz)] += voz
-marcas = [a for (a, b, f_, d_) in TOMAS[1:]] + [DUR_VOZ + 0.15] + [DUR_VOZ + 0.4 + k * PASO for k in range(len(TREN))]
+marcas = [a for (a, b, f_, d_) in TOMAS[1:]] + [DUR_VOZ + 0.15] + [DUR_VOZ + 0.4 + k * PASO for k in range(len(TREN))]  # barridos
 for k, a in enumerate(marcas):
     i = int(max(0, a - 0.12) * sr); g = 0.6 if k > len(TOMAS) else 1.0
     pista[i:i + len(ws)] += g * ws[:len(pista) - i]
+def musica(dur):
+    n = int(dur * sr); tt = np.arange(n) / sr; bpm = 104; beat = 60 / bpm
+    acordes = [(220.0, 277.18, 329.63), (196.0, 246.94, 293.66), (174.61, 220.0, 261.63), (196.0, 246.94, 329.63)]
+    m = np.zeros(n, np.float32)
+    for i, ac in enumerate(acordes * 20):
+        a = int(i * 4 * beat * sr); b = min(n, int((i + 1) * 4 * beat * sr))
+        if a >= n: break
+        seg = tt[a:b] - tt[a]; env = np.minimum(1, seg / 0.4) * np.minimum(1, (4 * beat - seg) / 0.4)
+        for f0 in ac:
+            m[a:b] += 0.05 * env * (np.sin(2 * np.pi * f0 * seg) + 0.3 * np.sin(2 * np.pi * f0 * 2 * seg))
+    for k in range(int(dur / beat)):                       # pulso suave tipo bombo
+        a = int(k * beat * sr); L = min(int(0.18 * sr), n - a)
+        if L <= 0: break
+        sg = np.arange(L) / sr; m[a:a + L] += 0.22 * np.sin(2 * np.pi * (55 + 60 * np.exp(-sg * 30)) * sg) * np.exp(-sg * 18)
+    return m
+
+mus = musica(TOTAL + 1)[:len(pista)]
+env_voz = np.convolve(np.abs(pista), np.ones(int(sr * 0.25)) / (sr * 0.25), "same")
+ducking = 1 - 0.75 * np.clip(env_voz / (env_voz.max() * 0.25 + 1e-9), 0, 1)   # la música baja cuando habla
+pista += mus * 0.35 * ducking
+ib = int((DUR_VOZ + 0.4 + (len(TREN) - 1) * PASO + VIDA) * sr)              # golpe grave al aparecer la marca
+L = min(int(0.6 * sr), len(pista) - ib)
+if L > 0:
+    sg = np.arange(L) / sr; pista[ib:ib + L] += 0.35 * np.sin(2 * np.pi * (40 + 80 * np.exp(-sg * 12)) * sg) * np.exp(-sg * 5)
 pista = pista[:int(TOTAL * sr)]
+pista *= 0.95 / max(1e-6, np.abs(pista).max())
 wav = os.path.join(tmp, "audio.wav"); sf.write(wav, pista, sr)
 
 # ---------- render ----------
