@@ -55,7 +55,7 @@ def palabras():
     a16 = voz if sr == 16000 else np.interp(np.arange(0, len(voz), sr / 16000), np.arange(len(voz)), voz).astype(np.float32)
     m = WhisperModel(os.environ.get("WHISPER_DIR", "small"), device="cpu", compute_type="int8")
     guion = " ".join(s["texto"] for s in spec["segmentos"])
-    segs, _ = m.transcribe(a16, language="es", word_timestamps=True, initial_prompt=guion[:400])
+    segs, _ = m.transcribe(a16, language="es", word_timestamps=True, condition_on_previous_text=False)
     return [(w.word.strip(), w.start, w.end) for s in segs for w in s.words if w.word.strip()]
 
 
@@ -68,18 +68,42 @@ except Exception as e:
     for t in toks:
         d = DUR_VOZ * (len(t) + 2) / tot; WORDS.append((t, t0, t0 + d)); t0 += d
 
-# los subtítulos usan el texto del guion (bien escrito) alineado con los tiempos de whisper
+# los subtítulos usan el texto del guion (bien escrito) alineado palabra a palabra con lo que dice la voz (whisper)
+import difflib, unicodedata
+def _norm(x):
+    x = unicodedata.normalize("NFD", x.lower()); x = "".join(c for c in x if unicodedata.category(c) != "Mn")
+    return re.sub(r"[^a-z0-9ñ]", "", x)
 g_tok = []
 for k, s in enumerate(spec["segmentos"]):
     for t in s["texto"].split():
         g_tok.append((t, k))
-# alineación simple: reparte los tiempos de whisper sobre las palabras del guion en proporción
-n_w, n_g = len(WORDS), len(g_tok)
-SUBS = []
-for i, (t, k) in enumerate(g_tok):
-    a = WORDS[min(n_w - 1, int(i * n_w / n_g))]
-    b = WORDS[min(n_w - 1, int((i + 1) * n_w / n_g) - 1 if (i + 1) * n_w / n_g > int(i * n_w / n_g) else int(i * n_w / n_g))]
-    SUBS.append({"t": t, "seg": k, "a": a[1], "b": max(a[2], b[2])})
+gn = [_norm(t) for t, _ in g_tok]; wn = [_norm(w[0]) for w in WORDS]
+TIEM = [None] * len(g_tok)
+for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, gn, wn, autojunk=False).get_opcodes():
+    if op == "equal":
+        for d in range(i2 - i1):
+            TIEM[i1 + d] = (WORDS[j1 + d][1], WORDS[j1 + d][2])
+    elif op == "replace" and i2 > i1:
+        a0, b0 = WORDS[j1][1], WORDS[j2 - 1][2]; L = sum(len(g_tok[i][0]) + 1 for i in range(i1, i2)); acc = 0
+        for i in range(i1, i2):
+            n = len(g_tok[i][0]) + 1
+            TIEM[i] = (a0 + (b0 - a0) * acc / L, a0 + (b0 - a0) * (acc + n) / L); acc += n
+# palabras del guion que la voz no dijo (o whisper no oyó): se reparten entre los vecinos con tiempo
+i = 0
+while i < len(TIEM):
+    if TIEM[i] is None:
+        j = i
+        while j < len(TIEM) and TIEM[j] is None:
+            j += 1
+        a0 = TIEM[i - 1][1] if i > 0 else 0.0
+        b0 = TIEM[j][0] if j < len(TIEM) else DUR_VOZ
+        for q in range(i, j):
+            TIEM[q] = (a0 + (b0 - a0) * (q - i) / (j - i), a0 + (b0 - a0) * (q - i + 1) / (j - i))
+        i = j
+    else:
+        i += 1
+SUBS = [{"t": t, "seg": k, "a": TIEM[i][0], "b": TIEM[i][1]} for i, (t, k) in enumerate(g_tok)]
+print("alineación:", sum(1 for o in difflib.SequenceMatcher(None, gn, wn, autojunk=False).get_matching_blocks() for _ in range(o.size)), "de", len(gn), "palabras exactas")
 for i in range(1, len(SUBS)):  # sin solapes
     SUBS[i]["a"] = max(SUBS[i]["a"], SUBS[i - 1]["b"] - 0.02)
 
@@ -183,7 +207,7 @@ def texto_borde(d, xy, txt, font, fill, stroke=9):
 
 
 def subtitulo(d, t):
-    g = next((g for g in GRUPOS if g[0]["a"] - 0.02 <= t < g[-1]["b"] + 0.18), None)
+    g = next((g for g in reversed(GRUPOS) if g[0]["a"] - 0.02 <= t < g[-1]["b"] + 0.18), None)
     if not g or t > DUR_VOZ + 0.2:
         return
     pop = 0.85 + 0.15 * ease((t - g[0]["a"]) / 0.12)
