@@ -42,7 +42,9 @@ umbral = 0.02 * np.abs(voz).max(); ini = np.argmax(np.abs(voz) > umbral)
 fin = len(voz) - np.argmax(np.abs(voz[::-1]) > umbral)
 voz = voz[max(0, ini - int(sr * 0.05)):min(len(voz), fin + int(sr * 0.15))]
 DUR_VOZ = len(voz) / sr
-FIN = 2.2  # segundos de cierre de marca después de la voz
+TREN = ["SUSTENTABILIDAD", "INNOVACIÓN", "TECNOLOGÍA", "MEDIO AMBIENTE", "ENERGÍA", "AHORRO DE AGUA", "RECICLAJE DE AGUA", "FUTURO"]
+PASO = 0.42    # segundos por palabra del tren
+FIN = 0.15 + 0.25 + len(TREN) * PASO + 1.9  # cierre: página blanca, tren de palabras y la marca
 TOTAL = DUR_VOZ + FIN
 
 
@@ -97,21 +99,37 @@ if cur:
     GRUPOS.append(cur)
 
 
-# ---------- tomas (fotos) ----------
-def cubrir(foto):
-    im = Image.open(os.path.join(FOTOS, f"{foto:02d}.jpg")).convert("RGB")
-    esc = max(W * 1.25 / im.width, H * 1.25 / im.height)
-    return im.resize((int(im.width * esc) + 2, int(im.height * esc) + 2), Image.LANCZOS)
+# ---------- tomas (fotos completas, más chicas, sobre fondo difuminado de la misma foto) ----------
+def r_esq(im, r=34):
+    m = Image.new("L", im.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, im.width - 1, im.height - 1], r, fill=255); return m
 
-TOMAS = []  # (inicio, fin, imagen, dirección)
-segs = spec["segmentos"]
-for k, s in enumerate(segs):
+CACHE = {}
+def preparar(foto):
+    if foto in CACHE:
+        return CACHE[foto]
+    im = Image.open(os.path.join(FOTOS, f"{foto:02d}.jpg")).convert("RGB")
+    esc = max(W / im.width, H / im.height)
+    bg = im.resize((int(im.width * esc) + 2, int(im.height * esc) + 2), Image.BILINEAR)
+    bg = bg.crop(((bg.width - W) // 2, (bg.height - H) // 2, (bg.width - W) // 2 + W, (bg.height - H) // 2 + H)).filter(ImageFilter.GaussianBlur(38))
+    bg = Image.blend(bg, Image.new("RGB", (W, H), (8, 20, 28)), 0.35)
+    # foto completa: cabe en 90% del ancho y 60% del alto (a 1,2x para que el zoom no se vea borroso)
+    e2 = min(W * 0.90 / im.width, H * 0.60 / im.height) * 1.2
+    fg = im.resize((int(im.width * e2), int(im.height * e2)), Image.LANCZOS)
+    CACHE[foto] = (bg, fg, r_esq(fg)); return CACHE[foto]
+
+usadas = {s["foto"] for s in spec["segmentos"]}
+POOL = [int(f[:2]) for f in sorted(os.listdir(FOTOS)) if f.endswith(".jpg") and int(f[:2]) not in usadas and int(f[:2]) not in spec.get("excluir", [])]
+semilla = sum(ord(c) for c in nombre); POOL = POOL[semilla % max(1, len(POOL)):] + POOL[:semilla % max(1, len(POOL))]
+TOMAS = []  # (inicio, fin, foto, dirección)
+segs = spec["segmentos"]; ip = 0
+for k, s_ in enumerate(segs):
     a = seg_ini.get(k, 0.0)
-    b = seg_ini.get(k + 1, DUR_VOZ) if k + 1 < len(segs) else TOTAL
-    img = cubrir(s["foto"])
-    partes = max(1, round((b - a) / 2.2))  # una toma cada ~2 s: misma foto, otro encuadre
+    b = seg_ini.get(k + 1, DUR_VOZ) if k + 1 < len(segs) else DUR_VOZ + 0.15
+    partes = max(1, round((b - a) / 2.0))  # una toma cada ~2 s; la primera es la foto del texto, las demás otras fotos tuyas
     for j in range(partes):
-        TOMAS.append((a + (b - a) * j / partes, a + (b - a) * (j + 1) / partes, img, (k * 3 + j) % 4))
+        foto = s_["foto"] if j == 0 or not POOL else POOL[(ip := ip + 1) % len(POOL)]
+        TOMAS.append((a + (b - a) * j / partes, a + (b - a) * (j + 1) / partes, foto, (k * 3 + j) % 4))
+FOTO_Y = int(H * 0.40)
 
 
 def ease(x):
@@ -119,19 +137,27 @@ def ease(x):
 
 
 def fondo(t):
-    for (a, b, img, d) in TOMAS:
-        if a <= t < b or (b == TOMAS[-1][1] and t >= a):
+    for (a, b, foto, d) in TOMAS:
+        if a <= t < b:
             break
-    u = (t - a) / max(0.01, b - a)
-    golpe = 1 + 0.22 * (1 - ease((t - a) / 0.22))          # zoom de golpe al entrar
-    z = (1.0 + 0.10 * u) * golpe                              # zoom lento
+    else:
+        a, b, foto, d = TOMAS[-1]
+    bg, fg, mask = preparar(foto)
+    u = min(1, (t - a) / max(0.01, b - a))
+    golpe = 1 + 0.16 * (1 - ease((t - a) / 0.22))           # zoom de golpe al entrar
+    z = (0.80 + 0.06 * u) * golpe                              # zoom lento (sobre la foto completa)
     dx, dy = [(1, 0), (-1, 0), (0, 1), (0, -1)][d]
-    cw, ch = W / z, H / z
-    mx, my = (img.width - cw) / 2, (img.height - ch) / 2
-    cx = img.width / 2 + dx * mx * 0.6 * (u - 0.5) * 2
-    cy = img.height / 2 + dy * my * 0.6 * (u - 0.5) * 2
-    box = (cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2)
-    fr = img.resize((W, H), Image.BILINEAR, box=box)
+    w2, h2 = int(fg.width * z), int(fg.height * z)
+    fr = bg.copy()
+    # el fondo también se mueve un poco
+    if u:
+        zb = 1 + 0.05 * u; cw, ch = W / zb, H / zb
+        fr = bg.resize((W, H), Image.BILINEAR, box=((W - cw) / 2, (H - ch) / 2, (W + cw) / 2, (H + ch) / 2))
+    img = fg.resize((w2, h2), Image.BILINEAR); m = mask.resize((w2, h2), Image.BILINEAR)
+    x = (W - w2) // 2 + int(dx * 28 * (u - 0.5) * 2); y = FOTO_Y - h2 // 2 + int(dy * 22 * (u - 0.5) * 2)
+    sombra = Image.new("L", (w2 + 60, h2 + 60), 0); ImageDraw.Draw(sombra).rounded_rectangle([30, 36, w2 + 30, h2 + 36], 40, fill=150)
+    fr.paste(Image.new("RGB", sombra.size, (0, 0, 0)), (x - 30, y - 30), sombra.filter(ImageFilter.GaussianBlur(18)))
+    fr.paste(img, (x, y), m)
     if t - a < 0.07 and a > 0:                                # destello blanco en el corte
         fr = Image.blend(fr, Image.new("RGB", (W, H), BLANCO), 0.55 * (1 - (t - a) / 0.07))
     return fr, a
@@ -165,7 +191,7 @@ def subtitulo(d, t):
     lineas = [[0, len(palabras_)]]
     if total > W - 120 and len(palabras_) > 1:
         lineas = [[0, len(palabras_) - 1], [len(palabras_) - 1, len(palabras_)]]
-    y = int(H * 0.60 + (1 - pop) * 60)
+    y = int(H * 0.70 + (1 - pop) * 60)
     for (i0, i1) in lineas:
         w_l = sum(anchos[i0:i1]) + esp * (i1 - i0 - 1)
         x = (W - w_l) / 2
@@ -197,25 +223,52 @@ def gancho(d, t):
         y += 124
 
 
+COLORES_TREN = [(11, 110, 117), (0, 120, 200), (29, 140, 70), (11, 110, 117), (230, 140, 0), (0, 120, 200), (29, 140, 70), (11, 110, 117)]
+def f_ajuste(txt, maxw, size=118):
+    f = ImageFont.truetype(F_BLACK, size)
+    while ImageDraw.Draw(Image.new("L", (1, 1))).textlength(txt, font=f) > maxw and size > 50:
+        size -= 6; f = ImageFont.truetype(F_BLACK, size)
+    return f
+
 def cierre(d, t):
-    u = t - DUR_VOZ + 0.6
+    u = t - (DUR_VOZ + 0.15)
     if u < 0:
         return
-    a = ease(u / 0.35)
-    d.rectangle([0, 0, W, H], fill=(0, 30, 50, int(170 * a)))
-    y0 = 620 - int((1 - a) * 120)
-    for txt, f, col, y in [("HIDRO FRESH", f_marca, BLANCO, y0), ("Plantas de tratamiento", f_med, BLANCO, y0 + 150), ("Cloro · Bacterias · Todo Chile", f_med, BLANCO, y0 + 210)]:
-        w_l = d.textlength(txt, font=f); d.text(((W - w_l) / 2, y), txt, font=f, fill=(*col, int(255 * a)))
-    pulso = 1 + 0.04 * math.sin(u * 9)
-    txt = "WhatsApp +56 9 8494 6508"; w_l = d.textlength(txt, font=f_wa) * pulso
-    bx = (W - w_l) / 2
-    d.rounded_rectangle([bx - 36, 1180, bx + w_l + 36, 1300], 60, fill=(*VERDE, int(250 * a)))
-    d.text(((W - d.textlength(txt, font=f_wa)) / 2, 1208), txt, font=f_wa, fill=(*BLANCO, int(255 * a)))
+    d.rectangle([0, 0, W, H], fill=(255, 255, 255, int(255 * ease(u / 0.25))))   # página blanca
+    v = u - 0.25
+    if v < 0:
+        return
+    i = int(v // PASO)
+    if i < len(TREN):                                       # tren: entra por la derecha, pasa al centro y sale por la izquierda
+        r = (v - i * PASO) / PASO
+        x0 = W if r < 0.3 else 0
+        if r < 0.3: off = (1 - ease(r / 0.3)) * W
+        elif r < 0.72: off = 0
+        else: off = -ease((r - 0.72) / 0.28) * W
+        txt = TREN[i]; f = f_ajuste(txt, W - 120)
+        wl = d.textlength(txt, font=f)
+        d.text(((W - wl) / 2 + off, H * 0.45), txt, font=f, fill=(*COLORES_TREN[i % len(COLORES_TREN)], 255))
+        # rieles del tren
+        d.rectangle([0, int(H * 0.45) + 150, W, int(H * 0.45) + 156], fill=(11, 110, 117, 90))
+        return
+    w = v - len(TREN) * PASO                                # marca
+    pop = 0.6 + 0.4 * ease(w / 0.25) + 0.06 * math.sin(min(w, 0.6) * 12) * (1 - min(1, w / 0.6))
+    f = ImageFont.truetype(F_BLACK, max(20, int(150 * pop)))
+    txt = "HIDRO FRESH"; wl = d.textlength(txt, font=f)
+    d.text(((W - wl) / 2, H * 0.40 - 75 * pop), txt, font=f, fill=(0, 120, 200, 255))
+    sub = "Plantas de tratamiento · Cloro · Bacterias"; wl = d.textlength(sub, font=f_med)
+    d.text(((W - wl) / 2, H * 0.40 + 110), sub, font=f_med, fill=(11, 110, 117, int(255 * ease((w - 0.2) / 0.3))))
+    if w > 0.35:
+        a = ease((w - 0.35) / 0.3); pulso = 1 + 0.03 * math.sin(w * 9)
+        txt = "WhatsApp +56 9 8494 6508"; wt = d.textlength(txt, font=f_wa)
+        bw = wt * pulso; bx = (W - bw) / 2
+        d.rounded_rectangle([bx - 36, 1180, bx + bw + 36, 1300], 60, fill=(*VERDE, int(250 * a)))
+        d.text(((W - wt) / 2, 1208), txt, font=f_wa, fill=(*BLANCO, int(255 * a)))
 
 
 SOMBRA = Image.new("RGBA", (W, H), (0, 0, 0, 0))
 _g = np.zeros((H, W, 4), np.uint8); _y = np.arange(H)
-_g[:, :, 3] = (np.clip((_y - H * 0.45) / (H * 0.25), 0, 1) * 120).astype(np.uint8)[:, None]
+_g[:, :, 3] = (np.clip((_y - H * 0.62) / (H * 0.18), 0, 1) * 110).astype(np.uint8)[:, None]
 SOMBRA = Image.fromarray(_g, "RGBA")
 
 
@@ -223,11 +276,12 @@ def capa(t):
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     # degradado oscuro abajo para que se lean los subtítulos
-    im.alpha_composite(SOMBRA)
+    if t < DUR_VOZ + 0.15:
+        im.alpha_composite(SOMBRA)
     gancho(d, t); subtitulo(d, t); cierre(d, t)
     # barra de progreso
     d.rectangle([0, 0, int(W * min(1, t / TOTAL)), 12], fill=(*VERDE, 255))
-    d.text((40, H - 70), "Voz generada con IA", font=f_peq, fill=(255, 255, 255, 170))
+    d.text((40, H - 70), "Voz generada con IA", font=f_peq, fill=(255, 255, 255, 170) if t < DUR_VOZ + 0.3 else (90, 110, 112, 200))
     return im
 
 
@@ -244,8 +298,10 @@ def whoosh(dur=0.32):
 ws = whoosh()
 pista = np.zeros(int(TOTAL * sr) + sr, np.float32)
 pista[:len(voz)] += voz
-for (a, b, img, d_) in TOMAS[1:]:
-    i = int(max(0, a - 0.12) * sr); pista[i:i + len(ws)] += ws[:len(pista) - i]
+marcas = [a for (a, b, f_, d_) in TOMAS[1:]] + [DUR_VOZ + 0.15] + [DUR_VOZ + 0.4 + k * PASO for k in range(len(TREN))]
+for k, a in enumerate(marcas):
+    i = int(max(0, a - 0.12) * sr); g = 0.6 if k > len(TOMAS) else 1.0
+    pista[i:i + len(ws)] += g * ws[:len(pista) - i]
 pista = pista[:int(TOTAL * sr)]
 wav = os.path.join(tmp, "audio.wav"); sf.write(wav, pista, sr)
 
