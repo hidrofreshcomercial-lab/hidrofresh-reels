@@ -204,6 +204,10 @@ RECORTE = {s_["video"]: s_.get("recorte", 1) for s_ in spec["segmentos"] if s_.g
 def cuadro_video(ruta, tv):
     st = _VIDS.get(ruta)
     ruta_abs = ruta if os.path.isabs(ruta) else os.path.join(BASE, ruta)
+    if ruta.startswith("http"):              # clip subido por el puente (Supabase redes/clips/): se descarga una vez
+        ruta_abs = os.path.join(tmp, os.path.basename(ruta.split("?")[0]))
+        if not os.path.exists(ruta_abs):
+            open(ruta_abs, "wb").write(urllib.request.urlopen(ruta, timeout=120).read())
     if st is None:
         cmd = ["ffmpeg", "-loglevel", "error", "-i", ruta_abs, "-vf",
                f"fps={FPS},scale={int(W * RECORTE.get(ruta, 1))}:{int(H * RECORTE.get(ruta, 1))}:force_original_aspect_ratio=increase,crop={W}:{H}:(in_w-{W})/2:(in_h-{H})*0.35",

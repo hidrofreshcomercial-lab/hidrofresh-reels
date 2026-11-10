@@ -12,3 +12,4 @@
 - `"recorte": 1.14` acerca el clip (sirve para sacar la marca de agua de Hailuo).
 - Clips: Google Flow (Veo, gratis ~5/día, opción Ingredients con foto de la vocera + foto de la planta) y Hailuo (Omni Reference). Pedir "plain black polo shirt, no logo" y "nobody else in the scene".
 - Los subtítulos esquivan rostros solos (detector YuNet en `fuentes/rostros/yunet.onnx`).
+- Puente sin descargas: desde la pestaña de Flow/Hailuo, JS hace fetch del <video> y POST a la función `clip-subir` (header `x-clip-token` = app_config.clip_token, `x-nombre`, content-type video/mp4) → `redes/clips/<nombre>.mp4`. En el guion: `"video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/<nombre>.mp4"`.
