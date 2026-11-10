@@ -140,7 +140,35 @@ def preparar(foto):
     # foto completa: cabe en 90% del ancho y 60% del alto (a 1,2x para que el zoom no se vea borroso)
     e2 = min(W * 0.90 / im.width, H * 0.60 / im.height) * 1.2
     fg = im.resize((int(im.width * e2), int(im.height * e2)), Image.LANCZOS)
+    CARAS[foto] = caras(im)
     CACHE[foto] = (bg, fg, r_esq(fg)); return CACHE[foto]
+
+
+# ---------- rostros: los subtítulos nunca van encima de una cara ----------
+CARAS = {}       # foto -> lista de (x0, y0, x1, y1) en fracción de la foto
+CARA_ACTUAL = []  # cajas de rostro en pantalla (px) de la toma que se está dibujando
+try:
+    import cv2
+    cv2.setLogLevel(0) if hasattr(cv2, "setLogLevel") else None
+    _YUNET = os.path.join(BASE, "fuentes", "rostros", "yunet.onnx")
+    _DET = os.path.exists(_YUNET)
+except Exception:
+    _DET = False
+def caras(im):
+    """Rostros (detector YuNet de OpenCV), agrandados para cubrir pelo, mentón y cuello."""
+    if not _DET:
+        return []
+    e = 640 / max(im.size); m = im.resize((int(im.width * e), int(im.height * e)))
+    a = np.asarray(m)[:, :, ::-1].copy()
+    det = cv2.FaceDetectorYN.create(_YUNET, "", (a.shape[1], a.shape[0]), 0.75)
+    _, fs = det.detect(a)
+    out = []
+    for r in (fs if fs is not None else []):
+        x, y, w, h = [float(v) for v in r[:4]]
+        if w < a.shape[1] * 0.03:          # caras diminutas al fondo no importan
+            continue
+        out.append(((x - 0.3 * w) / a.shape[1], (y - 0.45 * h) / a.shape[0], (x + 1.3 * w) / a.shape[1], (y + 1.5 * h) / a.shape[0]))
+    return out
 
 usadas = {s["foto"] for s in spec["segmentos"]} | {x for s in spec["segmentos"] for x in s.get("fotos", [])}
 POOL = [int(f.split(".")[0]) for f in sorted(os.listdir(FOTOS)) if f.endswith(".jpg") and int(f.split(".")[0]) not in usadas and int(f.split(".")[0]) not in spec.get("excluir", [])]
@@ -186,6 +214,7 @@ def fondo(t):
     sombra = Image.new("L", (w2 + 60, h2 + 60), 0); ImageDraw.Draw(sombra).rounded_rectangle([30, 36, w2 + 30, h2 + 36], 40, fill=150)
     fr.paste(Image.new("RGB", sombra.size, (0, 0, 0)), (x - 30, y - 30), sombra.filter(ImageFilter.GaussianBlur(18)))
     fr.paste(img, (x, y), m)
+    CARA_ACTUAL[:] = [(x + c[0] * w2, y + c[1] * h2, x + c[2] * w2, y + c[3] * h2) for c in CARAS.get(foto, [])]
     if a > 0 and t - a < 0.1:                                 # barrido: la imagen entra deslizándose con desenfoque
         k = 1 - (t - a) / 0.1
         desp = int(k * 140) * (1 if d % 2 == 0 else -1)
@@ -225,10 +254,22 @@ def subtitulo(d, t):
     esp = 24
     anchos = [d.textlength(p, font=f) for p, f in zip(palabras_, fonts)]
     total = sum(anchos) + esp * (len(palabras_) - 1)
-    lineas = [[0, len(palabras_)]]
-    if total > W - 120 and len(palabras_) > 1:
-        lineas = [[0, len(palabras_) - 1], [len(palabras_) - 1, len(palabras_)]]
-    y = int(H * 0.70 + (1 - pop) * 60)
+    # reparte en líneas que quepan en el ancho (antes una palabra larga se salía de la pantalla)
+    lineas, i0, acc = [], 0, 0
+    for i, a_ in enumerate(anchos):
+        if i > i0 and acc + esp + a_ > W - 120:
+            lineas.append([i0, i]); i0, acc = i, a_
+        else:
+            acc = a_ if i == i0 else acc + esp + a_
+    lineas.append([i0, len(palabras_)])
+    for k_, (i0, i1) in enumerate(lineas):             # si aún así una palabra sola no cabe, se achica
+        w_l = sum(anchos[i0:i1]) + esp * (i1 - i0 - 1)
+        if w_l > W - 80:
+            f_ = W - 80
+            for i in range(i0, i1):
+                fonts[i] = fonts[i].font_variant(size=max(50, int(fonts[i].size * f_ / w_l))); anchos[i] = d.textlength(palabras_[i], font=fonts[i])
+    alto = 118 * len(lineas) + 30
+    y = sub_y(alto) + int((1 - pop) * 60)
     for (i0, i1) in lineas:
         w_l = sum(anchos[i0:i1]) + esp * (i1 - i0 - 1)
         x = (W - w_l) / 2
@@ -237,6 +278,19 @@ def subtitulo(d, t):
             texto_borde(d, (x, y - (8 if activos[i] else 0)), palabras_[i], fonts[i], col)
             x += anchos[i] + esp
         y += 118
+
+
+def sub_y(alto):
+    # posición normal: 70% de la altura; si choca con un rostro, se busca la franja libre más cercana
+    def choca(y0):
+        return any(not (y0 + alto < c[1] or y0 > c[3]) for c in CARA_ACTUAL)
+    normal = int(H * 0.70)
+    if not choca(normal):
+        return normal
+    for y0 in sorted(range(int(H * 0.27), int(H * 0.86) - alto, 20), key=lambda v: abs(v - normal)):
+        if not choca(y0):
+            return y0
+    return int(H * 0.86) - alto
 
 
 def gancho(d, t):

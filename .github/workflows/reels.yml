@@ -21,7 +21,7 @@ jobs:
       - name: Dependencias
         run: |
           which ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
-          pip install pillow numpy soundfile faster-whisper
+          pip install pillow numpy soundfile faster-whisper opencv-python-headless
       - name: Elegir guiones
         id: cuales
         run: |
