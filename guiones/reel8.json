@@ -1,0 +1,47 @@
+{
+ "nombre": "reel8",
+ "gancho": "Así llega tu planta",
+ "segmentos": [
+  {
+   "texto": "Así llega una planta de tratamiento a terreno.",
+   "foto": 246,
+   "fotos": [
+    247
+   ]
+  },
+  {
+   "texto": "Primero la fabricamos en taller, a la medida del caudal del proyecto.",
+   "foto": 206,
+   "fotos": [
+    209
+   ]
+  },
+  {
+   "texto": "Después la trasladamos y la bajamos con grúa.",
+   "foto": 248,
+   "fotos": [
+    249
+   ]
+  },
+  {
+   "texto": "Se instala en la excavación, se conectan cañerías, tablero y soplador.",
+   "foto": 250,
+   "fotos": [
+    251,
+    252
+   ]
+  },
+  {
+   "texto": "Y se hace la puesta en marcha con las bacterias.",
+   "foto": 192,
+   "fotos": [
+    195
+   ]
+  },
+  {
+   "texto": "Fabricamos e instalamos en cualquier parte de Chile. Escríbenos al WhatsApp.",
+   "foto": 253
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

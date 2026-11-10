@@ -1,0 +1,46 @@
+{
+ "nombre": "reel6",
+ "gancho": "5 señales de falla",
+ "segmentos": [
+  {
+   "texto": "Tu planta de tratamiento te avisa cuando algo anda mal. Fíjate en estas cinco señales.",
+   "foto": 108,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "Uno: mal olor constante. Dos: espuma que no se va.",
+   "foto": 110,
+   "fotos": [
+    105
+   ]
+  },
+  {
+   "texto": "Tres: agua turbia a la salida. Cuatro: lodo flotando en la superficie.",
+   "foto": 107,
+   "fotos": [
+    227
+   ]
+  },
+  {
+   "texto": "Cinco: el soplador hace ruido o simplemente no parte.",
+   "foto": 157,
+   "fotos": [
+    158
+   ]
+  },
+  {
+   "texto": "Si ves una sola, la planta no está cumpliendo. La revisamos, la reparamos y la dejamos operando.",
+   "foto": 104,
+   "fotos": [
+    106
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 174
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

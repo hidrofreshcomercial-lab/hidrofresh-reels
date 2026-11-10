@@ -1,0 +1,43 @@
+{
+ "nombre": "reel7",
+ "gancho": "¿Qué hace el soplador?",
+ "segmentos": [
+  {
+   "texto": "¿Sabías que el soplador es el corazón de tu planta de tratamiento?",
+   "foto": 157,
+   "fotos": [
+    158
+   ]
+  },
+  {
+   "texto": "Las bacterias que limpian el agua necesitan oxígeno para trabajar.",
+   "foto": 204,
+   "fotos": [
+    205
+   ]
+  },
+  {
+   "texto": "El soplador inyecta aire por los difusores, todo el día, todos los días.",
+   "foto": 231,
+   "fotos": [
+    232
+   ]
+  },
+  {
+   "texto": "Si se detiene, las bacterias mueren en pocas horas y aparece el mal olor.",
+   "foto": 110
+  },
+  {
+   "texto": "Revisamos sopladores y difusores, y si tu equipo está viejo, lo reemplazamos por uno más eficiente.",
+   "foto": 160,
+   "fotos": [
+    219
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 175
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}
