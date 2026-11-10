@@ -132,7 +132,7 @@ CACHE = {}
 def preparar(foto):
     if foto in CACHE:
         return CACHE[foto]
-    im = Image.open(os.path.join(FOTOS, f"{foto:02d}.jpg")).convert("RGB")
+    im = Image.open(os.path.join(FOTOS, (f"{foto:02d}.jpg" if foto < 100 else f"{foto}.jpg"))).convert("RGB")
     esc = max(W / im.width, H / im.height)
     bg = im.resize((int(im.width * esc) + 2, int(im.height * esc) + 2), Image.BILINEAR)
     bg = bg.crop(((bg.width - W) // 2, (bg.height - H) // 2, (bg.width - W) // 2 + W, (bg.height - H) // 2 + H)).filter(ImageFilter.GaussianBlur(38))
@@ -142,8 +142,10 @@ def preparar(foto):
     fg = im.resize((int(im.width * e2), int(im.height * e2)), Image.LANCZOS)
     CACHE[foto] = (bg, fg, r_esq(fg)); return CACHE[foto]
 
-usadas = {s["foto"] for s in spec["segmentos"]}
-POOL = [int(f[:2]) for f in sorted(os.listdir(FOTOS)) if f.endswith(".jpg") and int(f[:2]) not in usadas and int(f[:2]) not in spec.get("excluir", [])]
+usadas = {s["foto"] for s in spec["segmentos"]} | {x for s in spec["segmentos"] for x in s.get("fotos", [])}
+POOL = [int(f.split(".")[0]) for f in sorted(os.listdir(FOTOS)) if f.endswith(".jpg") and int(f.split(".")[0]) not in usadas and int(f.split(".")[0]) not in spec.get("excluir", [])]
+if spec.get("pool"):
+    POOL = [x for x in spec["pool"] if x not in usadas] or POOL
 semilla = sum(ord(c) for c in nombre); POOL = POOL[semilla % max(1, len(POOL)):] + POOL[:semilla % max(1, len(POOL))]
 TOMAS = []  # (inicio, fin, foto, dirección)
 segs = spec["segmentos"]; ip = 0
@@ -152,7 +154,8 @@ for k, s_ in enumerate(segs):
     b = seg_ini.get(k + 1, DUR_VOZ) if k + 1 < len(segs) else DUR_VOZ + 0.15
     partes = max(1, round((b - a) / 2.0))  # una toma cada ~2 s; la primera es la foto del texto, las demás otras fotos tuyas
     for j in range(partes):
-        foto = s_["foto"] if j == 0 or not POOL else POOL[(ip := ip + 1) % len(POOL)]
+        extra = s_.get("fotos", [])
+        foto = s_["foto"] if j == 0 else (extra[j - 1] if j - 1 < len(extra) else (POOL[(ip := ip + 1) % len(POOL)] if POOL else s_["foto"]))
         TOMAS.append((a + (b - a) * j / partes, a + (b - a) * (j + 1) / partes, foto, (k * 3 + j) % 4))
 FOTO_Y = int(H * 0.40)
 
