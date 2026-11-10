@@ -1,0 +1,43 @@
+{
+ "nombre": "reel10",
+ "gancho": "Planta antigua = upgrade",
+ "segmentos": [
+  {
+   "texto": "¿Tu planta de tratamiento ya tiene sus años? No siempre hay que cambiarla.",
+   "foto": 132,
+   "fotos": [
+    140
+   ]
+  },
+  {
+   "texto": "Muchas veces basta con modernizarla.",
+   "foto": 123
+  },
+  {
+   "texto": "Tablero automático con alarmas, para saber al tiro si algo falla.",
+   "foto": 224,
+   "fotos": [
+    225
+   ]
+  },
+  {
+   "texto": "Caudalímetro, para medir cuánto entra y cuánto sale.",
+   "foto": 170,
+   "fotos": [
+    198
+   ]
+  },
+  {
+   "texto": "Y dosificación automática de cloro.",
+   "foto": 179,
+   "fotos": [
+    200
+   ]
+  },
+  {
+   "texto": "Así cumple la norma, gasta menos y te da menos dolores de cabeza. Escríbenos al WhatsApp.",
+   "foto": 175
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

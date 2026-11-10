@@ -1,0 +1,46 @@
+{
+ "nombre": "reel9",
+ "gancho": "¿Qué revisamos?",
+ "segmentos": [
+  {
+   "texto": "¿Qué revisamos cuando hacemos la mantención de una planta de tratamiento?",
+   "foto": 104,
+   "fotos": [
+    103
+   ]
+  },
+  {
+   "texto": "El nivel de lodos en cada cámara.",
+   "foto": 108,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "Que el soplador y los difusores estén entregando aire parejo.",
+   "foto": 204,
+   "fotos": [
+    232
+   ]
+  },
+  {
+   "texto": "El tablero eléctrico, las bombas y las alarmas.",
+   "foto": 180,
+   "fotos": [
+    185
+   ]
+  },
+  {
+   "texto": "Y que el cloro esté desinfectando antes de la descarga.",
+   "foto": 138,
+   "fotos": [
+    200
+   ]
+  },
+  {
+   "texto": "Te dejamos un informe con lo que encontramos. Escríbenos al WhatsApp.",
+   "foto": 124
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

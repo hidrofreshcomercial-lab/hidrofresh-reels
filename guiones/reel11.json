@@ -1,0 +1,37 @@
+{
+ "nombre": "reel11",
+ "gancho": "¿Mides tu caudal?",
+ "segmentos": [
+  {
+   "texto": "¿Sabes cuánta agua pasa realmente por tu planta de tratamiento?",
+   "foto": 197,
+   "fotos": [
+    198
+   ]
+  },
+  {
+   "texto": "Si no la mides, no sabes si está sobrecargada.",
+   "foto": 133
+  },
+  {
+   "texto": "Y una planta sobrecargada no alcanza a tratar el agua.",
+   "foto": 107
+  },
+  {
+   "texto": "Con un caudalímetro tienes el dato todos los días.",
+   "foto": 199,
+   "fotos": [
+    178
+   ]
+  },
+  {
+   "texto": "Te sirve para la fiscalización y para saber si necesitas ampliar.",
+   "foto": 170
+  },
+  {
+   "texto": "Lo instalamos en tu planta. Escríbenos al WhatsApp.",
+   "foto": 134
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

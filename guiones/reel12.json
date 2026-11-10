@@ -1,0 +1,43 @@
+{
+ "nombre": "reel12",
+ "gancho": "Tu tablero te avisa",
+ "segmentos": [
+  {
+   "texto": "Este tablero es el cerebro de tu planta de tratamiento.",
+   "foto": 181,
+   "fotos": [
+    182
+   ]
+  },
+  {
+   "texto": "Controla el soplador y las bombas, y las alterna para que no se desgasten.",
+   "foto": 183,
+   "fotos": [
+    184
+   ]
+  },
+  {
+   "texto": "Si una bomba falla, se enciende una luz roja de alarma.",
+   "foto": 185
+  },
+  {
+   "texto": "Con el temporizador se programan los ciclos de aireación.",
+   "foto": 219,
+   "fotos": [
+    220
+   ]
+  },
+  {
+   "texto": "Si tu planta no tiene tablero automático, te lo armamos y lo instalamos.",
+   "foto": 222,
+   "fotos": [
+    223
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 226
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}
