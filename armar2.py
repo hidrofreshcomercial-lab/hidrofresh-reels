@@ -352,6 +352,30 @@ _lk = np.zeros((H, W, 4), np.uint8); _lk[:, :, 0] = 255; _lk[:, :, 1] = 170; _lk
 LEAK = Image.fromarray(_lk, "RGBA")
 
 
+# ---------- presentadora (avatar opcional: "avatar": "avatar/presentadora.png" en el guion) ----------
+AV = None
+if spec.get("avatar") and os.path.exists(os.path.join(BASE, spec["avatar"])):
+    _a = Image.open(os.path.join(BASE, spec["avatar"])).convert("RGBA")
+    _h = int(H * 0.52); AV = _a.resize((int(_a.width * _h / _a.height), _h), Image.LANCZOS)
+    _sh = Image.new("RGBA", AV.size, (0, 0, 0, 0)); _sh.putalpha(AV.getchannel("A").point(lambda v: int(v * 0.45)))
+    AV_SOMBRA = _sh.filter(ImageFilter.GaussianBlur(14))
+    _ult = seg_ini.get(len(spec["segmentos"]) - 1, DUR_VOZ - 3)
+    AV_VENTANAS = [(0.0, 3.0), (_ult, DUR_VOZ + 0.1)]
+
+
+def presentadora(im, t):
+    if AV is None:
+        return
+    for (a, b) in AV_VENTANAS:
+        if a <= t < b:
+            ent = ease(min(1, (t - a) / 0.45)); sal = ease(min(1, max(0, (t - (b - 0.35)) / 0.35)))
+            x = int(W - AV.width * 0.92 + (1 - ent) * AV.width + sal * AV.width)
+            bob = int(abs(np.sin((t - a) * 5.2)) * 10 * (1 - ent * 0.7))  # paso al entrar, luego se queda casi quieta
+            y = H - AV.height + 30 - bob
+            im.alpha_composite(AV_SOMBRA, (x + 18, y + 22)); im.alpha_composite(AV, (x, y))
+            return
+
+
 def capa(t):
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
@@ -365,6 +389,7 @@ def capa(t):
                 k = (t - a) / 0.45
                 im.alpha_composite(Image.eval(LEAK.transform(LEAK.size, Image.AFFINE, (1, 0, int((k - 0.5) * W * 1.4), 0, 1, 0)), lambda x: x).copy(), (0, 0))
                 break
+    presentadora(im, t)
     gancho(d, t); subtitulo(d, t); cierre(d, t, im)
     if t < DUR_VOZ + 0.15:
         im.alpha_composite(GRANOS[int(t * FPS) % len(GRANOS)])
