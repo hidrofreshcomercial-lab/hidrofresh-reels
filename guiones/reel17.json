@@ -1,0 +1,34 @@
+{
+ "nombre": "reel17",
+ "gancho": "Condominio sin alcantarillado",
+ "segmentos": [
+  {
+   "texto": "¿Estás desarrollando un condominio o una parcelación sin alcantarillado?",
+   "foto": 137
+  },
+  {
+   "texto": "Vas a necesitar una planta de tratamiento aprobada por la Seremi.",
+   "foto": 253
+  },
+  {
+   "texto": "La dimensionamos según la cantidad de viviendas.",
+   "foto": 206
+  },
+  {
+   "texto": "Te entregamos sin costo planos y memoria de cálculo para el trámite.",
+   "foto": 218
+  },
+  {
+   "texto": "Y la fabricamos, la instalamos y la dejamos funcionando.",
+   "foto": 250,
+   "fotos": [
+    192
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 174
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

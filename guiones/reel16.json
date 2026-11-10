@@ -1,0 +1,40 @@
+{
+ "nombre": "reel16",
+ "gancho": "Faenas y campamentos",
+ "segmentos": [
+  {
+   "texto": "¿Tienes una faena o un campamento lejos de todo?",
+   "foto": 142,
+   "fotos": [
+    152
+   ]
+  },
+  {
+   "texto": "Igual necesitas tratar las aguas servidas.",
+   "foto": 243
+  },
+  {
+   "texto": "Hacemos plantas modulares, que se trasladan e instalan rápido.",
+   "foto": 246,
+   "fotos": [
+    248
+   ]
+  },
+  {
+   "texto": "Funcionan en el desierto, en la cordillera o en el sur.",
+   "foto": 257,
+   "fotos": [
+    244
+   ]
+  },
+  {
+   "texto": "Y hacemos la mantención y el suministro de insumos en la faena.",
+   "foto": 200
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 251
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

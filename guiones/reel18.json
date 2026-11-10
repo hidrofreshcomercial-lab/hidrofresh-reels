@@ -1,0 +1,34 @@
+{
+ "nombre": "reel18",
+ "gancho": "Hoteles y lodges",
+ "segmentos": [
+  {
+   "texto": "¿Tu hotel o lodge está lejos del alcantarillado?",
+   "foto": 238
+  },
+  {
+   "texto": "Una planta mal dimensionada falla justo en temporada alta.",
+   "foto": 110
+  },
+  {
+   "texto": "Por eso la calculamos para tu ocupación máxima.",
+   "foto": 209,
+   "fotos": [
+    210
+   ]
+  },
+  {
+   "texto": "Funciona silenciosa, sin olores y enterrada o a la vista, como prefieras.",
+   "foto": 254
+  },
+  {
+   "texto": "Y te hacemos la mantención para que no falle cuando más la necesitas.",
+   "foto": 104
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 155
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

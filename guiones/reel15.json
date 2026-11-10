@@ -1,0 +1,37 @@
+{
+ "nombre": "reel15",
+ "gancho": "¿Cuándo sacar lodos?",
+ "segmentos": [
+  {
+   "texto": "Toda planta de tratamiento produce lodo. Es normal.",
+   "foto": 110,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "El problema es cuando se acumula demasiado.",
+   "foto": 108
+  },
+  {
+   "texto": "Ocupa espacio, la planta trata peor y el agua sale turbia.",
+   "foto": 102
+  },
+  {
+   "texto": "Por eso medimos el nivel de lodos en cada mantención.",
+   "foto": 105,
+   "fotos": [
+    106
+   ]
+  },
+  {
+   "texto": "Y te decimos cuándo retirarlos, antes de que la planta falle.",
+   "foto": 123
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 124
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

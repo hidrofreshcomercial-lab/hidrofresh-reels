@@ -1,0 +1,37 @@
+{
+ "nombre": "reel13",
+ "gancho": "¿Fosa o planta?",
+ "segmentos": [
+  {
+   "texto": "¿Fosa séptica o planta de tratamiento? No son lo mismo.",
+   "foto": 162,
+   "fotos": [
+    163
+   ]
+  },
+  {
+   "texto": "La fosa solo separa los sólidos. El agua sale todavía contaminada.",
+   "foto": 202
+  },
+  {
+   "texto": "La planta trata el agua con bacterias y oxígeno, y la desinfecta.",
+   "foto": 205,
+   "fotos": [
+    231
+   ]
+  },
+  {
+   "texto": "Por eso para condominios, hoteles y empresas se exige una planta.",
+   "foto": 253
+  },
+  {
+   "texto": "Te ayudamos a elegir la solución correcta para tu proyecto.",
+   "foto": 206
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 174
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

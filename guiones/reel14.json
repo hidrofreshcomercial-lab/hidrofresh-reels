@@ -1,0 +1,37 @@
+{
+ "nombre": "reel14",
+ "gancho": "¿A dónde va el agua?",
+ "segmentos": [
+  {
+   "texto": "Ya tratamos el agua. ¿Y ahora a dónde va?",
+   "foto": 107
+  },
+  {
+   "texto": "Depende del proyecto: a un curso de agua, a riego o a infiltración en el terreno.",
+   "foto": 239,
+   "fotos": [
+    240
+   ]
+  },
+  {
+   "texto": "Para infiltrar, se construye un dren con grava y tubos perforados.",
+   "foto": 153
+  },
+  {
+   "texto": "Primero se hace un estudio del suelo para dimensionarlo.",
+   "foto": 148
+  },
+  {
+   "texto": "Diseñamos el sistema completo: planta, desinfección y disposición final.",
+   "foto": 241,
+   "fotos": [
+    245
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 256
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}
