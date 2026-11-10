@@ -1,0 +1,37 @@
+{
+ "nombre": "reel20",
+ "gancho": "La primera defensa",
+ "segmentos": [
+  {
+   "texto": "Esta es la primera defensa de tu planta de tratamiento: la cámara de rejas.",
+   "foto": 186,
+   "fotos": [
+    188
+   ]
+  },
+  {
+   "texto": "Atrapa toallitas, plásticos y basura antes de que lleguen a la planta.",
+   "foto": 190
+  },
+  {
+   "texto": "Si no se limpia, se tapa y el agua se devuelve.",
+   "foto": 189
+  },
+  {
+   "texto": "Y si no existe, la basura llega a las bombas y las destruye.",
+   "foto": 136
+  },
+  {
+   "texto": "En cada mantención la limpiamos y revisamos.",
+   "foto": 191,
+   "fotos": [
+    187
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 141
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

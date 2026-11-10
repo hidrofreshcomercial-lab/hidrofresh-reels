@@ -1,0 +1,34 @@
+{
+ "nombre": "reel23",
+ "gancho": "Cloro en dosis justa",
+ "segmentos": [
+  {
+   "texto": "¿Cómo se pone la cantidad justa de cloro en el agua?",
+   "foto": 138
+  },
+  {
+   "texto": "Con una bomba dosificadora.",
+   "foto": 200,
+   "fotos": [
+    179
+   ]
+  },
+  {
+   "texto": "Inyecta el cloro de a poco, según el caudal.",
+   "foto": 197
+  },
+  {
+   "texto": "Poco cloro, el agua sale sin desinfectar. Mucho, gastas de más.",
+   "foto": 107
+  },
+  {
+   "texto": "La instalamos, la calibramos y te abastecemos de cloro.",
+   "foto": 176
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 193
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

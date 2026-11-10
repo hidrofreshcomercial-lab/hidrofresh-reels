@@ -1,0 +1,31 @@
+{
+ "nombre": "reel24",
+ "gancho": "¿Bacterias? ¿Cuándo?",
+ "segmentos": [
+  {
+   "texto": "Tu planta funciona gracias a bacterias. Pero a veces hay que reforzarlas.",
+   "foto": 205
+  },
+  {
+   "texto": "Al poner en marcha una planta nueva.",
+   "foto": 192
+  },
+  {
+   "texto": "Después de una falla larga del soplador.",
+   "foto": 157
+  },
+  {
+   "texto": "O cuando llegan muchos químicos o cloro desde los baños y la cocina.",
+   "foto": 201
+  },
+  {
+   "texto": "Las bacterias recuperan el proceso y bajan los malos olores.",
+   "foto": 204
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 174
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

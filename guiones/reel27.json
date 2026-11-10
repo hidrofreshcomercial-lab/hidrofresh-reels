@@ -1,0 +1,34 @@
+{
+ "nombre": "reel27",
+ "gancho": "¿Cumples la norma?",
+ "segmentos": [
+  {
+   "texto": "Si tu planta descarga agua tratada, tiene que cumplir la norma de descarga.",
+   "foto": 107
+  },
+  {
+   "texto": "Eso se demuestra con muestras de laboratorio periódicas.",
+   "foto": 229
+  },
+  {
+   "texto": "Si los resultados salen malos, viene la fiscalización.",
+   "foto": 133
+  },
+  {
+   "texto": "Te ayudamos a ajustar la planta para que cumpla.",
+   "foto": 224,
+   "fotos": [
+    225
+   ]
+  },
+  {
+   "texto": "Y a preparar la documentación para la Seremi o la autoridad ambiental.",
+   "foto": 218
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 174
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

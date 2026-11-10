@@ -1,0 +1,37 @@
+{
+ "nombre": "reel30",
+ "gancho": "Del plano a la marcha",
+ "segmentos": [
+  {
+   "texto": "Así trabajamos un proyecto de planta de tratamiento, de principio a fin.",
+   "foto": 218
+  },
+  {
+   "texto": "Uno: dimensionamos según las personas y el caudal.",
+   "foto": 133
+  },
+  {
+   "texto": "Dos: te entregamos planos y memoria de cálculo para la Seremi.",
+   "foto": 222
+  },
+  {
+   "texto": "Tres: fabricamos la planta.",
+   "foto": 210,
+   "fotos": [
+    213
+   ]
+  },
+  {
+   "texto": "Cuatro: la instalamos y la ponemos en marcha.",
+   "foto": 249,
+   "fotos": [
+    192
+   ]
+  },
+  {
+   "texto": "Cinco: la mantenemos funcionando. Escríbenos al WhatsApp.",
+   "foto": 104
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

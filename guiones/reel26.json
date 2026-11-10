@@ -1,0 +1,40 @@
+{
+ "nombre": "reel26",
+ "gancho": "Planta abandonada",
+ "segmentos": [
+  {
+   "texto": "¿Tienes una planta de tratamiento abandonada o que nadie mantiene?",
+   "foto": 132,
+   "fotos": [
+    140
+   ]
+  },
+  {
+   "texto": "Muchas veces se puede recuperar sin comprar una nueva.",
+   "foto": 123
+  },
+  {
+   "texto": "Vaciamos, limpiamos y revisamos cada cámara.",
+   "foto": 108,
+   "fotos": [
+    110
+   ]
+  },
+  {
+   "texto": "Cambiamos lo que esté malo: soplador, bombas, tablero o difusores.",
+   "foto": 157,
+   "fotos": [
+    221
+   ]
+  },
+  {
+   "texto": "Y la volvemos a poner en marcha con bacterias.",
+   "foto": 204
+  },
+  {
+   "texto": "Sale mucho más barato. Escríbenos al WhatsApp.",
+   "foto": 175
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

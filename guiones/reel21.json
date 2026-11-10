@@ -1,0 +1,37 @@
+{
+ "nombre": "reel21",
+ "gancho": "Agua potable segura",
+ "segmentos": [
+  {
+   "texto": "No solo tratamos aguas servidas. También hacemos plantas de agua potable.",
+   "foto": 257
+  },
+  {
+   "texto": "Para pozos, comités de agua potable rural, faenas y condominios.",
+   "foto": 154,
+   "fotos": [
+    155
+   ]
+  },
+  {
+   "texto": "Filtramos y desinfectamos el agua con cloración automática.",
+   "foto": 200,
+   "fotos": [
+    179
+   ]
+  },
+  {
+   "texto": "Así el agua sale segura para el consumo, todos los días.",
+   "foto": 229
+  },
+  {
+   "texto": "Y te dejamos el suministro de cloro programado.",
+   "foto": 176
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 195
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

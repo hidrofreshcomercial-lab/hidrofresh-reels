@@ -1,0 +1,40 @@
+{
+ "nombre": "reel29",
+ "gancho": "Desde 2008",
+ "segmentos": [
+  {
+   "texto": "Desde dos mil ocho trabajamos en tratamiento de aguas en Chile.",
+   "foto": 206
+  },
+  {
+   "texto": "Diseñamos y fabricamos plantas de tratamiento y de agua potable.",
+   "foto": 209,
+   "fotos": [
+    212
+   ]
+  },
+  {
+   "texto": "Las instalamos del desierto al sur.",
+   "foto": 142,
+   "fotos": [
+    248
+   ]
+  },
+  {
+   "texto": "Hacemos mantención, reparación y modernización.",
+   "foto": 104,
+   "fotos": [
+    180
+   ]
+  },
+  {
+   "texto": "Y suministramos bombas, cloro y bacterias.",
+   "foto": 200
+  },
+  {
+   "texto": "Somos Hidro Fresh. Escríbenos al WhatsApp.",
+   "foto": 174
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

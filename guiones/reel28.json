@@ -1,0 +1,37 @@
+{
+ "nombre": "reel28",
+ "gancho": "¿Por qué fibra de vidrio?",
+ "segmentos": [
+  {
+   "texto": "¿Por qué fabricamos nuestras plantas en fibra de vidrio?",
+   "foto": 209,
+   "fotos": [
+    210
+   ]
+  },
+  {
+   "texto": "Porque no se oxida ni se corroe con las aguas servidas.",
+   "foto": 211
+  },
+  {
+   "texto": "Es liviana y fácil de trasladar a cualquier parte.",
+   "foto": 247
+  },
+  {
+   "texto": "Y dura muchos años, enterrada o a la intemperie.",
+   "foto": 254,
+   "fotos": [
+    155
+   ]
+  },
+  {
+   "texto": "Por eso la eligen empresas, condominios y faenas en todo Chile.",
+   "foto": 253
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 206
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

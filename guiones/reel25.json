@@ -1,0 +1,31 @@
+{
+ "nombre": "reel25",
+ "gancho": "¡Esto NO al WC!",
+ "segmentos": [
+  {
+   "texto": "Si tienes planta de tratamiento, nunca tires esto al WC.",
+   "foto": 202
+  },
+  {
+   "texto": "Toallitas húmedas: no se deshacen y tapan las bombas.",
+   "foto": 190
+  },
+  {
+   "texto": "Aceite de cocina: forma grasa que flota y tapa cañerías.",
+   "foto": 103
+  },
+  {
+   "texto": "Cloro y químicos fuertes: matan a las bacterias.",
+   "foto": 201
+  },
+  {
+   "texto": "Y colillas o plásticos. Tu planta te lo va a agradecer.",
+   "foto": 189
+  },
+  {
+   "texto": "Comparte este video con tu comunidad. Y si tu planta ya tiene problemas, escríbenos al WhatsApp.",
+   "foto": 124
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}

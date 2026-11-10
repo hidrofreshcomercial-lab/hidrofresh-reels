@@ -1,0 +1,37 @@
+{
+ "nombre": "reel22",
+ "gancho": "¿Bombas de elevación?",
+ "segmentos": [
+  {
+   "texto": "Cuando el agua no puede bajar sola, se necesita un pozo de bombeo.",
+   "foto": 187
+  },
+  {
+   "texto": "Lleva dos bombas que se van turnando.",
+   "foto": 228,
+   "fotos": [
+    229
+   ]
+  },
+  {
+   "texto": "Si una falla, la otra sigue funcionando.",
+   "foto": 236
+  },
+  {
+   "texto": "Y el tablero da la alarma de inmediato.",
+   "foto": 182,
+   "fotos": [
+    185
+   ]
+  },
+  {
+   "texto": "Instalamos, reparamos y cambiamos bombas de aguas servidas y de agua potable.",
+   "foto": 136
+  },
+  {
+   "texto": "Escríbenos al WhatsApp.",
+   "foto": 180
+  }
+ ],
+ "voz": "Kore (Google Gemini)"
+}
