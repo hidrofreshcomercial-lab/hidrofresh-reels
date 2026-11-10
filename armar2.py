@@ -170,16 +170,22 @@ def caras(im):
         out.append(((x - 0.3 * w) / a.shape[1], (y - 0.45 * h) / a.shape[0], (x + 1.3 * w) / a.shape[1], (y + 1.5 * h) / a.shape[0]))
     return out
 
-usadas = {s["foto"] for s in spec["segmentos"]} | {x for s in spec["segmentos"] for x in s.get("fotos", [])}
+usadas = {s["foto"] for s in spec["segmentos"] if "foto" in s} | {x for s in spec["segmentos"] for x in s.get("fotos", [])}
 POOL = [int(f.split(".")[0]) for f in sorted(os.listdir(FOTOS)) if f.endswith(".jpg") and int(f.split(".")[0]) not in usadas and int(f.split(".")[0]) not in spec.get("excluir", [])]
 if spec.get("pool"):
     POOL = [x for x in spec["pool"] if x not in usadas] or POOL
 semilla = sum(ord(c) for c in nombre); POOL = POOL[semilla % max(1, len(POOL)):] + POOL[:semilla % max(1, len(POOL))]
 TOMAS = []  # (inicio, fin, foto, dirección)
+VID_INI = {}
 segs = spec["segmentos"]; ip = 0
 for k, s_ in enumerate(segs):
     a = seg_ini.get(k, 0.0)
     b = seg_ini.get(k + 1, DUR_VOZ) if k + 1 < len(segs) else DUR_VOZ + 0.15
+    if s_.get("video"):                      # toma de video (clip IA o grabado): ocupa todo el segmento, pantalla completa
+        vid = s_["video"]
+        ini_v = VID_INI.setdefault(vid, a)    # si el segmento anterior usó el mismo video, sigue corriendo
+        TOMAS.append((a, b, ("v", vid, ini_v), 0))
+        continue
     partes = max(1, round((b - a) / 2.0))  # una toma cada ~2 s; la primera es la foto del texto, las demás otras fotos tuyas
     for j in range(partes):
         extra = s_.get("fotos", [])
@@ -192,12 +198,37 @@ def ease(x):
     return 1 - (1 - min(max(x, 0), 1)) ** 3
 
 
+# ---------- clips de video (pantalla completa, se leen en orden con ffmpeg) ----------
+_VIDS = {}
+RECORTE = {s_["video"]: s_.get("recorte", 1) for s_ in spec["segmentos"] if s_.get("video")}  # >1 acerca el clip (p. ej. para sacar marcas de agua)
+def cuadro_video(ruta, tv):
+    st = _VIDS.get(ruta)
+    ruta_abs = ruta if os.path.isabs(ruta) else os.path.join(BASE, ruta)
+    if st is None:
+        cmd = ["ffmpeg", "-loglevel", "error", "-i", ruta_abs, "-vf",
+               f"fps={FPS},scale={int(W * RECORTE.get(ruta, 1))}:{int(H * RECORTE.get(ruta, 1))}:force_original_aspect_ratio=increase,crop={W}:{H}:(in_w-{W})/2:(in_h-{H})*0.35",
+               "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
+        st = _VIDS[ruta] = {"p": subprocess.Popen(cmd, stdout=subprocess.PIPE), "i": -1, "img": None, "caras": {}}
+    n = max(0, int(tv * FPS))
+    while st["i"] < n:
+        raw = st["p"].stdout.read(W * H * 3)
+        if len(raw) < W * H * 3:
+            break                              # se acabó el clip: queda congelado el último cuadro
+        st["img"] = Image.frombytes("RGB", (W, H), raw); st["i"] += 1
+        if st["i"] % 6 == 0 or not st["caras"]:  # rostros cada 6 cuadros (los subtítulos los esquivan)
+            st["caras"]["u"] = [(c[0] * W, c[1] * H, c[2] * W, c[3] * H) for c in caras(st["img"])]
+    CARA_ACTUAL[:] = st["caras"].get("u", [])
+    return st["img"].copy() if st["img"] is not None else Image.new("RGB", (W, H))
+
+
 def fondo(t):
     for (a, b, foto, d) in TOMAS:
         if a <= t < b:
             break
     else:
         a, b, foto, d = TOMAS[-1]
+    if isinstance(foto, tuple):
+        return cuadro_video(foto[1], t - foto[2]), a
     bg, fg, mask = preparar(foto)
     u = min(1, (t - a) / max(0.01, b - a))
     golpe = 1 + 0.16 * (1 - ease((t - a) / 0.22))           # zoom de golpe al entrar
@@ -424,7 +455,7 @@ def capa(t):
         im.alpha_composite(GRANOS[int(t * FPS) % len(GRANOS)])
     # barra de progreso
     d.rectangle([0, 0, int(W * min(1, t / TOTAL)), 12], fill=(*VERDE, 255))
-    d.text((40, H - 70), "Voz generada con IA", font=f_peq, fill=(255, 255, 255, 170) if t < DUR_VOZ + 0.3 else (90, 110, 112, 200))
+    d.text((40, H - 70), "Voz e imágenes con IA" if RECORTE else "Voz generada con IA", font=f_peq, fill=(255, 255, 255, 170) if t < DUR_VOZ + 0.3 else (90, 110, 112, 200))
     return im
 
 

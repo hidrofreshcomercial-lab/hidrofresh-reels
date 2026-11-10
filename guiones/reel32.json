@@ -1,0 +1,36 @@
+{
+ "nombre": "reel32",
+ "gancho": "¿Aguas servidas en tu empresa?",
+ "segmentos": [
+  {
+   "texto": "¿Tu empresa necesita una planta de tratamiento de aguas servidas?",
+   "video": "videos/vocera_planta_flow.mp4"
+  },
+  {
+   "texto": "En Hidro Fresh la diseñamos, la fabricamos y la instalamos.",
+   "video": "videos/vocera_planta_flow.mp4"
+  },
+  {
+   "texto": "Plantas para viñas, condominios, faenas mineras e industrias.",
+   "foto": 100,
+   "fotos": [
+    34,
+    37
+   ]
+  },
+  {
+   "texto": "Te preparamos la carpeta para la Seremi y hacemos la mantención.",
+   "foto": 222,
+   "fotos": [
+    104,
+    133
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "videos/vocera_cierre_hailuo.mp4",
+   "recorte": 1.14
+  }
+ ],
+ "voz": "Kokoro ef_dora (local)"
+}
