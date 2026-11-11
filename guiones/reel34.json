@@ -1,31 +1,31 @@
 {
  "nombre": "reel34",
- "gancho": "Packing en temporada",
+ "gancho": "Salmoneras",
  "segmentos": [
   {
    "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34.mp4"
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34b.mp4"
   },
   {
-   "texto": "¿Tu packing duplica su gente en temporada?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34.mp4"
+   "texto": "¿Tu centro de cultivo o tu planta de proceso necesita tratar sus aguas servidas?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34b.mp4"
   },
   {
-   "texto": "Los baños y casinos también duplican las aguas servidas.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34.mp4"
+   "texto": "Lejos de todo, necesitas una planta que no falle.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34b.mp4"
   },
   {
-   "texto": "Una planta bien calculada aguanta la temporada alta sin fallar.",
-   "foto": 206,
+   "texto": "Fabricamos plantas en fibra de vidrio, que resisten el clima del sur.",
+   "foto": 211,
    "fotos": [
-    253
+    212
    ]
   },
   {
-   "texto": "Y con mantención antes de la temporada, llegas tranquilo.",
+   "texto": "Y te hacemos la mantención donde estés.",
    "foto": 104,
    "fotos": [
-    124
+    247
    ]
   },
   {
@@ -35,6 +35,5 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "packing frutícola con cajas de fruta y trabajadores no visibles",
  "vocera": "Lorena"
 }
