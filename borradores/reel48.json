@@ -1,0 +1,35 @@
+{
+ "nombre": "reel48",
+ "gancho": "Mantención al día",
+ "segmentos": [
+  {
+   "texto": "¿Cada cuánto le haces mantención a tu planta?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_48.mp4"
+  },
+  {
+   "texto": "Si la respuesta es nunca, está trabajando a medias.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_48.mp4"
+  },
+  {
+   "texto": "Revisamos lodos, soplador, bombas, tablero y cloro.",
+   "foto": 108,
+   "fotos": [
+    180
+   ]
+  },
+  {
+   "texto": "Y te dejamos un informe para tu carpeta de la Seremi.",
+   "foto": 124,
+   "fotos": [
+    218
+   ]
+  },
+  {
+   "texto": "Hablemos por WhatsApp.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_4.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "planta de tratamiento con caseta de equipos"
+}

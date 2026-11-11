@@ -1,0 +1,35 @@
+{
+ "nombre": "reel61",
+ "gancho": "Todo Chile",
+ "segmentos": [
+  {
+   "texto": "Desde dos mil ocho tratamos aguas en todo Chile.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_61.mp4"
+  },
+  {
+   "texto": "Del desierto de Atacama a la Patagonia.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_61.mp4"
+  },
+  {
+   "texto": "Diseñamos, fabricamos e instalamos plantas de tratamiento.",
+   "foto": 209,
+   "fotos": [
+    248
+   ]
+  },
+  {
+   "texto": "Y hacemos mantención, cloro y bacterias.",
+   "foto": 104,
+   "fotos": [
+    200
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_5.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "planta de tratamiento en el valle central con cerros"
+}

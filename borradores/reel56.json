@@ -1,0 +1,35 @@
+{
+ "nombre": "reel56",
+ "gancho": "Bombas de agua",
+ "segmentos": [
+  {
+   "texto": "¿Necesitas bombas para agua potable o aguas servidas?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_56.mp4"
+  },
+  {
+   "texto": "También vendemos e instalamos bombas.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_56.mp4"
+  },
+  {
+   "texto": "Pozos de bombeo con dos bombas que se turnan.",
+   "foto": 228,
+   "fotos": [
+    229
+   ]
+  },
+  {
+   "texto": "Y tableros con alarma por si una falla.",
+   "foto": 182,
+   "fotos": [
+    185
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp y te ayudamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_6.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "sala de bombas con cañerías"
+}

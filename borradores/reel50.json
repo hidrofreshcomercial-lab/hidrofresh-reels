@@ -1,0 +1,35 @@
+{
+ "nombre": "reel50",
+ "gancho": "Tabletas de cloro",
+ "segmentos": [
+  {
+   "texto": "¿Se te acabaron las tabletas de cloro de la planta?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_50.mp4"
+  },
+  {
+   "texto": "Sin cloro, el agua sale sin desinfectar y no cumples.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_50.mp4"
+  },
+  {
+   "texto": "Te calculamos cuántas usas al mes.",
+   "foto": 138,
+   "fotos": [
+    200
+   ]
+  },
+  {
+   "texto": "Y te las despachamos a tiempo, sin que te quedes sin stock.",
+   "foto": 176,
+   "fotos": [
+    19
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp y te ayudamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_6.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "planta con clorador y estanque de contacto"
+}

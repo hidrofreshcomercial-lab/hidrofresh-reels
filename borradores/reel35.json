@@ -1,0 +1,35 @@
+{
+ "nombre": "reel35",
+ "gancho": "Pisciculturas y centros",
+ "segmentos": [
+  {
+   "texto": "¿Tienes una piscicultura o un centro en el sur?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_35.mp4"
+  },
+  {
+   "texto": "Las aguas servidas del personal también hay que tratarlas.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_35.mp4"
+  },
+  {
+   "texto": "Fabricamos plantas compactas en fibra de vidrio, que no se oxidan.",
+   "foto": 211,
+   "fotos": [
+    212
+   ]
+  },
+  {
+   "texto": "Y las llevamos hasta donde estés.",
+   "foto": 247,
+   "fotos": [
+    248
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te asesoramos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_3.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "piscicultura en el sur de Chile, lago y bosque"
+}

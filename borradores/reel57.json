@@ -1,0 +1,35 @@
+{
+ "nombre": "reel57",
+ "gancho": "Osmosis inversa",
+ "segmentos": [
+  {
+   "texto": "¿El agua de tu pozo viene salobre o con minerales?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_57.mp4"
+  },
+  {
+   "texto": "Una planta de osmosis inversa la deja apta para usar.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_57.mp4"
+  },
+  {
+   "texto": "Evaluamos tu agua y te proponemos la solución.",
+   "foto": 229,
+   "fotos": [
+    154
+   ]
+  },
+  {
+   "texto": "La instalamos y te hacemos la mantención.",
+   "foto": 200,
+   "fotos": [
+    179
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_1.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "sala técnica con equipo de osmosis inversa"
+}

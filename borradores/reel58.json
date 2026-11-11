@@ -1,0 +1,35 @@
+{
+ "nombre": "reel58",
+ "gancho": "Regulariza tu planta",
+ "segmentos": [
+  {
+   "texto": "¿Tu planta funciona pero nunca se aprobó en la Seremi?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_58.mp4"
+  },
+  {
+   "texto": "Una planta sin papeles es un riesgo en cualquier fiscalización.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_58.mp4"
+  },
+  {
+   "texto": "Levantamos la planta existente y hacemos los planos.",
+   "foto": 11,
+   "fotos": [
+    133
+   ]
+  },
+  {
+   "texto": "Y te acompañamos en el trámite de regularización.",
+   "foto": 218,
+   "fotos": [
+    222
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp y conversamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_2.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "oficina con planos sobre la mesa"
+}

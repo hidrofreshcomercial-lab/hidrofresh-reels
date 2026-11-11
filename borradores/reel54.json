@@ -1,0 +1,35 @@
+{
+ "nombre": "reel54",
+ "gancho": "Fibra de vidrio",
+ "segmentos": [
+  {
+   "texto": "¿Por qué nuestras plantas son de fibra de vidrio?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_54.mp4"
+  },
+  {
+   "texto": "No se oxidan, son livianas y duran muchos años.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_54.mp4"
+  },
+  {
+   "texto": "Las fabricamos en nuestro taller, a la medida.",
+   "foto": 209,
+   "fotos": [
+    211
+   ]
+  },
+  {
+   "texto": "Y las instalamos enterradas o a la vista.",
+   "foto": 254,
+   "fotos": [
+    156
+   ]
+  },
+  {
+   "texto": "Hablemos por WhatsApp.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_4.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "patio de fabricación con estanques de fibra de vidrio"
+}

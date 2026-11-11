@@ -1,0 +1,35 @@
+{
+ "nombre": "reel42",
+ "gancho": "Lechería y agroindustria",
+ "segmentos": [
+  {
+   "texto": "¿Tu lechería o agroindustria tiene casino y baños para el personal?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_42.mp4"
+  },
+  {
+   "texto": "Esas aguas servidas también deben cumplir la norma.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_42.mp4"
+  },
+  {
+   "texto": "Te ayudamos con el proyecto y la autorización sanitaria.",
+   "foto": 218,
+   "fotos": [
+    11
+   ]
+  },
+  {
+   "texto": "Y te dejamos la planta funcionando con su mantención.",
+   "foto": 104,
+   "fotos": [
+    124
+   ]
+  },
+  {
+   "texto": "Hablemos por WhatsApp.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_4.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "lechería con galpones y campo verde"
+}

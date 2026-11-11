@@ -1,0 +1,35 @@
+{
+ "nombre": "reel43",
+ "gancho": "Instalación de faena",
+ "segmentos": [
+  {
+   "texto": "¿Tu constructora arma instalaciones de faena lejos del alcantarillado?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_43.mp4"
+  },
+  {
+   "texto": "Una planta modular se instala y se retira con la obra.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_43.mp4"
+  },
+  {
+   "texto": "Las trasladamos y las bajamos con grúa.",
+   "foto": 248,
+   "fotos": [
+    249
+   ]
+  },
+  {
+   "texto": "Y quedan funcionando en pocos días.",
+   "foto": 251,
+   "fotos": [
+    192
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_5.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "instalación de faena de una obra de construcción con containers"
+}

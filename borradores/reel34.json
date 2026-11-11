@@ -1,0 +1,35 @@
+{
+ "nombre": "reel34",
+ "gancho": "Packing en temporada",
+ "segmentos": [
+  {
+   "texto": "¿Tu packing duplica su gente en temporada?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34.mp4"
+  },
+  {
+   "texto": "Los baños y casinos también duplican las aguas servidas.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34.mp4"
+  },
+  {
+   "texto": "Una planta bien calculada aguanta la temporada alta sin fallar.",
+   "foto": 206,
+   "fotos": [
+    253
+   ]
+  },
+  {
+   "texto": "Y con mantención antes de la temporada, llegas tranquilo.",
+   "foto": 104,
+   "fotos": [
+    124
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp y conversamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_2.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "packing frutícola con cajas de fruta y trabajadores no visibles"
+}

@@ -1,0 +1,35 @@
+{
+ "nombre": "reel46",
+ "gancho": "Llegó la Seremi",
+ "segmentos": [
+  {
+   "texto": "¿Te llegó una fiscalización de la Seremi por tu planta?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_46.mp4"
+  },
+  {
+   "texto": "No esperes la multa para actuar.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_46.mp4"
+  },
+  {
+   "texto": "Revisamos tu planta y lo que te están pidiendo.",
+   "foto": 107,
+   "fotos": [
+    133
+   ]
+  },
+  {
+   "texto": "Y te ayudamos a regularizar con planos y documentación.",
+   "foto": 218,
+   "fotos": [
+    222
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp y conversamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_2.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "oficina de planta con carpetas sobre una mesa"
+}

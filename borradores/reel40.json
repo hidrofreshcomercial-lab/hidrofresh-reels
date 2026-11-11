@@ -1,0 +1,35 @@
+{
+ "nombre": "reel40",
+ "gancho": "Restaurante en ruta",
+ "segmentos": [
+  {
+   "texto": "¿Tienes un restaurante o un servicentro en la carretera?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_40.mp4"
+  },
+  {
+   "texto": "Los fines de semana el baño no para, y la planta tampoco.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_40.mp4"
+  },
+  {
+   "texto": "La calculamos para tus días de más público.",
+   "foto": 209,
+   "fotos": [
+    253
+   ]
+  },
+  {
+   "texto": "Y la cámara de rejas protege las bombas de la basura.",
+   "foto": 186,
+   "fotos": [
+    190
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp y conversamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_2.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "restaurante de carretera con estacionamiento"
+}

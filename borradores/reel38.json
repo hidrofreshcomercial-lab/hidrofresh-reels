@@ -1,0 +1,35 @@
+{
+ "nombre": "reel38",
+ "gancho": "Condominio nuevo",
+ "segmentos": [
+  {
+   "texto": "¿Estás construyendo un condominio sin alcantarillado?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_38.mp4"
+  },
+  {
+   "texto": "La planta de tratamiento es parte del permiso, no un detalle.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_38.mp4"
+  },
+  {
+   "texto": "Te entregamos planos y memoria de cálculo para la Seremi.",
+   "foto": 218,
+   "fotos": [
+    222
+   ]
+  },
+  {
+   "texto": "La fabricamos, la instalamos y la dejamos funcionando.",
+   "foto": 250,
+   "fotos": [
+    192
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp y te ayudamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_6.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "condominio de casas en construcción en zona rural"
+}

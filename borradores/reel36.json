@@ -1,0 +1,35 @@
+{
+ "nombre": "reel36",
+ "gancho": "Campamento minero",
+ "segmentos": [
+  {
+   "texto": "¿Tu faena minera tiene a cientos de personas en campamento?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_36.mp4"
+  },
+  {
+   "texto": "Necesitas una planta que funcione día y noche, en pleno desierto.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_36.mp4"
+  },
+  {
+   "texto": "Hacemos plantas modulares que se instalan rápido.",
+   "foto": 246,
+   "fotos": [
+    257
+   ]
+  },
+  {
+   "texto": "Y nos encargamos de la mantención y los insumos en la faena.",
+   "foto": 200,
+   "fotos": [
+    142
+   ]
+  },
+  {
+   "texto": "Hablemos por WhatsApp.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_4.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "faena minera en el desierto de Atacama"
+}

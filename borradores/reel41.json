@@ -1,0 +1,35 @@
+{
+ "nombre": "reel41",
+ "gancho": "Parcelación",
+ "segmentos": [
+  {
+   "texto": "¿Vas a vender parcelas con casas compartiendo una planta?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_41.mp4"
+  },
+  {
+   "texto": "Una planta comunitaria bien hecha valoriza el proyecto.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_41.mp4"
+  },
+  {
+   "texto": "Dimensionamos según el número de viviendas.",
+   "foto": 137,
+   "fotos": [
+    253
+   ]
+  },
+  {
+   "texto": "Y te ayudamos con el trámite y la dejamos funcionando.",
+   "foto": 192,
+   "fotos": [
+    195
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te asesoramos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_3.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "parcelación rural con casas y caminos de tierra"
+}

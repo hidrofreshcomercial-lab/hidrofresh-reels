@@ -1,0 +1,35 @@
+{
+ "nombre": "reel37",
+ "gancho": "Hotel sin olores",
+ "segmentos": [
+  {
+   "texto": "¿Tu hotel o lodge está fuera del alcantarillado?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_37.mp4"
+  },
+  {
+   "texto": "Lo último que quiere un huésped es sentir mal olor.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_37.mp4"
+  },
+  {
+   "texto": "Una planta bien diseñada no huele y no se ve.",
+   "foto": 156,
+   "fotos": [
+    250
+   ]
+  },
+  {
+   "texto": "Con mantención al día, funciona toda la temporada.",
+   "foto": 104,
+   "fotos": [
+    180
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_5.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "lodge de montaña con bosque nativo"
+}

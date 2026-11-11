@@ -1,0 +1,35 @@
+{
+ "nombre": "reel51",
+ "gancho": "Bacterias para tu planta",
+ "segmentos": [
+  {
+   "texto": "¿Tu planta partió con problemas o tuvo una falla larga?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_51.mp4"
+  },
+  {
+   "texto": "A veces hay que reforzar las bacterias.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_51.mp4"
+  },
+  {
+   "texto": "Las bacterias recuperan el proceso y bajan los olores.",
+   "foto": 204,
+   "fotos": [
+    205
+   ]
+  },
+  {
+   "texto": "Te asesoramos con la dosis y te las enviamos.",
+   "foto": 201,
+   "fotos": [
+    192
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_1.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "planta de tratamiento en un hotel rural"
+}

@@ -1,0 +1,35 @@
+{
+ "nombre": "reel59",
+ "gancho": "Norma de descarga",
+ "segmentos": [
+  {
+   "texto": "¿El agua que sale de tu planta cumple la norma de descarga?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_59.mp4"
+  },
+  {
+   "texto": "Eso se demuestra con análisis de laboratorio.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_59.mp4"
+  },
+  {
+   "texto": "Si no cumple, ajustamos la planta.",
+   "foto": 224,
+   "fotos": [
+    107
+   ]
+  },
+  {
+   "texto": "Y te ayudamos con los informes para la autoridad.",
+   "foto": 218,
+   "fotos": [
+    133
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te asesoramos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_3.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "punto de descarga de agua tratada a un canal"
+}

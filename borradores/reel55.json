@@ -1,0 +1,35 @@
+{
+ "nombre": "reel55",
+ "gancho": "Llave en mano",
+ "segmentos": [
+  {
+   "texto": "¿Necesitas una planta de tratamiento llave en mano?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_55.mp4"
+  },
+  {
+   "texto": "Nos encargamos de todo, de principio a fin.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_55.mp4"
+  },
+  {
+   "texto": "Diseño, planos y memoria para la Seremi.",
+   "foto": 222,
+   "fotos": [
+    218
+   ]
+  },
+  {
+   "texto": "Fabricación, instalación, puesta en marcha y mantención.",
+   "foto": 250,
+   "fotos": [
+    104
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_5.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "planta grande negra instalada al aire libre"
+}

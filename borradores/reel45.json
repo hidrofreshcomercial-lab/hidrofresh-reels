@@ -1,0 +1,35 @@
+{
+ "nombre": "reel45",
+ "gancho": "Postas y servicios públicos",
+ "segmentos": [
+  {
+   "texto": "¿Tu municipio tiene postas, escuelas o recintos sin alcantarillado?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_45.mp4"
+  },
+  {
+   "texto": "Diseñamos e instalamos plantas para servicios públicos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_45.mp4"
+  },
+  {
+   "texto": "Con planos, memoria de cálculo y autorización sanitaria.",
+   "foto": 222,
+   "fotos": [
+    218
+   ]
+  },
+  {
+   "texto": "Y mantención programada para que no fallen.",
+   "foto": 104,
+   "fotos": [
+    133
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_1.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "posta rural en el campo"
+}

@@ -369,6 +369,10 @@ for _t in TREN:   # tamaño inicial: la palabra llena el ancho (máx. 170 px de 
     while _dm.textlength(_t, font=fuente(z)) > W - 110 and z > 60: z -= 4
     TAM_TREN.append(z)
 
+_LP = os.path.join(BASE, "fuentes", "logo_hidrofresh.png")
+LOGO = Image.open(_LP).convert("RGBA") if os.path.exists(_LP) else None
+
+
 def cierre(d, t, im=None):
     u = t - (DUR_VOZ + 0.15)
     if u < 0:
@@ -402,11 +406,18 @@ def cierre(d, t, im=None):
         return
     w = v - fin_tren                                         # marca: llega desde el fondo con rebote
     pop = ease(w / 0.3) * (1 + 0.08 * math.sin(min(w, 0.7) * 14) * (1 - min(1, w / 0.7)))
-    f = fuente(int(150 * pop))
-    txt = "HIDRO FRESH"; wl = d.textlength(txt, font=f)
-    d.text(((W - wl) / 2, H * 0.40 - 75 * pop), txt, font=f, fill=(0, 120, 200, 255))
+    if LOGO is not None and im is not None and pop > 0.02:   # logo oficial (fuentes/logo_hidrofresh.png)
+        lw = int(900 * pop); lh = int(LOGO.height * lw / LOGO.width)
+        lg = LOGO.resize((lw, lh), Image.LANCZOS)
+        im.alpha_composite(lg, ((W - lw) // 2, int(H * 0.40 - lh / 2 - 40)))
+        y_sub = H * 0.40 + 900 * LOGO.height / LOGO.width / 2 - 10
+    else:
+        f = fuente(int(150 * pop))
+        txt = "HIDRO FRESH"; wl = d.textlength(txt, font=f)
+        d.text(((W - wl) / 2, H * 0.40 - 75 * pop), txt, font=f, fill=(0, 120, 200, 255))
+        y_sub = H * 0.40 + 110
     sub = "Plantas de tratamiento · Cloro · Bacterias"; wl = d.textlength(sub, font=f_med)
-    d.text(((W - wl) / 2, H * 0.40 + 110), sub, font=f_med, fill=(11, 110, 117, int(255 * ease((w - 0.25) / 0.3))))
+    d.text(((W - wl) / 2, y_sub), sub, font=f_med, fill=(11, 110, 117, int(255 * ease((w - 0.25) / 0.3))))
     if w > 0.4:
         a = ease((w - 0.4) / 0.3); pulso = 1 + 0.03 * math.sin(w * 9)
         txt = "WhatsApp +56 9 8494 6508"; wt = d.textlength(txt, font=f_wa)

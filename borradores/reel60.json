@@ -1,0 +1,35 @@
+{
+ "nombre": "reel60",
+ "gancho": "Cotiza en 3 datos",
+ "segmentos": [
+  {
+   "texto": "¿Quieres cotizar una planta de tratamiento? Solo necesitamos tres datos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_60.mp4"
+  },
+  {
+   "texto": "Cuántas personas, en qué comuna y si hay luz en el terreno.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_60.mp4"
+  },
+  {
+   "texto": "Con eso dimensionamos la planta.",
+   "foto": 133,
+   "fotos": [
+    12
+   ]
+  },
+  {
+   "texto": "Y te mandamos una propuesta.",
+   "foto": 206,
+   "fotos": [
+    253
+   ]
+  },
+  {
+   "texto": "Hablemos por WhatsApp.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_4.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "planta de tratamiento mediana en terreno"
+}

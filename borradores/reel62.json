@@ -1,0 +1,35 @@
+{
+ "nombre": "reel62",
+ "gancho": "Tu planta falló",
+ "segmentos": [
+  {
+   "texto": "¿Tu planta de tratamiento falló y no sabes por dónde partir?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_62.mp4"
+  },
+  {
+   "texto": "No la dejes así: cada día sin tratar es un riesgo.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_62.mp4"
+  },
+  {
+   "texto": "Diagnosticamos la falla en terreno.",
+   "foto": 107,
+   "fotos": [
+    110
+   ]
+  },
+  {
+   "texto": "Y la reparamos para que vuelva a cumplir.",
+   "foto": 104,
+   "fotos": [
+    157
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp y te ayudamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_6.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "planta de tratamiento con una tapa abierta"
+}

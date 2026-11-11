@@ -1,0 +1,35 @@
+{
+ "nombre": "reel47",
+ "gancho": "¿Huele mal?",
+ "segmentos": [
+  {
+   "texto": "¿Tu planta de tratamiento tiene mal olor?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_47.mp4"
+  },
+  {
+   "texto": "El olor es una alarma: algo dejó de funcionar.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_47.mp4"
+  },
+  {
+   "texto": "Puede ser el soplador, los difusores o las bacterias.",
+   "foto": 157,
+   "fotos": [
+    205
+   ]
+  },
+  {
+   "texto": "La revisamos, la reparamos y el olor desaparece.",
+   "foto": 104,
+   "fotos": [
+    124
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te asesoramos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_3.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "planta de tratamiento al aire libre en un condominio"
+}

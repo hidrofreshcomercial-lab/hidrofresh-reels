@@ -1,0 +1,35 @@
+{
+ "nombre": "reel53",
+ "gancho": "Tu proyecto creció",
+ "segmentos": [
+  {
+   "texto": "¿Tu proyecto creció y la planta quedó chica?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_53.mp4"
+  },
+  {
+   "texto": "Una planta sobrecargada no alcanza a tratar el agua.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_53.mp4"
+  },
+  {
+   "texto": "Medimos el caudal real que está llegando.",
+   "foto": 197,
+   "fotos": [
+    170
+   ]
+  },
+  {
+   "texto": "Y la ampliamos o la modernizamos según lo que necesites.",
+   "foto": 224,
+   "fotos": [
+    225
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te asesoramos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_3.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "planta de tratamiento junto a edificios nuevos"
+}

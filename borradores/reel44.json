@@ -1,0 +1,35 @@
+{
+ "nombre": "reel44",
+ "gancho": "Agua potable rural",
+ "segmentos": [
+  {
+   "texto": "¿Tu comité de agua potable rural necesita mejorar el agua?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_44.mp4"
+  },
+  {
+   "texto": "También hacemos plantas de agua potable.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_44.mp4"
+  },
+  {
+   "texto": "Filtramos y desinfectamos con cloración automática.",
+   "foto": 200,
+   "fotos": [
+    179
+   ]
+  },
+  {
+   "texto": "Y te abastecemos de cloro todo el año.",
+   "foto": 176,
+   "fotos": [
+    138
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp y te ayudamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_6.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "comité de agua potable rural con estanque elevado"
+}

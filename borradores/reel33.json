@@ -1,0 +1,35 @@
+{
+ "nombre": "reel33",
+ "gancho": "¿Tu viña cumple?",
+ "segmentos": [
+  {
+   "texto": "¿Tu viña tiene planta de tratamiento para la bodega y el casino del personal?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_33.mp4"
+  },
+  {
+   "texto": "En vendimia el caudal se dispara y una planta chica no da abasto.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_33.mp4"
+  },
+  {
+   "texto": "La dimensionamos para tu temporada más alta.",
+   "foto": 209,
+   "fotos": [
+    210
+   ]
+  },
+  {
+   "texto": "Y la instalamos junto a la bodega, sin olores.",
+   "foto": 254,
+   "fotos": [
+    100
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_1.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "viña: planta junto a bodega de vinos y viñedos"
+}

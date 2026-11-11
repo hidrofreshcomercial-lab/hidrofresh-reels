@@ -1,0 +1,35 @@
+{
+ "nombre": "reel52",
+ "gancho": "No la botes",
+ "segmentos": [
+  {
+   "texto": "¿Tienes una planta de tratamiento abandonada?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_52.mp4"
+  },
+  {
+   "texto": "Antes de comprar una nueva, evalúa recuperarla.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_52.mp4"
+  },
+  {
+   "texto": "Limpiamos, cambiamos lo que esté malo y la ponemos en marcha.",
+   "foto": 132,
+   "fotos": [
+    140
+   ]
+  },
+  {
+   "texto": "Sale bastante más barato que una planta nueva.",
+   "foto": 123,
+   "fotos": [
+    175
+   ]
+  },
+  {
+   "texto": "Escríbenos al WhatsApp y conversamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_2.mp4",
+   "recorte": 1.0
+  }
+ ],
+ "voz": "Kore (Google Gemini)",
+ "escena": "planta de tratamiento antigua con pasto alrededor"
+}
