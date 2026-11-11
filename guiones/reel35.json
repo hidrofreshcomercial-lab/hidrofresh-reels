@@ -5,7 +5,8 @@
   {
    "texto": "Hola. ¿Tienes una piscicultura o un centro en el sur?",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_35v.mp4",
-   "voz_propia": true
+   "voz_propia": true,
+   "recorte": 1.16
   },
   {
    "texto": "Las aguas servidas del personal también hay que tratarlas.",
@@ -37,5 +38,5 @@
  "voz": "Lorena (clips) + Kore",
  "vocera": "Lorena",
  "voz_kore": "reel35k",
- "rev": 2
+ "rev": 3
 }
