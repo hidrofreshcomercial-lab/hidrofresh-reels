@@ -50,18 +50,21 @@ def bajar(ruta):
     if not os.path.exists(dst):
         open(dst, "wb").write(urllib.request.urlopen(ruta, timeout=120).read())
     return dst
-_prop = [s_ for s_ in spec["segmentos"] if s_.get("voz_propia")]
-if _prop:
-    _dur = 7.9 if _prop[0]["voz_propia"] is True else float(_prop[0]["voz_propia"])
-    _raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", bajar(_prop[0]["video"]), "-t", str(_dur), "-vn", "-ac", "1",
-                           "-ar", str(sr), "-f", "s16le", "-"], capture_output=True, check=True).stdout
-    _clip = np.frombuffer(_raw, np.int16).astype(np.float32) / 32768
-    if _prop[0]["voz_propia"] is True:                     # automático: corta donde termina de hablar
-        _env = np.convolve(np.abs(_clip), np.ones(int(sr * 0.05)) / int(sr * 0.05), "same")
-        _on = np.where(_env > 0.12 * _env.max())[0]
-        _clip = _clip[:min(len(_clip), (_on[-1] if len(_on) else len(_clip)) + int(sr * 0.2))]
-    _clip *= (0.9 * np.abs(voz).max()) / max(1e-4, np.abs(_clip).max())     # mismo volumen que la voz Kore
-    voz = np.concatenate([_clip, np.zeros(int(sr * 0.12), np.float32), voz])
+def audio_clip(seg):
+    dur = 7.9 if seg["voz_propia"] is True else float(seg["voz_propia"])
+    raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", bajar(seg["video"]), "-t", str(dur), "-vn", "-ac", "1",
+                          "-ar", str(sr), "-f", "s16le", "-"], capture_output=True, check=True).stdout
+    c = np.frombuffer(raw, np.int16).astype(np.float32) / 32768
+    if seg["voz_propia"] is True:                          # automático: corta donde termina de hablar
+        env = np.convolve(np.abs(c), np.ones(int(sr * 0.05)) / int(sr * 0.05), "same")
+        on = np.where(env > 0.12 * env.max())[0]
+        c = c[:min(len(c), (on[-1] if len(on) else len(c)) + int(sr * 0.2))]
+    return c * (0.9 * np.abs(voz).max()) / max(1e-4, np.abs(c).max())   # mismo volumen que la voz Kore
+_sg = spec["segmentos"]
+if _sg[0].get("voz_propia"):        # Lorena abre hablando con su voz (boca sincronizada); Kore narra después
+    voz = np.concatenate([audio_clip(_sg[0]), np.zeros(int(sr * 0.12), np.float32), voz])
+if len(_sg) > 1 and _sg[-1].get("voz_propia"):   # y cierra hablando ella
+    voz = np.concatenate([voz, np.zeros(int(sr * 0.15), np.float32), audio_clip(_sg[-1])])
 DUR_VOZ = len(voz) / sr
 TREN = ["SUSTENTABILIDAD", "INNOVACIÓN", "TECNOLOGÍA", "MEDIO AMBIENTE", "ENERGÍA", "AHORRO DE AGUA", "RECICLAJE DE AGUA", "FUTURO"]
 PASO = 0.36    # una palabra nueva cada 0,36 s; cada una vive 0,9 s alejándose hacia el fondo
@@ -440,11 +443,18 @@ def cierre(d, t, im=None):
     sub = "Plantas de tratamiento · Cloro · Bacterias"; wl = d.textlength(sub, font=f_med)
     d.text(((W - wl) / 2, y_sub), sub, font=f_med, fill=(11, 110, 117, int(255 * ease((w - 0.25) / 0.3))))
     if w > 0.4:
-        a = ease((w - 0.4) / 0.3); pulso = 1 + 0.03 * math.sin(w * 9)
-        txt = "WhatsApp +56 9 8494 6508"; wt = d.textlength(txt, font=f_wa)
-        bw = wt * pulso; bx = (W - bw) / 2
-        d.rounded_rectangle([bx - 36, 1180, bx + bw + 36, 1300], 60, fill=(*VERDE, int(250 * a)))
-        d.text(((W - wt) / 2, 1208), txt, font=f_wa, fill=(*BLANCO, int(255 * a)))
+        a = ease((w - 0.4) / 0.3); pulso = 1 + 0.07 * (0.5 + 0.5 * math.sin(w * 10))   # botón que late
+        txt = "COTIZA POR WHATSAPP"; wt = d.textlength(txt, font=f_wa)
+        bw = (wt + 100) * pulso; bh = 130 * pulso; bx = (W - bw) / 2; by = 1250 - bh / 2
+        for k in range(3):                                   # halo que se expande (incita a tocar)
+            r = ((w * 1.4 + k / 3) % 1)
+            d.rounded_rectangle([bx - 60 * r, by - 60 * r, bx + bw + 60 * r, by + bh + 60 * r], int(bh / 2 + 60 * r),
+                                outline=tuple(int(255 + (cv - 255) * 0.55 * (1 - r) * a) for cv in VERDE) + (255,), width=6)
+        d.rounded_rectangle([bx, by, bx + bw, by + bh], int(bh / 2), fill=(*VERDE, int(250 * a)))
+        d.text(((W - wt) / 2, by + bh / 2 - 34), txt, font=f_wa, fill=(*BLANCO, int(255 * a)))
+        sub2 = "+56 9 8494 6508  ·  toca el link del perfil"; ws2 = d.textlength(sub2, font=f_med)
+        if int(w * 2.5) % 2 == 0 or w < 1.2:                 # parpadea
+            d.text(((W - ws2) / 2, 1360), sub2, font=f_med, fill=(11, 110, 117, int(255 * a)))
 
 
 SOMBRA = Image.new("RGBA", (W, H), (0, 0, 0, 0))

@@ -30,11 +30,11 @@
   },
   {
    "texto": "Escríbenos por WhatsApp y te cotizamos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_1.mp4",
-   "recorte": 1.0
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
   }
  ],
  "voz": "Lorena (clip) + Kore",
  "vocera": "Lorena",
- "voz_kore": "reel33k"
+ "voz_kore": "reel33k2"
 }
