@@ -3,29 +3,29 @@
  "gancho": "¿Tu viña cumple?",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_33.mp4"
-  },
-  {
-   "texto": "¿Tu viña tiene planta de tratamiento para la bodega y el casino del personal?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_33.mp4"
+   "texto": "Hola. ¿Tu viña tiene planta de tratamiento para la bodega y el casino del personal?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_33v_a.mp4",
+   "voz_propia": true
   },
   {
    "texto": "En vendimia el caudal se dispara y una planta chica no da abasto.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_33.mp4"
+   "foto": 209,
+   "fotos": [
+    100
+   ]
   },
   {
    "texto": "La dimensionamos para tu temporada más alta.",
-   "foto": 209,
+   "foto": 210,
    "fotos": [
-    210
+    206
    ]
   },
   {
    "texto": "Y la instalamos junto a la bodega, sin olores.",
    "foto": 254,
    "fotos": [
-    100
+    253
    ]
   },
   {
@@ -34,7 +34,7 @@
    "recorte": 1.0
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "viña: planta junto a bodega de vinos y viñedos",
- "vocera": "Lorena"
+ "voz": "Lorena (clip) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel33k"
 }

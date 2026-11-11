@@ -25,7 +25,7 @@ def cargar_audio():
     if len(sys.argv) > 2:
         return sf.read(sys.argv[2])
     try:
-        return sf.read(io.BytesIO(urllib.request.urlopen(VOCES + nombre + ".wav", timeout=60).read()))
+        return sf.read(io.BytesIO(urllib.request.urlopen(VOCES + spec.get("voz_kore", nombre) + ".wav", timeout=60).read()))
     except Exception as e:
         print("sin voz en Supabase (", e, "): uso el audio del video anterior")
         mp4 = os.path.join(BASE, "salida", nombre + ".mp4")
@@ -41,6 +41,27 @@ voz = voz.astype(np.float32)
 umbral = 0.02 * np.abs(voz).max(); ini = np.argmax(np.abs(voz) > umbral)
 fin = len(voz) - np.argmax(np.abs(voz[::-1]) > umbral)
 voz = voz[max(0, ini - int(sr * 0.05)):min(len(voz), fin + int(sr * 0.15))]
+# voz propia del clip (Lorena hablando con la boca sincronizada): segmento con "voz_propia": segundos.
+# Ese tramo usa el audio original del clip y la voz Kore (que trae solo el resto del guion) va a continuación.
+def bajar(ruta):
+    if not ruta.startswith("http"):
+        return ruta if os.path.isabs(ruta) else os.path.join(BASE, ruta)
+    dst = os.path.join(tmp, os.path.basename(ruta.split("?")[0]))
+    if not os.path.exists(dst):
+        open(dst, "wb").write(urllib.request.urlopen(ruta, timeout=120).read())
+    return dst
+_prop = [s_ for s_ in spec["segmentos"] if s_.get("voz_propia")]
+if _prop:
+    _dur = 7.9 if _prop[0]["voz_propia"] is True else float(_prop[0]["voz_propia"])
+    _raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", bajar(_prop[0]["video"]), "-t", str(_dur), "-vn", "-ac", "1",
+                           "-ar", str(sr), "-f", "s16le", "-"], capture_output=True, check=True).stdout
+    _clip = np.frombuffer(_raw, np.int16).astype(np.float32) / 32768
+    if _prop[0]["voz_propia"] is True:                     # automático: corta donde termina de hablar
+        _env = np.convolve(np.abs(_clip), np.ones(int(sr * 0.05)) / int(sr * 0.05), "same")
+        _on = np.where(_env > 0.12 * _env.max())[0]
+        _clip = _clip[:min(len(_clip), (_on[-1] if len(_on) else len(_clip)) + int(sr * 0.2))]
+    _clip *= (0.9 * np.abs(voz).max()) / max(1e-4, np.abs(_clip).max())     # mismo volumen que la voz Kore
+    voz = np.concatenate([_clip, np.zeros(int(sr * 0.12), np.float32), voz])
 DUR_VOZ = len(voz) / sr
 TREN = ["SUSTENTABILIDAD", "INNOVACIÓN", "TECNOLOGÍA", "MEDIO AMBIENTE", "ENERGÍA", "AHORRO DE AGUA", "RECICLAJE DE AGUA", "FUTURO"]
 PASO = 0.36    # una palabra nueva cada 0,36 s; cada una vive 0,9 s alejándose hacia el fondo
