@@ -546,6 +546,7 @@ def musica(dur):
     return m
 
 mus = musica(TOTAL + 1)[:len(pista)]
+mus = np.pad(mus, (0, max(0, len(pista) - len(mus))))
 env_voz = np.convolve(np.abs(pista), np.ones(int(sr * 0.25)) / (sr * 0.25), "same")
 ducking = 1 - 0.75 * np.clip(env_voz / (env_voz.max() * 0.25 + 1e-9), 0, 1)   # la música baja cuando habla
 pista += mus * 0.35 * ducking
