@@ -63,8 +63,11 @@ def audio_clip(seg):
 _sg = spec["segmentos"]
 if _sg[0].get("voz_propia"):        # Lorena abre hablando con su voz (boca sincronizada); Kore narra después
     voz = np.concatenate([audio_clip(_sg[0]), np.zeros(int(sr * 0.12), np.float32), voz])
+CIERRE_T0 = None
 if len(_sg) > 1 and _sg[-1].get("voz_propia"):   # y cierra hablando ella
-    voz = np.concatenate([voz, np.zeros(int(sr * 0.15), np.float32), audio_clip(_sg[-1])])
+    voz = np.concatenate([voz, np.zeros(int(sr * 0.15), np.float32)])
+    CIERRE_T0 = len(voz) / sr                     # el clip parte justo donde parte su audio (boca sincronizada)
+    voz = np.concatenate([voz, audio_clip(_sg[-1])])
 DUR_VOZ = len(voz) / sr
 TREN = ["SUSTENTABILIDAD", "INNOVACIÓN", "TECNOLOGÍA", "MEDIO AMBIENTE", "ENERGÍA", "AHORRO DE AGUA", "RECICLAJE DE AGUA", "FUTURO"]
 PASO = 0.36    # una palabra nueva cada 0,36 s; cada una vive 0,9 s alejándose hacia el fondo
@@ -136,6 +139,8 @@ seg_ini = {}
 for s in SUBS:
     seg_ini.setdefault(s["seg"], s["a"])
 seg_ini[0] = 0.0
+if CIERRE_T0 is not None:
+    seg_ini[len(spec["segmentos"]) - 1] = CIERRE_T0
 
 # grupos de subtítulo: hasta 3 palabras, se corta en puntuación o pausa
 GRUPOS, cur = [], []
