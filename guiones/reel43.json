@@ -3,6 +3,10 @@
  "gancho": "Instalación de faena",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_43.mp4"
+  },
+  {
    "texto": "¿Tu constructora arma instalaciones de faena lejos del alcantarillado?",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_43.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "instalación de faena de una obra de construcción con containers"
+ "escena": "instalación de faena de una obra de construcción con containers",
+ "vocera": "Lorena"
 }

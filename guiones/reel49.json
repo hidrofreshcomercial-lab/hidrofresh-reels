@@ -3,6 +3,10 @@
  "gancho": "El soplador",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_49.mp4"
+  },
+  {
    "texto": "Si el soplador de tu planta se detiene, el problema empieza al tiro.",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_49.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "caseta de soplador junto a planta enterrada"
+ "escena": "caseta de soplador junto a planta enterrada",
+ "vocera": "Lorena"
 }

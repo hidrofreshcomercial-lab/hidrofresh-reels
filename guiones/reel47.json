@@ -3,6 +3,10 @@
  "gancho": "¿Huele mal?",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_47.mp4"
+  },
+  {
    "texto": "¿Tu planta de tratamiento tiene mal olor?",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_47.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento al aire libre en un condominio"
+ "escena": "planta de tratamiento al aire libre en un condominio",
+ "vocera": "Lorena"
 }

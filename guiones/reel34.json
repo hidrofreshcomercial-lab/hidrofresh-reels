@@ -3,6 +3,10 @@
  "gancho": "Packing en temporada",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34.mp4"
+  },
+  {
    "texto": "¿Tu packing duplica su gente en temporada?",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "packing frutícola con cajas de fruta y trabajadores no visibles"
+ "escena": "packing frutícola con cajas de fruta y trabajadores no visibles",
+ "vocera": "Lorena"
 }

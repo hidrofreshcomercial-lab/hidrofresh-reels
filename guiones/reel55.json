@@ -3,6 +3,10 @@
  "gancho": "Llave en mano",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_55.mp4"
+  },
+  {
    "texto": "¿Necesitas una planta de tratamiento llave en mano?",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_55.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "planta grande negra instalada al aire libre"
+ "escena": "planta grande negra instalada al aire libre",
+ "vocera": "Lorena"
 }

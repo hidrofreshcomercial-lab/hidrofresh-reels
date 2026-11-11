@@ -3,6 +3,10 @@
  "gancho": "Cotiza en 3 datos",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_60.mp4"
+  },
+  {
    "texto": "¿Quieres cotizar una planta de tratamiento? Solo necesitamos tres datos.",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_60.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento mediana en terreno"
+ "escena": "planta de tratamiento mediana en terreno",
+ "vocera": "Lorena"
 }

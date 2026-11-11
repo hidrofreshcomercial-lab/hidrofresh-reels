@@ -3,6 +3,10 @@
  "gancho": "Condominio nuevo",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_38.mp4"
+  },
+  {
    "texto": "¿Estás construyendo un condominio sin alcantarillado?",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_38.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "condominio de casas en construcción en zona rural"
+ "escena": "condominio de casas en construcción en zona rural",
+ "vocera": "Lorena"
 }

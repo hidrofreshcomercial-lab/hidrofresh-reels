@@ -3,6 +3,10 @@
  "gancho": "Tu proyecto creció",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_53.mp4"
+  },
+  {
    "texto": "¿Tu proyecto creció y la planta quedó chica?",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_53.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento junto a edificios nuevos"
+ "escena": "planta de tratamiento junto a edificios nuevos",
+ "vocera": "Lorena"
 }

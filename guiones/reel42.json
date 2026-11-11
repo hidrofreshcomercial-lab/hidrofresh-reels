@@ -3,6 +3,10 @@
  "gancho": "Lechería y agroindustria",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_42.mp4"
+  },
+  {
    "texto": "¿Tu lechería o agroindustria tiene casino y baños para el personal?",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_42.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "lechería con galpones y campo verde"
+ "escena": "lechería con galpones y campo verde",
+ "vocera": "Lorena"
 }

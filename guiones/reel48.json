@@ -3,6 +3,10 @@
  "gancho": "Mantención al día",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_48.mp4"
+  },
+  {
    "texto": "¿Cada cuánto le haces mantención a tu planta?",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_48.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento con caseta de equipos"
+ "escena": "planta de tratamiento con caseta de equipos",
+ "vocera": "Lorena"
 }

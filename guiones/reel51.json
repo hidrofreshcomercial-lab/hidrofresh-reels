@@ -3,6 +3,10 @@
  "gancho": "Bacterias para tu planta",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_51.mp4"
+  },
+  {
    "texto": "¿Tu planta partió con problemas o tuvo una falla larga?",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_51.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento en un hotel rural"
+ "escena": "planta de tratamiento en un hotel rural",
+ "vocera": "Lorena"
 }

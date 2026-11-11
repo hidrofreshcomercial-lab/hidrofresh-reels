@@ -3,6 +3,10 @@
  "gancho": "Campamento minero",
  "segmentos": [
   {
+   "texto": "Hola, soy Lorena, de Hidro Fresh.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_36.mp4"
+  },
+  {
    "texto": "¿Tu faena minera tiene a cientos de personas en campamento?",
    "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_36.mp4"
   },
@@ -31,5 +35,6 @@
   }
  ],
  "voz": "Kore (Google Gemini)",
- "escena": "faena minera en el desierto de Atacama"
+ "escena": "faena minera en el desierto de Atacama",
+ "vocera": "Lorena"
 }
