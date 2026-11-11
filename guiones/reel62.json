@@ -3,16 +3,16 @@
  "gancho": "Tu planta falló",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_62.mp4"
-  },
-  {
-   "texto": "¿Tu planta de tratamiento falló y no sabes por dónde partir?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_62.mp4"
+   "texto": "Hola. ¿Tu planta de tratamiento falló y no sabes por dónde partir?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_62v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "No la dejes así: cada día sin tratar es un riesgo.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_62.mp4"
+   "foto": 110,
+   "fotos": [
+    104
+   ]
   },
   {
    "texto": "Diagnosticamos la falla en terreno.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos al WhatsApp y te ayudamos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_6.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento con una tapa abierta",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel62k"
 }

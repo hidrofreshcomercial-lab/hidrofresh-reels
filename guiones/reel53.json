@@ -3,16 +3,16 @@
  "gancho": "Tu proyecto creció",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_53.mp4"
-  },
-  {
-   "texto": "¿Tu proyecto creció y la planta quedó chica?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_53.mp4"
+   "texto": "Hola. ¿Tu proyecto creció y la planta quedó chica?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_53v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Una planta sobrecargada no alcanza a tratar el agua.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_53.mp4"
+   "foto": 170,
+   "fotos": [
+    224
+   ]
   },
   {
    "texto": "Medimos el caudal real que está llegando.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos por WhatsApp y te asesoramos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_3.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento junto a edificios nuevos",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel53k"
 }

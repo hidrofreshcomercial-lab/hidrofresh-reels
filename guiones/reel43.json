@@ -3,16 +3,16 @@
  "gancho": "Instalación de faena",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_43.mp4"
-  },
-  {
-   "texto": "¿Tu constructora arma instalaciones de faena lejos del alcantarillado?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_43.mp4"
+   "texto": "Hola. ¿Tu constructora arma instalaciones de faena lejos del alcantarillado?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_43v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Una planta modular se instala y se retira con la obra.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_43.mp4"
+   "foto": 249,
+   "fotos": [
+    251
+   ]
   },
   {
    "texto": "Las trasladamos y las bajamos con grúa.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos por WhatsApp.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_5.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "instalación de faena de una obra de construcción con containers",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel43k"
 }

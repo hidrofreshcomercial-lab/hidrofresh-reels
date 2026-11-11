@@ -3,16 +3,16 @@
  "gancho": "Campamento minero",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_36.mp4"
-  },
-  {
-   "texto": "¿Tu faena minera tiene a cientos de personas en campamento?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_36.mp4"
+   "texto": "Hola. ¿Tu faena minera tiene a cientos de personas en campamento?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_36v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Necesitas una planta que funcione día y noche, en pleno desierto.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_36.mp4"
+   "foto": 257,
+   "fotos": [
+    200
+   ]
   },
   {
    "texto": "Hacemos plantas modulares que se instalan rápido.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Hablemos por WhatsApp.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_4.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "faena minera en el desierto de Atacama",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel36k"
 }

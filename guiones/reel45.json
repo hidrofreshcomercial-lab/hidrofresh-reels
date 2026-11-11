@@ -3,16 +3,16 @@
  "gancho": "Postas y servicios públicos",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_45.mp4"
-  },
-  {
-   "texto": "¿Tu municipio tiene postas, escuelas o recintos sin alcantarillado?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_45.mp4"
+   "texto": "Hola. ¿Tu municipio tiene postas, escuelas o recintos sin alcantarillado?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_45v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Diseñamos e instalamos plantas para servicios públicos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_45.mp4"
+   "foto": 218,
+   "fotos": [
+    104
+   ]
   },
   {
    "texto": "Con planos, memoria de cálculo y autorización sanitaria.",
@@ -30,11 +30,11 @@
   },
   {
    "texto": "Escríbenos por WhatsApp y te cotizamos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_1.mp4",
-   "recorte": 1.0
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "posta rural en el campo",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel45k"
 }

@@ -3,16 +3,16 @@
  "gancho": "Mantención al día",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_48.mp4"
-  },
-  {
-   "texto": "¿Cada cuánto le haces mantención a tu planta?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_48.mp4"
+   "texto": "Hola. ¿Cada cuánto le haces mantención a tu planta?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_48v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Si la respuesta es nunca, está trabajando a medias.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_48.mp4"
+   "foto": 180,
+   "fotos": [
+    124
+   ]
   },
   {
    "texto": "Revisamos lodos, soplador, bombas, tablero y cloro.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Hablemos por WhatsApp.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_4.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento con caseta de equipos",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel48k"
 }

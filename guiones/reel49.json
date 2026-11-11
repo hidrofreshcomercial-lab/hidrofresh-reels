@@ -3,16 +3,16 @@
  "gancho": "El soplador",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_49.mp4"
-  },
-  {
-   "texto": "Si el soplador de tu planta se detiene, el problema empieza al tiro.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_49.mp4"
+   "texto": "Hola. Si el soplador de tu planta se detiene, el problema empieza al tiro.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_49v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Las bacterias se quedan sin oxígeno y aparece el mal olor.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_49.mp4"
+   "foto": 158,
+   "fotos": [
+    160
+   ]
   },
   {
    "texto": "Revisamos y reparamos sopladores.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos por WhatsApp.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_5.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "caseta de soplador junto a planta enterrada",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel49k"
 }

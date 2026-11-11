@@ -3,16 +3,16 @@
  "gancho": "Osmosis inversa",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_57.mp4"
-  },
-  {
-   "texto": "¿El agua de tu pozo viene salobre o con minerales?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_57.mp4"
+   "texto": "Hola. ¿El agua de tu pozo viene salobre o con minerales?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_57v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Una planta de osmosis inversa la deja apta para usar.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_57.mp4"
+   "foto": 154,
+   "fotos": [
+    200
+   ]
   },
   {
    "texto": "Evaluamos tu agua y te proponemos la solución.",
@@ -30,11 +30,11 @@
   },
   {
    "texto": "Escríbenos por WhatsApp y te cotizamos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_1.mp4",
-   "recorte": 1.0
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "sala técnica con equipo de osmosis inversa",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel57k"
 }

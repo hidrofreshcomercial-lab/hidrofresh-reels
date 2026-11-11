@@ -3,16 +3,16 @@
  "gancho": "Lechería y agroindustria",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_42.mp4"
-  },
-  {
-   "texto": "¿Tu lechería o agroindustria tiene casino y baños para el personal?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_42.mp4"
+   "texto": "Hola. ¿Tu lechería o agroindustria tiene casino y baños para el personal?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_42v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Esas aguas servidas también deben cumplir la norma.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_42.mp4"
+   "foto": 11,
+   "fotos": [
+    104
+   ]
   },
   {
    "texto": "Te ayudamos con el proyecto y la autorización sanitaria.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Hablemos por WhatsApp.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_4.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "lechería con galpones y campo verde",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel42k"
 }

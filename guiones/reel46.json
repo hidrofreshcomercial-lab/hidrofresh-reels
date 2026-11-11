@@ -3,16 +3,16 @@
  "gancho": "Llegó la Seremi",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_46.mp4"
-  },
-  {
-   "texto": "¿Te llegó una fiscalización de la Seremi por tu planta?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_46.mp4"
+   "texto": "Hola. ¿Te llegó una fiscalización de la Seremi por tu planta?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_46v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "No esperes la multa para actuar.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_46.mp4"
+   "foto": 133,
+   "fotos": [
+    218
+   ]
   },
   {
    "texto": "Revisamos tu planta y lo que te están pidiendo.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos al WhatsApp y conversamos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_2.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "oficina de planta con carpetas sobre una mesa",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel46k"
 }

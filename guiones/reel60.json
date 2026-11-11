@@ -3,16 +3,16 @@
  "gancho": "Cotiza en 3 datos",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_60.mp4"
-  },
-  {
-   "texto": "¿Quieres cotizar una planta de tratamiento? Solo necesitamos tres datos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_60.mp4"
+   "texto": "Hola. ¿Quieres cotizar una planta de tratamiento? Solo necesitamos tres datos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_60v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Cuántas personas, en qué comuna y si hay luz en el terreno.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_60.mp4"
+   "foto": 12,
+   "fotos": [
+    206
+   ]
   },
   {
    "texto": "Con eso dimensionamos la planta.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Hablemos por WhatsApp.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_4.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento mediana en terreno",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel60k"
 }

@@ -3,16 +3,16 @@
  "gancho": "Restaurante en ruta",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_40.mp4"
-  },
-  {
-   "texto": "¿Tienes un restaurante o un servicentro en la carretera?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_40.mp4"
+   "texto": "Hola. ¿Tienes un restaurante o un servicentro en la carretera?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_40v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Los fines de semana el baño no para, y la planta tampoco.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_40.mp4"
+   "foto": 253,
+   "fotos": [
+    186
+   ]
   },
   {
    "texto": "La calculamos para tus días de más público.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos al WhatsApp y conversamos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_2.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "restaurante de carretera con estacionamiento",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel40k"
 }

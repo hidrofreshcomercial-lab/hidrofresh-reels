@@ -3,16 +3,16 @@
  "gancho": "Bacterias para tu planta",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_51.mp4"
-  },
-  {
-   "texto": "¿Tu planta partió con problemas o tuvo una falla larga?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_51.mp4"
+   "texto": "Hola. ¿Tu planta partió con problemas o tuvo una falla larga?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_51v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "A veces hay que reforzar las bacterias.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_51.mp4"
+   "foto": 205,
+   "fotos": [
+    201
+   ]
   },
   {
    "texto": "Las bacterias recuperan el proceso y bajan los olores.",
@@ -30,11 +30,11 @@
   },
   {
    "texto": "Escríbenos por WhatsApp y te cotizamos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_1.mp4",
-   "recorte": 1.0
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento en un hotel rural",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel51k"
 }

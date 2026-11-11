@@ -3,16 +3,16 @@
  "gancho": "Fibra de vidrio",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_54.mp4"
-  },
-  {
-   "texto": "¿Por qué nuestras plantas son de fibra de vidrio?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_54.mp4"
+   "texto": "Hola. ¿Por qué nuestras plantas son de fibra de vidrio?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_54v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "No se oxidan, son livianas y duran muchos años.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_54.mp4"
+   "foto": 211,
+   "fotos": [
+    254
+   ]
   },
   {
    "texto": "Las fabricamos en nuestro taller, a la medida.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Hablemos por WhatsApp.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_4.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "patio de fabricación con estanques de fibra de vidrio",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel54k"
 }

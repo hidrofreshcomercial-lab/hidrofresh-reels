@@ -3,16 +3,16 @@
  "gancho": "Todo Chile",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_61.mp4"
-  },
-  {
-   "texto": "Desde dos mil ocho tratamos aguas en todo Chile.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_61.mp4"
+   "texto": "Hola. Desde dos mil ocho tratamos aguas en todo Chile.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_61v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Del desierto de Atacama a la Patagonia.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_61.mp4"
+   "foto": 248,
+   "fotos": [
+    104
+   ]
   },
   {
    "texto": "Diseñamos, fabricamos e instalamos plantas de tratamiento.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos por WhatsApp.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_5.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento en el valle central con cerros",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel61k"
 }

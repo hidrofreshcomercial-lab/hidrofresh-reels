@@ -3,16 +3,16 @@
  "gancho": "Salmoneras",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34b.mp4"
-  },
-  {
-   "texto": "¿Tu centro de cultivo o tu planta de proceso necesita tratar sus aguas servidas?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34b.mp4"
+   "texto": "Hola. ¿Tu centro de cultivo o tu planta de proceso necesita tratar sus aguas servidas?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Lejos de todo, necesitas una planta que no falle.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_34b.mp4"
+   "foto": 212,
+   "fotos": [
+    104
+   ]
   },
   {
    "texto": "Fabricamos plantas en fibra de vidrio, que resisten el clima del sur.",
@@ -29,11 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos al WhatsApp y conversamos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_2.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel34k"
 }

@@ -3,16 +3,16 @@
  "gancho": "Parcelación",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_41.mp4"
-  },
-  {
-   "texto": "¿Vas a vender parcelas con casas compartiendo una planta?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_41.mp4"
+   "texto": "Hola. ¿Vas a vender parcelas con casas compartiendo una planta?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_41v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Una planta comunitaria bien hecha valoriza el proyecto.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_41.mp4"
+   "foto": 253,
+   "fotos": [
+    192
+   ]
   },
   {
    "texto": "Dimensionamos según el número de viviendas.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos por WhatsApp y te asesoramos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_3.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "parcelación rural con casas y caminos de tierra",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel41k"
 }

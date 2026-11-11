@@ -3,16 +3,16 @@
  "gancho": "¿Huele mal?",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_47.mp4"
-  },
-  {
-   "texto": "¿Tu planta de tratamiento tiene mal olor?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_47.mp4"
+   "texto": "Hola. ¿Tu planta de tratamiento tiene mal olor?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_47v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "El olor es una alarma: algo dejó de funcionar.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_47.mp4"
+   "foto": 205,
+   "fotos": [
+    104
+   ]
   },
   {
    "texto": "Puede ser el soplador, los difusores o las bacterias.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos por WhatsApp y te asesoramos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_3.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento al aire libre en un condominio",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel47k"
 }

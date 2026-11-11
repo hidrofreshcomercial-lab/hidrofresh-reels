@@ -3,16 +3,16 @@
  "gancho": "Pisciculturas y centros",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_35.mp4"
-  },
-  {
-   "texto": "¿Tienes una piscicultura o un centro en el sur?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_35.mp4"
+   "texto": "Hola. ¿Tienes una piscicultura o un centro en el sur?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_35v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Las aguas servidas del personal también hay que tratarlas.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_35.mp4"
+   "foto": 212,
+   "fotos": [
+    247
+   ]
   },
   {
    "texto": "Fabricamos plantas compactas en fibra de vidrio, que no se oxidan.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos por WhatsApp y te asesoramos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_3.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "piscicultura en el sur de Chile, lago y bosque",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel35k"
 }

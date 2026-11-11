@@ -3,16 +3,16 @@
  "gancho": "Norma de descarga",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_59.mp4"
-  },
-  {
-   "texto": "¿El agua que sale de tu planta cumple la norma de descarga?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_59.mp4"
+   "texto": "Hola. ¿El agua que sale de tu planta cumple la norma de descarga?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_59v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Eso se demuestra con análisis de laboratorio.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_59.mp4"
+   "foto": 107,
+   "fotos": [
+    218
+   ]
   },
   {
    "texto": "Si no cumple, ajustamos la planta.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos por WhatsApp y te asesoramos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_3.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "punto de descarga de agua tratada a un canal",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel59k"
 }

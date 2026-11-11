@@ -3,16 +3,16 @@
  "gancho": "Bombas de agua",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_56.mp4"
-  },
-  {
-   "texto": "¿Necesitas bombas para agua potable o aguas servidas?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_56.mp4"
+   "texto": "Hola. ¿Necesitas bombas para agua potable o aguas servidas?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_56v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "También vendemos e instalamos bombas.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_56.mp4"
+   "foto": 229,
+   "fotos": [
+    182
+   ]
   },
   {
    "texto": "Pozos de bombeo con dos bombas que se turnan.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos al WhatsApp y te ayudamos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_6.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "sala de bombas con cañerías",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel56k"
 }

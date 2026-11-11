@@ -3,16 +3,16 @@
  "gancho": "Regulariza tu planta",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_58.mp4"
-  },
-  {
-   "texto": "¿Tu planta funciona pero nunca se aprobó en la Seremi?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_58.mp4"
+   "texto": "Hola. ¿Tu planta funciona pero nunca se aprobó en la Seremi?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_58v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Una planta sin papeles es un riesgo en cualquier fiscalización.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_58.mp4"
+   "foto": 133,
+   "fotos": [
+    218
+   ]
   },
   {
    "texto": "Levantamos la planta existente y hacemos los planos.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos al WhatsApp y conversamos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_2.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "oficina con planos sobre la mesa",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel58k"
 }

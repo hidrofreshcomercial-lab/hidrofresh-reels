@@ -460,6 +460,8 @@ def cierre(d, t, im=None):
         sub2 = "+56 9 8494 6508  ·  toca el link del perfil"; ws2 = d.textlength(sub2, font=f_med)
         if int(w * 2.5) % 2 == 0 or w < 1.2:                 # parpadea
             d.text(((W - ws2) / 2, 1360), sub2, font=f_med, fill=(11, 110, 117, int(255 * a)))
+        sub3 = "Desde 2008 · 18 años de experiencia"; ws3 = d.textlength(sub3, font=f_med)
+        d.text(((W - ws3) / 2, 1440), sub3, font=f_med, fill=(40, 60, 110, int(255 * ease((w - 0.7) / 0.3))))
 
 
 SOMBRA = Image.new("RGBA", (W, H), (0, 0, 0, 0))

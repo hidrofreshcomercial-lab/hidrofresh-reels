@@ -3,16 +3,16 @@
  "gancho": "No la botes",
  "segmentos": [
   {
-   "texto": "Hola, soy Lorena, de Hidro Fresh.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_52.mp4"
-  },
-  {
-   "texto": "¿Tienes una planta de tratamiento abandonada?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_52.mp4"
+   "texto": "Hola. ¿Tienes una planta de tratamiento abandonada?",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_52v.mp4",
+   "voz_propia": true
   },
   {
    "texto": "Antes de comprar una nueva, evalúa recuperarla.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_52.mp4"
+   "foto": 140,
+   "fotos": [
+    123
+   ]
   },
   {
    "texto": "Limpiamos, cambiamos lo que esté malo y la ponemos en marcha.",
@@ -29,12 +29,12 @@
    ]
   },
   {
-   "texto": "Escríbenos al WhatsApp y conversamos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_2.mp4",
-   "recorte": 1.0
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)",
- "escena": "planta de tratamiento antigua con pasto alrededor",
- "vocera": "Lorena"
+ "voz": "Lorena (clips) + Kore",
+ "vocera": "Lorena",
+ "voz_kore": "reel52k"
 }
