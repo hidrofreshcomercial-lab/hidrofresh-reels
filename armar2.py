@@ -200,7 +200,7 @@ def caras(im):
     return out
 
 usadas = {s["foto"] for s in spec["segmentos"] if "foto" in s} | {x for s in spec["segmentos"] for x in s.get("fotos", [])}
-POOL = [int(f.split(".")[0]) for f in sorted(os.listdir(FOTOS)) if f.endswith(".jpg") and int(f.split(".")[0]) not in usadas and int(f.split(".")[0]) not in spec.get("excluir", [])]
+POOL = [int(f.split(".")[0]) for f in sorted(os.listdir(FOTOS)) if f.endswith(".jpg") and int(f.split(".")[0]) not in usadas and int(f.split(".")[0]) not in spec.get("excluir", []) and int(f.split(".")[0]) < 500]
 if spec.get("pool"):
     POOL = [x for x in spec["pool"] if x not in usadas] or POOL
 semilla = sum(ord(c) for c in nombre); POOL = POOL[semilla % max(1, len(POOL)):] + POOL[:semilla % max(1, len(POOL))]
