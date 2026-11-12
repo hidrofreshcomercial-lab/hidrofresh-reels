@@ -7,9 +7,15 @@ F = ImageFont.truetype("fuentes/Inter-Black.otf", 26)
 UA = {"User-Agent": "hidrofresh-reels/1.0 (github actions)"}
 creditos = {}
 for tema, q in temas.items():
-    url = "https://api.openverse.org/v1/images/?" + urllib.parse.urlencode({"q": q, "license": "cc0,pdm", "page_size": 12, "mature": "false"})
+    url = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode({"action": "query", "format": "json", "generator": "search",
+        "gsrsearch": q + " filetype:bitmap", "gsrnamespace": 6, "gsrlimit": 50, "prop": "imageinfo", "iiprop": "url|extmetadata", "iiurlwidth": 1200})
     try:
-        res = json.load(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30))["results"]
+        pags = sorted(json.load(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=40))["query"]["pages"].values(), key=lambda p: p.get("index", 99))
+        res = []
+        for p in pags:
+            ii = p["imageinfo"][0]; lic = ii.get("extmetadata", {}).get("LicenseShortName", {}).get("value", "").lower()
+            if "cc0" in lic or "public domain" in lic or lic.startswith("pd"):
+                res.append({"url": ii.get("thumburl", ii["url"]), "foreign_landing_url": ii["descriptionurl"], "license": lic})
     except Exception as e:
         print(tema, "error", e); continue
     ims = []
@@ -24,6 +30,7 @@ for tema, q in temas.items():
         except Exception as e:
             print(tema, "img", e)
     print(tema, len(ims))
+    import time; time.sleep(1)
     if ims:
         T = 260; S = Image.new("RGB", (T * 4, T * 2), "white"); d = ImageDraw.Draw(S)
         for i, im in enumerate(ims):
