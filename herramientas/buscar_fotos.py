@@ -30,7 +30,7 @@ for tema, q in temas.items():
         except Exception as e:
             print(tema, "img", e)
     print(tema, len(ims))
-    import time; time.sleep(1)
+    import time; time.sleep(4)
     if ims:
         T = 260; S = Image.new("RGB", (T * 4, T * 2), "white"); d = ImageDraw.Draw(S)
         for i, im in enumerate(ims):
