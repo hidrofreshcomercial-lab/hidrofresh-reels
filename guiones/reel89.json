@@ -1,0 +1,43 @@
+{
+ "nombre": "reel89",
+ "gancho": "¿Se alarma de noche?",
+ "segmentos": [
+  {
+   "texto": "¿Tu planta de tratamiento se alarma de noche?",
+   "foto": 185,
+   "fotos": [
+    182
+   ]
+  },
+  {
+   "texto": "Puede ser una bomba, un flotador o el nivel del estanque.",
+   "foto": 184,
+   "fotos": [
+    181
+   ]
+  },
+  {
+   "texto": "Revisamos la causa y la dejamos funcionando.",
+   "foto": 104,
+   "fotos": [
+    103
+   ]
+  },
+  {
+   "texto": "Para que duermas tranquilo.",
+   "foto": 101,
+   "fotos": [
+    100
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel89k",
+ "rev": 3
+}

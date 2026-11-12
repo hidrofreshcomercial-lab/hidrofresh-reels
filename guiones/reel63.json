@@ -1,0 +1,43 @@
+{
+ "nombre": "reel63",
+ "gancho": "Qué pasa al tirar la cadena",
+ "segmentos": [
+  {
+   "texto": "¿Sabes qué pasa con el agua cuando tiras la cadena?",
+   "foto": 186,
+   "fotos": [
+    190
+   ]
+  },
+  {
+   "texto": "Llega a la planta de tratamiento, donde las bacterias se comen la materia orgánica.",
+   "foto": 204,
+   "fotos": [
+    205
+   ]
+  },
+  {
+   "texto": "Después el agua decanta y queda clara.",
+   "foto": 231,
+   "fotos": [
+    232
+   ]
+  },
+  {
+   "texto": "Al final se desinfecta con cloro y sale limpia.",
+   "foto": 138,
+   "fotos": [
+    200
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel63k",
+ "rev": 3
+}

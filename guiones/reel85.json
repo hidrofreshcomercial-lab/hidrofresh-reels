@@ -1,0 +1,43 @@
+{
+ "nombre": "reel85",
+ "gancho": "Condominios de playa",
+ "segmentos": [
+  {
+   "texto": "¿Tu condominio de playa está listo para el verano?",
+   "foto": 37,
+   "fotos": [
+    38
+   ]
+  },
+  {
+   "texto": "En temporada la gente se multiplica, y el agua también.",
+   "foto": 204,
+   "fotos": [
+    205
+   ]
+  },
+  {
+   "texto": "Una revisión preventiva evita rebalses en pleno enero.",
+   "foto": 104,
+   "fotos": [
+    184
+   ]
+  },
+  {
+   "texto": "Agenda antes de que llegue la temporada.",
+   "foto": 100,
+   "fotos": [
+    101
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel85k",
+ "rev": 3
+}

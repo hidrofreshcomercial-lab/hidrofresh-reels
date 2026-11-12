@@ -1,0 +1,43 @@
+{
+ "nombre": "reel92",
+ "gancho": "18 años",
+ "segmentos": [
+  {
+   "texto": "Dieciocho años tratando agua en Chile.",
+   "foto": 246,
+   "fotos": [
+    248
+   ]
+  },
+  {
+   "texto": "Diseñamos, fabricamos e instalamos plantas de tratamiento.",
+   "foto": 12,
+   "fotos": [
+    25
+   ]
+  },
+  {
+   "texto": "Y las mantenemos funcionando año tras año.",
+   "foto": 104,
+   "fotos": [
+    105
+   ]
+  },
+  {
+   "texto": "Desde 2008, Hidro Fresh.",
+   "foto": 101,
+   "fotos": [
+    100
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel92k",
+ "rev": 3
+}

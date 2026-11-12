@@ -1,0 +1,43 @@
+{
+ "nombre": "reel71",
+ "gancho": "3 señales",
+ "segmentos": [
+  {
+   "texto": "Tres señales de que tu planta va a fallar.",
+   "foto": 109,
+   "fotos": [
+    110
+   ]
+  },
+  {
+   "texto": "Uno: espuma o agua turbia.",
+   "foto": 108,
+   "fotos": [
+    106
+   ]
+  },
+  {
+   "texto": "Dos: una alarma que se repite. Tres: un ruido nuevo en la bomba.",
+   "foto": 184,
+   "fotos": [
+    185
+   ]
+  },
+  {
+   "texto": "Si ves una, llámanos antes de que sea tarde.",
+   "foto": 103,
+   "fotos": [
+    104
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel71k",
+ "rev": 3
+}

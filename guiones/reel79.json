@@ -1,0 +1,43 @@
+{
+ "nombre": "reel79",
+ "gancho": "¿Cuánto cuesta?",
+ "segmentos": [
+  {
+   "texto": "¿Cuánto cuesta una planta de tratamiento?",
+   "foto": 12,
+   "fotos": [
+    25
+   ]
+  },
+  {
+   "texto": "Depende de cuántas personas, el caudal y el uso del agua.",
+   "foto": 11,
+   "fotos": [
+    133
+   ]
+  },
+  {
+   "texto": "Diseñamos a la medida, sin pagar de más.",
+   "foto": 246,
+   "fotos": [
+    247
+   ]
+  },
+  {
+   "texto": "Escríbenos y te cotizamos sin costo.",
+   "foto": 253,
+   "fotos": [
+    254
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel79k",
+ "rev": 3
+}

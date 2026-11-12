@@ -1,0 +1,43 @@
+{
+ "nombre": "reel84",
+ "gancho": "¿Qué son los lodos?",
+ "segmentos": [
+  {
+   "texto": "¿Qué son esos lodos de tu planta de tratamiento?",
+   "foto": 110,
+   "fotos": [
+    106
+   ]
+  },
+  {
+   "texto": "Son bacterias que ya hicieron su trabajo.",
+   "foto": 109,
+   "fotos": [
+    203
+   ]
+  },
+  {
+   "texto": "Si se acumulan, la planta pierde capacidad.",
+   "foto": 108,
+   "fotos": [
+    107
+   ]
+  },
+  {
+   "texto": "Te decimos cada cuánto retirarlos.",
+   "foto": 105,
+   "fotos": [
+    104
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel84k",
+ "rev": 3
+}

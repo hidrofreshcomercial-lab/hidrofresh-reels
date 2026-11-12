@@ -1,0 +1,43 @@
+{
+ "nombre": "reel81",
+ "gancho": "De turbia a clara",
+ "segmentos": [
+  {
+   "texto": "Agua turbia el lunes. Agua clara el viernes.",
+   "foto": 108,
+   "fotos": [
+    110
+   ]
+  },
+  {
+   "texto": "Retiramos lodos y ajustamos el aire.",
+   "foto": 106,
+   "fotos": [
+    2
+   ]
+  },
+  {
+   "texto": "Sumamos bacterias para recuperar el proceso.",
+   "foto": 176,
+   "fotos": [
+    203
+   ]
+  },
+  {
+   "texto": "Y el agua vuelve a salir clara.",
+   "foto": 231,
+   "fotos": [
+    232
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel81k",
+ "rev": 3
+}

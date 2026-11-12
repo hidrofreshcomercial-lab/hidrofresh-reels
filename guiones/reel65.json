@@ -1,0 +1,43 @@
+{
+ "nombre": "reel65",
+ "gancho": "Nunca hagas esto",
+ "segmentos": [
+  {
+   "texto": "Nunca tires toallitas húmedas al baño.",
+   "foto": 190,
+   "fotos": [
+    189
+   ]
+  },
+  {
+   "texto": "No se deshacen como el papel.",
+   "foto": 191,
+   "fotos": [
+    188
+   ]
+  },
+  {
+   "texto": "Tapan las rejas y queman las bombas de tu planta.",
+   "foto": 22,
+   "fotos": [
+    23
+   ]
+  },
+  {
+   "texto": "Una reparación así sale muy cara.",
+   "foto": 180,
+   "fotos": [
+    182
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel65k",
+ "rev": 3
+}

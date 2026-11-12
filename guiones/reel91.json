@@ -1,0 +1,43 @@
+{
+ "nombre": "reel91",
+ "gancho": "Esto mata tus bacterias",
+ "segmentos": [
+  {
+   "texto": "Esto mata las bacterias de tu planta de tratamiento.",
+   "foto": 110,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "Cloro en exceso, soda cáustica y restos de pintura.",
+   "foto": 190,
+   "fotos": [
+    191
+   ]
+  },
+  {
+   "texto": "Sin bacterias, el agua no se limpia y aparece el olor.",
+   "foto": 108,
+   "fotos": [
+    106
+   ]
+  },
+  {
+   "texto": "Si ya pasó, te ayudamos a recuperarla.",
+   "foto": 176,
+   "fotos": [
+    203
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel91k",
+ "rev": 3
+}

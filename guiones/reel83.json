@@ -1,0 +1,36 @@
+{
+ "nombre": "reel83",
+ "gancho": "Año nuevo, agua limpia",
+ "segmentos": [
+  {
+   "texto": "Empieza el año con agua limpia.",
+   "foto": 231,
+   "fotos": [
+    232
+   ]
+  },
+  {
+   "texto": "Desde 2008 diseñamos, instalamos y mantenemos plantas de tratamiento.",
+   "foto": 246,
+   "fotos": [
+    249
+   ]
+  },
+  {
+   "texto": "Gracias por confiar en Hidro Fresh.",
+   "foto": 101,
+   "fotos": [
+    100
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel83k",
+ "rev": 3
+}

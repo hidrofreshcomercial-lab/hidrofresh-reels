@@ -1,0 +1,43 @@
+{
+ "nombre": "reel67",
+ "gancho": "Ojo con la multa",
+ "segmentos": [
+  {
+   "texto": "Una planta mal mantenida te puede costar una multa.",
+   "foto": 108,
+   "fotos": [
+    110
+   ]
+  },
+  {
+   "texto": "La autoridad sanitaria fiscaliza el agua que sale de tu planta.",
+   "foto": 133,
+   "fotos": [
+    178
+   ]
+  },
+  {
+   "texto": "Si no cumple la norma, puede abrir un sumario.",
+   "foto": 109,
+   "fotos": [
+    106
+   ]
+  },
+  {
+   "texto": "Con mantención y análisis al día, estás tranquilo.",
+   "foto": 101,
+   "fotos": [
+    100
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel67k",
+ "rev": 3
+}

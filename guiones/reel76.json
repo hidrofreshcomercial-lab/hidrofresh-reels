@@ -1,0 +1,36 @@
+{
+ "nombre": "reel76",
+ "gancho": "Sigue trabajando",
+ "segmentos": [
+  {
+   "texto": "Mientras celebras, la planta sigue trabajando.",
+   "foto": 204,
+   "fotos": [
+    205
+   ]
+  },
+  {
+   "texto": "Las veinticuatro horas, todos los días del año.",
+   "foto": 184,
+   "fotos": [
+    182
+   ]
+  },
+  {
+   "texto": "Desde Hidro Fresh, te deseamos una feliz Navidad.",
+   "foto": 101,
+   "fotos": [
+    100
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel76k",
+ "rev": 3
+}

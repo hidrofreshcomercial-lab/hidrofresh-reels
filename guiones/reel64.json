@@ -1,0 +1,43 @@
+{
+ "nombre": "reel64",
+ "gancho": "Administradores",
+ "segmentos": [
+  {
+   "texto": "¿Administras un condominio con planta de tratamiento propia?",
+   "foto": 100,
+   "fotos": [
+    101
+   ]
+  },
+  {
+   "texto": "La asamblea siempre pregunta tres cosas: el olor, el costo y la fiscalización.",
+   "foto": 103,
+   "fotos": [
+    104
+   ]
+  },
+  {
+   "texto": "Con mantención al día, las tres quedan resueltas.",
+   "foto": 105,
+   "fotos": [
+    107
+   ]
+  },
+  {
+   "texto": "Hacemos la mantención y te dejamos el informe listo.",
+   "foto": 133,
+   "fotos": [
+    134
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel64k",
+ "rev": 3
+}

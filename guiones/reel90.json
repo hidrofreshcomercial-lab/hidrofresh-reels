@@ -1,0 +1,43 @@
+{
+ "nombre": "reel90",
+ "gancho": "Municipios",
+ "segmentos": [
+  {
+   "texto": "¿Tu municipio necesita una planta para una posta o una escuela?",
+   "foto": 36,
+   "fotos": [
+    38
+   ]
+  },
+  {
+   "texto": "Hacemos el proyecto completo, del diseño a la puesta en marcha.",
+   "foto": 11,
+   "fotos": [
+    12
+   ]
+  },
+  {
+   "texto": "Instalamos y dejamos todo funcionando.",
+   "foto": 246,
+   "fotos": [
+    247
+   ]
+  },
+  {
+   "texto": "Con la documentación lista para la autoridad sanitaria.",
+   "foto": 133,
+   "fotos": [
+    178
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel90k",
+ "rev": 3
+}

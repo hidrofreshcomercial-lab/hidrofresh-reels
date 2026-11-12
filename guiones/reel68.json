@@ -1,0 +1,43 @@
+{
+ "nombre": "reel68",
+ "gancho": "Mito: el cloro",
+ "segmentos": [
+  {
+   "texto": "El cloro NO limpia tu planta de tratamiento.",
+   "foto": 138,
+   "fotos": [
+    200
+   ]
+  },
+  {
+   "texto": "Quienes limpian el agua son las bacterias.",
+   "foto": 203,
+   "fotos": [
+    204
+   ]
+  },
+  {
+   "texto": "El cloro va al final, solo para desinfectar.",
+   "foto": 179,
+   "fotos": [
+    138
+   ]
+  },
+  {
+   "texto": "Por eso la planta primero, y el cloro después.",
+   "foto": 36,
+   "fotos": [
+    37
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel68k",
+ "rev": 3
+}

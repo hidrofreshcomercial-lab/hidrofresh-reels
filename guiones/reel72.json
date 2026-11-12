@@ -1,0 +1,43 @@
+{
+ "nombre": "reel72",
+ "gancho": "Colegios rurales",
+ "segmentos": [
+  {
+   "texto": "¿Tu colegio rural tiene planta de tratamiento?",
+   "foto": 36,
+   "fotos": [
+    38
+   ]
+  },
+  {
+   "texto": "Las vacaciones son el mejor momento para la mantención.",
+   "foto": 37,
+   "fotos": [
+    33
+   ]
+  },
+  {
+   "texto": "Sin alumnos, trabajamos sin interrumpir clases.",
+   "foto": 105,
+   "fotos": [
+    107
+   ]
+  },
+  {
+   "texto": "Y en marzo la planta parte funcionando bien.",
+   "foto": 101,
+   "fotos": [
+    102
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel72k",
+ "rev": 3
+}

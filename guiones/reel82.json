@@ -1,0 +1,36 @@
+{
+ "nombre": "reel82",
+ "gancho": "Antes de Año Nuevo",
+ "segmentos": [
+  {
+   "texto": "Tres cosas para revisar antes de Año Nuevo.",
+   "foto": 184,
+   "fotos": [
+    180
+   ]
+  },
+  {
+   "texto": "Las bombas, la alarma y el tablero.",
+   "foto": 181,
+   "fotos": [
+    183
+   ]
+  },
+  {
+   "texto": "Si algo falla, llámanos hoy.",
+   "foto": 104,
+   "fotos": [
+    103
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel82k",
+ "rev": 3
+}

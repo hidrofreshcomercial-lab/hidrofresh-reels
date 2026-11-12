@@ -1,0 +1,36 @@
+{
+ "nombre": "reel75",
+ "gancho": "Esta Navidad",
+ "segmentos": [
+  {
+   "texto": "Esta Navidad, esto no va al baño.",
+   "foto": 190,
+   "fotos": [
+    189
+   ]
+  },
+  {
+   "texto": "Toallitas, aceite y restos de comida.",
+   "foto": 191,
+   "fotos": [
+    22
+   ]
+  },
+  {
+   "texto": "Tu planta te lo va a agradecer.",
+   "foto": 36,
+   "fotos": [
+    37
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel75k",
+ "rev": 3
+}

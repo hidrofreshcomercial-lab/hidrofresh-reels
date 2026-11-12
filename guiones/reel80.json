@@ -1,0 +1,43 @@
+{
+ "nombre": "reel80",
+ "gancho": "¿Espuma blanca?",
+ "segmentos": [
+  {
+   "texto": "¿Espuma blanca en tu planta de tratamiento?",
+   "foto": 205,
+   "fotos": [
+    204
+   ]
+  },
+  {
+   "texto": "Puede ser exceso de detergente o una planta recién partida.",
+   "foto": 203,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "Se corrige ajustando el aire y las bacterias.",
+   "foto": 2,
+   "fotos": [
+    176
+   ]
+  },
+  {
+   "texto": "Te decimos qué es con una visita.",
+   "foto": 104,
+   "fotos": [
+    105
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel80k",
+ "rev": 3
+}

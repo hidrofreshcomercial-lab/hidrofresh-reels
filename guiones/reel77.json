@@ -1,0 +1,43 @@
+{
+ "nombre": "reel77",
+ "gancho": "Fosa ≠ planta",
+ "segmentos": [
+  {
+   "texto": "Una fosa séptica no es lo mismo que una planta de tratamiento.",
+   "foto": 22,
+   "fotos": [
+    29
+   ]
+  },
+  {
+   "texto": "La fosa solo acumula, y hay que vaciarla.",
+   "foto": 26,
+   "fotos": [
+    27
+   ]
+  },
+  {
+   "texto": "La planta trata el agua y la deja lista para reutilizar.",
+   "foto": 231,
+   "fotos": [
+    232
+   ]
+  },
+  {
+   "texto": "Te ayudamos a pasar de fosa a planta.",
+   "foto": 244,
+   "fotos": [
+    245
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel77k",
+ "rev": 3
+}

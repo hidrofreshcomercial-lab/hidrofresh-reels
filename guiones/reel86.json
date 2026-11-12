@@ -1,0 +1,43 @@
+{
+ "nombre": "reel86",
+ "gancho": "Salmoneras",
+ "segmentos": [
+  {
+   "texto": "¿Tu centro de cultivo tiene planta de tratamiento?",
+   "foto": 154,
+   "fotos": [
+    155
+   ]
+  },
+  {
+   "texto": "Lejos de todo, necesitas equipos que no fallen.",
+   "foto": 211,
+   "fotos": [
+    212
+   ]
+  },
+  {
+   "texto": "Fabricamos plantas compactas en fibra de vidrio.",
+   "foto": 210,
+   "fotos": [
+    215
+   ]
+  },
+  {
+   "texto": "Y hacemos la mantención donde estés.",
+   "foto": 104,
+   "fotos": [
+    105
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel86k",
+ "rev": 3
+}

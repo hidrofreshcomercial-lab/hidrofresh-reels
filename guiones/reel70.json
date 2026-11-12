@@ -1,0 +1,43 @@
+{
+ "nombre": "reel70",
+ "gancho": "¿Por qué necesita aire?",
+ "segmentos": [
+  {
+   "texto": "¿Por qué una planta de tratamiento necesita aire?",
+   "foto": 205,
+   "fotos": [
+    204
+   ]
+  },
+  {
+   "texto": "Porque las bacterias que limpian el agua respiran.",
+   "foto": 203,
+   "fotos": [
+    229
+   ]
+  },
+  {
+   "texto": "Si el soplador se para, mueren, y aparece el mal olor.",
+   "foto": 2,
+   "fotos": [
+    218
+   ]
+  },
+  {
+   "texto": "Revisamos y reparamos sopladores.",
+   "foto": 104,
+   "fotos": [
+    105
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel70k",
+ "rev": 3
+}

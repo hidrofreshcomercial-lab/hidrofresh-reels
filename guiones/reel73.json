@@ -1,0 +1,43 @@
+{
+ "nombre": "reel73",
+ "gancho": "No al lavaplatos",
+ "segmentos": [
+  {
+   "texto": "No botes el aceite de cocina por el lavaplatos.",
+   "foto": 190,
+   "fotos": [
+    191
+   ]
+  },
+  {
+   "texto": "Se endurece y forma tapones en las cañerías.",
+   "foto": 22,
+   "fotos": [
+    29
+   ]
+  },
+  {
+   "texto": "Y en la planta mata a las bacterias que limpian el agua.",
+   "foto": 110,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "Guárdalo en una botella y llévalo a un punto limpio.",
+   "foto": 26,
+   "fotos": [
+    23
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel73k",
+ "rev": 3
+}

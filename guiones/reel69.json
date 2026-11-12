@@ -1,0 +1,43 @@
+{
+ "nombre": "reel69",
+ "gancho": "Estaba abandonada",
+ "segmentos": [
+  {
+   "texto": "Esta planta estaba abandonada.",
+   "foto": 110,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "Lodo acumulado, bombas detenidas y mal olor.",
+   "foto": 106,
+   "fotos": [
+    184
+   ]
+  },
+  {
+   "texto": "La limpiamos, cambiamos equipos y la pusimos en marcha.",
+   "foto": 107,
+   "fotos": [
+    182
+   ]
+  },
+  {
+   "texto": "Hoy el agua sale clara otra vez.",
+   "foto": 231,
+   "fotos": [
+    232
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel69k",
+ "rev": 3
+}

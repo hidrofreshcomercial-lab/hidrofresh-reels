@@ -1,0 +1,43 @@
+{
+ "nombre": "reel78",
+ "gancho": "Agrícolas",
+ "segmentos": [
+  {
+   "texto": "¿Tu agrícola tiene casino o packing con trabajadores?",
+   "foto": 36,
+   "fotos": [
+    37
+   ]
+  },
+  {
+   "texto": "En temporada alta se multiplica el agua que tratar.",
+   "foto": 203,
+   "fotos": [
+    204
+   ]
+  },
+  {
+   "texto": "Diseñamos la planta para el peak de la temporada.",
+   "foto": 12,
+   "fotos": [
+    25
+   ]
+  },
+  {
+   "texto": "Y la instalamos antes de que parta la cosecha.",
+   "foto": 246,
+   "fotos": [
+    248
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel78k",
+ "rev": 3
+}

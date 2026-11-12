@@ -1,0 +1,43 @@
+{
+ "nombre": "reel87",
+ "gancho": "Más cloro no es mejor",
+ "segmentos": [
+  {
+   "texto": "Más cloro no es más limpio.",
+   "foto": 138,
+   "fotos": [
+    179
+   ]
+  },
+  {
+   "texto": "El exceso de cloro no arregla una planta mal operada.",
+   "foto": 110,
+   "fotos": [
+    108
+   ]
+  },
+  {
+   "texto": "Primero hay que dejar la planta funcionando bien.",
+   "foto": 203,
+   "fotos": [
+    204
+   ]
+  },
+  {
+   "texto": "Y después, la dosis justa de cloro.",
+   "foto": 200,
+   "fotos": [
+    138
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel87k",
+ "rev": 3
+}

@@ -1,0 +1,43 @@
+{
+ "nombre": "reel66",
+ "gancho": "¿Huele mal?",
+ "segmentos": [
+  {
+   "texto": "¿Tu planta de tratamiento huele mal? Son tres causas.",
+   "foto": 110,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "Uno: le falta aire a las bacterias.",
+   "foto": 2,
+   "fotos": [
+    203
+   ]
+  },
+  {
+   "texto": "Dos: tiene lodo acumulado. Tres: una bomba detenida.",
+   "foto": 106,
+   "fotos": [
+    181
+   ]
+  },
+  {
+   "texto": "Las tres se arreglan con una buena mantención.",
+   "foto": 104,
+   "fotos": [
+    105
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel66k",
+ "rev": 3
+}

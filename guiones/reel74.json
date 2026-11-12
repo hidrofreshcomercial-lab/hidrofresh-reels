@@ -1,0 +1,43 @@
+{
+ "nombre": "reel74",
+ "gancho": "Llegan visitas",
+ "segmentos": [
+  {
+   "texto": "Llegan visitas en las fiestas y tu planta no da abasto.",
+   "foto": 100,
+   "fotos": [
+    102
+   ]
+  },
+  {
+   "texto": "Más gente significa más agua para tratar.",
+   "foto": 203,
+   "fotos": [
+    205
+   ]
+  },
+  {
+   "texto": "Una revisión antes del peak evita rebalses y olores.",
+   "foto": 104,
+   "fotos": [
+    180
+   ]
+  },
+  {
+   "texto": "Agenda tu revisión esta semana.",
+   "foto": 101,
+   "fotos": [
+    103
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel74k",
+ "rev": 3
+}
