@@ -1,0 +1,43 @@
+{
+ "nombre": "reel95",
+ "gancho": "Agua tratada para riego",
+ "segmentos": [
+  {
+   "texto": "Con la sequía, el agua tratada vale oro.",
+   "foto": 37,
+   "fotos": [
+    36
+   ]
+  },
+  {
+   "texto": "Bien tratada y desinfectada, se puede usar para regar.",
+   "foto": 138,
+   "fotos": [
+    200
+   ]
+  },
+  {
+   "texto": "Pero tiene que cumplir la norma chilena de calidad para riego.",
+   "foto": 197,
+   "fotos": [
+    133
+   ]
+  },
+  {
+   "texto": "Y nunca se conecta a la red de agua potable.",
+   "foto": 19,
+   "fotos": [
+    23
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel95k",
+ "rev": 1
+}

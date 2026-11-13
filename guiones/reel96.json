@@ -1,0 +1,43 @@
+{
+ "nombre": "reel96",
+ "gancho": "¿Qué preguntar antes de contratar?",
+ "segmentos": [
+  {
+   "texto": "¿Vas a contratar una planta de tratamiento? Pregunta esto primero.",
+   "foto": 12,
+   "fotos": [
+    25
+   ]
+  },
+  {
+   "texto": "¿Quién la diseña y quién hace los trámites ante la Seremi?",
+   "foto": 11,
+   "fotos": [
+    12
+   ]
+  },
+  {
+   "texto": "¿Hacen mantención y tienen repuestos?",
+   "foto": 104,
+   "fotos": [
+    105
+   ]
+  },
+  {
+   "texto": "¿Y tienen plantas funcionando hace años?",
+   "foto": 246,
+   "fotos": [
+    248
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel96k",
+ "rev": 1
+}

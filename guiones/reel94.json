@@ -1,0 +1,43 @@
+{
+ "nombre": "reel94",
+ "gancho": "Columna de bombeo",
+ "segmentos": [
+  {
+   "texto": "Si la columna de tu pozo se corta, la bomba se va al fondo.",
+   "foto": 228,
+   "fotos": [
+    229
+   ]
+  },
+  {
+   "texto": "Por eso siempre debe llevar cable de seguridad.",
+   "foto": 231,
+   "fotos": [
+    232
+   ]
+  },
+  {
+   "texto": "El material de la columna depende de la profundidad y del tipo de agua.",
+   "foto": 18,
+   "fotos": [
+    28
+   ]
+  },
+  {
+   "texto": "Y la profundidad de la bomba la define la prueba de bombeo, no el ojo.",
+   "foto": 22,
+   "fotos": [
+    23
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel94k",
+ "rev": 1
+}
