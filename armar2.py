@@ -462,6 +462,8 @@ def cierre(d, t, im=None):
             d.text(((W - ws2) / 2, 1360), sub2, font=f_med, fill=(11, 110, 117, int(255 * a)))
         sub3 = "Desde 2008 · 18 años de experiencia"; ws3 = d.textlength(sub3, font=f_med)
         d.text(((W - ws3) / 2, 1440), sub3, font=f_med, fill=(40, 60, 110, int(255 * ease((w - 0.7) / 0.3))))
+        sub4 = "o comenta COTIZAR y te hablamos"; ws4 = d.textlength(sub4, font=f_med)
+        d.text(((W - ws4) / 2, 1520), sub4, font=f_med, fill=(*VERDE, int(255 * ease((w - 0.55) / 0.3))))
 
 
 SOMBRA = Image.new("RGBA", (W, H), (0, 0, 0, 0))
