@@ -3,9 +3,11 @@
  "gancho": "Restaurante en ruta",
  "segmentos": [
   {
-   "texto": "Hola. ¿Tienes un restaurante o un servicentro en la carretera?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_40v.mp4",
-   "voz_propia": true
+   "texto": "¿Tienes un restaurante o un servicentro en la carretera?",
+   "foto": 253,
+   "fotos": [
+    209
+   ]
   },
   {
    "texto": "Los fines de semana el baño no para, y la planta tampoco.",
@@ -36,6 +38,6 @@
  ],
  "voz": "Lorena (clips) + Kore",
  "vocera": "Lorena",
- "voz_kore": "reel40k",
- "rev": 2
+ "voz_kore": "reel40k2",
+ "rev": 3
 }
