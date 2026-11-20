@@ -1,0 +1,36 @@
+name: Copiar funciones al panel de León
+# Copia las Edge Functions de Mercado Público del panel de Hidro Fresh al proyecto de León
+# (sin agentes ni nuevos negocios). Usa el secreto SUPABASE_ACCESS_TOKEN.
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/copiar-leon.yml', 'leon/**']
+concurrency: { group: copiar-leon, cancel-in-progress: false }
+jobs:
+  copiar:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      ORIGEN: mplgrbwehbzmksjzgqsd
+      DESTINO: vidtrslosuiqsppdpugl
+    steps:
+      - uses: supabase/setup-cli@v1
+        with: { version: latest }
+      - name: Copiar
+        run: |
+          set +e
+          mkdir trabajo && cd trabajo && supabase init --yes >/dev/null 2>&1 || supabase init >/dev/null 2>&1
+          # nombre:verify_jwt
+          FUNCS="avisos:0 cotizar-web:1 doc-texto:1 guardar-oferta:1 lia-anexos:1 lia-bases:1 lia-chat:1 mercadopublico-interes:1 mp-adjuntos:1 mp-ficha:1 mp-historial:0 mp-importar:0 mp-investigar:0 mp-oportunidades:0 mp-organismo:0 mp-resultados:0 mp-seguimiento:0 precio-referencia:0 terminos-busqueda:1 registro:0 mercadopublico-sync:0 mercadopublico-licitaciones-sync:0 mp-competencia:0 ia-router:0 mercadopublico-analizar:1 mercadopublico-licitaciones-presupuesto:0"
+          ok=""; mal=""
+          for par in $FUNCS; do
+            f=${par%%:*}; v=${par##*:}
+            echo "::group::$f"
+            if ! supabase functions download "$f" --project-ref "$ORIGEN" --use-api; then mal="$mal $f(descarga)"; echo "::endgroup::"; continue; fi
+            grep -rl "$ORIGEN\|hidrofresh-wa-92t4l9df" "supabase/functions/$f" | xargs -r sed -i "s/$ORIGEN/$DESTINO/g; s/hidrofresh-wa-92t4l9df/leon-mp-f955507f55/g"
+            extra=""; [ "$v" = "0" ] && extra="--no-verify-jwt"
+            if supabase functions deploy "$f" --project-ref "$DESTINO" --use-api $extra; then ok="$ok $f"; else mal="$mal $f(deploy)"; fi
+            echo "::endgroup::"
+          done
+          echo "COPIADAS:$ok"; echo "FALLARON:$mal"
+          echo "### Copiadas: $ok" >> $GITHUB_STEP_SUMMARY; echo "### Fallaron: $mal" >> $GITHUB_STEP_SUMMARY
