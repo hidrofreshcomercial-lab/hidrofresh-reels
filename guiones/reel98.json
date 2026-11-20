@@ -1,0 +1,49 @@
+{
+ "nombre": "reel98",
+ "gancho": "¿Qué hay bajo esta tapa?",
+ "segmentos": [
+  {
+   "texto": "Una tapa de cemento en el patio y un charco que no se seca.",
+   "foto": 549,
+   "fotos": []
+  },
+  {
+   "texto": "Abajo hay una planta de tratamiento sin mantención.",
+   "foto": 552,
+   "fotos": [
+    551
+   ]
+  },
+  {
+   "texto": "Los lodos se acumularon por años.",
+   "foto": 551,
+   "fotos": [
+    550
+   ]
+  },
+  {
+   "texto": "Y el agua sucia empezó a salir por arriba.",
+   "foto": 548,
+   "fotos": [
+    549
+   ]
+  },
+  {
+   "texto": "Una limpieza a tiempo cuesta mucho menos que una planta nueva.",
+   "foto": 556,
+   "fotos": [
+    555
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel98k",
+ "rev": 3,
+ "molde": "descubrimiento en el patio (13 M)"
+}

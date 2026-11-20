@@ -1,0 +1,51 @@
+{
+ "nombre": "reel97",
+ "gancho": "Esto salió de una planta",
+ "segmentos": [
+  {
+   "texto": "Esto salió de una sola planta de tratamiento.",
+   "foto": 543,
+   "fotos": [
+    544
+   ]
+  },
+  {
+   "texto": "Toallitas húmedas. Dicen desechables, pero no se deshacen.",
+   "foto": 500,
+   "fotos": [
+    501
+   ]
+  },
+  {
+   "texto": "Se enredan en la bomba y la queman.",
+   "foto": 544,
+   "fotos": [
+    542
+   ]
+  },
+  {
+   "texto": "Y la planta completa se detiene.",
+   "foto": 541,
+   "fotos": [
+    551
+   ]
+  },
+  {
+   "texto": "Al inodoro, solo papel higiénico.",
+   "foto": 503,
+   "fotos": [
+    504
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel97k",
+ "rev": 3,
+ "molde": "prueba visual (toallitas, 2,9 M)"
+}

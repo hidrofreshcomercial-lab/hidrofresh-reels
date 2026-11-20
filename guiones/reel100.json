@@ -1,0 +1,51 @@
+{
+ "nombre": "reel100",
+ "gancho": "No hagas este truco",
+ "segmentos": [
+  {
+   "texto": "En redes recomiendan echar soda cáustica para destapar el desagüe.",
+   "foto": 512,
+   "fotos": [
+    513
+   ]
+  },
+  {
+   "texto": "Si tu casa tiene planta de tratamiento, no lo hagas.",
+   "foto": 555,
+   "fotos": [
+    556
+   ]
+  },
+  {
+   "texto": "La soda mata las bacterias que limpian el agua.",
+   "foto": 546,
+   "fotos": [
+    545
+   ]
+  },
+  {
+   "texto": "Y la planta puede quedar fuera de servicio por semanas.",
+   "foto": 551,
+   "fotos": [
+    541
+   ]
+  },
+  {
+   "texto": "Para destapar, usa un desatascador o llama a un técnico.",
+   "foto": 553,
+   "fotos": [
+    549
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel100k",
+ "rev": 3,
+ "molde": "truco viral peligroso (30 M)"
+}

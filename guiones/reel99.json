@@ -1,0 +1,51 @@
+{
+ "nombre": "reel99",
+ "gancho": "Nadie te lo advierte",
+ "segmentos": [
+  {
+   "texto": "Nadie te advierte esto cuando instalas una planta de tratamiento.",
+   "foto": 556,
+   "fotos": [
+    555
+   ]
+  },
+  {
+   "texto": "El aceite de la cocina no se va con el agua.",
+   "foto": 505,
+   "fotos": [
+    506
+   ]
+  },
+  {
+   "texto": "Se enfría, se pone duro y forma una costra.",
+   "foto": 550,
+   "fotos": [
+    552
+   ]
+  },
+  {
+   "texto": "Esa costra tapa cañerías y ahoga a las bacterias.",
+   "foto": 549,
+   "fotos": [
+    551
+   ]
+  },
+  {
+   "texto": "Junta el aceite en una botella y bótalo a la basura.",
+   "foto": 507,
+   "fotos": [
+    508
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel99k",
+ "rev": 3,
+ "molde": "advertencia de costo oculto (2,7 M)"
+}
