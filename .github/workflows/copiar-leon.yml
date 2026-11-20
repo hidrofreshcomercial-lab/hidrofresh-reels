@@ -1,4 +1,4 @@
-name: Copiar funciones al panel de León
+name: Copiar funciones al panel de León (v2)
 # Copia las Edge Functions de Mercado Público del panel de Hidro Fresh al proyecto de León
 # (sin agentes ni nuevos negocios). Usa el secreto SUPABASE_ACCESS_TOKEN.
 on:
