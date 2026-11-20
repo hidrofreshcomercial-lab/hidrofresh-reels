@@ -1,17 +1,13 @@
 {
  "nombre": "reel26",
- "gancho": "Planta abandonada",
+ "gancho": "Así se ve una planta abandonada",
  "segmentos": [
   {
-   "texto": "¿Tienes una planta de tratamiento abandonada o que nadie mantiene?",
-   "foto": 132,
+   "texto": "Así se ve una planta que nadie mantuvo en años.",
+   "foto": 552,
    "fotos": [
-    140
+    132
    ]
-  },
-  {
-   "texto": "Muchas veces se puede recuperar sin comprar una nueva.",
-   "foto": 123
   },
   {
    "texto": "Vaciamos, limpiamos y revisamos cada cámara.",
@@ -21,20 +17,31 @@
    ]
   },
   {
-   "texto": "Cambiamos lo que esté malo: soplador, bombas, tablero o difusores.",
+   "texto": "Cambiamos soplador, bombas o tablero.",
    "foto": 157,
    "fotos": [
     221
    ]
   },
   {
-   "texto": "Y la volvemos a poner en marcha con bacterias.",
-   "foto": 204
+   "texto": "Y la pusimos en marcha con bacterias.",
+   "foto": 204,
+   "fotos": []
   },
   {
-   "texto": "Sale mucho más barato. Escríbenos al WhatsApp.",
-   "foto": 175
+   "texto": "Recuperarla sale mucho más barato que una nueva.",
+   "foto": 175,
+   "fotos": []
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "antesdespues",
+ "vocera": "Lorena",
+ "voz_kore": "reel26v",
+ "rev": 2
 }

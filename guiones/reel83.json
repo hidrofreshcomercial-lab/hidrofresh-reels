@@ -1,6 +1,6 @@
 {
  "nombre": "reel83",
- "gancho": "Año nuevo, agua limpia",
+ "gancho": "Empieza el año con agua limpia",
  "segmentos": [
   {
    "texto": "Empieza el año con agua limpia.",
@@ -32,5 +32,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel83k",
- "rev": 3
+ "rev": 4
 }

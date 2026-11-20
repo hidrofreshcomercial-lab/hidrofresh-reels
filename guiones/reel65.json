@@ -1,6 +1,6 @@
 {
  "nombre": "reel65",
- "gancho": "Nunca hagas esto",
+ "gancho": "Esto le hace una toallita a tu bomba",
  "segmentos": [
   {
    "texto": "Nunca tires toallitas húmedas al baño.",
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel65k",
- "rev": 3
+ "rev": 4
 }

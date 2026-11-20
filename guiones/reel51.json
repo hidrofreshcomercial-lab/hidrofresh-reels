@@ -1,25 +1,30 @@
 {
  "nombre": "reel51",
- "gancho": "Bacterias para tu planta",
+ "gancho": "Tu planta se quedó sin bacterias",
  "segmentos": [
   {
-   "texto": "Hola. ¿Tu planta partió con problemas o tuvo una falla larga?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_51v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "A veces hay que reforzar las bacterias.",
+   "texto": "Cuando una planta pierde sus bacterias, deja de limpiar.",
    "foto": 205,
    "fotos": [
     201
    ]
   },
   {
-   "texto": "Las bacterias recuperan el proceso y bajan los olores.",
-   "foto": 204,
+   "texto": "Pasa después de una falla larga o de mucho cloro.",
+   "foto": 201,
+   "fotos": []
+  },
+  {
+   "texto": "Se recupera con bacterias nuevas.",
+   "foto": 560,
    "fotos": [
-    205
+    204
    ]
+  },
+  {
+   "texto": "En pocos días baja el olor y el agua mejora.",
+   "foto": 204,
+   "fotos": []
   },
   {
    "texto": "Te asesoramos con la dosis y te las enviamos.",
@@ -34,8 +39,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel51k",
- "rev": 2
+ "voz_kore": "reel51v",
+ "rev": 3,
+ "molde": "antesdespues"
 }

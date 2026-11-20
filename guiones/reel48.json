@@ -1,18 +1,23 @@
 {
  "nombre": "reel48",
- "gancho": "Mantención al día",
+ "gancho": "¿Cuándo fue la última mantención?",
  "segmentos": [
   {
-   "texto": "Hola. ¿Cada cuánto le haces mantención a tu planta?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_48v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Si la respuesta es nunca, está trabajando a medias.",
+   "texto": "¿Cuándo fue la última mantención de tu planta?",
    "foto": 180,
    "fotos": [
     124
    ]
+  },
+  {
+   "texto": "Si no te acuerdas, está trabajando a medias.",
+   "foto": 180,
+   "fotos": []
+  },
+  {
+   "texto": "Y una planta a medias falla cuando más la necesitas.",
+   "foto": 110,
+   "fotos": []
   },
   {
    "texto": "Revisamos lodos, soplador, bombas, tablero y cloro.",
@@ -22,7 +27,7 @@
    ]
   },
   {
-   "texto": "Y te dejamos un informe para tu carpeta de la Seremi.",
+   "texto": "Y te dejamos el informe para la Seremi.",
    "foto": 124,
    "fotos": [
     218
@@ -34,8 +39,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel48k",
- "rev": 2
+ "voz_kore": "reel48v",
+ "rev": 3,
+ "molde": "pregunta"
 }

@@ -1,37 +1,45 @@
 {
  "nombre": "reel22",
- "gancho": "¿Bombas de elevación?",
+ "gancho": "¿Por qué siempre van dos?",
  "segmentos": [
   {
-   "texto": "Cuando el agua no puede bajar sola, se necesita un pozo de bombeo.",
-   "foto": 187
+   "texto": "¿Por qué un pozo de bombeo lleva siempre dos bombas?",
+   "foto": 187,
+   "fotos": []
   },
   {
-   "texto": "Lleva dos bombas que se van turnando.",
+   "texto": "Porque se van turnando.",
    "foto": 228,
    "fotos": [
     229
    ]
   },
   {
-   "texto": "Si una falla, la otra sigue funcionando.",
-   "foto": 236
+   "texto": "Y si una falla, la otra sigue sola.",
+   "foto": 236,
+   "fotos": []
   },
   {
-   "texto": "Y el tablero da la alarma de inmediato.",
+   "texto": "Mientras, el tablero da la alarma.",
    "foto": 182,
    "fotos": [
     185
    ]
   },
   {
-   "texto": "Instalamos, reparamos y cambiamos bombas de aguas servidas y de agua potable.",
-   "foto": 136
+   "texto": "Instalamos y reparamos bombas de aguas servidas y agua potable.",
+   "foto": 136,
+   "fotos": []
   },
   {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 180
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "curiosidad",
+ "vocera": "Lorena",
+ "voz_kore": "reel22v",
+ "rev": 2
 }

@@ -1,6 +1,6 @@
 {
  "nombre": "reel67",
- "gancho": "Ojo con la multa",
+ "gancho": "Esto puede terminar en multa",
  "segmentos": [
   {
    "texto": "Una planta mal mantenida te puede costar una multa.",
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel67k",
- "rev": 3
+ "rev": 4
 }

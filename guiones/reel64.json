@@ -1,6 +1,6 @@
 {
  "nombre": "reel64",
- "gancho": "Administradores",
+ "gancho": "La asamblea siempre pregunta esto",
  "segmentos": [
   {
    "texto": "¿Administras un condominio con planta de tratamiento propia?",
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel64k",
- "rev": 3
+ "rev": 4
 }

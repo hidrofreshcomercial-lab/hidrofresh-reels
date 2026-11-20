@@ -1,6 +1,6 @@
 {
  "nombre": "reel66",
- "gancho": "¿Huele mal?",
+ "gancho": "3 razones de tu mal olor",
  "segmentos": [
   {
    "texto": "¿Tu planta de tratamiento huele mal? Son tres causas.",
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel66k",
- "rev": 3
+ "rev": 4
 }

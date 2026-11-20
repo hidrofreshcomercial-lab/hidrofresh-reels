@@ -1,30 +1,37 @@
 {
  "nombre": "reel94",
- "gancho": "Columna de bombeo",
+ "gancho": "La bomba se fue al fondo",
  "segmentos": [
   {
-   "texto": "Si la columna de tu pozo se corta, la bomba se va al fondo.",
+   "texto": "La bomba se fue al fondo del pozo.",
    "foto": 228,
    "fotos": [
     229
    ]
   },
   {
-   "texto": "Por eso siempre debe llevar cable de seguridad.",
+   "texto": "Pasa cuando la columna se corta y no hay cable de seguridad.",
    "foto": 231,
    "fotos": [
     232
    ]
   },
   {
-   "texto": "El material de la columna depende de la profundidad y del tipo de agua.",
+   "texto": "Sacarla es caro y lento.",
    "foto": 18,
    "fotos": [
     28
    ]
   },
   {
-   "texto": "Y la profundidad de la bomba la define la prueba de bombeo, no el ojo.",
+   "texto": "Por eso el material de la columna se elige según la profundidad y el agua.",
+   "foto": 18,
+   "fotos": [
+    28
+   ]
+  },
+  {
+   "texto": "Y la profundidad de la bomba la define la prueba de bombeo.",
    "foto": 22,
    "fotos": [
     23
@@ -38,6 +45,7 @@
  ],
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel94k",
- "rev": 1
+ "voz_kore": "reel94v",
+ "rev": 2,
+ "molde": "historia"
 }

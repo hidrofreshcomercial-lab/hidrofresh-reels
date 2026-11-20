@@ -1,33 +1,33 @@
 {
  "nombre": "reel93",
- "gancho": "Sala de bombas",
+ "gancho": "Si tu bomba hace esto, ojo",
  "segmentos": [
   {
-   "texto": "¿Tu edificio se queda sin presión de agua?",
+   "texto": "Si la bomba de tu edificio prende y apaga a cada rato, ojo.",
    "foto": 20,
    "fotos": [
     35
    ]
   },
   {
-   "texto": "Si la bomba prende y apaga a cada rato, revisa el estanque hidroneumático.",
+   "texto": "El problema suele ser el estanque hidroneumático.",
    "foto": 35,
    "fotos": [
     20
    ]
   },
   {
-   "texto": "Una sala de bombas lleva siempre dos bombas: una trabaja y la otra respalda.",
-   "foto": 181,
-   "fotos": [
-    184
-   ]
-  },
-  {
-   "texto": "Y ojo: una bomba que trabaja sin agua se quema en minutos.",
+   "texto": "Y una bomba que trabaja sin agua se quema en minutos.",
    "foto": 236,
    "fotos": [
     228
+   ]
+  },
+  {
+   "texto": "Por eso siempre van dos: una trabaja y la otra respalda.",
+   "foto": 181,
+   "fotos": [
+    184
    ]
   },
   {
@@ -38,6 +38,7 @@
  ],
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel93k",
- "rev": 1
+ "voz_kore": "reel93v",
+ "rev": 2,
+ "molde": "advertencia"
 }

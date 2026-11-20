@@ -1,9 +1,9 @@
 {
  "nombre": "reel96",
- "gancho": "¿Qué preguntar antes de contratar?",
+ "gancho": "No contrates sin preguntar esto",
  "segmentos": [
   {
-   "texto": "¿Vas a contratar una planta de tratamiento? Pregunta esto primero.",
+   "texto": "No contrates una planta de tratamiento sin preguntar esto.",
    "foto": 12,
    "fotos": [
     25
@@ -38,6 +38,7 @@
  ],
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel96k",
- "rev": 1
+ "voz_kore": "reel96v",
+ "rev": 2,
+ "molde": "lista"
 }

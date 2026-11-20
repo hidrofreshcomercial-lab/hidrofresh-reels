@@ -1,32 +1,32 @@
 {
  "nombre": "reel56",
- "gancho": "Bombas de agua",
+ "gancho": "Este error quema bombas",
  "segmentos": [
   {
-   "texto": "Hola. ¿Necesitas bombas para agua potable o aguas servidas?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_56v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "También vendemos e instalamos bombas.",
+   "texto": "Este error quema bombas de agua en minutos.",
    "foto": 229,
    "fotos": [
     182
    ]
   },
   {
-   "texto": "Pozos de bombeo con dos bombas que se turnan.",
+   "texto": "Hacerlas trabajar sin agua.",
    "foto": 228,
    "fotos": [
     229
    ]
   },
   {
-   "texto": "Y tableros con alarma por si una falla.",
+   "texto": "Un buen tablero las protege y da la alarma.",
    "foto": 182,
    "fotos": [
     185
    ]
+  },
+  {
+   "texto": "Vendemos e instalamos bombas con su tablero.",
+   "foto": 229,
+   "fotos": []
   },
   {
    "texto": "Escríbenos por WhatsApp y te cotizamos.",
@@ -34,8 +34,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel56k",
- "rev": 2
+ "voz_kore": "reel56v",
+ "rev": 3,
+ "molde": "advertencia"
 }

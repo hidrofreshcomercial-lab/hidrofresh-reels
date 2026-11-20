@@ -1,40 +1,47 @@
 {
  "nombre": "reel19",
- "gancho": "¿Enterrada o a la vista?",
+ "gancho": "Hay una planta bajo este pasto",
  "segmentos": [
   {
-   "texto": "¿La planta de tratamiento va enterrada o a la vista?",
-   "foto": 143,
-   "fotos": [
-    146
-   ]
-  },
-  {
-   "texto": "Enterrada no se ve y aprovechas el terreno.",
+   "texto": "Una planta de tratamiento puede quedar bajo tu jardín.",
    "foto": 156,
    "fotos": [
     250
    ]
   },
   {
-   "texto": "En superficie es más fácil de revisar y de mantener.",
+   "texto": "Enterrada no se ve y aprovechas el terreno.",
+   "foto": 143,
+   "fotos": [
+    146
+   ]
+  },
+  {
+   "texto": "A la vista es más fácil de revisar.",
    "foto": 174,
    "fotos": [
     175
    ]
   },
   {
-   "texto": "Depende del espacio, del suelo y de tu proyecto.",
-   "foto": 145
+   "texto": "Depende del espacio y del tipo de suelo.",
+   "foto": 145,
+   "fotos": []
   },
   {
-   "texto": "Las fabricamos en fibra de vidrio para las dos opciones.",
-   "foto": 212
+   "texto": "La fabricamos en fibra de vidrio para las dos opciones.",
+   "foto": 212,
+   "fotos": []
   },
   {
-   "texto": "Te ayudamos a decidir. Escríbenos al WhatsApp.",
-   "foto": 195
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "curiosidad",
+ "vocera": "Lorena",
+ "voz_kore": "reel19v",
+ "rev": 2
 }

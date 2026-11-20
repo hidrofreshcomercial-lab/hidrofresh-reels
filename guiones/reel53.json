@@ -1,18 +1,23 @@
 {
  "nombre": "reel53",
- "gancho": "Tu proyecto creció",
+ "gancho": "Tu proyecto creció. Tu planta no.",
  "segmentos": [
   {
-   "texto": "Hola. ¿Tu proyecto creció y la planta quedó chica?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_53v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Una planta sobrecargada no alcanza a tratar el agua.",
+   "texto": "Tu proyecto creció. Tu planta no.",
    "foto": 170,
    "fotos": [
     224
    ]
+  },
+  {
+   "texto": "Más gente, más agua y la misma planta.",
+   "foto": 170,
+   "fotos": []
+  },
+  {
+   "texto": "Una planta sobrecargada no alcanza a tratar.",
+   "foto": 110,
+   "fotos": []
   },
   {
    "texto": "Medimos el caudal real que está llegando.",
@@ -22,7 +27,7 @@
    ]
   },
   {
-   "texto": "Y la ampliamos o la modernizamos según lo que necesites.",
+   "texto": "Y la ampliamos o la modernizamos.",
    "foto": 224,
    "fotos": [
     225
@@ -34,8 +39,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel53k",
- "rev": 2
+ "voz_kore": "reel53v",
+ "rev": 3,
+ "molde": "advertencia"
 }

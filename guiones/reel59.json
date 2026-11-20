@@ -1,18 +1,23 @@
 {
  "nombre": "reel59",
- "gancho": "Norma de descarga",
+ "gancho": "¿Cómo saben si tu agua cumple?",
  "segmentos": [
   {
-   "texto": "Hola. ¿El agua que sale de tu planta cumple la norma de descarga?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_59v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Eso se demuestra con análisis de laboratorio.",
+   "texto": "¿Cómo sabe la autoridad si el agua de tu planta cumple?",
    "foto": 107,
    "fotos": [
     218
    ]
+  },
+  {
+   "texto": "Con una muestra a la salida de la planta.",
+   "foto": 229,
+   "fotos": []
+  },
+  {
+   "texto": "Un laboratorio la analiza.",
+   "foto": 218,
+   "fotos": []
   },
   {
    "texto": "Si no cumple, ajustamos la planta.",
@@ -22,7 +27,7 @@
    ]
   },
   {
-   "texto": "Y te ayudamos con los informes para la autoridad.",
+   "texto": "Y te ayudamos con los informes.",
    "foto": 218,
    "fotos": [
     133
@@ -34,8 +39,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel59k",
- "rev": 2
+ "voz_kore": "reel59v",
+ "rev": 3,
+ "molde": "curiosidad"
 }

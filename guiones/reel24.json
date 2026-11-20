@@ -1,31 +1,41 @@
 {
  "nombre": "reel24",
- "gancho": "¿Bacterias? ¿Cuándo?",
+ "gancho": "3 momentos para echar bacterias",
  "segmentos": [
   {
-   "texto": "Tu planta funciona gracias a bacterias. Pero a veces hay que reforzarlas.",
-   "foto": 205
+   "texto": "Tres momentos en que tu planta necesita bacterias.",
+   "foto": 205,
+   "fotos": []
   },
   {
-   "texto": "Al poner en marcha una planta nueva.",
-   "foto": 192
+   "texto": "Uno: cuando parte una planta nueva.",
+   "foto": 192,
+   "fotos": []
   },
   {
-   "texto": "Después de una falla larga del soplador.",
-   "foto": 157
+   "texto": "Dos: después de una falla larga del soplador.",
+   "foto": 157,
+   "fotos": []
   },
   {
-   "texto": "O cuando llegan muchos químicos o cloro desde los baños y la cocina.",
-   "foto": 201
+   "texto": "Tres: cuando llega mucho cloro desde la casa.",
+   "foto": 201,
+   "fotos": []
   },
   {
-   "texto": "Las bacterias recuperan el proceso y bajan los malos olores.",
-   "foto": 204
+   "texto": "Las bacterias recuperan el proceso y bajan los olores.",
+   "foto": 204,
+   "fotos": []
   },
   {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 174
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "lista",
+ "vocera": "Lorena",
+ "voz_kore": "reel24v",
+ "rev": 2
 }

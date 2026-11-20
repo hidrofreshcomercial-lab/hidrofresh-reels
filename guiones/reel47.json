@@ -1,18 +1,23 @@
 {
  "nombre": "reel47",
- "gancho": "¿Huele mal?",
+ "gancho": "Si huele, no es normal",
  "segmentos": [
   {
-   "texto": "Hola. ¿Tu planta de tratamiento tiene mal olor?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_47v.mp4",
-   "voz_propia": true
+   "texto": "Si tu planta huele mal, no es normal.",
+   "foto": 110,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "Una planta sana casi no tiene olor.",
+   "foto": 104,
+   "fotos": []
   },
   {
    "texto": "El olor es una alarma: algo dejó de funcionar.",
    "foto": 205,
-   "fotos": [
-    104
-   ]
+   "fotos": []
   },
   {
    "texto": "Puede ser el soplador, los difusores o las bacterias.",
@@ -22,7 +27,7 @@
    ]
   },
   {
-   "texto": "La revisamos, la reparamos y el olor desaparece.",
+   "texto": "Lo revisamos y el olor desaparece.",
    "foto": 104,
    "fotos": [
     124
@@ -34,8 +39,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel47k",
- "rev": 2
+ "voz_kore": "reel47v",
+ "rev": 3,
+ "molde": "mito"
 }

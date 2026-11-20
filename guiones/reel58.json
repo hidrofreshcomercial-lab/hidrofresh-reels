@@ -1,28 +1,28 @@
 {
  "nombre": "reel58",
- "gancho": "Regulariza tu planta",
+ "gancho": "Funciona… pero no existe",
  "segmentos": [
   {
-   "texto": "Hola. ¿Tu planta funciona pero nunca se aprobó en la Seremi?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_58v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Una planta sin papeles es un riesgo en cualquier fiscalización.",
+   "texto": "Tu planta funciona, pero para la Seremi no existe.",
    "foto": 133,
    "fotos": [
     218
    ]
   },
   {
-   "texto": "Levantamos la planta existente y hacemos los planos.",
+   "texto": "Si nunca se aprobó, es un riesgo en cualquier fiscalización.",
+   "foto": 133,
+   "fotos": []
+  },
+  {
+   "texto": "Levantamos la planta y hacemos los planos.",
    "foto": 11,
    "fotos": [
     133
    ]
   },
   {
-   "texto": "Y te acompañamos en el trámite de regularización.",
+   "texto": "Y te acompañamos en la regularización.",
    "foto": 218,
    "fotos": [
     222
@@ -34,8 +34,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel58k",
- "rev": 2
+ "voz_kore": "reel58v",
+ "rev": 3,
+ "molde": "advertencia"
 }

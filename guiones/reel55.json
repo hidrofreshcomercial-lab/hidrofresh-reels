@@ -1,28 +1,28 @@
 {
  "nombre": "reel55",
- "gancho": "Llave en mano",
+ "gancho": "¿Cuántas empresas necesitas?",
  "segmentos": [
   {
-   "texto": "Hola. ¿Necesitas una planta de tratamiento llave en mano?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_55v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Nos encargamos de todo, de principio a fin.",
+   "texto": "¿Cuántas empresas necesitas para tener una planta de tratamiento?",
    "foto": 218,
    "fotos": [
     250
    ]
   },
   {
-   "texto": "Diseño, planos y memoria para la Seremi.",
+   "texto": "Una diseña, otra hace los trámites, otra instala…",
    "foto": 222,
    "fotos": [
     218
    ]
   },
   {
-   "texto": "Fabricación, instalación, puesta en marcha y mantención.",
+   "texto": "Con nosotros, una sola.",
+   "foto": 250,
+   "fotos": []
+  },
+  {
+   "texto": "Diseño, Seremi, fabricación, instalación y mantención.",
    "foto": 250,
    "fotos": [
     104
@@ -34,8 +34,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel55k",
- "rev": 2
+ "voz_kore": "reel55v",
+ "rev": 3,
+ "molde": "pregunta"
 }

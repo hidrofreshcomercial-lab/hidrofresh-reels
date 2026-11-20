@@ -1,37 +1,47 @@
 {
  "nombre": "reel30",
- "gancho": "Del plano a la marcha",
+ "gancho": "De un plano a esto",
  "segmentos": [
   {
-   "texto": "Así trabajamos un proyecto de planta de tratamiento, de principio a fin.",
-   "foto": 218
-  },
-  {
-   "texto": "Uno: dimensionamos según las personas y el caudal.",
-   "foto": 133
-  },
-  {
-   "texto": "Dos: te entregamos planos y memoria de cálculo para la Seremi.",
-   "foto": 222
-  },
-  {
-   "texto": "Tres: fabricamos la planta.",
-   "foto": 210,
-   "fotos": [
-    213
-   ]
-  },
-  {
-   "texto": "Cuatro: la instalamos y la ponemos en marcha.",
+   "texto": "De un plano… a esto.",
    "foto": 249,
    "fotos": [
     192
    ]
   },
   {
-   "texto": "Cinco: la mantenemos funcionando. Escríbenos al WhatsApp.",
-   "foto": 104
+   "texto": "Primero dimensionamos según las personas.",
+   "foto": 133,
+   "fotos": []
+  },
+  {
+   "texto": "Hacemos planos y memoria para la Seremi.",
+   "foto": 222,
+   "fotos": []
+  },
+  {
+   "texto": "Fabricamos la planta.",
+   "foto": 210,
+   "fotos": [
+    213
+   ]
+  },
+  {
+   "texto": "La instalamos y la ponemos en marcha.",
+   "foto": 249,
+   "fotos": [
+    192
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "antesdespues",
+ "vocera": "Lorena",
+ "voz_kore": "reel30v",
+ "rev": 2
 }

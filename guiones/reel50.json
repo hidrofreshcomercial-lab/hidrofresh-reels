@@ -1,28 +1,31 @@
 {
  "nombre": "reel50",
- "gancho": "Tabletas de cloro",
+ "gancho": "Sin esto, tu agua no cumple",
  "segmentos": [
   {
-   "texto": "Hola. ¿Se te acabaron las tabletas de cloro de la planta?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_50v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Sin cloro, el agua sale sin desinfectar y no cumples.",
-   "foto": 200,
+   "texto": "Si se acaban estas tabletas, tu planta deja de cumplir.",
+   "foto": 561,
    "fotos": [
     176
    ]
   },
   {
-   "texto": "Te calculamos cuántas usas al mes.",
-   "foto": 138,
-   "fotos": [
-    200
-   ]
+   "texto": "Son las tabletas de cloro que desinfectan el agua al final.",
+   "foto": 200,
+   "fotos": []
   },
   {
-   "texto": "Y te las despachamos a tiempo, sin que te quedes sin stock.",
+   "texto": "Sin ellas, el agua sale con bacterias.",
+   "foto": 138,
+   "fotos": []
+  },
+  {
+   "texto": "Y en una fiscalización, eso se nota.",
+   "foto": 133,
+   "fotos": []
+  },
+  {
+   "texto": "Te calculamos cuántas usas y te las despachamos a tiempo.",
    "foto": 176,
    "fotos": [
     19
@@ -34,8 +37,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel50k",
- "rev": 2
+ "voz_kore": "reel50v",
+ "rev": 3,
+ "molde": "advertencia"
 }

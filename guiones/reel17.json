@@ -1,34 +1,43 @@
 {
  "nombre": "reel17",
- "gancho": "Condominio sin alcantarillado",
+ "gancho": "Antes de vender parcelas, mira esto",
  "segmentos": [
   {
-   "texto": "¿Estás desarrollando un condominio o una parcelación sin alcantarillado?",
-   "foto": 137
+   "texto": "Nadie te advierte esto antes de vender parcelas.",
+   "foto": 137,
+   "fotos": []
   },
   {
-   "texto": "Vas a necesitar una planta de tratamiento aprobada por la Seremi.",
-   "foto": 253
+   "texto": "Sin alcantarillado, el proyecto necesita una planta aprobada por la Seremi.",
+   "foto": 253,
+   "fotos": []
   },
   {
-   "texto": "La dimensionamos según la cantidad de viviendas.",
-   "foto": 206
+   "texto": "Y sin ella, el trámite se traba.",
+   "foto": 206,
+   "fotos": []
   },
   {
-   "texto": "Te entregamos sin costo planos y memoria de cálculo para el trámite.",
-   "foto": 218
+   "texto": "Te entregamos planos y memoria de cálculo para el trámite.",
+   "foto": 218,
+   "fotos": []
   },
   {
-   "texto": "Y la fabricamos, la instalamos y la dejamos funcionando.",
+   "texto": "Y fabricamos e instalamos la planta.",
    "foto": 250,
    "fotos": [
     192
    ]
   },
   {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 174
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "advertencia",
+ "vocera": "Lorena",
+ "voz_kore": "reel17v",
+ "rev": 2
 }

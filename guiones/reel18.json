@@ -1,34 +1,43 @@
 {
  "nombre": "reel18",
- "gancho": "Hoteles y lodges",
+ "gancho": "Le pasa a los hoteles en temporada alta",
  "segmentos": [
   {
-   "texto": "¿Tu hotel o lodge está lejos del alcantarillado?",
-   "foto": 238
+   "texto": "Esto le pasa a muchos hoteles justo en temporada alta.",
+   "foto": 238,
+   "fotos": []
   },
   {
-   "texto": "Una planta mal dimensionada falla justo en temporada alta.",
-   "foto": 110
+   "texto": "Se llenan las piezas y la planta no da abasto.",
+   "foto": 110,
+   "fotos": []
   },
   {
-   "texto": "Por eso la calculamos para tu ocupación máxima.",
+   "texto": "Pasa cuando la planta se calculó para menos gente.",
    "foto": 209,
    "fotos": [
     210
    ]
   },
   {
-   "texto": "Funciona silenciosa, sin olores y enterrada o a la vista, como prefieras.",
-   "foto": 254
+   "texto": "Nosotros la calculamos para tu ocupación máxima.",
+   "foto": 254,
+   "fotos": []
   },
   {
-   "texto": "Y te hacemos la mantención para que no falle cuando más la necesitas.",
-   "foto": 104
+   "texto": "Y la mantenemos para que no falle.",
+   "foto": 104,
+   "fotos": []
   },
   {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 155
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "advertencia",
+ "vocera": "Lorena",
+ "voz_kore": "reel18v",
+ "rev": 2
 }

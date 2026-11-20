@@ -1,37 +1,45 @@
 {
  "nombre": "reel20",
- "gancho": "La primera defensa",
+ "gancho": "Esto quedó atrapado",
  "segmentos": [
   {
-   "texto": "Esta es la primera defensa de tu planta de tratamiento: la cámara de rejas.",
+   "texto": "Esto quedó atrapado en la entrada de una planta.",
+   "foto": 190,
+   "fotos": []
+  },
+  {
+   "texto": "Toallitas, plásticos y basura.",
    "foto": 186,
    "fotos": [
     188
    ]
   },
   {
-   "texto": "Atrapa toallitas, plásticos y basura antes de que lleguen a la planta.",
-   "foto": 190
+   "texto": "La cámara de rejas lo frena antes de que llegue a las bombas.",
+   "foto": 553,
+   "fotos": []
   },
   {
    "texto": "Si no se limpia, se tapa y el agua se devuelve.",
-   "foto": 189
+   "foto": 189,
+   "fotos": []
   },
   {
-   "texto": "Y si no existe, la basura llega a las bombas y las destruye.",
-   "foto": 136
-  },
-  {
-   "texto": "En cada mantención la limpiamos y revisamos.",
+   "texto": "En cada mantención la limpiamos.",
    "foto": 191,
    "fotos": [
     187
    ]
   },
   {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 141
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "prueba",
+ "vocera": "Lorena",
+ "voz_kore": "reel20v",
+ "rev": 2
 }

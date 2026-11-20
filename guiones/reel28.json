@@ -1,37 +1,44 @@
 {
  "nombre": "reel28",
- "gancho": "¿Por qué fibra de vidrio?",
+ "gancho": "Así nace una planta",
  "segmentos": [
   {
-   "texto": "¿Por qué fabricamos nuestras plantas en fibra de vidrio?",
+   "texto": "Así nace una planta de tratamiento.",
+   "video": "videos/fab_a.mp4"
+  },
+  {
+   "texto": "La fabricamos en fibra de vidrio, en nuestro taller.",
    "foto": 209,
    "fotos": [
     210
    ]
   },
   {
-   "texto": "Porque no se oxida ni se corroe con las aguas servidas.",
-   "foto": 211
+   "texto": "No se oxida ni se corroe con las aguas servidas.",
+   "foto": 211,
+   "fotos": []
   },
   {
-   "texto": "Es liviana y fácil de trasladar a cualquier parte.",
-   "foto": 247
+   "texto": "Es liviana para llevarla a cualquier parte.",
+   "foto": 247,
+   "fotos": []
   },
   {
-   "texto": "Y dura muchos años, enterrada o a la intemperie.",
+   "texto": "Y dura muchos años, enterrada o a la vista.",
    "foto": 254,
    "fotos": [
     155
    ]
   },
   {
-   "texto": "Por eso la eligen empresas, condominios y faenas en todo Chile.",
-   "foto": 253
-  },
-  {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 206
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "prueba",
+ "vocera": "Lorena",
+ "voz_kore": "reel28v",
+ "rev": 2
 }

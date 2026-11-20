@@ -1,37 +1,45 @@
 {
  "nombre": "reel13",
- "gancho": "¿Fosa o planta?",
+ "gancho": "Tu fosa NO limpia el agua",
  "segmentos": [
   {
-   "texto": "¿Fosa séptica o planta de tratamiento? No son lo mismo.",
+   "texto": "Mucha gente cree que la fosa séptica limpia el agua.",
    "foto": 162,
    "fotos": [
     163
    ]
   },
   {
-   "texto": "La fosa solo separa los sólidos. El agua sale todavía contaminada.",
-   "foto": 202
+   "texto": "No. Solo separa los sólidos.",
+   "foto": 202,
+   "fotos": []
   },
   {
-   "texto": "La planta trata el agua con bacterias y oxígeno, y la desinfecta.",
+   "texto": "El agua sigue contaminada cuando sale al terreno.",
+   "foto": 548,
+   "fotos": []
+  },
+  {
+   "texto": "La planta la trata con bacterias y aire, y la desinfecta.",
    "foto": 205,
    "fotos": [
     231
    ]
   },
   {
-   "texto": "Por eso para condominios, hoteles y empresas se exige una planta.",
-   "foto": 253
+   "texto": "Por eso a condominios, hoteles y empresas se les exige planta.",
+   "foto": 253,
+   "fotos": []
   },
   {
-   "texto": "Te ayudamos a elegir la solución correcta para tu proyecto.",
-   "foto": 206
-  },
-  {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 174
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "mito",
+ "vocera": "Lorena",
+ "voz_kore": "reel13v",
+ "rev": 2
 }

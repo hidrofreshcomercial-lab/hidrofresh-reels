@@ -1,6 +1,6 @@
 {
  "nombre": "reel63",
- "gancho": "Qué pasa al tirar la cadena",
+ "gancho": "¿A dónde va lo que tiras al WC?",
  "segmentos": [
   {
    "texto": "¿Sabes qué pasa con el agua cuando tiras la cadena?",
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel63k",
- "rev": 3
+ "rev": 4
 }

@@ -3,26 +3,26 @@
  "gancho": "No la botes",
  "segmentos": [
   {
-   "texto": "Hola. ¿Tienes una planta de tratamiento abandonada?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_52v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Antes de comprar una nueva, evalúa recuperarla.",
+   "texto": "Antes de botar tu planta vieja, mira esto.",
    "foto": 140,
    "fotos": [
     123
    ]
   },
   {
-   "texto": "Limpiamos, cambiamos lo que esté malo y la ponemos en marcha.",
+   "texto": "Muchas plantas abandonadas se pueden recuperar.",
+   "foto": 140,
+   "fotos": []
+  },
+  {
+   "texto": "Limpiamos, cambiamos lo malo y la ponemos en marcha.",
    "foto": 132,
    "fotos": [
     140
    ]
   },
   {
-   "texto": "Sale bastante más barato que una planta nueva.",
+   "texto": "Sale bastante más barato que una nueva.",
    "foto": 123,
    "fotos": [
     175
@@ -34,8 +34,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel52k",
- "rev": 2
+ "voz_kore": "reel52v",
+ "rev": 3,
+ "molde": "antesdespues"
 }

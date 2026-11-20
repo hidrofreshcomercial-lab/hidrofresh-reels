@@ -1,29 +1,32 @@
 {
  "nombre": "reel45",
- "gancho": "Postas y servicios públicos",
+ "gancho": "La posta atiende a todos… ¿y su planta?",
  "segmentos": [
   {
-   "texto": "Hola. ¿Tu municipio tiene postas, escuelas o recintos sin alcantarillado?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_45v.mp4",
-   "voz_propia": true
+   "texto": "Una posta rural atiende a todo el pueblo.",
+   "foto": 529,
+   "fotos": []
   },
   {
-   "texto": "Diseñamos e instalamos plantas para servicios públicos.",
+   "texto": "Pero muchas no tienen alcantarillado.",
+   "foto": 104,
+   "fotos": []
+  },
+  {
+   "texto": "Si su planta falla, es un problema de salud pública.",
+   "foto": 110,
+   "fotos": []
+  },
+  {
+   "texto": "Diseñamos plantas para postas, escuelas y recintos públicos.",
    "foto": 218,
    "fotos": [
     104
    ]
   },
   {
-   "texto": "Con planos, memoria de cálculo y autorización sanitaria.",
+   "texto": "Con autorización sanitaria y mantención programada.",
    "foto": 222,
-   "fotos": [
-    218
-   ]
-  },
-  {
-   "texto": "Y mantención programada para que no fallen.",
-   "foto": 104,
    "fotos": [
     133
    ]
@@ -34,8 +37,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel45k",
- "rev": 2
+ "voz_kore": "reel45v",
+ "rev": 3,
+ "molde": "advertencia"
 }

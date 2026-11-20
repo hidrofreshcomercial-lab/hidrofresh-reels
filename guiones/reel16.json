@@ -1,40 +1,47 @@
 {
  "nombre": "reel16",
- "gancho": "Faenas y campamentos",
+ "gancho": "Una planta en medio de la nada",
  "segmentos": [
   {
-   "texto": "¿Tienes una faena o un campamento lejos de todo?",
+   "texto": "Esta planta trata aguas servidas en medio de la nada.",
    "foto": 142,
    "fotos": [
     152
    ]
   },
   {
-   "texto": "Igual necesitas tratar las aguas servidas.",
-   "foto": 243
+   "texto": "Sin alcantarillado y sin ciudad cerca.",
+   "foto": 243,
+   "fotos": []
   },
   {
-   "texto": "Hacemos plantas modulares, que se trasladan e instalan rápido.",
+   "texto": "Llega en camión y se instala rápido.",
    "foto": 246,
    "fotos": [
     248
    ]
   },
   {
-   "texto": "Funcionan en el desierto, en la cordillera o en el sur.",
+   "texto": "Funciona en el desierto, en la cordillera o en el sur.",
    "foto": 257,
    "fotos": [
     244
    ]
   },
   {
-   "texto": "Y hacemos la mantención y el suministro de insumos en la faena.",
-   "foto": 200
+   "texto": "Y hacemos la mantención en la misma faena.",
+   "foto": 200,
+   "fotos": []
   },
   {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 251
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "prueba",
+ "vocera": "Lorena",
+ "voz_kore": "reel16v",
+ "rev": 2
 }

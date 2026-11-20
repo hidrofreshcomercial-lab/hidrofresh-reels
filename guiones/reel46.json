@@ -1,28 +1,33 @@
 {
  "nombre": "reel46",
- "gancho": "Llegó la Seremi",
+ "gancho": "Llegó la Seremi. ¿Y ahora?",
  "segmentos": [
   {
-   "texto": "Hola. ¿Te llegó una fiscalización de la Seremi por tu planta?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_46v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "No esperes la multa para actuar.",
+   "texto": "Llega la Seremi a fiscalizar tu planta.",
    "foto": 133,
    "fotos": [
     218
    ]
   },
   {
-   "texto": "Revisamos tu planta y lo que te están pidiendo.",
+   "texto": "Lo primero que piden: papeles y análisis del agua.",
+   "foto": 218,
+   "fotos": []
+  },
+  {
+   "texto": "Si faltan, viene el sumario.",
+   "foto": 133,
+   "fotos": []
+  },
+  {
+   "texto": "Antes de que lleguen, revisamos tu planta y tus papeles.",
    "foto": 107,
    "fotos": [
     133
    ]
   },
   {
-   "texto": "Y te ayudamos a regularizar con planos y documentación.",
+   "texto": "Y te ayudamos a regularizar.",
    "foto": 218,
    "fotos": [
     222
@@ -34,8 +39,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel46k",
- "rev": 2
+ "voz_kore": "reel46v",
+ "rev": 3,
+ "molde": "historia"
 }

@@ -1,23 +1,23 @@
 {
  "nombre": "reel95",
- "gancho": "Agua tratada para riego",
+ "gancho": "El agua que botas puede regar",
  "segmentos": [
   {
-   "texto": "Con la sequía, el agua tratada vale oro.",
+   "texto": "El agua que sale de tu planta puede regar tu jardín.",
    "foto": 37,
    "fotos": [
     36
    ]
   },
   {
-   "texto": "Bien tratada y desinfectada, se puede usar para regar.",
+   "texto": "Con la sequía, vale oro.",
    "foto": 138,
    "fotos": [
     200
    ]
   },
   {
-   "texto": "Pero tiene que cumplir la norma chilena de calidad para riego.",
+   "texto": "Pero tiene que cumplir la norma chilena para riego.",
    "foto": 197,
    "fotos": [
     133
@@ -38,6 +38,7 @@
  ],
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel95k",
- "rev": 1
+ "voz_kore": "reel95v",
+ "rev": 2,
+ "molde": "advertencia"
 }

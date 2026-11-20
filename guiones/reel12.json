@@ -1,43 +1,49 @@
 {
  "nombre": "reel12",
- "gancho": "Tu tablero te avisa",
+ "gancho": "¿Ves esta luz roja?",
  "segmentos": [
   {
-   "texto": "Este tablero es el cerebro de tu planta de tratamiento.",
+   "texto": "¿Ves esta luz roja en el tablero de tu planta?",
+   "foto": 185,
+   "fotos": []
+  },
+  {
+   "texto": "Te está avisando que una bomba falló.",
    "foto": 181,
    "fotos": [
     182
    ]
   },
   {
-   "texto": "Controla el soplador y las bombas, y las alterna para que no se desgasten.",
+   "texto": "Si nadie la mira, el agua se empieza a acumular.",
    "foto": 183,
    "fotos": [
     184
    ]
   },
   {
-   "texto": "Si una bomba falla, se enciende una luz roja de alarma.",
-   "foto": 185
-  },
-  {
-   "texto": "Con el temporizador se programan los ciclos de aireación.",
+   "texto": "Un buen tablero alterna las bombas y avisa a tiempo.",
    "foto": 219,
    "fotos": [
     220
    ]
   },
   {
-   "texto": "Si tu planta no tiene tablero automático, te lo armamos y lo instalamos.",
+   "texto": "Si tu planta no tiene uno, te lo armamos.",
    "foto": 222,
    "fotos": [
     223
    ]
   },
   {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 226
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "misterio",
+ "vocera": "Lorena",
+ "voz_kore": "reel12v",
+ "rev": 2
 }

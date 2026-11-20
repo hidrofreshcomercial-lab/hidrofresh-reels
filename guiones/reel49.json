@@ -1,28 +1,31 @@
 {
  "nombre": "reel49",
- "gancho": "El soplador",
+ "gancho": "Si esto se apaga, empieza el olor",
  "segmentos": [
   {
-   "texto": "Hola. Si el soplador de tu planta se detiene, el problema empieza al tiro.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_49v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Las bacterias se quedan sin oxígeno y aparece el mal olor.",
-   "foto": 158,
-   "fotos": [
-    160
-   ]
-  },
-  {
-   "texto": "Revisamos y reparamos sopladores.",
+   "texto": "Si este equipo se apaga, tu planta empieza a oler.",
    "foto": 157,
    "fotos": [
     158
    ]
   },
   {
-   "texto": "Y si ya cumplió su vida útil, lo reemplazamos.",
+   "texto": "Es el soplador: le da aire a las bacterias.",
+   "foto": 158,
+   "fotos": []
+  },
+  {
+   "texto": "Sin aire, las bacterias mueren.",
+   "foto": 160,
+   "fotos": []
+  },
+  {
+   "texto": "Y el agua sale sin tratar.",
+   "foto": 110,
+   "fotos": []
+  },
+  {
+   "texto": "Revisamos, reparamos y reemplazamos sopladores.",
    "foto": 160,
    "fotos": [
     219
@@ -34,8 +37,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel49k",
- "rev": 3
+ "voz_kore": "reel49v",
+ "rev": 4,
+ "molde": "advertencia"
 }

@@ -1,31 +1,47 @@
 {
  "nombre": "reel25",
- "gancho": "¡Esto NO al WC!",
+ "gancho": "Esto NUNCA va al WC",
  "segmentos": [
   {
-   "texto": "Si tienes planta de tratamiento, nunca tires esto al WC.",
-   "foto": 202
+   "texto": "Si tienes planta de tratamiento, esto nunca va al WC.",
+   "foto": 202,
+   "fotos": []
   },
   {
    "texto": "Toallitas húmedas: no se deshacen y tapan las bombas.",
-   "foto": 190
+   "foto": 500,
+   "fotos": [
+    190
+   ]
   },
   {
-   "texto": "Aceite de cocina: forma grasa que flota y tapa cañerías.",
-   "foto": 103
+   "texto": "Aceite de cocina: se endurece y tapa las cañerías.",
+   "foto": 505,
+   "fotos": [
+    103
+   ]
   },
   {
    "texto": "Cloro y químicos fuertes: matan a las bacterias.",
-   "foto": 201
+   "foto": 510,
+   "fotos": [
+    201
+   ]
   },
   {
-   "texto": "Y colillas o plásticos. Tu planta te lo va a agradecer.",
-   "foto": 189
+   "texto": "Guarda este video y compártelo con tu familia.",
+   "foto": 189,
+   "fotos": []
   },
   {
-   "texto": "Comparte este video con tu comunidad. Y si tu planta ya tiene problemas, escríbenos al WhatsApp.",
-   "foto": 124
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "lista",
+ "vocera": "Lorena",
+ "voz_kore": "reel25v",
+ "rev": 2
 }

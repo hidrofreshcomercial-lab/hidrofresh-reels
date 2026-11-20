@@ -1,37 +1,43 @@
 {
  "nombre": "reel14",
- "gancho": "¿A dónde va el agua?",
+ "gancho": "¿A dónde se va el agua?",
  "segmentos": [
   {
-   "texto": "Ya tratamos el agua. ¿Y ahora a dónde va?",
-   "foto": 107
+   "texto": "¿A dónde se va el agua cuando sale de la planta?",
+   "foto": 107,
+   "fotos": []
   },
   {
-   "texto": "Depende del proyecto: a un curso de agua, a riego o a infiltración en el terreno.",
+   "texto": "Puede ir a un estero, a riego o al terreno.",
    "foto": 239,
    "fotos": [
     240
    ]
   },
   {
-   "texto": "Para infiltrar, se construye un dren con grava y tubos perforados.",
-   "foto": 153
+   "texto": "Para el terreno se construye un dren con grava y tubos perforados.",
+   "foto": 153,
+   "fotos": []
   },
   {
-   "texto": "Primero se hace un estudio del suelo para dimensionarlo.",
-   "foto": 148
+   "texto": "Si el suelo no absorbe, el agua aflora y se forma un charco.",
+   "foto": 549,
+   "fotos": []
   },
   {
-   "texto": "Diseñamos el sistema completo: planta, desinfección y disposición final.",
-   "foto": 241,
-   "fotos": [
-    245
-   ]
+   "texto": "Por eso primero se estudia el suelo.",
+   "foto": 148,
+   "fotos": []
   },
   {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 256
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "curiosidad",
+ "vocera": "Lorena",
+ "voz_kore": "reel14v",
+ "rev": 2
 }

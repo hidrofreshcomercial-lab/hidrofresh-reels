@@ -1,23 +1,30 @@
 {
  "nombre": "reel76",
- "gancho": "Sigue trabajando",
+ "gancho": "Mientras celebras, ella trabaja",
  "segmentos": [
   {
-   "texto": "Mientras celebras, la planta sigue trabajando.",
+   "texto": "Mientras tú celebras, tu planta sigue trabajando.",
    "foto": 204,
    "fotos": [
     205
    ]
   },
   {
-   "texto": "Las veinticuatro horas, todos los días del año.",
+   "texto": "Trata el agua las veinticuatro horas, todo el año.",
    "foto": 184,
    "fotos": [
     182
    ]
   },
   {
-   "texto": "Desde Hidro Fresh, te deseamos una feliz Navidad.",
+   "texto": "Esta Navidad cuídala: nada de aceite ni toallitas al baño.",
+   "foto": 500,
+   "fotos": [
+    505
+   ]
+  },
+  {
+   "texto": "Feliz Navidad, de parte de Hidro Fresh.",
    "foto": 516,
    "fotos": [
     517
@@ -31,6 +38,7 @@
  ],
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel76k",
- "rev": 3
+ "voz_kore": "reel76v",
+ "rev": 4,
+ "molde": "curiosidad"
 }

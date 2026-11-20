@@ -1,28 +1,31 @@
 {
  "nombre": "reel60",
- "gancho": "Cotiza en 3 datos",
+ "gancho": "3 datos y te cotizamos",
  "segmentos": [
   {
-   "texto": "Hola. ¿Quieres cotizar una planta de tratamiento? Solo necesitamos tres datos.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_60v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Cuántas personas, en qué comuna y si hay luz en el terreno.",
+   "texto": "Para cotizar tu planta solo necesitamos tres datos.",
    "foto": 12,
    "fotos": [
     206
    ]
   },
   {
-   "texto": "Con eso dimensionamos la planta.",
-   "foto": 133,
-   "fotos": [
-    12
-   ]
+   "texto": "Uno: cuántas personas.",
+   "foto": 12,
+   "fotos": []
   },
   {
-   "texto": "Y te mandamos una propuesta.",
+   "texto": "Dos: en qué comuna.",
+   "foto": 206,
+   "fotos": []
+  },
+  {
+   "texto": "Tres: si hay luz en el terreno.",
+   "foto": 133,
+   "fotos": []
+  },
+  {
+   "texto": "Con eso te mandamos la propuesta.",
    "foto": 206,
    "fotos": [
     253
@@ -34,8 +37,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel60k",
- "rev": 2
+ "voz_kore": "reel60v",
+ "rev": 3,
+ "molde": "lista"
 }

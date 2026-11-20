@@ -1,23 +1,23 @@
 {
  "nombre": "reel73",
- "gancho": "No al lavaplatos",
+ "gancho": "El truco del agua caliente no sirve",
  "segmentos": [
   {
-   "texto": "No botes el aceite de cocina por el lavaplatos.",
+   "texto": "Mucha gente bota el aceite con agua caliente para que no tape.",
    "foto": 506,
    "fotos": [
     508
    ]
   },
   {
-   "texto": "Se endurece y forma tapones en las cañerías.",
+   "texto": "No sirve: más abajo se enfría y se endurece igual.",
    "foto": 550,
    "fotos": [
     549
    ]
   },
   {
-   "texto": "Y en la planta mata a las bacterias que limpian el agua.",
+   "texto": "Y en la planta ahoga a las bacterias.",
    "foto": 110,
    "fotos": [
     109
@@ -38,6 +38,7 @@
  ],
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel73k",
- "rev": 3
+ "voz_kore": "reel73v",
+ "rev": 4,
+ "molde": "truco"
 }

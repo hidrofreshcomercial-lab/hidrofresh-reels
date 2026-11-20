@@ -1,28 +1,28 @@
 {
  "nombre": "reel61",
- "gancho": "Todo Chile",
+ "gancho": "¿Hasta dónde llega una planta?",
  "segmentos": [
   {
-   "texto": "Hola. Desde dos mil ocho tratamos aguas en todo Chile.",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_61v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Del desierto de Atacama a la Patagonia.",
+   "texto": "¿Hasta dónde puede llegar una planta de tratamiento?",
    "foto": 248,
    "fotos": [
     104
    ]
   },
   {
-   "texto": "Diseñamos, fabricamos e instalamos plantas de tratamiento.",
+   "texto": "Del desierto de Atacama a la Patagonia.",
+   "foto": 248,
+   "fotos": []
+  },
+  {
+   "texto": "La fabricamos, la llevamos en camión y la instalamos.",
    "foto": 209,
    "fotos": [
     248
    ]
   },
   {
-   "texto": "Y hacemos mantención, cloro y bacterias.",
+   "texto": "Y volvemos a mantenerla.",
    "foto": 104,
    "fotos": [
     200
@@ -34,8 +34,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel61k",
- "rev": 2
+ "voz_kore": "reel61v",
+ "rev": 3,
+ "molde": "curiosidad"
 }

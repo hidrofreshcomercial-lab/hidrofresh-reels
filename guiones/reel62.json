@@ -1,18 +1,18 @@
 {
  "nombre": "reel62",
- "gancho": "Tu planta falló",
+ "gancho": "Tu planta falló. ¿Y ahora?",
  "segmentos": [
   {
-   "texto": "Hola. ¿Tu planta de tratamiento falló y no sabes por dónde partir?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_62v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "No la dejes así: cada día sin tratar es un riesgo.",
+   "texto": "Tu planta falló. ¿Y ahora qué?",
    "foto": 110,
    "fotos": [
     104
    ]
+  },
+  {
+   "texto": "No la dejes así: cada día sin tratar es un riesgo.",
+   "foto": 110,
+   "fotos": []
   },
   {
    "texto": "Diagnosticamos la falla en terreno.",
@@ -34,8 +34,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel62k",
- "rev": 2
+ "voz_kore": "reel62v",
+ "rev": 3,
+ "molde": "historia"
 }

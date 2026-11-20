@@ -1,34 +1,43 @@
 {
  "nombre": "reel27",
- "gancho": "¿Cumples la norma?",
+ "gancho": "Se ve limpia… y no cumple",
  "segmentos": [
   {
-   "texto": "Si tu planta descarga agua tratada, tiene que cumplir la norma de descarga.",
-   "foto": 107
+   "texto": "El agua de tu planta puede verse limpia y no cumplir la norma.",
+   "foto": 107,
+   "fotos": []
   },
   {
-   "texto": "Eso se demuestra con muestras de laboratorio periódicas.",
-   "foto": 229
+   "texto": "Lo que manda es el análisis de laboratorio.",
+   "foto": 229,
+   "fotos": []
   },
   {
-   "texto": "Si los resultados salen malos, viene la fiscalización.",
-   "foto": 133
+   "texto": "Si sale malo, viene la fiscalización.",
+   "foto": 133,
+   "fotos": []
   },
   {
-   "texto": "Te ayudamos a ajustar la planta para que cumpla.",
+   "texto": "Ajustamos la planta para que cumpla.",
    "foto": 224,
    "fotos": [
     225
    ]
   },
   {
-   "texto": "Y a preparar la documentación para la Seremi o la autoridad ambiental.",
-   "foto": 218
+   "texto": "Y preparamos los informes para la autoridad.",
+   "foto": 218,
+   "fotos": []
   },
   {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 174
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "advertencia",
+ "vocera": "Lorena",
+ "voz_kore": "reel27v",
+ "rev": 2
 }

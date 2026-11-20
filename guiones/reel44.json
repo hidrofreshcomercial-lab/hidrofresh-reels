@@ -1,28 +1,33 @@
 {
  "nombre": "reel44",
- "gancho": "Agua potable rural",
+ "gancho": "¿Agua clara = agua segura?",
  "segmentos": [
   {
-   "texto": "Hola. ¿Tu comité de agua potable rural necesita mejorar el agua?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_44v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "También hacemos plantas de agua potable.",
+   "texto": "El agua de un pozo se puede ver clarita.",
    "foto": 179,
    "fotos": [
     176
    ]
   },
   {
-   "texto": "Filtramos y desinfectamos con cloración automática.",
+   "texto": "Pero clara no significa segura para tomar.",
+   "foto": 200,
+   "fotos": []
+  },
+  {
+   "texto": "Puede traer bacterias que no se ven.",
+   "foto": 229,
+   "fotos": []
+  },
+  {
+   "texto": "Por eso se filtra y se desinfecta con cloración automática.",
    "foto": 200,
    "fotos": [
     179
    ]
   },
   {
-   "texto": "Y te abastecemos de cloro todo el año.",
+   "texto": "Y el cloro tiene que llegar todo el año, sin cortes.",
    "foto": 176,
    "fotos": [
     138
@@ -34,8 +39,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel44k",
- "rev": 2
+ "voz_kore": "reel44v",
+ "rev": 3,
+ "molde": "mito"
 }

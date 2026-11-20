@@ -1,23 +1,28 @@
 {
  "nombre": "reel77",
- "gancho": "Fosa ≠ planta",
+ "gancho": "¿Vacías tu fosa a cada rato?",
  "segmentos": [
   {
-   "texto": "Una fosa séptica no es lo mismo que una planta de tratamiento.",
-   "foto": 22,
-   "fotos": [
-    29
-   ]
-  },
-  {
-   "texto": "La fosa solo acumula, y hay que vaciarla.",
+   "texto": "¿Cada cuánto tienes que vaciar tu fosa séptica?",
    "foto": 26,
    "fotos": [
     27
    ]
   },
   {
-   "texto": "La planta trata el agua y la deja lista para reutilizar.",
+   "texto": "Si es seguido, tiene explicación.",
+   "foto": 22,
+   "fotos": [
+    29
+   ]
+  },
+  {
+   "texto": "La fosa solo acumula: no trata el agua.",
+   "foto": 26,
+   "fotos": []
+  },
+  {
+   "texto": "Una planta la trata y la deja lista para reutilizar.",
    "foto": 231,
    "fotos": [
     527
@@ -38,6 +43,7 @@
  ],
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel77k",
- "rev": 3
+ "voz_kore": "reel77v",
+ "rev": 4,
+ "molde": "pregunta"
 }

@@ -1,18 +1,23 @@
 {
  "nombre": "reel57",
- "gancho": "Osmosis inversa",
+ "gancho": "¿Agua salada en tu pozo?",
  "segmentos": [
   {
-   "texto": "Hola. ¿El agua de tu pozo viene salobre o con minerales?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_57v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Una planta de osmosis inversa la deja apta para usar.",
+   "texto": "¿El agua de tu pozo sale salobre?",
    "foto": 154,
    "fotos": [
     200
    ]
+  },
+  {
+   "texto": "Hervirla no le saca la sal.",
+   "foto": 154,
+   "fotos": []
+  },
+  {
+   "texto": "Lo que sirve es una planta de osmosis inversa.",
+   "foto": 200,
+   "fotos": []
   },
   {
    "texto": "Evaluamos tu agua y te proponemos la solución.",
@@ -22,7 +27,7 @@
    ]
   },
   {
-   "texto": "La instalamos y te hacemos la mantención.",
+   "texto": "La instalamos y la mantenemos.",
    "foto": 200,
    "fotos": [
     179
@@ -34,8 +39,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel57k",
- "rev": 2
+ "voz_kore": "reel57v",
+ "rev": 3,
+ "molde": "mito"
 }

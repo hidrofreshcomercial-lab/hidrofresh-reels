@@ -1,37 +1,45 @@
 {
  "nombre": "reel21",
- "gancho": "Agua potable segura",
+ "gancho": "¿Clara = segura?",
  "segmentos": [
   {
-   "texto": "No solo tratamos aguas servidas. También hacemos plantas de agua potable.",
-   "foto": 257
-  },
-  {
-   "texto": "Para pozos, comités de agua potable rural, faenas y condominios.",
+   "texto": "El agua de tu pozo se ve clara. ¿Pero es segura?",
    "foto": 154,
    "fotos": [
     155
    ]
   },
   {
-   "texto": "Filtramos y desinfectamos el agua con cloración automática.",
+   "texto": "Clara no significa sin bacterias.",
+   "foto": 257,
+   "fotos": []
+  },
+  {
+   "texto": "Por eso se filtra y se desinfecta con cloración automática.",
    "foto": 200,
    "fotos": [
     179
    ]
   },
   {
-   "texto": "Así el agua sale segura para el consumo, todos los días.",
-   "foto": 229
+   "texto": "Así sale segura para tomar, todos los días.",
+   "foto": 229,
+   "fotos": []
   },
   {
-   "texto": "Y te dejamos el suministro de cloro programado.",
-   "foto": 176
+   "texto": "Hacemos plantas de agua potable para pozos, comités y condominios.",
+   "foto": 176,
+   "fotos": []
   },
   {
-   "texto": "Escríbenos al WhatsApp.",
-   "foto": 195
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "mito",
+ "vocera": "Lorena",
+ "voz_kore": "reel21v",
+ "rev": 2
 }

@@ -1,10 +1,18 @@
 {
  "nombre": "reel29",
- "gancho": "Desde 2008",
+ "gancho": "Del desierto al sur",
  "segmentos": [
   {
-   "texto": "Desde dos mil ocho trabajamos en tratamiento de aguas en Chile.",
-   "foto": 206
+   "texto": "Esta planta va al desierto. Esta otra, al sur.",
+   "foto": 142,
+   "fotos": [
+    248
+   ]
+  },
+  {
+   "texto": "Desde 2008 tratamos agua en todo Chile.",
+   "foto": 206,
+   "fotos": []
   },
   {
    "texto": "Diseñamos y fabricamos plantas de tratamiento y de agua potable.",
@@ -14,27 +22,21 @@
    ]
   },
   {
-   "texto": "Las instalamos del desierto al sur.",
-   "foto": 142,
-   "fotos": [
-    248
-   ]
-  },
-  {
-   "texto": "Hacemos mantención, reparación y modernización.",
+   "texto": "Y las mantenemos funcionando.",
    "foto": 104,
    "fotos": [
     180
    ]
   },
   {
-   "texto": "Y suministramos bombas, cloro y bacterias.",
-   "foto": 200
-  },
-  {
-   "texto": "Somos Hidro Fresh. Escríbenos al WhatsApp.",
-   "foto": 174
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "prueba",
+ "vocera": "Lorena",
+ "voz_kore": "reel29v",
+ "rev": 2
 }

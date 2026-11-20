@@ -1,37 +1,45 @@
 {
  "nombre": "reel11",
- "gancho": "¿Mides tu caudal?",
+ "gancho": "¿Tu planta se está ahogando?",
  "segmentos": [
   {
-   "texto": "¿Sabes cuánta agua pasa realmente por tu planta de tratamiento?",
+   "texto": "Tu planta de tratamiento puede estar ahogándose y nadie se da cuenta.",
    "foto": 197,
    "fotos": [
     198
    ]
   },
   {
-   "texto": "Si no la mides, no sabes si está sobrecargada.",
-   "foto": 133
+   "texto": "Pasa cuando llega más agua de la que alcanza a tratar.",
+   "foto": 133,
+   "fotos": []
   },
   {
-   "texto": "Y una planta sobrecargada no alcanza a tratar el agua.",
-   "foto": 107
+   "texto": "Por fuera se ve normal, pero el agua sale mal tratada.",
+   "foto": 107,
+   "fotos": []
   },
   {
-   "texto": "Con un caudalímetro tienes el dato todos los días.",
+   "texto": "La única forma de saberlo es medir el caudal.",
    "foto": 199,
    "fotos": [
     178
    ]
   },
   {
-   "texto": "Te sirve para la fiscalización y para saber si necesitas ampliar.",
-   "foto": 170
+   "texto": "Con un caudalímetro tienes el dato todos los días.",
+   "foto": 170,
+   "fotos": []
   },
   {
-   "texto": "Lo instalamos en tu planta. Escríbenos al WhatsApp.",
-   "foto": 134
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
   }
  ],
- "voz": "Kore (Google Gemini)"
+ "voz": "Kore + Lorena (cierre)",
+ "molde": "advertencia",
+ "vocera": "Lorena",
+ "voz_kore": "reel11v",
+ "rev": 2
 }

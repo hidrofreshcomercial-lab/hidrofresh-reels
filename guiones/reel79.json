@@ -1,6 +1,6 @@
 {
  "nombre": "reel79",
- "gancho": "¿Cuánto cuesta?",
+ "gancho": "¿Cuánto cuesta? Depende de 3 cosas",
  "segmentos": [
   {
    "texto": "¿Cuánto cuesta una planta de tratamiento?",
@@ -36,5 +36,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel79k",
- "rev": 3
+ "rev": 4
 }

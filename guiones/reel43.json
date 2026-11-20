@@ -1,28 +1,28 @@
 {
  "nombre": "reel43",
- "gancho": "Instalación de faena",
+ "gancho": "Termina la obra… ¿y la planta?",
  "segmentos": [
   {
-   "texto": "Hola. ¿Tu constructora arma instalaciones de faena lejos del alcantarillado?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_43v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Una planta modular se instala y se retira con la obra.",
+   "texto": "Cuando termina la obra, esta planta se va con ella.",
    "foto": 249,
    "fotos": [
     251
    ]
   },
   {
-   "texto": "Las trasladamos y las bajamos con grúa.",
+   "texto": "Es una planta modular para instalaciones de faena.",
+   "foto": 249,
+   "fotos": []
+  },
+  {
+   "texto": "Se baja con grúa y funciona en pocos días.",
    "foto": 248,
    "fotos": [
     249
    ]
   },
   {
-   "texto": "Y quedan funcionando en pocos días.",
+   "texto": "Al terminar, se retira y se lleva a la siguiente obra.",
    "foto": 251,
    "fotos": [
     192
@@ -34,8 +34,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel43k",
- "rev": 2
+ "voz_kore": "reel43v",
+ "rev": 3,
+ "molde": "misterio"
 }

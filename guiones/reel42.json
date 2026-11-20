@@ -1,28 +1,33 @@
 {
  "nombre": "reel42",
- "gancho": "Lechería y agroindustria",
+ "gancho": "Nadie se lo advierte a las agrícolas",
  "segmentos": [
   {
-   "texto": "Hola. ¿Tu lechería o agroindustria tiene casino y baños para el personal?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_42v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "Esas aguas servidas también deben cumplir la norma.",
+   "texto": "Nadie le advierte esto a las lecherías y agroindustrias.",
    "foto": 11,
    "fotos": [
     104
    ]
   },
   {
-   "texto": "Te ayudamos con el proyecto y la autorización sanitaria.",
+   "texto": "El baño y el casino del personal también son aguas servidas.",
+   "foto": 11,
+   "fotos": []
+  },
+  {
+   "texto": "Y la Seremi también las fiscaliza.",
+   "foto": 218,
+   "fotos": []
+  },
+  {
+   "texto": "Sin planta aprobada, te expones a un sumario.",
    "foto": 218,
    "fotos": [
     11
    ]
   },
   {
-   "texto": "Y te dejamos la planta funcionando con su mantención.",
+   "texto": "Te hacemos el proyecto y te dejamos la planta funcionando.",
    "foto": 104,
    "fotos": [
     124
@@ -34,8 +39,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel42k",
- "rev": 2
+ "voz_kore": "reel42v",
+ "rev": 3,
+ "molde": "advertencia"
 }

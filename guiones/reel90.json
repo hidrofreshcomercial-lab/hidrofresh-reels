@@ -1,6 +1,6 @@
 {
  "nombre": "reel90",
- "gancho": "Municipios",
+ "gancho": "¿Tu escuela rural tiene planta?",
  "segmentos": [
   {
    "texto": "¿Tu municipio necesita una planta para una posta o una escuela?",
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel90k",
- "rev": 3
+ "rev": 4
 }

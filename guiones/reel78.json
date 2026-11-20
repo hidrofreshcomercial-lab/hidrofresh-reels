@@ -1,23 +1,23 @@
 {
  "nombre": "reel78",
- "gancho": "Agrícolas",
+ "gancho": "Parte la cosecha y pasa esto",
  "segmentos": [
   {
-   "texto": "¿Tu agrícola tiene casino o packing con trabajadores?",
+   "texto": "Parte la cosecha y el baño del packing colapsa.",
    "foto": 524,
    "fotos": [
     523
    ]
   },
   {
-   "texto": "En temporada alta se multiplica el agua que tratar.",
+   "texto": "En temporada se multiplican los trabajadores, y el agua también.",
    "foto": 525,
    "fotos": [
     203
    ]
   },
   {
-   "texto": "Diseñamos la planta para el peak de la temporada.",
+   "texto": "Por eso diseñamos la planta para el peak.",
    "video": "videos/fab_b.mp4"
   },
   {
@@ -35,6 +35,7 @@
  ],
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel78k",
- "rev": 3
+ "voz_kore": "reel78v",
+ "rev": 4,
+ "molde": "advertencia"
 }

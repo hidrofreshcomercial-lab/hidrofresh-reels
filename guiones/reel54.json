@@ -1,28 +1,28 @@
 {
  "nombre": "reel54",
- "gancho": "Fibra de vidrio",
+ "gancho": "¿Por qué no de metal?",
  "segmentos": [
   {
-   "texto": "Hola. ¿Por qué nuestras plantas son de fibra de vidrio?",
-   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/apertura_54v.mp4",
-   "voz_propia": true
-  },
-  {
-   "texto": "No se oxidan, son livianas y duran muchos años.",
+   "texto": "¿Por qué fabricamos nuestras plantas en fibra de vidrio y no en metal?",
    "foto": 211,
    "fotos": [
     254
    ]
   },
   {
-   "texto": "Las fabricamos en nuestro taller, a la medida.",
+   "texto": "Porque el metal se oxida con las aguas servidas.",
+   "foto": 211,
+   "fotos": []
+  },
+  {
+   "texto": "La fibra de vidrio no se oxida y es liviana.",
    "foto": 209,
    "fotos": [
     211
    ]
   },
   {
-   "texto": "Y las instalamos enterradas o a la vista.",
+   "texto": "Por eso dura muchos años, enterrada o a la vista.",
    "foto": 254,
    "fotos": [
     156
@@ -34,8 +34,9 @@
    "voz_propia": true
   }
  ],
- "voz": "Lorena (clips) + Kore",
+ "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
- "voz_kore": "reel54k",
- "rev": 2
+ "voz_kore": "reel54v",
+ "rev": 3,
+ "molde": "curiosidad"
 }
