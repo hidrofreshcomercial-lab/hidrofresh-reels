@@ -344,7 +344,7 @@ label .etsel{width:auto;margin:0}
       <button class="sbtn" id="instalar" hidden>⬇ Instalar en el escritorio</button>
       <div class="me" id="me"></div>
       <button class="sbtn ghost" id="salir" hidden>Cerrar sesión</button>
-      <div class="ver">vL1.0 · Panel de León</div>
+      <div class="ver">vL1.1 · Panel de León</div>
     </div>
   </aside>
   <main>
@@ -402,8 +402,8 @@ const SB='https://vidtrslosuiqsppdpugl.supabase.co';
 const KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpZHRyc2xvc3VpcXNwcGRwdWdsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUxODE5NjcsImV4cCI6MjExMDc1Nzk2N30.UpkOXlf1enyt4biS7kpfxASJ6tGkoLrgmb1kkgI9LCA';
 /* ---------- sesión (usuario y contraseña de Supabase) ---------- */
 const AUTH=SB+'/auth/v1';
-let SES=null;try{SES=JSON.parse(localStorage.getItem('hf:ses')||'null')}catch(e){}
-const guardaSes=s=>{SES=s;try{s?localStorage.setItem('hf:ses',JSON.stringify(s)):localStorage.removeItem('hf:ses')}catch(e){}};
+let SES=null;try{SES=JSON.parse(localStorage.getItem('leon:ses')||'null')}catch(e){}
+const guardaSes=s=>{SES=s;try{s?localStorage.setItem('leon:ses',JSON.stringify(s)):localStorage.removeItem('leon:ses')}catch(e){}};
 async function authPost(path,body,tok){const r=await fetch(AUTH+path,{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json',...(tok?{Authorization:'Bearer '+tok}:{})},body:JSON.stringify(body)});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error_description||j.msg||j.message||('Error '+r.status));return j}
 function setSes(j){guardaSes({at:j.access_token,rt:j.refresh_token,exp:Date.now()+(j.expires_in||3600)*1000,email:j.user?.email||SES?.email})}
 // v9.15: sitio sin clave de inicio: entra solo con la cuenta del panel
@@ -420,7 +420,7 @@ function pedirLogin(msg){
   guardaSes(null);
   if(false){S._re=Date.now();autoLogin().then(()=>{$('#login').hidden=true;load()}).catch(e=>{$('#list').innerHTML='<div class="empty">No se pudo conectar con Supabase ('+esc(e.message)+'). Recarga la página.</div>'});return}
   $('#login').hidden=false;$('#lerr').textContent=msg||'';
-  try{const e=localStorage.getItem('hf:email');if(e&&!$('#lemail').value)$('#lemail').value=e}catch(_){}
+  try{const e=localStorage.getItem('leon:email');if(e&&!$('#lemail').value)$('#lemail').value=e}catch(_){}
   setTimeout(()=>($('#lemail').value?$('#lpass'):$('#lemail')).focus(),50);
 }
 let modoReg=false;
@@ -435,7 +435,7 @@ document.getElementById('lform').addEventListener('submit',async e=>{
   try{
     if(modoReg){const r=await fetch(SB+'/functions/v1/registro',{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify({email,password:pw})});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||'No se pudo crear la cuenta')}
     setSes(await authPost('/token?grant_type=password',{email,password:pw}));
-    try{localStorage.setItem('hf:email',email)}catch(_){}
+    try{localStorage.setItem('leon:email',email)}catch(_){}
     $('#login').hidden=true;$('#lpass').value='';$('#lpass2').value='';load();
   }catch(err){$('#lerr').textContent=/invalid login|invalid_grant|credentials/i.test(err.message)?'Correo o contraseña incorrectos':err.message}
   finally{b.disabled=false;b.textContent=t0}
@@ -450,7 +450,7 @@ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const clp=n=>n==null||isNaN(n)?'—':'$'+Math.round(n).toLocaleString('es-CL');
 const money=(n,m)=>n==null?'—':(m&&m!=='CLP'?(m==='CLF'?'UF':esc(m))+' '+Number(n).toLocaleString('es-CL'):clp(n));
 const trimR=r=>(r||'').trim()||'Sin región';
-const ls={get(k,d){try{const v=localStorage.getItem('hf51:'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('hf51:'+k,JSON.stringify(v))}catch(e){}}};
+const ls={get(k,d){try{const v=localStorage.getItem('leon51:'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('leon51:'+k,JSON.stringify(v))}catch(e){}}};
 function cierre(f){
   if(!f)return{txt:'Cierre no informado',cls:'p-n',ms:null};
   const ms=new Date(f)-Date.now();
@@ -3008,7 +3008,7 @@ document.addEventListener('click',e=>{if(S.page!=='organismos')return;const t=e.
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='orgq'){e.preventDefault();orgBuscar()}});
 (function(){const st=document.createElement('style');st.textContent='.orgbus{display:flex;gap:8px;margin:0 0 12px}.orgbus input{flex:1;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:15px}.orgres{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;margin:0 0 8px;cursor:pointer;font:inherit}.orgres:hover{border-color:#1f6b45}.orgcab{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:6px 0 4px}.orgcab h2{margin:0;font-size:19px}.orgh{font-size:15px;margin:18px 0 6px}.orgit{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;margin:0 0 7px}.orgit a{color:inherit}.orgviejo{opacity:.7}.orgdet{margin:8px 0}.orgdet summary{cursor:pointer;color:#1f6b45;margin-bottom:6px}.orgseg{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:0 0 12px}.chipb{border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 11px;cursor:pointer;font:inherit;font-size:13px}';document.head.appendChild(st)})();
 
-const HF_VER='L1.0';
+const HF_VER='L1.1';
 /* v16.8: las descartadas ya no reaparecen: lo marcado queda pendiente hasta que la base lo confirma y se reintenta */
 /* v16.7: prospectos ya contactados por correo y WhatsApp salen de Llamar hoy y Llamar proyectistas; entran nuevos */
 /* v16.6: corrige licitaciones agregadas por número que no aparecían en Mis postulaciones (el navegador recordaba un estado viejo) */
