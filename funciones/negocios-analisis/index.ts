@@ -162,7 +162,8 @@ async function estudiarML(q: string) {
   for (const res of j.results ?? []) {
     const tx = String(res.text ?? ""); paginas.push(res.url);
     const rel = tx.split("Búsquedas relacionadas")[0].split("\n").filter((l) => /^- /.test(l.trim())).map((l) => l.trim().slice(2).trim()).filter((x) => x && x.length < 60);
-    for (const x of rel.slice(0, 10)) relacionadas.add(x);
+    const raices = nrm(q).split(" ").filter((w) => w.length > 3).map((w) => w.slice(0, 5));
+    for (const x of rel.slice(0, 12)) if (raices.some((r) => nrm(x).includes(r))) relacionadas.add(x);
     if (/articulo\.mercadolibre|\/p\/MLC|MLC-?\d/.test(res.url) && !/listado\./.test(res.url)) {
       const p = tx.match(/\$\s?([\d.]{3,})/); const t = String(res.title ?? "").replace(/\s*\|\s*MercadoLibre.*$/i, "").trim();
       if (p && t && !vistos.has(nrm(t))) { vistos.add(nrm(t)); items.push({ t, p: num(p[1]), intl: /internacional/i.test(tx), full: /llega gratis|full/i.test(tx), vend: vendidos(tx), tienda: null, url: res.url }); }
