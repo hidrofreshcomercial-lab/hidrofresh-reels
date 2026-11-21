@@ -344,7 +344,7 @@ label .etsel{width:auto;margin:0}
       <button class="sbtn" id="instalar" hidden>⬇ Instalar en el escritorio</button>
       <div class="me" id="me"></div>
       <button class="sbtn ghost" id="salir" hidden>Cerrar sesión</button>
-      <div class="ver">vL1.1 · Panel de León</div>
+      <div class="ver">vL1.3 · Panel de León</div>
     </div>
   </aside>
   <main>
@@ -610,7 +610,7 @@ function cotizHTML(o,K){
     h+=`<div class="marg"><div><span>Lo que pagas (costo neto)</span><b>${clp(costo)}</b><span>productos ${clp(costoProd)}${flete?' + flete '+clp(flete):''}</span>${falt?`<span style="color:var(--amber)">${falt} línea${falt>1?'s':''} sin costo</span>`:''}</div>
       <div><span>Lo que cobras (neto)</span><b>${clp(K.neto)}</b><span>productos ${clp(K.prod)}${flete?' + flete '+clp(flete):''}</span></div>
       <div><span>Tu utilidad (neta)</span><b style="color:${margen<0?'var(--red)':'var(--g700)'}">${K.neto?clp(margen)+' · '+pct.toFixed(1)+'%':'—'}</b><span>${K.neto?'cobras − pagas (sin IVA)':'ingresa precios'}</span></div>
-      <div style="grid-column:1/-1;flex-direction:row;align-items:center;gap:10px;flex-wrap:wrap"><span title="Calcula los precios para que la utilidad sobre el TOTAL neto (productos + flete) sea este %. El flete se cobra al costo, por eso cada producto queda con un % algo mayor.">Quiero ganar en total (incluye flete)</span><span class="row" style="gap:4px"><input id="mpct" type="number" value="${ls.get('mpct',25)}" min="0" max="300" style="width:58px;border:1px solid var(--line);border-radius:7px;padding:3px 5px">%<button class="btn sm pri" data-act="margen">Aplicar</button></span></div></div>`;
+      <div style="grid-column:1/-1;flex-direction:row;align-items:center;gap:10px;flex-wrap:wrap"><span title="Calcula los precios para que la utilidad sobre el TOTAL neto (productos + flete) sea este %. El flete se cobra al costo, por eso cada producto queda con un % algo mayor.">Quiero ganar en total (incluye flete)</span><span class="row" style="gap:4px"><input id="mpct" type="number" value="${ls.get('mpct',25)}" min="0" max="300" style="width:58px;border:1px solid var(--line);border-radius:7px;padding:3px 5px">%<button class="btn sm pri" data-act="margen">Aplicar</button>${K.mx?'<button class="btn sm" data-act="ajustar" title="Calcula los precios para quedar en el 98% del monto máximo que pagan y te muestra cuánto ganarías">🎯 Ajustar al monto máximo</button>':''}</span></div></div>`;
   }
   if(c&&c.ok){h+=`<div class="src" style="margin-top:6px">Precios de referencia buscados ${fecha(c.fecha)} · ${esc(c.motor||'')}. Verifica stock y despacho antes de ofertar.${c.fuentes?.length?` <details style="display:inline"><summary>${c.fuentes.length} fuentes</summary>${c.fuentes.map(f=>`<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo)}</a>`).join(' · ')}</details>`:''}</div>`}
   return h;
@@ -740,6 +740,43 @@ async function cargarFicha(o,forzar){
   try{await fn('mp-ficha',{codigo:o.codigo});S.det[o.codigo]=await rpc('get_oportunidad_detalle',{p_codigo:o.codigo});S.fichaCarga[o.codigo]='ok'}
   catch(e){S.fichaCarga[o.codigo]='err'}
   if(S.open===o.codigo)drawer();
+}
+/* ---------- 📊 Exportar la oferta a Excel (itemizado con fórmulas + lo que piden las bases) ---------- */
+async function exportarExcel(o){
+  try{
+    agToast('📊 Armando el Excel…');await lib('xlsx');
+    const det=S.det[o.codigo],K=calc(o,det),A=det?.analisis||o.analisis_bases||{},mx=K.mx,c=cierre(o.fecha_cierre);
+    const X=XLSX.utils,ws={},put=(r,col,v,z)=>{const ref=X.encode_cell({r,c:col});ws[ref]=typeof v==='object'&&v&&v.f?(v.v===''?{t:'s',v:'',f:v.f}:{t:'n',v:+v.v||0,f:v.f,z}):typeof v==='number'?{t:'n',v,z}:{t:'s',v:String(v??'')}};
+    const CLP='"$"#,##0',PCT='0.0%';let r=0;
+    put(r++,0,'Oferta · '+(o.titulo||''));
+    [['Código',o.codigo],['Tipo',o.tipo_compra],['Organismo',o.organismo||o.unidad_compra||''],['Región',o.region||''],['Cierre',c?.txt||fD(o.fecha_cierre)],['Monto máximo',mx?mx.v:'No publicado',mx?CLP:null],['Monto máximo es',mx?.tipo?String(mx.tipo).replace('_',' '):''],['Plazo de entrega',A.plazo_entrega||''],['Forma de pago',A.forma_pago||''],['Enlace',urlMP(o)]].forEach(([k,v,z])=>{put(r,0,k);put(r,1,v,z);r++});
+    r++;const h=r;['N°','Descripción','Unidad','Cantidad','Costo unitario neto','Costo total','Precio unitario neto','Precio total','Utilidad','Margen %'].forEach((t,i)=>put(h,i,t));r++;
+    const f0=r+1;
+    let sC=0,sP=0;K.it.forEach((x,i)=>{const R=r+1,cu=+K.cs[i]||0,pu=+K.pr[i]||0,ct=cu*x.q,pt=pu*x.q;sC+=ct;sP+=pt;put(r,0,i+1);put(r,1,x.n);put(r,2,x.u||'');put(r,3,x.q);put(r,4,cu,CLP);put(r,5,{f:`D${R}*E${R}`,v:ct},CLP);put(r,6,pu,CLP);put(r,7,{f:`D${R}*G${R}`,v:pt},CLP);put(r,8,{f:`H${R}-F${R}`,v:pt-ct},CLP);put(r,9,{f:`IF(H${R}>0,I${R}/H${R},"")`,v:pt>0?(pt-ct)/pt:''},PCT);r++});
+    const fl=K.flete||0,nC=sC+fl,nP=sP+fl,iv=Math.round(nP*0.19);
+    const fN=r;r++;
+        put(r,4,'Flete (se cobra y se paga)');put(r,5,K.flete||0,CLP);put(r,7,K.flete||0,CLP);const rf=r+1;r++;
+    put(r,4,'TOTAL NETO');put(r,5,{f:`SUM(F${f0}:F${fN})+F${rf}`,v:nC},CLP);put(r,7,{f:`SUM(H${f0}:H${fN})+H${rf}`,v:nP},CLP);put(r,8,{f:`H${r+1}-F${r+1}`,v:nP-nC},CLP);put(r,9,{f:`IF(H${r+1}>0,I${r+1}/H${r+1},"")`,v:nP>0?(nP-nC)/nP:''},PCT);const rn=r+1;r++;
+    put(r,6,'IVA 19%');put(r,7,{f:`ROUND(H${rn}*0.19,0)`,v:iv},CLP);const ri=r+1;r++;
+    put(r,6,'TOTAL CON IVA');put(r,7,{f:`H${rn}+H${ri}`,v:nP+iv},CLP);const rt=r+1;r++;
+    if(mx){put(r,6,'Monto máximo');put(r,7,mx.v,CLP);const rm=r+1;r++;put(r,6,'Diferencia (positivo = cabe)');put(r,7,{f:`H${rm}-${mx.tipo==='neto'?'H'+rn:'H'+rt}`,v:mx.v-(mx.tipo==='neto'?nP:nP+iv)},CLP);r++}
+    r++;put(r++,0,'Escribe tus costos y precios en las columnas E y G: los totales, IVA, utilidad y margen se recalculan solos.');
+    ws['!ref']=X.encode_range({s:{r:0,c:0},e:{r,c:9}});ws['!cols']=[{wch:5},{wch:60},{wch:9},{wch:9},{wch:16},{wch:15},{wch:17},{wch:15},{wch:14},{wch:10}];
+    const wb=X.book_new();X.book_append_sheet(wb,ws,'Oferta');
+    // hoja 2: lo que piden las bases
+    const L=[['Tipo','Detalle','Obligatorio / riesgo','Fuente']];
+    (A.documentos||[]).forEach(d=>L.push(['Documento',d.nombre,(d.obligatorio?'Obligatorio':'')+(d.critico?' · CRÍTICO':''),d.cita||'']));
+    (A.requisitos||[]).forEach(d=>L.push(['Requisito',d.requisito,d.excluyente?'Excluyente':'',d.cita||'']));
+    (A.certificaciones||[]).forEach(d=>L.push(['Certificación',d.nombre,d.obligatoria?'Obligatoria':'',d.cita||'']));
+    (A.garantias||[]).forEach(d=>L.push(['Garantía',[d.tipo,d.monto_o_porcentaje,d.vigencia].filter(Boolean).join(' · '),'',d.cita||'']));
+    (A.multas||[]).forEach(d=>L.push(['Multa',[d.causal,d.monto_texto].filter(Boolean).join(' · '),d.riesgo||'',d.cita||'']));
+    (A.fechas||[]).forEach(d=>L.push(['Fecha',[d.evento,d.fecha].filter(Boolean).join(': '),'',d.cita||'']));
+    (A.criterios_evaluacion||[]).forEach(d=>L.push(['Criterio de evaluación',d.criterio,d.ponderacion||'','']));
+    if(A.visita_terreno?.exigida&&A.visita_terreno.exigida!=='no_indicada')L.push(['Visita a terreno',[A.visita_terreno.exigida,A.visita_terreno.fecha,A.visita_terreno.lugar].filter(Boolean).join(' · '),'',A.visita_terreno.cita||'']);
+    if(L.length===1)L.push(['—','Aún no se han analizado las bases de esta compra (botón «Cargar bases a la IA» o «Leer ficha con IA»).','','']);
+    const ws2=X.aoa_to_sheet(L);ws2['!cols']=[{wch:22},{wch:80},{wch:20},{wch:30}];X.book_append_sheet(wb,ws2,'Bases');
+    XLSX.writeFile(wb,('Oferta '+o.codigo+'.xlsx').replace(/[\\/:*?"<>|]/g,'-'));
+  }catch(e){agToast('⚠ No se pudo armar el Excel: '+e.message)}
 }
 function calc(o,det){
   const it=itemsDe(o,det),pr=ls.get('precios:'+o.codigo,{}),cs=ls.get('costos:'+o.codigo,{});
@@ -974,7 +1011,7 @@ function drawer(){
   if(!K.mx)st=`<div class="status" style="background:var(--amber50);color:var(--amber)">Sin monto máximo publicado. Sube las bases para que LIA lo busque.</div>`;
   else if(!K.cmp)st=`<div class="status" style="background:var(--g50);color:var(--muted)">Ingresa tus precios unitarios para comparar con el monto disponible.</div>`;
   else if(K.cmp.dif<0)st=`<div class="status" style="background:var(--red50);color:var(--red)">⚠ Tu oferta (${K.cmp.lado}) supera lo que pagan por ${clp(-K.cmp.dif)}. Hay que bajar precios. <button class="btn sm" data-act="ajustar">Ajustar para quedar dentro</button></div>`;
-  else st=`<div class="status" style="background:var(--g100);color:var(--g700)">✓ Dentro del monto: te quedan ${clp(K.cmp.dif)} disponibles (comparado con tu ${K.cmp.lado}).</div>`;
+  else st=`<div class="status" style="background:var(--g100);color:var(--g700)">✓ Dentro del monto: te quedan ${clp(K.cmp.dif)} disponibles (comparado con tu ${K.cmp.lado}). <button class="btn sm" data-act="ajustar" title="Sube los precios proporcionalmente hasta quedar en el 98% de lo que pagan">🎯 Ajustar al monto máximo</button></div>`;
   const listo=crit.length===0&&ok===sub.length&&K.neto>0;
   $('#dw').innerHTML=`
   <div class="dwbar"><button class="btn" data-act="x">← Volver</button><span class="t">${esc(o.titulo)}</span><span class="pill ${c.cls}">${c.txt}</span></div>
@@ -998,7 +1035,7 @@ function drawer(){
   ${histHTML(o)}
   <div class="cols"><div>
   <div class="box green">
-    <div class="bh"><h3>✦ Mi oferta</h3><button class="btn sm" data-act="cotizar" ${S.cjob===o.codigo?'disabled':''} title="Busca en la web proveedores en Chile y precios de cada ítem">🔎 Buscar precios en la web</button><span class="pill ${listo?'p-g':'p-a'}">${listo?'Lista':'Borrador'}</span></div>
+    <div class="bh"><h3>✦ Mi oferta</h3><button class="btn sm" data-act="excel" title="Descarga un Excel con el itemizado (cantidad, costo, precio, margen, totales con fórmulas) y lo que piden las bases">📊 Exportar a Excel</button><button class="btn sm" data-act="cotizar" ${S.cjob===o.codigo?'disabled':''} title="Busca en la web proveedores en Chile y precios de cada ítem">🔎 Buscar precios en la web</button><span class="pill ${listo?'p-g':'p-a'}">${listo?'Lista':'Borrador'}</span></div>
     ${itemizadoHTML(o,det,K)}
     ${entregaHTML(o,det)}
     <div class="money" style="margin-top:10px">
@@ -1154,7 +1191,14 @@ document.addEventListener('click',e=>{
   if(a==='int')setInteres(o,o.interes_estado==='INTERESADA'?'PENDIENTE':'INTERESADA');
   if(a==='desc')setInteres(o,o.interes_estado==='DESCARTADA'?'PENDIENTE':'DESCARTADA');
   if(a==='wa'){const mx=maximo(o),c=cierre(o.fecha_cierre);window.open('https://wa.me/?text='+encodeURIComponent(`*${o.titulo}*\n${o.codigo} · ${o.tipo_compra}\n${o.organismo||''} · ${o.region}\nMonto máx: ${mx?clp(mx.v):'no publicado'} · ${c.txt}\n${urlMP(o)}`),'_blank')}
-  if(a==='ajustar'){const K=calc(o,S.det[o.codigo]);const objNeto=(K.mx.tipo==='neto'?K.mx.v:K.mx.v/(1+IVA))*0.98;const f=Math.max(0,(objNeto-K.flete)/(K.prod||1));const pr={};K.it.forEach((x,i)=>{if(+K.pr[i])pr[i]=Math.floor(K.pr[i]*f)});ls.set('precios:'+o.codigo,pr);drawer();guardar(o)}
+  if(a==='ajustar'){const K=calc(o,S.det[o.codigo]);if(!K.mx){agToast('Esta compra no tiene monto máximo publicado: no hay a qué ajustar.');return}
+    const objNeto=(K.mx.tipo==='neto'?K.mx.v:K.mx.v/(1+IVA))*0.98;
+    // base de cada línea: su precio; si no tiene precio, su costo; si no hay nada, se reparte en partes iguales
+    const base=K.it.map((x,i)=>+K.pr[i]||+K.cs[i]||0),sum=base.reduce((s,v,i)=>s+v*K.it[i].q,0),pr={};
+    if(sum>0){const f=Math.max(0,(objNeto-K.flete)/sum);K.it.forEach((x,i)=>{if(base[i])pr[i]=Math.floor(base[i]*f)})}
+    else{const cada=Math.max(0,objNeto-K.flete)/K.it.length;K.it.forEach((x,i)=>pr[i]=Math.floor(cada/x.q))}
+    ls.set('precios:'+o.codigo,pr);drawer();guardar(o);const K2=calc(o,S.det[o.codigo]);agToast(`🎯 Oferta ajustada a ${clp(K2.neto)} neto (98% del máximo)`+(K2.conCosto?` · utilidad ${clp(K2.util)} (${K2.neto?(K2.util/K2.neto*100).toFixed(1):0}%)`:''));return}
+  if(a==='excel'){exportarExcel(o);return}
   if(a==='cotizar'){cotizarWeb(o);return}
   if(a==='hist'){historial(o);return}
   if(a==='histbg'){historialFondo(o);return}
@@ -1443,7 +1487,7 @@ async function irPagina(p){
 }
 function pintarPagina(){
   const p=S.page,t=PAGES.find(x=>x[0]===p);if(!t)return;
-  const cab=`<div class="top"><h1>${t[1]} ${t[2]}<small>León · ${p==='agentes'?'Prospección automática':p==='negocios'?'Importaciones de Chile e investigación de rubros':'Mercado Público'}</small></h1>${p==='investigar'&&S.invTab?'<a class="btn" href="./">← Ir al panel</a>':'<button class="btn" data-pg="ops">← Volver a oportunidades</button>'}</div>`;
+  const cab=`<div class="top"><h1>${t[1]} ${t[2]}<small>León · ${p==='agentes'?'Prospección automática':p==='negocios'?'Mercado Público, Mercado Libre e importaciones':'Mercado Público'}</small></h1>${p==='investigar'&&S.invTab?'<a class="btn" href="./">← Ir al panel</a>':'<button class="btn" data-pg="ops">← Volver a oportunidades</button>'}</div>`;
   $('#pgX').innerHTML=cab+({etapas:pgEtapas,resultados:pgResultados,competencia:pgCompetencia,trabajo:pgTrabajo,bbnn:pgBbnn,contratos:pgContratos,documentos:pgDocumentos,avisos:pgAvisos,empresa:pgEmpresa,rubros:pgRubros,investigar:pgInvestigar,agentes:pgAgentes,negocios:pgNegocios,organismos:pgOrganismos}[p])();
   if(p==='avisos')estadoPush();
 }
@@ -2576,17 +2620,17 @@ document.addEventListener('click',e=>{const t=e.target;
    ranking por tamaño y crecimiento, países de origen e "Investigar rubro" con IA.
    ===================================================================== */
 /* panel León: sin 'negocio */
-S.nn={R:[],carga:null,q:'',f:ls.get('nnf','afines'),orden:ls.get('nno','valor'),sel:null,est:{},orig:{},trab:{}};
+S.nn={R:[],carga:null,q:'',f:ls.get('nnf','todos'),orden:ls.get('nno','valor'),sel:null,est:{},orig:{},trab:{}};
 const NN_FILTROS={
   todos:['Todos',()=>true],
-  afines:['Afines a Hidro Fresh',r=>['25','28','31','34','38','39','40','68','72','73','82','84','85','90'].includes(r.hs.slice(0,2))],
+  afines:['Industriales',r=>['25','28','31','34','38','39','40','68','72','73','82','84','85','90'].includes(r.hs.slice(0,2))],
   agua:['Agua y tratamiento',r=>['2801','2828','2836','2847','3402','3824','3917','3925','3926','8413','8414','8421','8481','9026','9027','9028','3214','3920','7307','7309','7310'].includes(r.hs)],
   mineria:['Insumos mineros',r=>['7325','7326','7228','7229','8474','8431','8430','8207','4010','4016','6804','6805','2836','2837','3602','3603','8483','8482','7312'].includes(r.hs)],
   crecen:['Crecen más de 10 % al año',r=>(r.crec_anual_pct||0)>=10&&(r.valor_usd||0)>=5e6],
 };
 const nnUSD=v=>v==null?'—':v>=1e9?'US$ '+(v/1e9).toLocaleString('es-CL',{maximumFractionDigits:1})+' mil millones':v>=1e6?'US$ '+(v/1e6).toLocaleString('es-CL',{maximumFractionDigits:1})+' millones':'US$ '+Math.round(v/1e3).toLocaleString('es-CL')+' mil';
 const nnVer=r=>r.veredicto?`<span class="nnver ${r.veredicto==='Entrar'?'si':r.veredicto==='No entrar'?'no':'mm'}">${esc(r.veredicto)}${r.puntaje!=null?' · '+r.puntaje:''}</span>`:'';
-async function cargarNegocios(){
+async function cargarNegImp(){
   const [R,c]=await Promise.all([rest('comex_ranking?select=*&nivel=eq.4&order=valor_usd.desc.nullslast&limit=2000'),rest('comex_carga?select=*')]);
   S.nn.R=R||[];S.nn.carga=(c||[])[0]||null;
 }
@@ -2596,12 +2640,12 @@ function nnFiltrados(){
   const o=S.nn.orden;L=[...L].sort((a,b)=>o==='crec'?(b.crec_anual_pct??-999)-(a.crec_anual_pct??-999):o==='punt'?(b.puntaje??-1)-(a.puntaje??-1):(b.valor_usd||0)-(a.valor_usd||0));
   return L;
 }
-function pgNegocios(){
+function pgNegImp(){
   const N=S.nn,c=N.carga,anio=(N.R[0]||{}).anio;
   const aviso=!c||c.estado!=='listo'?`<div class="agav">⏳ Cargando las importaciones oficiales de Chile${c&&c.total?` (capítulo ${Math.min(c.paso,c.total)} de ${c.total})`:''}. Se completa solo en unos minutos; mientras tanto ya puedes ver lo que va llegando. <button class="btn sm" data-nnx="recargar">↻ Actualizar</button></div>`:'';
   if(!N.R.length)return aviso+'<div class="empty">Aún no hay datos. Vuelve en unos minutos.</div>';
   const L=nnFiltrados();
-  return aviso+`<div class="src" style="margin:0 0 10px">Lo que Chile importó en <b>${anio}</b> por partida arancelaria (fuente oficial: UN Comtrade, con datos de Aduanas). Elige un producto y presiona <b>Investigar rubro</b>: los agentes buscan quién lo importa, precios en Chile y en origen, aranceles y antidumping, y te dan un veredicto.</div>
+  return aviso+`<div class="src" style="margin:0 0 10px">Lo que Chile importó en <b>${anio}</b> por partida arancelaria (fuente oficial: UN Comtrade, con datos de Aduanas). Elige un producto para ver de qué países viene.</div>
   <div class="agrama">${Object.entries(NN_FILTROS).map(([k,[l]])=>`<button data-nnf="${k}" class="${N.f===k?'on':''}">${l}</button>`).join('')}</div>
   <div class="row agf" style="gap:8px;flex-wrap:wrap;margin-bottom:10px"><input id="nnq" placeholder="Buscar producto o código (ej. bolas, 7325, bombas)" value="${esc(N.q)}" style="flex:1;min-width:220px">
    <select id="nno"><option value="valor" ${N.orden==='valor'?'selected':''}>Ordenar: más importado</option><option value="crec" ${N.orden==='crec'?'selected':''}>Ordenar: más crecimiento</option><option value="punt" ${N.orden==='punt'?'selected':''}>Ordenar: mejor veredicto</option></select></div>
@@ -2623,7 +2667,7 @@ function nnDetalle(){
   else{const tot=o.reduce((s,x)=>s+(x.valor_usd||0),0)||1;h+=o.slice(0,8).map(x=>`<div class="agembf"><span>${esc(x.pais)}</span><i class="r1" style="width:${Math.max(2,x.valor_usd/o[0].valor_usd*100)}%"></i><b>${Math.round(x.valor_usd/tot*100)}%</b></div>`).join('')}
   h+=`<div class="bh" style="margin-top:14px"><h3>Estudio del negocio</h3></div>`;
   if(tr)h+=`<div class="src">🔎 Investigando el rubro: importadores, precios, aranceles y antidumping… (1 a 2 minutos)</div>`;
-  else if(!e)h+=`<button class="btn pri" data-nninv="${hs}">🔎 Investigar rubro</button>`;
+  else if(!e)h+=`<div class="src">Para estudiar este producto a fondo, búscalo en la pestaña 🏛️ Mercado Público o 🛒 Mercado Libre.</div>`;
   else{const i=e.informe||{};const li=a=>(a||[]).filter(Boolean).map(x=>`<li>${esc(typeof x==='string'?x:x.nombre||'')}</li>`).join('');
     h+=`<div class="nnveredicto">${nnVer({veredicto:e.veredicto,puntaje:e.puntaje})}<span class="src">estudio del ${fD(e.creado_en)}</span> <button class="btn sm" data-nninv="${hs}">↻ Rehacer</button></div>
     <p>${esc(i.resumen||'')}</p>
@@ -2648,7 +2692,7 @@ document.addEventListener('click',async e=>{
     if(S.nn.orig[hs]===undefined){try{const x=await rest('comex_origen?select=*&hs=eq.'+hs+'&order=valor_usd.desc');if(x&&x.length)S.nn.orig[hs]=x}catch(_){}}
     nnRefrescar();const d=$('#nndet');if(d&&window.innerWidth<900)d.scrollIntoView({behavior:'smooth'});return}
   const o=t.closest('[data-nnorig]');if(o){const hs=o.dataset.nnorig;S.nn.orig[hs]='…';nnRefrescar();
-    try{const r=await fn('nuevos-negocios',{origenes:hs});S.nn.orig[hs]=r.origenes||[]}catch(err){S.nn.orig[hs]=undefined;alert('No se pudo consultar: '+err.message)}return nnRefrescar()}
+    try{const r=await fn('negocios-analisis',{origenes:hs});S.nn.orig[hs]=r.origenes||[]}catch(err){S.nn.orig[hs]=undefined;alert('No se pudo consultar: '+err.message)}return nnRefrescar()}
   const v=t.closest('[data-nninv]');if(v){const hs=v.dataset.nninv;S.nn.trab[hs]=1;nnRefrescar();
     try{const r=await fn('nuevos-negocios',{investigar:hs});if(r.error)throw new Error(r.error);S.nn.est[hs]={hs,veredicto:r.veredicto,puntaje:r.puntaje,informe:r.informe,fuentes:r.fuentes,creado_en:new Date().toISOString()};if(r.origenes&&r.origenes.length)S.nn.orig[hs]=r.origenes;
       const row=S.nn.R.find(x=>x.hs===hs);if(row){row.veredicto=r.veredicto;row.puntaje=r.puntaje}}catch(err){alert('No se pudo investigar: '+err.message)}
@@ -2657,6 +2701,135 @@ document.addEventListener('click',async e=>{
 });
 document.addEventListener('input',e=>{if(S.page==='negocios'&&e.target.id==='nnq'){S.nn.q=e.target.value;const l=$('#nnlista');if(l)l.innerHTML=nnLista(nnFiltrados())}});
 document.addEventListener('change',e=>{if(S.page==='negocios'&&e.target.id==='nno'){S.nn.orden=e.target.value;ls.set('nno',S.nn.orden);nnRefrescar()}});
+
+/* =====================================================================
+   v17.8 / L1.3: 💡 Prospectos de nuevos negocios en 3 pestañas
+   🏛️ Mercado Público (todas las OC del país: crecimiento, Compra Ágil, competencia y margen)
+   🛒 Mercado Libre (publicaciones, precios, tiendas, internacionales, búsquedas relacionadas)
+   🌎 Importaciones (lo anterior)
+   ===================================================================== */
+const NN_REMOTO=SB.includes('vidtrslosuiqsppdpugl');
+S.nn.tab=ls.get('nntab','mp');
+S.nm={F:null,orden:ls.get('nmo','crec'),rubro:'',q:'',sel:null,est:{},trab:{},lote:0,cargando:false,err:''};
+S.nl={L:null,q:'',sel:null,trab:false,err:''};
+const NM_ORD={crec:['📈 Más crecimiento','Comparado con los 90 días anteriores'],facil:['⚡ Más fáciles (Compra Ágil)','Mayor % comprado por Compra Ágil: oferta simple, sin garantías'],competencia:['🤝 Menos competencia','Menos proveedores distintos (solo productos ya estudiados)'],margen:['💰 Más margen','Precio pagado por el Estado vs Mercado Libre (solo estudiados)'],vol:['📦 Más volumen','Más órdenes de compra en 90 días']};
+const clp0=v=>v==null?'—':'$'+Math.round(v).toLocaleString('es-CL');
+const pctS=v=>v==null?'—':(v>0?'+':'')+String(v).replace('.',',')+' %';
+async function cargarNegocios(){
+  if(S.nn.tab==='imp'){
+    if(NN_REMOTO){const r=await fn('negocios-analisis',{comex:true});S.nn.R=r.filas||[];S.nn.carga=r.carga||null}else await cargarNegImp();
+  }else if(S.nn.tab==='mp')await nmCargar();
+  else await nlCargar();
+}
+async function nmCargar(){
+  S.nm.cargando=true;S.nm.err='';
+  try{S.nm.F=await fn('negocios-analisis',{ranking:{orden:S.nm.orden,rubro:S.nm.rubro||undefined,q:S.nm.q||undefined,limite:400}})}catch(e){S.nm.err=e.message;S.nm.F=S.nm.F||{filas:[]}}
+  S.nm.cargando=false;
+}
+async function nlCargar(){try{const r=await fn('negocios-analisis',{estudios:'ml'});S.nl.L=r.filas||[]}catch(e){S.nl.err=e.message;S.nl.L=S.nl.L||[]}}
+function pgNegocios(){
+  const T=[['mp','🏛️ Mercado Público'],['ml','🛒 Mercado Libre'],['imp','🌎 Importaciones de Chile']];
+  const tabs=`<div class="agrama" style="margin-bottom:12px">${T.map(([k,l])=>`<button data-nntab="${k}" class="${S.nn.tab===k?'on':''}">${l}</button>`).join('')}</div>`;
+  return tabs+(S.nn.tab==='imp'?pgNegImp():S.nn.tab==='mp'?pgNegMP():pgNegML());
+}
+function pgNegMP(){
+  const M=S.nm,F=M.F;
+  if(!F)return '<div class="src">Cargando…</div>';
+  const rubros=Object.entries(F.rubros||{}).sort((a,b)=>b[1]-a[1]);
+  const aviso=F.por_clasificar>50?`<div class="agav">🤖 La IA está ordenando los productos (${F.clasificados} listos, faltan ~${F.por_clasificar}); cada día se suman más. Mientras tanto puedes buscar cualquier producto por nombre.</div>`:'';
+  return `${aviso}<div class="src" style="margin:0 0 10px">Todas las órdenes de compra del Estado de Chile de los últimos 6 meses, agrupadas por producto. <b>Crecimiento</b>: últimos 90 días vs los 90 anteriores. <b>% Compra Ágil</b>: lo más fácil de postular (hasta 100 UTM, sin garantías). Presiona <b>Estudiar</b> para ver cuántos proveedores le venden al Estado, a qué precio, el margen contra Mercado Libre y las Compras Ágiles abiertas hoy.${F.actualizado?' · Datos al '+fD(F.actualizado):''}</div>
+  <div class="agrama">${Object.entries(NM_ORD).map(([k,[l,t]])=>`<button data-nmo="${k}" title="${esc(t)}" class="${M.orden===k?'on':''}">${l}</button>`).join('')}</div>
+  <div class="row agf" style="gap:8px;flex-wrap:wrap;margin-bottom:10px"><input id="nmq" placeholder="Buscar producto (ej. manteles, toner, guantes)" value="${esc(M.q)}" style="flex:1;min-width:200px">
+   <select id="nmr"><option value="">Todos los rubros</option>${rubros.map(([r,n])=>`<option ${M.rubro===r?'selected':''} value="${esc(r)}">${esc(r)} (${n})</option>`).join('')}</select>
+   <button class="btn sm" data-nmx="buscar">Buscar</button> <button class="btn sm" data-nmx="lote" title="Estudia los 10 primeros de la lista (2 a 4 minutos)">${M.lote?'🔬 Estudiando '+M.lote+'…':'🔬 Estudiar los 10 primeros'}</button></div>
+  ${M.err?`<div class="agav">No se pudo cargar: ${esc(M.err)}</div>`:''}
+  <div class="nnwrap"><div class="box nnlist" id="nmlista">${nmLista()}</div><div class="box nndet" id="nmdet">${nmDetalle()}</div></div>`;
+}
+function nmLista(){
+  const L=(S.nm.F||{}).filas||[];
+  if(S.nm.cargando)return '<div class="src">Cargando…</div>';
+  if(!L.length)return `<div class="src">${S.nm.orden==='competencia'||S.nm.orden==='margen'?'Aún no hay productos estudiados con este criterio: elige otro orden y presiona <b>Estudiar</b> en los que te interesen (o «Estudiar los 10 primeros»).':'Nada con ese filtro.'}</div>`;
+  return `<table class="agtb"><thead><tr><th>Producto</th><th style="text-align:right" title="Órdenes de compra en 90 días">OC 90 d</th><th style="text-align:right">Crec.</th><th style="text-align:right" title="% comprado por Compra Ágil">C. Ágil</th><th style="text-align:right" title="Proveedores distintos (estudiados)">Prov.</th><th style="text-align:right">Margen</th></tr></thead><tbody>${L.slice(0,300).map(r=>`<tr class="nnrow ${S.nm.sel===r.termino?'on':''}" data-nmsel="${esc(r.termino)}"><td><b>${esc(r.nombre||r.termino)}</b>${r.estacional?' <span class="src" title="Muy estacional">🗓️</span>':''}<br><span class="src">${esc(r.rubro||'')}</span></td><td style="text-align:right">${(r.rec||0).toLocaleString('es-CL')}</td><td style="text-align:right" class="${(r.crec_pct||0)>=0?'nnup':'nndn'}">${pctS(r.crec_pct)}</td><td style="text-align:right">${r.ag_pct==null?'—':Math.round(r.ag_pct)+' %'}</td><td style="text-align:right">${r.proveedores??(S.nm.trab[r.termino]?'⏳':'·')}</td><td style="text-align:right" class="${(r.margen_pct||0)>=0?'nnup':'nndn'}">${r.margen_pct==null?'·':r.margen_pct+' %'}</td></tr>`).join('')}</tbody></table>`;
+}
+function mlBloque(m){
+  if(!m)return '';
+  if(m.error)return `<div class="src">Mercado Libre: ${esc(m.error)}</div>`;
+  return `<div class="agk" style="margin:8px 0"><div><b>${m.publicaciones||0}</b><span>publicaciones vistas</span></div><div><b>${clp0(m.precio_p25)}</b><span>precio bajo (p25)</span></div><div><b>${clp0(m.precio_med)}</b><span>precio mediano</span></div><div><b>${m.dispersion_pct==null?'—':m.dispersion_pct+' %'}</b><span>dispersión de precios</span></div><div><b>${m.internacional_pct==null?'—':m.internacional_pct+' %'}</b><span>envío internacional</span></div><div><b>${m.tiendas_oficiales??'—'}</b><span>tiendas oficiales</span></div></div>
+   ${(m.relacionadas||[]).length?`<div class="src" style="margin:4px 0">Lo que más se busca junto: ${m.relacionadas.map(x=>`<a href="#" data-nlq="${esc(x)}">${esc(x)}</a>`).join(' · ')}</div>`:''}
+   ${(m.muestra||[]).length?`<details><summary class="src">Ver ${m.muestra.length} publicaciones</summary><ul>${m.muestra.map(x=>`<li>${clp0(x.p)} · <a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.t)}</a>${x.vend?' · '+x.vend.toLocaleString('es-CL')+' vendidos':''}${x.intl?' · 🌐 internacional':''}${x.tienda?' · '+esc(x.tienda):''}</li>`).join('')}</ul></details>`:''}`;
+}
+function nmDetalle(){
+  const t=S.nm.sel;if(!t)return '<div class="src">👈 Elige un producto para ver el detalle y estudiarlo.</div>';
+  const r=((S.nm.F||{}).filas||[]).find(x=>x.termino===t)||{termino:t},e=S.nm.est[t];
+  let h=`<h3 style="margin:0 0 4px">${esc(r.nombre||t)}</h3><div class="src">${esc(r.rubro||'')}${r.estacional?' · 🗓️ muy estacional':''} · término «${esc(t)}»</div>
+  <div class="agk" style="margin:10px 0"><div><b>${(r.rec||0).toLocaleString('es-CL')}</b><span>OC en 90 días</span></div><div><b>${(r.ant||0).toLocaleString('es-CL')}</b><span>90 días antes</span></div><div><b>${pctS(r.crec_pct)}</b><span>crecimiento</span></div><div><b>${r.ag_pct==null?'—':Math.round(r.ag_pct)+' %'}</b><span>por Compra Ágil</span></div><div><b>${r.rec?Math.round((r.cm||0)*100/r.rec)+' %':'—'}</b><span>por Convenio Marco</span></div></div>
+  <div class="src">${(r.ag_pct||0)>=50?'⚡ Se compra sobre todo por Compra Ágil: basta registrarse en Mercado Público y cotizar.':(r.rec&&(r.cm||0)/r.rec>0.5)?'🔒 Se compra sobre todo por Convenio Marco: hay que estar adjudicado en ese catálogo.':'📄 Se compra por licitación o trato directo: más papeleo, pero menos competencia.'}</div>`;
+  if(S.nm.trab[t])return h+`<div class="src" style="margin-top:10px">🔬 Estudiando: órdenes de compra reales, proveedores, precios y Mercado Libre… (30 a 90 segundos)</div>`;
+  if(!e)return h+`<div style="margin-top:12px"><button class="btn pri" data-nmest="${esc(t)}">🔬 Estudiar este producto</button></div>`;
+  const d=e.datos||e;
+  h+=`<div class="bh" style="margin-top:14px"><h3>Competencia en el Estado</h3><button class="btn sm" data-nmest="${esc(t)}">↻ Re-estudiar</button></div>
+  <div class="agk" style="margin:8px 0"><div><b>${d.proveedores??'—'}</b><span>proveedores distintos (en ${d.ocs_vistas||0} OC)</span></div><div><b>${d.top_pct==null?'—':d.top_pct+' %'}</b><span>se lo lleva el principal</span></div><div><b>${clp0(d.precio_unit_med)}</b><span>precio unitario neto (mediana)</span></div><div><b>${clp0(d.monto_oc_med)}</b><span>monto típico por OC</span></div><div><b>${d.margen_pct==null?'—':d.margen_pct+' %'}</b><span>margen estimado vs M. Libre</span></div></div>
+  ${d.nota_margen?`<div class="src">${esc(d.nota_margen)}</div>`:''}
+  ${(d.lideres||[]).length?`<b>Quién le vende hoy</b><ul>${d.lideres.map(x=>`<li>${esc(x.nombre||'(sin nombre)')} · ${x.ocs} OC${x.monto?' · '+clp0(x.monto):''}</li>`).join('')}</ul>`:''}
+  <b>Compras Ágiles abiertas ahora (${(d.ca_abiertas||[]).length})</b>${(d.ca_abiertas||[]).length?`<ul>${d.ca_abiertas.map(x=>`<li><a href="https://buscador.mercadopublico.cl/ficha?code=${encodeURIComponent(x.codigo)}" target="_blank" rel="noopener">${esc(x.nombre)}</a><br><span class="src">${esc(x.organismo||'')} · ${esc(x.region||'')} · cierra ${fD(x.fecha_cierre)}${x.monto?' · '+clp0(x.monto):''}</span></li>`).join('')}</ul>`:'<div class="src">Ninguna abierta hoy con ese nombre.</div>'}
+  ${(d.ejemplos||[]).length?`<details><summary class="src">Órdenes de compra de ejemplo (${d.ejemplos.length})</summary><ul>${d.ejemplos.map(x=>`<li><a href="https://www.mercadopublico.cl/PurchaseOrder/Modules/PO/DetailsPurchaseOrder.aspx?codigoOC=${encodeURIComponent(x.codigo)}" target="_blank" rel="noopener">${esc(x.codigo)}</a> · ${esc(x.nombre||'')} · ${esc(x.proveedor||'')}${x.monto?' · '+clp0(x.monto):''}</li>`).join('')}</ul></details>`:''}
+  <div class="bh" style="margin-top:14px"><h3>En Mercado Libre</h3></div>${mlBloque(d.ml)}
+  <div class="src" style="margin-top:8px">Estudio del ${fD(e.creado||new Date())}</div>`;
+  return h;
+}
+async function nmEstudiar(t){
+  const r=((S.nm.F||{}).filas||[]).find(x=>x.termino===t)||{};
+  S.nm.trab[t]=1;nmRef();
+  try{const j=await fn('negocios-analisis',{estudiar:{termino:t,nombre:r.nombre||t}});S.nm.est[t]={datos:j.datos,creado:new Date().toISOString()};
+    if(r){r.proveedores=j.datos.proveedores;r.margen_pct=j.datos.margen_pct;r.top_pct=j.datos.top_pct}}
+  catch(e){agToast('No se pudo estudiar «'+(r.nombre||t)+'»: '+e.message)}
+  delete S.nm.trab[t];nmRef();
+}
+function nmRef(){const l=$('#nmlista'),d=$('#nmdet');if(l)l.innerHTML=nmLista();if(d)d.innerHTML=nmDetalle()}
+function pgNegML(){
+  const N=S.nl,L=N.L;
+  const sug=(((S.nm.F||{}).filas)||[]).filter(r=>r.producto&&(r.crec_pct||0)>20).slice(0,8);
+  return `<div class="src" style="margin:0 0 10px">Escribe un producto y lo analizo en Mercado Libre Chile: cuántas publicaciones hay, el rango de precios (si la dispersión es alta, hay espacio para vender más barato o mejor), cuántas son tiendas oficiales, cuántas vienen del extranjero y qué más busca la gente. <i>Mercado Libre no entrega cifras de ventas por año a terceros; el crecimiento se ve en la pestaña Mercado Público.</i></div>
+  <div class="row agf" style="gap:8px;flex-wrap:wrap;margin-bottom:10px"><input id="nlq" placeholder="Producto a analizar (ej. manteles mesa, servilletas papel)" value="${esc(N.q)}" style="flex:1;min-width:220px"><button class="btn pri" data-nlx="ir">${N.trab?'⏳ Analizando…':'🛒 Analizar en Mercado Libre'}</button></div>
+  ${sug.length?`<div class="src" style="margin-bottom:10px">Ideas que crecen en el Estado: ${sug.map(r=>`<a href="#" data-nlq="${esc(r.nombre||r.termino)}">${esc(r.nombre||r.termino)}</a>`).join(' · ')}</div>`:''}
+  ${N.err?`<div class="agav">${esc(N.err)}</div>`:''}
+  <div class="nnwrap"><div class="box nnlist" id="nllista">${nlLista()}</div><div class="box nndet" id="nldet">${nlDetalle()}</div></div>`;
+}
+function nlLista(){
+  const L=S.nl.L;if(L==null)return '<div class="src">Cargando…</div>';if(!L.length)return '<div class="src">Aún no has analizado productos.</div>';
+  return `<table class="agtb"><thead><tr><th>Búsqueda</th><th style="text-align:right">Publ.</th><th style="text-align:right">Precio bajo</th><th style="text-align:right">Mediano</th><th style="text-align:right" title="Dispersión de precios">Disp.</th><th style="text-align:right" title="Tiendas oficiales">Tiendas</th></tr></thead><tbody>${L.map(x=>{const d=x.datos||{};return `<tr class="nnrow ${S.nl.sel===x.clave?'on':''}" data-nlsel="${esc(x.clave)}"><td><b>${esc(d.q||x.termino)}</b></td><td style="text-align:right">${d.publicaciones??'—'}</td><td style="text-align:right">${clp0(d.precio_p25)}</td><td style="text-align:right">${clp0(d.precio_med)}</td><td style="text-align:right">${d.dispersion_pct==null?'—':d.dispersion_pct+' %'}</td><td style="text-align:right">${d.tiendas_oficiales??'—'}</td></tr>`}).join('')}</tbody></table>`;
+}
+function nlDetalle(){
+  const x=(S.nl.L||[]).find(y=>y.clave===S.nl.sel);if(!x)return '<div class="src">👈 Elige un análisis o escribe un producto arriba.</div>';
+  const d=x.datos||{};
+  return `<h3 style="margin:0 0 4px">${esc(d.q||x.termino)}</h3><div class="src">Analizado el ${fD(x.creado)} · <a href="https://listado.mercadolibre.cl/${encodeURIComponent(String(d.q||x.termino).toLowerCase().replace(/\s+/g,'-'))}" target="_blank" rel="noopener">Abrir en Mercado Libre</a></div>${mlBloque(d)}
+  <div class="src" style="margin-top:8px">${d.dispersion_pct>=60?'💡 Precios muy dispersos: hay espacio para entrar con buen precio.':''} ${d.internacional_pct>=40?'🌐 Mucha oferta importada directa: competir por rapidez de entrega.':''} ${d.tiendas_oficiales<=2?'🙂 Pocas tiendas oficiales: mercado poco dominado por marcas.':''}</div>
+  <button class="btn sm" data-nlre="${esc(d.q||x.termino)}" style="margin-top:8px">↻ Analizar de nuevo</button>`;
+}
+async function nlAnalizar(q){
+  q=String(q||'').trim();if(!q)return;S.nl.q=q;S.nl.trab=true;S.nl.err='';nnPintar();
+  try{const r=await fn('negocios-analisis',{ml:{q}});await nlCargar();const c=(S.nl.L||[]).find(y=>(y.datos||{}).q===r.q);S.nl.sel=c?c.clave:null}catch(e){S.nl.err='No se pudo analizar: '+e.message}
+  S.nl.trab=false;nnPintar();
+}
+document.addEventListener('click',async e=>{
+  const t=e.target;if(S.page!=='negocios'||!t.closest('#pgX'))return;
+  const tb=t.closest('[data-nntab]');if(tb){S.nn.tab=tb.dataset.nntab;ls.set('nntab',S.nn.tab);$('#pgX').innerHTML='<div class="src">Cargando…</div>';try{await cargarNegocios()}catch(_){};return pintarPagina()}
+  const o=t.closest('[data-nmo]');if(o){S.nm.orden=o.dataset.nmo;ls.set('nmo',S.nm.orden);S.nm.cargando=true;nnPintar();await nmCargar();return nnPintar()}
+  if(t.closest('[data-nmx="buscar"]')){S.nm.q=($('#nmq')||{}).value||'';S.nm.cargando=true;nmRef();await nmCargar();return nnPintar()}
+  if(t.closest('[data-nmx="lote"]')){if(S.nm.lote)return;const L=(((S.nm.F||{}).filas)||[]).filter(r=>!r.proveedores).slice(0,10);
+    for(let i=0;i<L.length;i++){S.nm.lote=i+1;nnPintar();await nmEstudiar(L[i].termino)}S.nm.lote=0;return nnPintar()}
+  const s=t.closest('[data-nmsel]');if(s){const k=s.dataset.nmsel;S.nm.sel=k;
+    if(S.nm.est[k]===undefined&&((S.nm.F||{}).filas||[]).find(x=>x.termino===k&&x.estudiado)){try{const r=await fn('negocios-analisis',{estudios:'mp'});for(const x of r.filas||[])S.nm.est[x.termino]={datos:x.datos,creado:x.creado}}catch(_){}}
+    nmRef();const d=$('#nmdet');if(d&&window.innerWidth<900)d.scrollIntoView({behavior:'smooth'});return}
+  const es=t.closest('[data-nmest]');if(es)return nmEstudiar(es.dataset.nmest);
+  const nq=t.closest('[data-nlq]');if(nq){e.preventDefault();S.nn.tab='ml';ls.set('nntab','ml');if(S.nl.L==null)await nlCargar();return nlAnalizar(nq.dataset.nlq)}
+  if(t.closest('[data-nlx="ir"]'))return nlAnalizar(($('#nlq')||{}).value);
+  const re=t.closest('[data-nlre]');if(re)return nlAnalizar(re.dataset.nlre);
+  const ns=t.closest('[data-nlsel]');if(ns){S.nl.sel=ns.dataset.nlsel;const l=$('#nllista'),d=$('#nldet');if(l)l.innerHTML=nlLista();if(d)d.innerHTML=nlDetalle();return}
+});
+document.addEventListener('change',async e=>{if(S.page==='negocios'&&e.target.id==='nmr'){S.nm.rubro=e.target.value;S.nm.cargando=true;nmRef();await nmCargar();nnPintar()}});
+document.addEventListener('keydown',e=>{if(S.page!=='negocios'||e.key!=='Enter')return;if(e.target.id==='nmq'){e.preventDefault();$('[data-nmx="buscar"]')?.click()}if(e.target.id==='nlq'){e.preventDefault();nlAnalizar(e.target.value)}});
+
 
 /* v13.1: agregar por número + "📌 indexadas" (agregadas a mano), en ambas pestañas */
 const esIdx=o=>/^(Agregada a mano|Traída desde Nueva búsqueda)/.test(o.rubro_motivo||'')||!!(ls.get('idx',{})[o.codigo]);
@@ -2940,6 +3113,7 @@ document.addEventListener('click',e=>{if(e.target.closest('[data-wap]'))setTimeo
 /* v14.3: aviso de versión nueva — si subiste un zip nuevo y el navegador muestra el antiguo, aparece una franja para actualizar */
 /* ---------- v17.6: 🏛️ Buscar por organismo ---------- */
 PAGES.push(['organismos','🏛️','Buscar por organismo']);
+PAGES.push(['negocios','💡','Prospectos de nuevos negocios']);
 S.org=S.org||{q:'',L:null,sel:null,R:null,oc:null,seg:null};
 const orgFn=b=>fn('mp-organismo',b);
 const orgCorto=n=>String(n||'').replace(/^I\.?\s+MUNICIPALIDAD/i,'Municipalidad').replace(/^ILUSTRE\s+MUNICIPALIDAD/i,'Municipalidad').toLowerCase().replace(/(^|\s|\()([a-záéíóúñ])/g,(m,a,b)=>a+b.toUpperCase()).replace(/ (De|Del|La|Las|Los|Y|E) /g,m=>m.toLowerCase());
@@ -3008,7 +3182,7 @@ document.addEventListener('click',e=>{if(S.page!=='organismos')return;const t=e.
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='orgq'){e.preventDefault();orgBuscar()}});
 (function(){const st=document.createElement('style');st.textContent='.orgbus{display:flex;gap:8px;margin:0 0 12px}.orgbus input{flex:1;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:15px}.orgres{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;margin:0 0 8px;cursor:pointer;font:inherit}.orgres:hover{border-color:#1f6b45}.orgcab{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:6px 0 4px}.orgcab h2{margin:0;font-size:19px}.orgh{font-size:15px;margin:18px 0 6px}.orgit{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;margin:0 0 7px}.orgit a{color:inherit}.orgviejo{opacity:.7}.orgdet{margin:8px 0}.orgdet summary{cursor:pointer;color:#1f6b45;margin-bottom:6px}.orgseg{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:0 0 12px}.chipb{border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 11px;cursor:pointer;font:inherit;font-size:13px}';document.head.appendChild(st)})();
 
-const HF_VER='L1.1';
+const HF_VER='L1.3';
 /* v16.8: las descartadas ya no reaparecen: lo marcado queda pendiente hasta que la base lo confirma y se reintenta */
 /* v16.7: prospectos ya contactados por correo y WhatsApp salen de Llamar hoy y Llamar proyectistas; entran nuevos */
 /* v16.6: corrige licitaciones agregadas por número que no aparecían en Mis postulaciones (el navegador recordaba un estado viejo) */
