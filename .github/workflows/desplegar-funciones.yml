@@ -1,0 +1,38 @@
+name: Desplegar funciones (Hidro Fresh y León)
+# Despliega funciones/<nombre>/index.ts a los proyectos de funciones/<nombre>/destinos.
+# verify_jwt: 1 = exige sesión (default), 0 = --no-verify-jwt. Usa el secreto SUPABASE_ACCESS_TOKEN.
+on:
+  workflow_dispatch:
+  push:
+    paths: ['funciones/**', '.github/workflows/desplegar-funciones.yml']
+concurrency: { group: desplegar-funciones, cancel-in-progress: false }
+jobs:
+  desplegar:
+    runs-on: ubuntu-latest
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 2, sparse-checkout: funciones }
+      - uses: supabase/setup-cli@v1
+        with: { version: latest }
+      - name: Desplegar las que cambiaron
+        run: |
+          set +e
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then cambiadas=$(ls funciones); else cambiadas=$(git diff --name-only HEAD~1 HEAD -- funciones | cut -d/ -f2 | sort -u); fi
+          mkdir -p t/supabase/functions && cd t && (supabase init --yes >/dev/null 2>&1 || true)
+          ok=""; mal=""
+          for f in $cambiadas; do
+            [ -f "../funciones/$f/index.ts" ] || continue
+            rm -rf "supabase/functions/$f"; cp -r "../funciones/$f" "supabase/functions/$f"
+            extra=""; [ "$(cat ../funciones/$f/verify_jwt 2>/dev/null)" = "0" ] && extra="--no-verify-jwt"
+            for p in $(cat "../funciones/$f/destinos"); do
+              src="supabase/functions/$f/index.ts"; otro=$([ "$p" = "vidtrslosuiqsppdpugl" ] && echo mplgrbwehbzmksjzgqsd || echo vidtrslosuiqsppdpugl)
+              sed -i "s/$otro/$p/g" "$src"
+              [ "$p" = "vidtrslosuiqsppdpugl" ] && sed -i "s/hidrofresh-wa-92t4l9df/leon-mp-f955507f55/g" "$src"
+              if supabase functions deploy "$f" --project-ref "$p" --use-api --yes $extra; then ok="$ok $f@$p"; else mal="$mal $f@$p"; fi
+              cp "../funciones/$f/index.ts" "$src"
+            done
+          done
+          echo "### Desplegadas: $ok" >> $GITHUB_STEP_SUMMARY; echo "### Fallaron: $mal" >> $GITHUB_STEP_SUMMARY
+          echo "OK:$ok"; echo "MAL:$mal"
