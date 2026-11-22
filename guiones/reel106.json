@@ -1,0 +1,51 @@
+{
+ "nombre": "reel106",
+ "gancho": "No la botes, recupérala",
+ "segmentos": [
+  {
+   "texto": "Así se ve una planta de tratamiento sin mantención.",
+   "foto": 551,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "Lodos acumulados, bombas tapadas y mal olor.",
+   "foto": 110,
+   "fotos": [
+    541
+   ]
+  },
+  {
+   "texto": "Limpiamos, cambiamos lo malo y reactivamos las bacterias.",
+   "foto": 105,
+   "fotos": [
+    2
+   ]
+  },
+  {
+   "texto": "Muchas veces se recupera sin comprar una planta nueva.",
+   "foto": 100,
+   "fotos": [
+    101
+   ]
+  },
+  {
+   "texto": "Lo hacemos desde 2008.",
+   "foto": 246,
+   "fotos": [
+    248
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2f.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel106k",
+ "rev": 1,
+ "molde": "antes y después"
+}

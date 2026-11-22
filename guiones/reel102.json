@@ -1,0 +1,51 @@
+{
+ "nombre": "reel102",
+ "gancho": "¿Tu agua tratada cumple?",
+ "segmentos": [
+  {
+   "texto": "¿El agua que sale de tu planta de tratamiento cumple la norma?",
+   "foto": 523,
+   "fotos": [
+    100
+   ]
+  },
+  {
+   "texto": "Si la planta trabaja mal, el agua sale con materia orgánica y coliformes.",
+   "foto": 108,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "Por eso primero la planta: aire, bacterias y lodos en orden.",
+   "foto": 2,
+   "fotos": [
+    9
+   ]
+  },
+  {
+   "texto": "Después, el cloro desinfecta al final.",
+   "foto": 561,
+   "fotos": [
+    200
+   ]
+  },
+  {
+   "texto": "Y el análisis de laboratorio lo confirma.",
+   "foto": 134,
+   "fotos": [
+    178
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2b.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel102k",
+ "rev": 1,
+ "molde": "calidad del efluente"
+}

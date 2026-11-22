@@ -1,0 +1,48 @@
+{
+ "nombre": "reel104",
+ "gancho": "¿Tu planta no da abasto?",
+ "segmentos": [
+  {
+   "texto": "¿Tu planta de tratamiento no da abasto cuando llega más gente?",
+   "foto": 519,
+   "fotos": [
+    520
+   ]
+  },
+  {
+   "texto": "Entra más carga y las bacterias no alcanzan a limpiar el agua.",
+   "foto": 108,
+   "fotos": [
+    110
+   ]
+  },
+  {
+   "texto": "Primero revisamos la planta: aire, lodos y caudal.",
+   "foto": 2,
+   "fotos": [
+    170
+   ]
+  },
+  {
+   "texto": "Después reforzamos con bacterias especializadas.",
+   "foto": 560
+  },
+  {
+   "texto": "Así el proceso biológico se recupera.",
+   "foto": 231,
+   "fotos": [
+    232
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2d.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel104k",
+ "rev": 1,
+ "molde": "sobrecarga y bacterias"
+}

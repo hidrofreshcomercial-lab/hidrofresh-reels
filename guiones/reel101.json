@@ -1,0 +1,44 @@
+{
+ "nombre": "reel101",
+ "gancho": "¿Pasarías una fiscalización?",
+ "segmentos": [
+  {
+   "texto": "Si la autoridad sanitaria revisa tu planta mañana, ¿pasa?",
+   "foto": 33,
+   "fotos": [
+    178
+   ]
+  },
+  {
+   "texto": "Lo primero que piden: autorización y análisis del agua que sale.",
+   "foto": 108,
+   "fotos": [
+    134
+   ]
+  },
+  {
+   "texto": "Una planta sin mantención puede terminar en sumario y multa.",
+   "foto": 109,
+   "fotos": [
+    551
+   ]
+  },
+  {
+   "texto": "Revisamos tu planta, la dejamos funcionando y te ayudamos con los papeles.",
+   "foto": 104,
+   "fotos": [
+    105
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel101k",
+ "rev": 1,
+ "molde": "fiscalización sanitaria"
+}

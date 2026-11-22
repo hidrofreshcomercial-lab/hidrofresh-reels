@@ -1,0 +1,51 @@
+{
+ "nombre": "reel107",
+ "gancho": "Mantención preventiva",
+ "segmentos": [
+  {
+   "texto": "Una planta de tratamiento sin mantención termina fallando.",
+   "foto": 1,
+   "fotos": [
+    182
+   ]
+  },
+  {
+   "texto": "El soplador, las bombas y el tablero necesitan revisión periódica.",
+   "foto": 2,
+   "fotos": [
+    180
+   ]
+  },
+  {
+   "texto": "Hacemos mantención preventiva y correctiva.",
+   "foto": 104,
+   "fotos": [
+    107
+   ]
+  },
+  {
+   "texto": "Y tenemos sopladores y bombas de repuesto.",
+   "foto": 554,
+   "fotos": [
+    181
+   ]
+  },
+  {
+   "texto": "Así tu planta dura muchos años más.",
+   "foto": 100,
+   "fotos": [
+    33
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2a.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel107k",
+ "rev": 1,
+ "molde": "mantención preventiva"
+}

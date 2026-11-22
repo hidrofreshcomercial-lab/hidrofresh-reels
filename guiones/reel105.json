@@ -1,0 +1,44 @@
+{
+ "nombre": "reel105",
+ "gancho": "¿Planta sin autorización?",
+ "segmentos": [
+  {
+   "texto": "¿Tu planta de tratamiento no tiene autorización sanitaria?",
+   "foto": 21,
+   "fotos": [
+    530
+   ]
+  },
+  {
+   "texto": "Pasa mucho en colegios, hoteles y faenas sin alcantarillado.",
+   "foto": 530,
+   "fotos": [
+    142
+   ]
+  },
+  {
+   "texto": "Sin autorización, te expones a un sumario.",
+   "foto": 33,
+   "fotos": [
+    109
+   ]
+  },
+  {
+   "texto": "Revisamos la planta, la ajustamos para que cumpla y te ayudamos con el trámite.",
+   "foto": 104,
+   "fotos": [
+    11
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2e.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel105k",
+ "rev": 1,
+ "molde": "regularización"
+}

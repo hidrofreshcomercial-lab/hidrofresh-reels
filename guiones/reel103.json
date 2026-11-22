@@ -1,0 +1,52 @@
+{
+ "nombre": "reel103",
+ "gancho": "Si tu planta descarga así…",
+ "segmentos": [
+  {
+   "texto": "Si tu planta descarga así, tienes un problema.",
+   "foto": 548,
+   "fotos": [
+    545
+   ]
+  },
+  {
+   "texto": "Agua sin tratar en un estero o una quebrada es una falta grave.",
+   "foto": 545,
+   "fotos": [
+    546
+   ]
+  },
+  {
+   "texto": "Pasa cuando la planta falla y nadie lo nota.",
+   "foto": 109,
+   "fotos": [
+    551
+   ]
+  },
+  {
+   "texto": "Revisamos la planta, las bombas y el clorador, y la dejamos funcionando.",
+   "foto": 104,
+   "fotos": [
+    180,
+    200
+   ]
+  },
+  {
+   "texto": "Así el agua sale tratada y desinfectada.",
+   "foto": 231,
+   "fotos": [
+    232
+   ]
+  },
+  {
+   "texto": "Escríbenos por WhatsApp y te cotizamos.",
+   "video": "https://mplgrbwehbzmksjzgqsd.supabase.co/storage/v1/object/public/redes/clips/cierre_v2c.mp4",
+   "voz_propia": true
+  }
+ ],
+ "voz": "Kore + Lorena (cierre)",
+ "vocera": "Lorena",
+ "voz_kore": "reel103k",
+ "rev": 1,
+ "molde": "descarga fuera de norma"
+}
