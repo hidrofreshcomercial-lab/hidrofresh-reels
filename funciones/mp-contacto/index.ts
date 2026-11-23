@@ -66,7 +66,7 @@ async function textoDe(nombre: string, buf: Uint8Array): Promise<string | null> 
   return null;
 }
 async function adjuntos(codigo: string) {
-  const out = { textos: [] as { nombre: string; texto: string }[], escaneados: [] as { nombre: string; buf: Uint8Array }[], nombres: [] as string[], error: null as string | null };
+  const out = { textos: [] as { nombre: string; texto: string }[], escaneados: [] as { nombre: string; buf: Uint8Array }[], pdfs: [] as { nombre: string; buf: Uint8Array }[], nombres: [] as string[], error: null as string | null };
   let files: any[] = [];
   for (let i = 0; i < 2 && !files.length; i++) {
     try { const r = await fetch(`${ADJ}/listar/${encodeURIComponent(codigo)}`, { headers: ADJ_H, signal: AbortSignal.timeout(20_000) }); if (r.ok) { files = (await r.json())?.payload?.files ?? []; if (!files.length) return out; } } catch (_) { /* reintenta */ }
@@ -78,7 +78,7 @@ async function adjuntos(codigo: string) {
       const r = await fetch(`${ADJ}/descargar/${encodeURIComponent(f.id)}`, { headers: ADJ_H, signal: AbortSignal.timeout(35_000) }); if (!r.ok) return;
       const buf = new Uint8Array(await r.arrayBuffer()); out.nombres.push(nombre);
       const t = await textoDe(nombre, buf);
-      if (t && t.replace(/\s/g, "").length > 80) out.textos.push({ nombre, texto: t });
+      if (t && t.replace(/\s/g, "").length > 80) { out.textos.push({ nombre, texto: t }); if (new TextDecoder().decode(buf.slice(0, 5)).startsWith("%PDF") && buf.length < 6_000_000) out.pdfs.push({ nombre, buf }); }
       else if (new TextDecoder().decode(buf.slice(0, 5)).startsWith("%PDF") && buf.length < 8_000_000) out.escaneados.push({ nombre, buf });
       else if (/\.(jpe?g|png)$/i.test(nombre) && buf.length < 4_000_000) out.escaneados.push({ nombre, buf });
     } catch (_) { /* siguiente */ }
@@ -138,6 +138,7 @@ async function compraAgil(sb: any, codigo: string, op: any) {
       contactos = [...new Set(frag.match(EMAIL) ?? [])].slice(0, 4).map((e) => ({ email: e, nombre: null, cargo: null, telefono: null, rol: "Correo en los adjuntos" })); fuente = "Adjuntos (texto)";
     }
   }
+  if (!contactos.length && !ad.escaneados.length && ad.pdfs.length) ad.escaneados.push(...ad.pdfs.slice(0, 2));
   if (!contactos.length && ad.escaneados.length) {
     const g = await conGemini(ad.escaneados);
     if (g?.contactos?.length) { contactos = g.contactos; crudo = (g.texto_visto ?? []).join(" ") + " " + JSON.stringify(g.contactos); fuente = "Adjuntos escaneados leídos con IA"; }
@@ -148,7 +149,7 @@ async function compraAgil(sb: any, codigo: string, op: any) {
     const e = limpia(c.email); const f = limpia(c.telefono);
     return { rol: limpia(c.rol), nombre: limpia(c.nombre), cargo: limpia(c.cargo), email: e && base.includes(e.toLowerCase()) ? e : null, telefono: f && soloDig(f).length >= 7 && dig.includes(soloDig(f).slice(-7)) ? f : null, fuente: (fuente + (c.archivo ? ` · ${c.archivo}` : "")).trim() };
   }).filter((c: any) => c.nombre || c.email || c.telefono).slice(0, 6);
-  return { contactos, unidad, adjuntos: ad.nombres, adjuntos_error: ad.error, consultas: "En Compra Ágil las preguntas se hacen por el foro de la ficha en Mercado Público; el contacto directo sirve para dudas de entrega o especificaciones." };
+  return { contactos, unidad, leidos: { con_texto: ad.textos.map((t) => `${t.nombre} (${t.texto.length} car.)`), escaneados: ad.escaneados.map((x) => x.nombre), fragmento: frag.length }, adjuntos: ad.nombres, adjuntos_error: ad.error, consultas: "En Compra Ágil las preguntas se hacen por el foro de la ficha en Mercado Público; el contacto directo sirve para dudas de entrega o especificaciones." };
 }
 
 Deno.serve(async (req) => {
