@@ -139,7 +139,8 @@ async function contactos(sb: any, id: number) {
   if (!dom) { const tok = sinTilde(c.empresa).split(/[^a-z]+/).find((w) => w.length > 4 && !/division|minera|chile|compania|salmones|group/.test(w)); const h = hd.find((x) => tok && new URL(x.url).hostname.includes(tok)); if (h) dom = new URL(h.url).hostname.replace(/^www\./, ""); }
   // 2) búsquedas de correos escritos en la web y en documentos públicos (SMA, SEA, Codelco, prensa)
   const Q = [`"@${dom}" ${c.empresa} contacto correo`, `${c.empresa} correo proveedores abastecimiento "@${dom}"`, ...personas.slice(0, 3).map((p) => `"${p.nombre}" ${c.empresa} correo "@${dom}"`)];
-  const hits = dom ? (await Promise.all(Q.map((q) => buscar(q, undefined, 6)))).flat() : [];
+  const QD: [string, string[]][] = dom ? [[`"@${dom}" ${c.empresa} aguas servidas`, ["sea.gob.cl", "seia.sea.gob.cl"]], [`"@${dom}" ${c.empresa}`, ["sma.gob.cl", "snifa.sma.gob.cl"]], [`${c.empresa} contacto proveedores correo`, [dom]]] : [];
+  const hits = dom ? [...(await Promise.all(Q.map((q) => buscar(q, undefined, 6)))).flat(), ...(await Promise.all(QD.map(([q, d]) => buscar(q, d, 5)))).flat()] : [];
   const todos = new Map<string, string>();
   for (const h of [...hd, ...hits]) for (const e of h.texto.match(EMAIL_RE) ?? []) { const m = e.toLowerCase().replace(/\.$/, ""); if (!todos.has(m)) todos.set(m, h.url); }
   const delDom = [...todos.keys()].filter((e) => dom && (e.endsWith("@" + dom) || e.endsWith("." + dom)) && !/noreply|no-reply|hidrofresh|example|\.png|\.jpg/.test(e));
