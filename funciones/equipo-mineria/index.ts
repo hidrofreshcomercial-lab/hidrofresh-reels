@@ -7,13 +7,14 @@ import { createClient } from "npm:@supabase/supabase-js@2";
 //  • Vendedor: redacta mensajes con el motivo concreto de cada cuenta, aprende de respuestas y descartes de Miguel. Nunca envía solo.
 //  • Licitaciones: revisa Codelco y Portal Minero/Acuícola; decide postular / no postular y por qué.
 //  • Estratega (lunes): elige las cuentas de la semana y saca lecciones de lo que pasó.
+// v2: Buscador de correos (solo correos públicos/verificados, generales o del formato de la empresa) y envío por Gmail con aprobación.
 // Modos: {turno:true} (cron: hace la siguiente tarea pendiente) · {investigar:id} · {vender:id} · {licitaciones:true} · {estratega:true}
 function svc() {
   const raw = Deno.env.get("SUPABASE_SECRET_KEYS");
   const k = raw ? JSON.parse(raw)["default"] : Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
   return createClient(Deno.env.get("SUPABASE_URL")!, k!);
 }
-const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "authorization, apikey, content-type, x-client-info, x-cron-token", "Access-Control-Allow-Methods": "POST, OPTIONS" };
+const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "authorization, apikey, content-type, x-client-info, x-cron-token, x-mail-token", "Access-Control-Allow-Methods": "POST, OPTIONS" };
 const json = (b: unknown, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { ...CORS, "content-type": "application/json" } });
 const CFG: Record<string, string> = {};
 async function autorizado(req: Request, sb: any) {
@@ -97,10 +98,67 @@ async function investigar(sb: any, id: number) {
     const h2 = (await Promise.all((crit.r.consultas ?? []).slice(0, 3).map((q: string) => buscar(String(q))))).flat();
     if (h2.length && resta() > 40_000) { hits = [...hits, ...h2]; m = await s2(hits.slice(-14), `AUTOCRÍTICA PREVIA: ${crit.r.critica}\nMAPA DE LA 1ª RONDA: ${JSON.stringify(m.r).slice(0, 3000)}`); rondas = 2; }
   }
-  const mapa = { ...m.r, fuentes: [...new Set(hits.map((h) => h.url))].slice(0, 20) };
+  const mapa = { ...m.r, contactos: c.mapa?.contactos, dominio_correo: c.mapa?.dominio_correo, fuentes: [...new Set(hits.map((h) => h.url))].slice(0, 20) };
   await sb.from("eq_cuentas").update({ mapa, confianza: Number(m.r.confianza) || null, angulo: m.r.angulo ?? null, proximo_paso: m.r.proximo_paso ?? null, estado: "investigada", investigado_en: new Date().toISOString(), actualizado_en: new Date().toISOString() }).eq("id", id);
   await log(sb, "Investigador", id, `Investigó ${c.empresa} (${rondas} ronda${rondas > 1 ? "s" : ""}, ${hits.length} fuentes)`, `Hipótesis: ${p1.r.hipotesis ?? ""}\n\n${m.r.razonamiento ?? ""}`, `Puerta de entrada: ${m.r.puerta_de_entrada ?? "—"} · confianza ${m.r.confianza ?? "?"}%`, m.motor);
   return { ok: true, empresa: c.empresa, confianza: m.r.confianza, rondas };
+}
+
+
+// ---------- BUSCADOR DE CORREOS (v2) ----------
+// Solo correos que aparecen escritos en páginas o documentos públicos (verificados en el texto), correos generales de la empresa
+// (contacto@, proveedores@, compras@…) y, si en la web aparece el formato de correo de la empresa, el correo probable de cada persona.
+const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}/g;
+const GENERICOS = /^(contacto|contact|proveedores?|compras|abastecimiento|adquisiciones|suministros|info|informaciones|medioambiente|sustentabilidad|operaciones|servicios|licitaciones|comercial|recepcion|oficina|chile|cl)\b/i;
+const sinTilde = (x: string) => x.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+function patronDe(local: string, nombre: string): string | null {
+  const w = sinTilde(nombre).replace(/[^a-z ]/g, " ").split(/\s+/).filter((x) => x.length > 1);
+  if (w.length < 2) return null;
+  const [n, a] = [w[0], w[1]]; const L = local.toLowerCase();
+  const P: [string, string][] = [["n.a", `${n}.${a}`], ["na", `${n}${a}`], ["n_a", `${n}_${a}`], ["ia", `${n[0]}${a}`], ["i.a", `${n[0]}.${a}`], ["a.n", `${a}.${n}`], ["n", n]];
+  for (const [k, v] of P) if (L === v) return k;
+  return null;
+}
+function aplicarPatron(p: string, nombre: string, dom: string) {
+  const w = sinTilde(nombre).replace(/[^a-z ]/g, " ").split(/\s+/).filter((x) => x.length > 1); if (w.length < 2) return null;
+  const [n, a] = [w[0], w[1]];
+  const m: Record<string, string> = { "n.a": `${n}.${a}`, "na": `${n}${a}`, "n_a": `${n}_${a}`, "ia": `${n[0]}${a}`, "i.a": `${n[0]}.${a}`, "a.n": `${a}.${n}` };
+  return m[p] ? `${m[p]}@${dom}` : null;
+}
+async function contactos(sb: any, id: number) {
+  const { data: c } = await sb.from("eq_cuentas").select("*").eq("id", id).single();
+  const mapa = c.mapa ?? {};
+  const personas: any[] = (mapa.personas ?? []).filter((x: any) => x?.nombre && !/encargad|gerencia|área|area|departamento/i.test(x.nombre)).slice(0, 5);
+  // 1) dominio de correo de la empresa
+  const hd = await buscar(`${c.empresa} Chile sitio web oficial contacto`, undefined, 6);
+  let dom = "";
+  try {
+    const r = await ia1("Responde SOLO JSON.", `Empresa: ${c.empresa}. Resultados web: ${hd.map((h) => h.url + " | " + h.titulo).join("\n")}\nCorreos vistos: ${[...new Set(hd.map((h) => h.texto.match(EMAIL_RE) ?? []).flat())].slice(0, 20).join(", ")}\n¿Cuál es el dominio de CORREO corporativo de esta empresa en Chile (ej. codelco.cl, mowi.com)? Devuelve {"dominio":"","web":""}`, "rapido", 200);
+    dom = String(r.r.dominio ?? "").toLowerCase().replace(/^@|^www\.|^https?:\/\//g, "").split("/")[0];
+  } catch (_) { /* sin IA: abajo */ }
+  if (!dom) { const tok = sinTilde(c.empresa).split(/[^a-z]+/).find((w) => w.length > 4 && !/division|minera|chile|compania|salmones|group/.test(w)); const h = hd.find((x) => tok && new URL(x.url).hostname.includes(tok)); if (h) dom = new URL(h.url).hostname.replace(/^www\./, ""); }
+  // 2) búsquedas de correos escritos en la web y en documentos públicos (SMA, SEA, Codelco, prensa)
+  const Q = [`"@${dom}" ${c.empresa} contacto correo`, `${c.empresa} correo proveedores abastecimiento "@${dom}"`, ...personas.slice(0, 3).map((p) => `"${p.nombre}" ${c.empresa} correo "@${dom}"`)];
+  const hits = dom ? (await Promise.all(Q.map((q) => buscar(q, undefined, 6)))).flat() : [];
+  const todos = new Map<string, string>();
+  for (const h of [...hd, ...hits]) for (const e of h.texto.match(EMAIL_RE) ?? []) { const m = e.toLowerCase().replace(/\.$/, ""); if (!todos.has(m)) todos.set(m, h.url); }
+  const delDom = [...todos.keys()].filter((e) => dom && (e.endsWith("@" + dom) || e.endsWith("." + dom)) && !/noreply|no-reply|hidrofresh|example|\.png|\.jpg/.test(e));
+  const out: any[] = []; const usados = new Set<string>(); let patron: string | null = null;
+  // personas con su correo escrito en alguna fuente
+  for (const p of personas) {
+    const w = sinTilde(p.nombre).split(/\s+/).filter((x) => x.length > 2);
+    const e = delDom.find((x) => { const L = x.split("@")[0]; return w.length >= 2 && L.includes(w[w.length > 2 ? w.length - 2 : 1].slice(0, 5)) && (L.includes(w[0].slice(0, 4)) || L.startsWith(w[0][0])); });
+    if (e && !usados.has(e)) { usados.add(e); out.push({ nombre: p.nombre, cargo: p.cargo ?? null, email: e, tipo: "verificado", fuente: todos.get(e) }); patron = patron ?? patronDe(e.split("@")[0], p.nombre); }
+  }
+  // formato de correo de la empresa (de cualquier correo personal visto con nombre reconocible en el texto)
+  if (!patron) for (const e of delDom) { const h = [...hd, ...hits].find((x) => x.texto.toLowerCase().includes(e)); const ctx = h ? h.texto.slice(Math.max(0, h.texto.toLowerCase().indexOf(e) - 120), h.texto.toLowerCase().indexOf(e)) : ""; const nm = ctx.match(/([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)\s+([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)[^A-Za-z]*$/); if (nm) { patron = patronDe(e.split("@")[0], nm[1] + " " + nm[2]); if (patron) break; } }
+  if (patron) for (const p of personas) { if (out.some((x) => x.nombre === p.nombre)) continue; const e = aplicarPatron(patron, p.nombre, dom); if (e && !usados.has(e)) { usados.add(e); out.push({ nombre: p.nombre, cargo: p.cargo ?? null, email: e, tipo: "probable", fuente: `formato de correo de ${dom} visto en la web` }); } }
+  // correos generales útiles (proveedores, compras, contacto, medio ambiente)
+  for (const e of delDom) if (!usados.has(e) && GENERICOS.test(e.split("@")[0])) { usados.add(e); out.push({ nombre: null, cargo: "Correo general: " + e.split("@")[0], email: e, tipo: "general", fuente: todos.get(e) }); }
+  mapa.contactos = out.slice(0, 8); mapa.dominio_correo = dom || null;
+  await sb.from("eq_cuentas").update({ mapa, estado: out.length ? "con contactos" : "sin correo", actualizado_en: new Date().toISOString() }).eq("id", id);
+  await log(sb, "Buscador de correos", id, `${c.empresa}: ${out.length} correo(s)`, `Dominio: ${dom || "no encontrado"} · ${delDom.length} correos de la empresa vistos en ${hits.length + hd.length} páginas${patron ? " · formato " + patron : ""}`, out.map((x) => `${x.tipo}: ${x.nombre ?? x.cargo} <${x.email}>`).join("\n") || "Sin correos públicos: la cuenta queda para el Director (o usar Apollo)");
+  return { ok: true, empresa: c.empresa, correos: out.length };
 }
 
 // ---------- VENDEDOR ----------
@@ -109,10 +167,16 @@ async function vender(sb: any, id: number) {
   const { data: prev } = await sb.from("eq_mensajes").select("persona,canal,texto,estado,respuesta").eq("cuenta_id", id).order("id", { ascending: false }).limit(6);
   const { data: descartes } = await sb.from("eq_mensajes").select("texto,respuesta").eq("estado", "descartado").order("id", { ascending: false }).limit(5);
   const ctx = await contexto(sb);
+  const C = ((c.mapa ?? {}).contactos ?? []).filter((x: any) => x?.email && !/hidrofresh/i.test(x.email));
+  const { data: yaEnv } = await sb.from("eq_mensajes").select("para").eq("cuenta_id", id).in("estado", ["enviado", "aprobado", "borrador"]);
+  const yaPara = new Set((yaEnv ?? []).map((x: any) => String(x.para ?? "").toLowerCase()));
+  const disp = C.filter((x: any) => !yaPara.has(x.email.toLowerCase()) || (prev ?? []).some((m: any) => m.respuesta));
+  if (!disp.length) { await sb.from("eq_cuentas").update({ estado: C.length ? "contactada" : "sin correo" }).eq("id", id); await log(sb, "Vendedor", id, `${c.empresa}: sin correos nuevos para escribir`, "", C.length ? "Ya se escribió a todos sus contactos" : "Falta un correo: la cuenta queda para el Buscador de correos / Director"); return { ok: true, mensajes: 0 }; }
   const r = await ia(`Eres el VENDEDOR del equipo de ${HF}\nEscribes como Miguel: directo, cordial, chileno profesional, breve (correo máx. 120 palabras; WhatsApp/LinkedIn máx. 60). Siempre partes por el motivo concreto de esa cuenta y propones un paso pequeño (visita técnica, diagnóstico sin costo de la planta existente, una llamada de 15 min). Nunca prometas cosas que no estén en el mapa.`,
-    `${ctx}\n\nCUENTA: ${c.empresa} (${c.sector})\nMAPA: ${JSON.stringify(c.mapa ?? {}).slice(0, 7000)}\nNOTAS DE MIGUEL SOBRE ESTA CUENTA (respuestas recibidas, contexto): ${c.notas ?? "(ninguna)"}\nMENSAJES ANTERIORES A ESTA CUENTA: ${JSON.stringify(prev ?? [])}\nMENSAJES QUE MIGUEL DESCARTÓ (aprende qué no le gusta): ${JSON.stringify(descartes ?? []).slice(0, 1500)}\n\nRedacta 1 a 3 mensajes para las personas o canales más prometedores del mapa (si no hay persona, al canal de proveedores o al operador del campamento). Si ya hubo respuesta, redacta la contestación. Devuelve {"mensajes":[{"persona":"","cargo":"","canal":"correo|linkedin|whatsapp|formulario","para":"<correo/url/teléfono si está en el mapa, si no vacío>","asunto":"","texto":"","por_que":"<por qué este mensaje a esta persona>"}],"leccion":"<si aprendiste algo de los descartes o respuestas, una lección corta; si no, vacío>"}`, "redaccion", 2500);
-  const M = (r.r.mensajes ?? []).filter((x: any) => x?.texto).slice(0, 3);
-  if (M.length) await sb.from("eq_mensajes").insert(M.map((x: any) => ({ cuenta_id: id, persona: x.persona || null, cargo: x.cargo || null, canal: x.canal || "correo", para: x.para || null, asunto: x.asunto || null, texto: x.texto, por_que: x.por_que || null })));
+    `${ctx}\n\nCUENTA: ${c.empresa} (${c.sector})\nMAPA: ${JSON.stringify(c.mapa ?? {}).slice(0, 7000)}\nNOTAS DE MIGUEL SOBRE ESTA CUENTA (respuestas recibidas, contexto): ${c.notas ?? "(ninguna)"}\nMENSAJES ANTERIORES A ESTA CUENTA: ${JSON.stringify(prev ?? [])}\nMENSAJES QUE MIGUEL DESCARTÓ (aprende qué no le gusta): ${JSON.stringify(descartes ?? []).slice(0, 1500)}\n\nCONTACTOS CON CORREO (usa SOLO estos, campo "para" = el correo exacto): ${JSON.stringify(disp)}\n\nRedacta CORREOS (nada de LinkedIn ni formularios) para 1 a 3 de esos contactos, priorizando tipo "verificado", luego "probable", luego "general" (a un correo general dirígete al área: "Estimados, equipo de abastecimiento/medio ambiente"). Si ya hubo respuesta, redacta la contestación. Termina el texto con la firma "Miguel Fuenzalida\nHidro Fresh · +56 9 7850 8983 · hidrofresh.cl" y una línea final: "Si prefiere no recibir más correos, respóndame «no» y no le volveré a escribir." Devuelve {"mensajes":[{"persona":"","cargo":"","para":"<correo exacto de la lista>","asunto":"","texto":"","por_que":"<por qué este correo a esta persona>"}],"leccion":"<si aprendiste algo de los descartes o respuestas, una lección corta; si no, vacío>"}`, "redaccion", 2500);
+  const okPara = new Map(disp.map((x: any) => [x.email.toLowerCase(), x]));
+  const M = (r.r.mensajes ?? []).filter((x: any) => x?.texto && okPara.has(String(x.para ?? "").toLowerCase().trim())).slice(0, 3);
+  if (M.length) await sb.from("eq_mensajes").insert(M.map((x: any) => { const k: any = okPara.get(String(x.para).toLowerCase().trim()); return { cuenta_id: id, persona: x.persona || k.nombre || null, cargo: x.cargo || k.cargo || null, canal: "correo", para: k.email, tipo_contacto: k.tipo, asunto: x.asunto || `Hidro Fresh · ${c.empresa}`, texto: x.texto, por_que: x.por_que || null }; }));
   if (r.r.leccion) await sb.from("eq_memoria").insert({ leccion: String(r.r.leccion).slice(0, 400), fuente: "Vendedor" });
   await sb.from("eq_cuentas").update({ estado: M.length ? "mensajes listos" : c.estado, actualizado_en: new Date().toISOString() }).eq("id", id);
   await log(sb, "Vendedor", id, `Redactó ${M.length} mensaje(s) para ${c.empresa}`, M.map((x: any) => `→ ${x.persona || x.canal}: ${x.por_que}`).join("\n"), r.r.leccion ? "Lección: " + r.r.leccion : "", r.motor);
@@ -160,6 +224,38 @@ async function estratega(sb: any) {
   return { ok: true, foco };
 }
 
+
+// ---------- GMAIL (lo llama el script de Gmail de hidrofreshcomercial@gmail.com cada 5 min, con x-mail-token) ----------
+// crear: borradores nuevos → el script los deja como borradores en Gmail (etiqueta "Equipo Minería") para que Miguel los lea.
+// enviar: aprobados en el panel → el script los envía (máx. 30 al día). vigilar: borradores que Miguel envió o borró directo en Gmail.
+// respuestas: correos enviados de los últimos 30 días → el script trae la respuesta si llegó.
+async function gmail(sb: any, b: any) {
+  if (b.accion === "reporte") {
+    for (const it of b.items ?? []) {
+      const u: any = {};
+      if (it.draft_id) u.gmail_draft_id = it.draft_id;
+      if (it.thread_id) u.gmail_thread_id = it.thread_id;
+      if (it.enviado) { u.estado = "enviado"; u.enviado_en = new Date().toISOString(); u.error = null; }
+      if (it.borrado) u.estado = "descartado";
+      if (it.error) u.error = String(it.error).slice(0, 300);
+      if (it.respuesta) { u.respuesta = String(it.respuesta).slice(0, 2000); u.respondio_en = new Date().toISOString(); }
+      if (Object.keys(u).length) await sb.from("eq_mensajes").update(u).eq("id", it.id);
+      if (it.respuesta) { const { data: m } = await sb.from("eq_mensajes").select("cuenta_id,persona").eq("id", it.id).single(); if (m) { await sb.from("eq_cuentas").update({ estado: "investigada" }).eq("id", m.cuenta_id); await log(sb, "Vendedor", m.cuenta_id, `¡Respuesta de ${m.persona ?? "la cuenta"}!`, String(it.respuesta).slice(0, 1500), "Preparo la contestación en el próximo turno"); try { await sb.rpc("wa_notificar", { p: { topic: "hidrofresh-wa-92t4l9df", title: "⛏️ Respondieron al Equipo Minería", message: `${m.persona ?? ""}: ${String(it.respuesta).slice(0, 200)}`, priority: 4 } }); } catch (_) { /* */ } } }
+    }
+    return { ok: true };
+  }
+  const hoy = new Date(Date.now() - 3 * 3600e3).toISOString().slice(0, 10);
+  const { count: enviadosHoy } = await sb.from("eq_mensajes").select("id", { count: "exact", head: true }).eq("estado", "enviado").gte("enviado_en", hoy + "T03:00:00Z");
+  const cupo = Math.max(0, 30 - (enviadosHoy ?? 0));
+  const [{ data: crear }, { data: enviar }, { data: vigilar }, { data: resp }] = await Promise.all([
+    sb.from("eq_mensajes").select("id,para,asunto,texto").eq("estado", "borrador").eq("canal", "correo").is("gmail_draft_id", null).not("para", "is", null).limit(20),
+    sb.from("eq_mensajes").select("id,para,asunto,texto,gmail_draft_id").eq("estado", "aprobado").limit(cupo),
+    sb.from("eq_mensajes").select("id,para,asunto,gmail_draft_id").eq("estado", "borrador").not("gmail_draft_id", "is", null).limit(100),
+    sb.from("eq_mensajes").select("id,para,asunto,gmail_thread_id,enviado_en").eq("estado", "enviado").is("respuesta", null).gte("enviado_en", new Date(Date.now() - 30 * 864e5).toISOString()).limit(100),
+  ]);
+  return { ok: true, cupo, crear: crear ?? [], enviar: enviar ?? [], vigilar: vigilar ?? [], respuestas: resp ?? [] };
+}
+
 // ---------- TURNO (cron) ----------
 async function turno(sb: any) {
   const hoy = new Date(Date.now() - 3 * 3600e3); const dia = hoy.toISOString().slice(0, 10);
@@ -171,7 +267,10 @@ async function turno(sb: any) {
   }
   if (!hizo("Licitaciones")) return { tarea: "licitaciones", ...(await licitaciones(sb)) };
   const invHoy = (hechos ?? []).filter((x: any) => x.agente === "Investigador").length;
-  const { data: porVender } = await sb.from("eq_cuentas").select("id").eq("estado", "investigada").order("prioridad", { ascending: false }).limit(1);
+  const { data: porCorreo } = await sb.from("eq_cuentas").select("id,mapa").eq("estado", "investigada").order("prioridad", { ascending: false }).limit(20);
+  const sinBuscar = (porCorreo ?? []).find((x: any) => !x.mapa?.contactos);
+  if (sinBuscar) return { tarea: "correos", ...(await contactos(sb, sinBuscar.id)) };
+  const { data: porVender } = await sb.from("eq_cuentas").select("id").in("estado", ["investigada", "con contactos"]).order("prioridad", { ascending: false }).limit(1);
   if (porVender?.length) return { tarea: "vender", ...(await vender(sb, porVender[0].id)) };
   if (invHoy < 5) {
     const semana = new Date(Date.now() - 7 * 864e5).toISOString();
@@ -185,14 +284,16 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
   T0.v = Date.now();
   const sb = svc();
-  const { data } = await sb.from("app_config").select("clave,valor").in("clave", ["cron_token", "exa_api_key", "linkup_api_key"]);
+  const { data } = await sb.from("app_config").select("clave,valor").in("clave", ["cron_token", "exa_api_key", "linkup_api_key", "mail_token"]);
   for (const x of data ?? []) CFG[x.clave] = String(x.valor ?? "");
   try {
-    if (!(await autorizado(req, sb))) return json({ error: "Sesión no válida" }, 401);
     const b = await req.json().catch(() => ({}));
+    if (b.gmail) { if (!CFG.mail_token || req.headers.get("x-mail-token") !== CFG.mail_token) return json({ error: "no autorizado" }, 401); return json(await gmail(sb, b.gmail)); }
+    if (!(await autorizado(req, sb))) return json({ error: "Sesión no válida" }, 401);
     if (b.turno) return json(await turno(sb));
     if (b.investigar) return json(await investigar(sb, Number(b.investigar)));
     if (b.vender) return json(await vender(sb, Number(b.vender)));
+    if (b.correos) return json(await contactos(sb, Number(b.correos)));
     if (b.licitaciones) return json(await licitaciones(sb));
     if (b.estratega) return json(await estratega(sb));
     return json({ error: "Falta parámetro" }, 400);
