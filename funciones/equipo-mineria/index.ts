@@ -169,7 +169,7 @@ async function vender(sb: any, id: number) {
   const { data: descartes } = await sb.from("eq_mensajes").select("texto,respuesta").eq("estado", "descartado").order("id", { ascending: false }).limit(5);
   const ctx = await contexto(sb);
   const C = ((c.mapa ?? {}).contactos ?? []).filter((x: any) => x?.email && !/hidrofresh/i.test(x.email));
-  const { data: yaEnv } = await sb.from("eq_mensajes").select("para").eq("cuenta_id", id).in("estado", ["enviado", "aprobado", "borrador"]);
+  const { data: yaEnv } = await sb.from("eq_mensajes").select("para").eq("cuenta_id", id).in("estado", ["enviado", "aprobado", "borrador", "archivado"]);
   const yaPara = new Set((yaEnv ?? []).map((x: any) => String(x.para ?? "").toLowerCase()));
   const disp = C.filter((x: any) => !yaPara.has(x.email.toLowerCase()) || (prev ?? []).some((m: any) => m.respuesta));
   if (!disp.length) { await sb.from("eq_cuentas").update({ estado: C.length ? "contactada" : "sin correo" }).eq("id", id); await log(sb, "Vendedor", id, `${c.empresa}: sin correos nuevos para escribir`, "", C.length ? "Ya se escribió a todos sus contactos" : "Falta un correo: la cuenta queda para el Buscador de correos / Director"); return { ok: true, mensajes: 0 }; }
@@ -241,7 +241,7 @@ async function gmail(sb: any, b: any) {
       if (it.enviado) { u.estado = "enviado"; u.enviado_en = new Date().toISOString(); u.error = null; }
       if (it.borrado) u.estado = "descartado";
       if (it.error) u.error = String(it.error).slice(0, 300);
-      if (it.respuesta) { u.respuesta = String(it.respuesta).slice(0, 2000); u.respondio_en = new Date().toISOString(); }
+      if (it.respuesta) { u.respuesta = String(it.respuesta).slice(0, 2000); u.respondio_en = new Date().toISOString(); u.estado = "enviado"; }
       if (Object.keys(u).length) await sb.from("eq_mensajes").update(u).eq("id", it.id);
       if (it.respuesta) { const { data: m } = await sb.from("eq_mensajes").select("cuenta_id,persona").eq("id", it.id).single(); if (m) { await sb.from("eq_cuentas").update({ estado: "investigada" }).eq("id", m.cuenta_id); await log(sb, "Vendedor", m.cuenta_id, `¡Respuesta de ${m.persona ?? "la cuenta"}!`, String(it.respuesta).slice(0, 1500), "Preparo la contestación en el próximo turno"); try { await sb.rpc("wa_notificar", { p: { topic: "hidrofresh-wa-92t4l9df", title: "⛏️ Respondieron al Equipo Minería", message: `${m.persona ?? ""}: ${String(it.respuesta).slice(0, 200)}`, priority: 4 } }); } catch (_) { /* */ } } }
     }
@@ -255,7 +255,7 @@ async function gmail(sb: any, b: any) {
     sb.from("eq_mensajes").select("id,para,asunto,texto,gmail_draft_id").eq("estado", "aprobado").limit(cupo),
     sb.from("eq_mensajes").select("id,para,asunto,gmail_draft_id").eq("estado", "borrador").not("gmail_draft_id", "is", null).limit(100),
     sb.from("eq_mensajes").select("id,para,asunto,texto,gmail_draft_id").eq("estado", "borrador").eq("actualizar_gmail", true).not("gmail_draft_id", "is", null).limit(30),
-    sb.from("eq_mensajes").select("id,para,asunto,gmail_thread_id,enviado_en").eq("estado", "enviado").is("respuesta", null).gte("enviado_en", new Date(Date.now() - 30 * 864e5).toISOString()).limit(100),
+    sb.from("eq_mensajes").select("id,para,asunto,gmail_thread_id,enviado_en").in("estado", ["enviado", "archivado"]).is("respuesta", null).gte("enviado_en", new Date(Date.now() - 30 * 864e5).toISOString()).limit(100),
   ]);
   return { ok: true, cupo, crear: crear ?? [], enviar: enviar ?? [], vigilar: vigilar ?? [], actualizar: actualizar ?? [], respuestas: resp ?? [] };
 }
