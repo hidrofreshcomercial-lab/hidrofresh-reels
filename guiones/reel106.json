@@ -1,9 +1,9 @@
 {
  "nombre": "reel106",
- "gancho": "No la botes, recupérala",
+ "gancho": "¿Tu planta se ve así?",
  "segmentos": [
   {
-   "texto": "Así se ve una planta de tratamiento sin mantención.",
+   "texto": "¿Tu planta de tratamiento se ve así?",
    "foto": 551,
    "fotos": [
     109
@@ -17,24 +17,24 @@
    ]
   },
   {
-   "texto": "Limpiamos, cambiamos lo malo y reactivamos las bacterias.",
-   "foto": 105,
-   "fotos": [
-    2
-   ]
-  },
-  {
-   "texto": "Muchas veces se recupera sin comprar una planta nueva.",
+   "texto": "Antes de comprar una nueva, revisa si se puede recuperar.",
    "foto": 100,
    "fotos": [
     101
    ]
   },
   {
-   "texto": "Lo hacemos desde 2008.",
-   "foto": 246,
+   "texto": "Con limpieza, repuestos y bacterias, muchas veces vuelve a funcionar.",
+   "foto": 105,
    "fotos": [
-    248
+    2
+   ]
+  },
+  {
+   "texto": "Te ayudamos a recuperarla antes de gastar en una nueva.",
+   "foto": 231,
+   "fotos": [
+    232
    ]
   },
   {
@@ -46,6 +46,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel106k",
- "rev": 1,
+ "rev": 2,
  "molde": "antes y después"
 }

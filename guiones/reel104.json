@@ -17,18 +17,18 @@
    ]
   },
   {
-   "texto": "Primero revisamos la planta: aire, lodos y caudal.",
+   "texto": "Primero se revisa tu planta: aire, lodos y caudal.",
    "foto": 2,
    "fotos": [
     170
    ]
   },
   {
-   "texto": "Después reforzamos con bacterias especializadas.",
+   "texto": "Después se refuerza con bacterias especializadas.",
    "foto": 560
   },
   {
-   "texto": "Así el proceso biológico se recupera.",
+   "texto": "Y tu planta responde mejor cuando llega más gente.",
    "foto": 231,
    "fotos": [
     232
@@ -43,6 +43,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel104k",
- "rev": 1,
+ "rev": 2,
  "molde": "sobrecarga y bacterias"
 }

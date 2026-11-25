@@ -24,7 +24,7 @@
    ]
   },
   {
-   "texto": "Revisamos la planta, las bombas y el clorador, y la dejamos funcionando.",
+   "texto": "Te ayudamos a revisar tu planta, tus bombas y tu clorador.",
    "foto": 104,
    "fotos": [
     180,
@@ -32,7 +32,7 @@
    ]
   },
   {
-   "texto": "Así el agua sale tratada y desinfectada.",
+   "texto": "Y tu agua vuelve a salir tratada y desinfectada.",
    "foto": 231,
    "fotos": [
     232
@@ -47,6 +47,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel103k",
- "rev": 1,
+ "rev": 2,
  "molde": "descarga fuera de norma"
 }

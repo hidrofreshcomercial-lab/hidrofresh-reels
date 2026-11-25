@@ -24,7 +24,7 @@
    ]
   },
   {
-   "texto": "Revisamos la planta, la ajustamos para que cumpla y te ayudamos con el trámite.",
+   "texto": "Te ayudamos a ajustar tu planta y hacer el trámite, para que operes tranquilo.",
    "foto": 104,
    "fotos": [
     11
@@ -39,6 +39,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel105k",
- "rev": 1,
+ "rev": 2,
  "molde": "regularización"
 }

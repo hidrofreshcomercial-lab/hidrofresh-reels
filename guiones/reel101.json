@@ -24,7 +24,7 @@
    ]
   },
   {
-   "texto": "Revisamos tu planta, la dejamos funcionando y te ayudamos con los papeles.",
+   "texto": "Te ayudamos a dejar tu planta y tus papeles al día, para que la revisión pase tranquila.",
    "foto": 104,
    "fotos": [
     105
@@ -39,6 +39,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel101k",
- "rev": 1,
+ "rev": 2,
  "molde": "fiscalización sanitaria"
 }
