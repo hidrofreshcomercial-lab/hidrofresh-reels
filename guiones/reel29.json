@@ -1,28 +1,28 @@
 {
  "nombre": "reel29",
- "gancho": "Del desierto al sur",
+ "gancho": "¿Desierto o sur?",
  "segmentos": [
   {
-   "texto": "Esta planta va al desierto. Esta otra, al sur.",
+   "texto": "¿Tu proyecto está en el desierto? ¿O en el sur?",
    "foto": 142,
    "fotos": [
     248
    ]
   },
   {
-   "texto": "Desde 2008 tratamos agua en todo Chile.",
+   "texto": "No importa dónde estés.",
    "foto": 206,
    "fotos": []
   },
   {
-   "texto": "Diseñamos y fabricamos plantas de tratamiento y de agua potable.",
+   "texto": "Tu planta de tratamiento o de agua potable llega igual.",
    "foto": 209,
    "fotos": [
     212
    ]
   },
   {
-   "texto": "Y las mantenemos funcionando.",
+   "texto": "Y alguien la mantiene funcionando por ti.",
    "foto": 104,
    "fotos": [
     180
@@ -38,5 +38,5 @@
  "molde": "prueba",
  "vocera": "Lorena",
  "voz_kore": "reel29v",
- "rev": 2
+ "rev": 3
 }

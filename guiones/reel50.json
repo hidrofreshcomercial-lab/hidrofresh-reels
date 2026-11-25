@@ -25,7 +25,7 @@
    "fotos": []
   },
   {
-   "texto": "Te calculamos cuántas usas y te las despachamos a tiempo.",
+   "texto": "Con tu consumo calculado y despacho programado, nunca te quedas sin tabletas.",
    "foto": 176,
    "fotos": [
     19
@@ -40,6 +40,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel50v",
- "rev": 3,
+ "rev": 4,
  "molde": "advertencia"
 }

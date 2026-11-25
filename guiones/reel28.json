@@ -1,13 +1,13 @@
 {
  "nombre": "reel28",
- "gancho": "Así nace una planta",
+ "gancho": "Así nace tu planta",
  "segmentos": [
   {
-   "texto": "Así nace una planta de tratamiento.",
+   "texto": "Así nace la planta que va a tratar tu agua.",
    "video": "videos/fab_a.mp4"
   },
   {
-   "texto": "La fabricamos en fibra de vidrio, en nuestro taller.",
+   "texto": "Fibra de vidrio, hecha en taller.",
    "foto": 209,
    "fotos": [
     210
@@ -19,12 +19,12 @@
    "fotos": []
   },
   {
-   "texto": "Es liviana para llevarla a cualquier parte.",
+   "texto": "Llega liviana a tu terreno, aunque esté lejos.",
    "foto": 247,
    "fotos": []
   },
   {
-   "texto": "Y dura muchos años, enterrada o a la vista.",
+   "texto": "Y te dura muchos años, enterrada o a la vista.",
    "foto": 254,
    "fotos": [
     155
@@ -40,5 +40,5 @@
  "molde": "prueba",
  "vocera": "Lorena",
  "voz_kore": "reel28v",
- "rev": 2
+ "rev": 3
 }

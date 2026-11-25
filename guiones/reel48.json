@@ -20,14 +20,14 @@
    "fotos": []
   },
   {
-   "texto": "Revisamos lodos, soplador, bombas, tablero y cloro.",
+   "texto": "Una revisión a tiempo te evita la falla, el olor y la multa.",
    "foto": 108,
    "fotos": [
     180
    ]
   },
   {
-   "texto": "Y te dejamos el informe para la Seremi.",
+   "texto": "Y te deja el informe listo para la Seremi.",
    "foto": 124,
    "fotos": [
     218
@@ -42,6 +42,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel48v",
- "rev": 3,
+ "rev": 4,
  "molde": "pregunta"
 }

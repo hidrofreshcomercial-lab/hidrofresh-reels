@@ -15,19 +15,19 @@
    "fotos": []
   },
   {
-   "texto": "Por eso se filtra y se desinfecta con cloración automática.",
+   "texto": "Filtrada y con cloración automática, tu familia toma agua segura.",
    "foto": 200,
    "fotos": [
     179
    ]
   },
   {
-   "texto": "Así sale segura para tomar, todos los días.",
+   "texto": "Todos los días, sin que tengas que preocuparte.",
    "foto": 229,
    "fotos": []
   },
   {
-   "texto": "Hacemos plantas de agua potable para pozos, comités y condominios.",
+   "texto": "Te ayudamos con tu planta de agua potable, para tu pozo, comité o condominio.",
    "foto": 176,
    "fotos": []
   },
@@ -41,5 +41,5 @@
  "molde": "mito",
  "vocera": "Lorena",
  "voz_kore": "reel21v",
- "rev": 2
+ "rev": 3
 }

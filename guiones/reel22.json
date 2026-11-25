@@ -20,14 +20,14 @@
    "fotos": []
   },
   {
-   "texto": "Mientras, el tablero da la alarma.",
+   "texto": "Mientras, el tablero te da la alarma.",
    "foto": 182,
    "fotos": [
     185
    ]
   },
   {
-   "texto": "Instalamos y reparamos bombas de aguas servidas y agua potable.",
+   "texto": "Así, si una bomba falla, tu agua no se detiene.",
    "foto": 136,
    "fotos": []
   },
@@ -41,5 +41,5 @@
  "molde": "curiosidad",
  "vocera": "Lorena",
  "voz_kore": "reel22v",
- "rev": 2
+ "rev": 3
 }

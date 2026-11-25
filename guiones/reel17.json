@@ -8,22 +8,22 @@
    "fotos": []
   },
   {
-   "texto": "Sin alcantarillado, el proyecto necesita una planta aprobada por la Seremi.",
+   "texto": "Sin alcantarillado, tu proyecto necesita una planta aprobada por la Seremi.",
    "foto": 253,
    "fotos": []
   },
   {
-   "texto": "Y sin ella, el trámite se traba.",
+   "texto": "Y sin ella, tus ventas se pueden trabar.",
    "foto": 206,
    "fotos": []
   },
   {
-   "texto": "Te entregamos planos y memoria de cálculo para el trámite.",
+   "texto": "Con planos y memoria de cálculo listos, tu trámite avanza.",
    "foto": 218,
    "fotos": []
   },
   {
-   "texto": "Y fabricamos e instalamos la planta.",
+   "texto": "Te ayudamos con el trámite y la planta, para que vendas tranquilo.",
    "foto": 250,
    "fotos": [
     192
@@ -39,5 +39,5 @@
  "molde": "advertencia",
  "vocera": "Lorena",
  "voz_kore": "reel17v",
- "rev": 2
+ "rev": 3
 }

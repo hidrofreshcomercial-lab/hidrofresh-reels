@@ -15,14 +15,14 @@
    "fotos": []
   },
   {
-   "texto": "Limpiamos, cambiamos lo malo y la ponemos en marcha.",
+   "texto": "Limpieza, cambio de lo malo y de nuevo en marcha.",
    "foto": 132,
    "fotos": [
     140
    ]
   },
   {
-   "texto": "Sale bastante más barato que una nueva.",
+   "texto": "Y muchas veces te sale bastante más barato que comprar una nueva.",
    "foto": 123,
    "fotos": [
     175
@@ -37,6 +37,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel52v",
- "rev": 3,
+ "rev": 4,
  "molde": "antesdespues"
 }

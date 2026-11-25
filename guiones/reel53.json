@@ -20,14 +20,14 @@
    "fotos": []
   },
   {
-   "texto": "Medimos el caudal real que está llegando.",
+   "texto": "Midiendo el caudal real, sabes si basta con modernizarla o hay que ampliarla.",
    "foto": 197,
    "fotos": [
     170
    ]
   },
   {
-   "texto": "Y la ampliamos o la modernizamos.",
+   "texto": "Y tu planta vuelve a estar a la altura de tu proyecto.",
    "foto": 224,
    "fotos": [
     225
@@ -42,6 +42,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel53v",
- "rev": 3,
+ "rev": 4,
  "molde": "advertencia"
 }

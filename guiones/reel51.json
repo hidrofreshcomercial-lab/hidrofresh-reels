@@ -3,7 +3,7 @@
  "gancho": "Tu planta se quedó sin bacterias",
  "segmentos": [
   {
-   "texto": "Cuando una planta pierde sus bacterias, deja de limpiar.",
+   "texto": "Cuando tu planta pierde sus bacterias, deja de limpiar.",
    "foto": 205,
    "fotos": [
     201
@@ -22,12 +22,12 @@
    ]
   },
   {
-   "texto": "En pocos días baja el olor y el agua mejora.",
+   "texto": "En pocos días baja el olor y tu agua mejora.",
    "foto": 204,
    "fotos": []
   },
   {
-   "texto": "Te asesoramos con la dosis y te las enviamos.",
+   "texto": "Te ayudamos con la dosis correcta para tu planta.",
    "foto": 201,
    "fotos": [
     192
@@ -42,6 +42,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel51v",
- "rev": 3,
+ "rev": 4,
  "molde": "antesdespues"
 }

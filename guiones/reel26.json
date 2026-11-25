@@ -10,26 +10,26 @@
    ]
   },
   {
-   "texto": "Vaciamos, limpiamos y revisamos cada cámara.",
+   "texto": "¿Se parece a la tuya?",
    "foto": 108,
    "fotos": [
     110
    ]
   },
   {
-   "texto": "Cambiamos soplador, bombas o tablero.",
+   "texto": "Vaciar, limpiar y cambiar soplador, bombas o tablero.",
    "foto": 157,
    "fotos": [
     221
    ]
   },
   {
-   "texto": "Y la pusimos en marcha con bacterias.",
+   "texto": "Y volver a partir con bacterias.",
    "foto": 204,
    "fotos": []
   },
   {
-   "texto": "Recuperarla sale mucho más barato que una nueva.",
+   "texto": "Recuperar la tuya sale mucho más barato que una nueva.",
    "foto": 175,
    "fotos": []
   },
@@ -43,5 +43,5 @@
  "molde": "antesdespues",
  "vocera": "Lorena",
  "voz_kore": "reel26v",
- "rev": 2
+ "rev": 3
 }

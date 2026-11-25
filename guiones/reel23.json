@@ -3,7 +3,7 @@
  "gancho": "¿Cuánto cloro lleva el agua?",
  "segmentos": [
   {
-   "texto": "¿Cuánto cloro hay que ponerle al agua tratada?",
+   "texto": "¿Cuánto cloro hay que ponerle a tu agua tratada?",
    "foto": 138,
    "fotos": []
   },
@@ -25,12 +25,12 @@
    ]
   },
   {
-   "texto": "Inyecta el cloro de a poco, según el caudal.",
+   "texto": "Inyecta el cloro de a poco, según tu caudal.",
    "foto": 197,
    "fotos": []
   },
   {
-   "texto": "La instalamos y la calibramos.",
+   "texto": "Así cumples sin gastar de más.",
    "foto": 176,
    "fotos": []
   },
@@ -44,5 +44,5 @@
  "molde": "curiosidad",
  "vocera": "Lorena",
  "voz_kore": "reel23v",
- "rev": 2
+ "rev": 3
 }

@@ -20,14 +20,14 @@
    "fotos": []
   },
   {
-   "texto": "Si no cumple, ajustamos la planta.",
+   "texto": "Si no cumple, ajustar tu planta a tiempo te evita el sumario.",
    "foto": 224,
    "fotos": [
     107
    ]
   },
   {
-   "texto": "Y te ayudamos con los informes.",
+   "texto": "Y con los informes al día, pasas la revisión tranquilo.",
    "foto": 218,
    "fotos": [
     133
@@ -42,6 +42,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel59v",
- "rev": 3,
+ "rev": 4,
  "molde": "curiosidad"
 }

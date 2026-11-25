@@ -1,33 +1,33 @@
 {
  "nombre": "reel30",
- "gancho": "De un plano a esto",
+ "gancho": "De un plano a tu planta",
  "segmentos": [
   {
-   "texto": "De un plano… a esto.",
+   "texto": "De un plano… a tu planta funcionando.",
    "foto": 249,
    "fotos": [
     192
    ]
   },
   {
-   "texto": "Primero dimensionamos según las personas.",
+   "texto": "Primero se dimensiona según tus personas.",
    "foto": 133,
    "fotos": []
   },
   {
-   "texto": "Hacemos planos y memoria para la Seremi.",
+   "texto": "Planos y memoria para tu trámite en la Seremi.",
    "foto": 222,
    "fotos": []
   },
   {
-   "texto": "Fabricamos la planta.",
+   "texto": "Se fabrica tu planta.",
    "foto": 210,
    "fotos": [
     213
    ]
   },
   {
-   "texto": "La instalamos y la ponemos en marcha.",
+   "texto": "Y se instala y se pone en marcha, sin que tengas que coordinar a nadie.",
    "foto": 249,
    "fotos": [
     192
@@ -43,5 +43,5 @@
  "molde": "antesdespues",
  "vocera": "Lorena",
  "voz_kore": "reel30v",
- "rev": 2
+ "rev": 3
 }

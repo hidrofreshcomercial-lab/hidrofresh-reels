@@ -1,9 +1,9 @@
 {
  "nombre": "reel16",
- "gancho": "Una planta en medio de la nada",
+ "gancho": "¿Faena en medio de la nada?",
  "segmentos": [
   {
-   "texto": "Esta planta trata aguas servidas en medio de la nada.",
+   "texto": "¿Tu faena está en medio de la nada?",
    "foto": 142,
    "fotos": [
     152
@@ -15,21 +15,21 @@
    "fotos": []
   },
   {
-   "texto": "Llega en camión y se instala rápido.",
+   "texto": "Tu planta llega en camión y se instala rápido.",
    "foto": 246,
    "fotos": [
     248
    ]
   },
   {
-   "texto": "Funciona en el desierto, en la cordillera o en el sur.",
+   "texto": "En el desierto, en la cordillera o en el sur.",
    "foto": 257,
    "fotos": [
     244
    ]
   },
   {
-   "texto": "Y hacemos la mantención en la misma faena.",
+   "texto": "Y su mantención se hace en tu misma faena.",
    "foto": 200,
    "fotos": []
   },
@@ -43,5 +43,5 @@
  "molde": "prueba",
  "vocera": "Lorena",
  "voz_kore": "reel16v",
- "rev": 2
+ "rev": 3
 }

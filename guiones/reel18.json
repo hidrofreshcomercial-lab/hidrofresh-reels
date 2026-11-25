@@ -8,7 +8,7 @@
    "fotos": []
   },
   {
-   "texto": "Se llenan las piezas y la planta no da abasto.",
+   "texto": "Tus piezas se llenan y tu planta no da abasto.",
    "foto": 110,
    "fotos": []
   },
@@ -20,12 +20,12 @@
    ]
   },
   {
-   "texto": "Nosotros la calculamos para tu ocupación máxima.",
+   "texto": "Calculada para tu ocupación máxima, tus huéspedes nunca lo notan.",
    "foto": 254,
    "fotos": []
   },
   {
-   "texto": "Y la mantenemos para que no falle.",
+   "texto": "Y con mantención, tu temporada no se detiene.",
    "foto": 104,
    "fotos": []
   },
@@ -39,5 +39,5 @@
  "molde": "advertencia",
  "vocera": "Lorena",
  "voz_kore": "reel18v",
- "rev": 2
+ "rev": 3
 }

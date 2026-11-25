@@ -20,14 +20,14 @@
    "fotos": []
   },
   {
-   "texto": "Evaluamos tu agua y te proponemos la solución.",
+   "texto": "Con tu agua analizada, sabes exactamente qué necesitas.",
    "foto": 229,
    "fotos": [
     154
    ]
   },
   {
-   "texto": "La instalamos y la mantenemos.",
+   "texto": "Y tu familia toma agua sin sal, todos los días.",
    "foto": 200,
    "fotos": [
     179
@@ -42,6 +42,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel57v",
- "rev": 3,
+ "rev": 4,
  "molde": "mito"
 }

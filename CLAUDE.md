@@ -5,6 +5,8 @@ Al cliente no le importamos nosotros, ni el producto, ni la marca: le importa é
 - Hidro Fresh es el guía que lo ayuda, no el protagonista: como máximo una frase sobre nosotros, cerca del final ("Te ayudamos a…" mejor que "Somos expertos en…").
 - Evitar frases centradas en la empresa ("desde 2008", "nuestra experiencia", "fabricamos en fibra de vidrio") salvo que digan qué gana el cliente con eso.
 - Al revisar propuestas de los agentes, reescribir las que hablen de nosotros en vez de él.
+- Todo reel usa un molde viral de `moldes_virales.md` (estructura gancho → tensión → avance → resultado → cierre Lorena) y anota el molde en el campo `"molde"` del guion.
+- Lo mismo vale para los correos de prospección (`prospeccion-borradores`): parten por la situación del cliente, no por "En Hidro Fresh diseñamos…".
 
 # Cómo hacer un reel nuevo
 

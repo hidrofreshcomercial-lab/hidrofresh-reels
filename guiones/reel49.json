@@ -25,7 +25,7 @@
    "fotos": []
   },
   {
-   "texto": "Revisamos, reparamos y reemplazamos sopladores.",
+   "texto": "Si suena raro o se apaga, revísalo antes de que tus vecinos sientan el olor.",
    "foto": 160,
    "fotos": [
     219
@@ -40,6 +40,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel49v",
- "rev": 4,
+ "rev": 5,
  "molde": "advertencia"
 }

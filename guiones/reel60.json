@@ -3,7 +3,7 @@
  "gancho": "3 datos y te cotizamos",
  "segmentos": [
   {
-   "texto": "Para cotizar tu planta solo necesitamos tres datos.",
+   "texto": "Para cotizar tu planta solo necesitas tres datos.",
    "foto": 12,
    "fotos": [
     206
@@ -20,12 +20,12 @@
    "fotos": []
   },
   {
-   "texto": "Tres: si hay luz en el terreno.",
+   "texto": "Tres: si hay luz en tu terreno.",
    "foto": 133,
    "fotos": []
   },
   {
-   "texto": "Con eso te mandamos la propuesta.",
+   "texto": "Con eso recibes tu propuesta.",
    "foto": 206,
    "fotos": [
     253
@@ -40,6 +40,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel60v",
- "rev": 3,
+ "rev": 4,
  "molde": "lista"
 }

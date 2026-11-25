@@ -23,7 +23,7 @@
    "fotos": []
   },
   {
-   "texto": "Las bacterias recuperan el proceso y bajan los olores.",
+   "texto": "Si las aplicas a tiempo, tu planta se recupera y el olor baja.",
    "foto": 204,
    "fotos": []
   },
@@ -37,5 +37,5 @@
  "molde": "lista",
  "vocera": "Lorena",
  "voz_kore": "reel24v",
- "rev": 2
+ "rev": 3
 }

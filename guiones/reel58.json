@@ -15,14 +15,14 @@
    "fotos": []
   },
   {
-   "texto": "Levantamos la planta y hacemos los planos.",
+   "texto": "Con levantamiento y planos, tu planta queda en regla.",
    "foto": 11,
    "fotos": [
     133
    ]
   },
   {
-   "texto": "Y te acompañamos en la regularización.",
+   "texto": "Te acompañamos en la regularización, para que operes tranquilo.",
    "foto": 218,
    "fotos": [
     222
@@ -37,6 +37,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel58v",
- "rev": 3,
+ "rev": 4,
  "molde": "advertencia"
 }

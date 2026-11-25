@@ -18,14 +18,14 @@
    "fotos": []
   },
   {
-   "texto": "Ajustamos la planta para que cumpla.",
+   "texto": "Ajustar tu planta a tiempo te evita el sumario.",
    "foto": 224,
    "fotos": [
     225
    ]
   },
   {
-   "texto": "Y preparamos los informes para la autoridad.",
+   "texto": "Y con los informes al día, operas tranquilo.",
    "foto": 218,
    "fotos": []
   },
@@ -39,5 +39,5 @@
  "molde": "advertencia",
  "vocera": "Lorena",
  "voz_kore": "reel27v",
- "rev": 2
+ "rev": 3
 }

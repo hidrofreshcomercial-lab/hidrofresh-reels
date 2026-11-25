@@ -17,14 +17,14 @@
    ]
   },
   {
-   "texto": "Un buen tablero las protege y da la alarma.",
+   "texto": "Un buen tablero protege tus bombas y te da la alarma.",
    "foto": 182,
    "fotos": [
     185
    ]
   },
   {
-   "texto": "Vendemos e instalamos bombas con su tablero.",
+   "texto": "Así no pagas una bomba nueva por un descuido.",
    "foto": 229,
    "fotos": []
   },
@@ -37,6 +37,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel56v",
- "rev": 3,
+ "rev": 4,
  "molde": "advertencia"
 }

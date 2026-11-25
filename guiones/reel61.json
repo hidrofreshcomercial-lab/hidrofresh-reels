@@ -1,9 +1,9 @@
 {
  "nombre": "reel61",
- "gancho": "¿Hasta dónde llega una planta?",
+ "gancho": "¿Lejos de todo?",
  "segmentos": [
   {
-   "texto": "¿Hasta dónde puede llegar una planta de tratamiento?",
+   "texto": "¿Tu terreno está lejos de todo?",
    "foto": 248,
    "fotos": [
     104
@@ -15,14 +15,14 @@
    "fotos": []
   },
   {
-   "texto": "La fabricamos, la llevamos en camión y la instalamos.",
+   "texto": "Tu planta llega en camión y se instala en tu terreno.",
    "foto": 209,
    "fotos": [
     248
    ]
   },
   {
-   "texto": "Y volvemos a mantenerla.",
+   "texto": "Y su mantención también llega hasta ti.",
    "foto": 104,
    "fotos": [
     200
@@ -37,6 +37,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel61v",
- "rev": 3,
+ "rev": 4,
  "molde": "curiosidad"
 }

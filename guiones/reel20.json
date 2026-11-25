@@ -15,7 +15,7 @@
    ]
   },
   {
-   "texto": "La cámara de rejas lo frena antes de que llegue a las bombas.",
+   "texto": "La cámara de rejas lo frena antes de que llegue a tus bombas.",
    "foto": 553,
    "fotos": []
   },
@@ -25,7 +25,7 @@
    "fotos": []
   },
   {
-   "texto": "En cada mantención la limpiamos.",
+   "texto": "Limpiándola en cada mantención, tus bombas duran mucho más.",
    "foto": 191,
    "fotos": [
     187
@@ -41,5 +41,5 @@
  "molde": "prueba",
  "vocera": "Lorena",
  "voz_kore": "reel20v",
- "rev": 2
+ "rev": 3
 }

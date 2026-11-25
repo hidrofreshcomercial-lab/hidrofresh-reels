@@ -27,7 +27,7 @@
    ]
   },
   {
-   "texto": "Lo revisamos y el olor desaparece.",
+   "texto": "Si lo encuentras a tiempo, el olor se va y tus vecinos no reclaman.",
    "foto": 104,
    "fotos": [
     124
@@ -42,6 +42,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel47v",
- "rev": 3,
+ "rev": 4,
  "molde": "mito"
 }

@@ -3,14 +3,14 @@
  "gancho": "Hay una planta bajo este pasto",
  "segmentos": [
   {
-   "texto": "Una planta de tratamiento puede quedar bajo tu jardín.",
+   "texto": "Tu planta de tratamiento puede quedar bajo tu jardín.",
    "foto": 156,
    "fotos": [
     250
    ]
   },
   {
-   "texto": "Enterrada no se ve y aprovechas el terreno.",
+   "texto": "Enterrada no se ve y aprovechas tu terreno.",
    "foto": 143,
    "fotos": [
     146
@@ -24,12 +24,12 @@
    ]
   },
   {
-   "texto": "Depende del espacio y del tipo de suelo.",
+   "texto": "Depende de tu espacio y del tipo de suelo.",
    "foto": 145,
    "fotos": []
   },
   {
-   "texto": "La fabricamos en fibra de vidrio para las dos opciones.",
+   "texto": "Te ayudamos a elegir la que mejor le queda a tu terreno.",
    "foto": 212,
    "fotos": []
   },
@@ -43,5 +43,5 @@
  "molde": "curiosidad",
  "vocera": "Lorena",
  "voz_kore": "reel19v",
- "rev": 2
+ "rev": 3
 }

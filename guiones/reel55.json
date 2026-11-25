@@ -1,9 +1,9 @@
 {
  "nombre": "reel55",
- "gancho": "¿Cuántas empresas necesitas?",
+ "gancho": "¿Cuántas empresas coordinas?",
  "segmentos": [
   {
-   "texto": "¿Cuántas empresas necesitas para tener una planta de tratamiento?",
+   "texto": "¿Cuántas empresas tienes que coordinar para tener tu planta de tratamiento?",
    "foto": 218,
    "fotos": [
     250
@@ -17,12 +17,12 @@
    ]
   },
   {
-   "texto": "Con nosotros, una sola.",
+   "texto": "Tú puedes tener un solo responsable.",
    "foto": 250,
    "fotos": []
   },
   {
-   "texto": "Diseño, Seremi, fabricación, instalación y mantención.",
+   "texto": "Diseño, Seremi, fabricación, instalación y mantención, en una sola llamada.",
    "foto": 250,
    "fotos": [
     104
@@ -37,6 +37,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel55v",
- "rev": 3,
+ "rev": 4,
  "molde": "pregunta"
 }
