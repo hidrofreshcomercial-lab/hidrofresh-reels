@@ -1,3 +1,11 @@
+# Filosofía: el cliente es el héroe (regla de Miguel)
+Al cliente no le importamos nosotros, ni el producto, ni la marca: le importa él. Cada reel, caption y artículo cuenta SU historia:
+- Gancho = su problema o su meta, en segunda persona ("¿Tu planta huele mal?", "¿Vas a construir sin alcantarillado?"), nunca "Hidro Fresh hace…".
+- El centro es cómo le cambia el día: cero olor, cero reclamos de vecinos, la fiscalización pasa tranquila, la temporada parte sin fallas, plata ahorrada.
+- Hidro Fresh es el guía que lo ayuda, no el protagonista: como máximo una frase sobre nosotros, cerca del final ("Te ayudamos a…" mejor que "Somos expertos en…").
+- Evitar frases centradas en la empresa ("desde 2008", "nuestra experiencia", "fabricamos en fibra de vidrio") salvo que digan qué gana el cliente con eso.
+- Al revisar propuestas de los agentes, reescribir las que hablen de nosotros en vez de él.
+
 # Cómo hacer un reel nuevo
 
 1. Escribir `guiones/reelN.json` (gancho + 5-8 segmentos, 22-30 s, cierre con WhatsApp). Planta de tratamiento primero; cloro y bacterias después. Nunca nombrar clientes.
