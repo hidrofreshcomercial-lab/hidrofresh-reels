@@ -173,10 +173,11 @@ async function vender(sb: any, id: number) {
   const yaPara = new Set((yaEnv ?? []).map((x: any) => String(x.para ?? "").toLowerCase()));
   const disp = C.filter((x: any) => !yaPara.has(x.email.toLowerCase()) || (prev ?? []).some((m: any) => m.respuesta));
   if (!disp.length) { await sb.from("eq_cuentas").update({ estado: C.length ? "contactada" : "sin correo" }).eq("id", id); await log(sb, "Vendedor", id, `${c.empresa}: sin correos nuevos para escribir`, "", C.length ? "Ya se escribió a todos sus contactos" : "Falta un correo: la cuenta queda para el Buscador de correos / Director"); return { ok: true, mensajes: 0 }; }
-  const r = await ia(`Eres el VENDEDOR del equipo de ${HF}\nEscribes como Miguel: directo, cordial, chileno profesional, breve (correo máx. 120 palabras; WhatsApp/LinkedIn máx. 60). Siempre partes por el motivo concreto de esa cuenta y propones un paso pequeño (visita técnica, diagnóstico sin costo de la planta existente, una llamada de 15 min). Nunca prometas cosas que no estén en el mapa.`,
+  const r = await ia(`Eres el VENDEDOR del equipo de ${HF}\nEscribes como Miguel: directo, cordial, chileno profesional, breve (correo máx. 120 palabras; WhatsApp/LinkedIn máx. 60). Siempre partes por el motivo concreto de esa cuenta y propones un paso pequeño: videollamada de 15-20 min, o que envíen antecedentes (fotos de la planta, caudal o número de personas, último informe de monitoreo DS 90) para darles una primera opinión técnica, o una visita técnica con informe A COSTO ACOTADO. PROHIBIDO ofrecer nada "sin costo", "gratis" o "gratuito": Miguel está en Santiago y las faenas quedan lejos. Nunca prometas cosas que no estén en el mapa.`,
     `${ctx}\n\nCUENTA: ${c.empresa} (${c.sector})\nMAPA: ${JSON.stringify(c.mapa ?? {}).slice(0, 7000)}\nNOTAS DE MIGUEL SOBRE ESTA CUENTA (respuestas recibidas, contexto): ${c.notas ?? "(ninguna)"}\nMENSAJES ANTERIORES A ESTA CUENTA: ${JSON.stringify(prev ?? [])}\nMENSAJES QUE MIGUEL DESCARTÓ (aprende qué no le gusta): ${JSON.stringify(descartes ?? []).slice(0, 1500)}\n\nCONTACTOS CON CORREO (usa SOLO estos, campo "para" = el correo exacto): ${JSON.stringify(disp)}\n\nRedacta CORREOS (nada de LinkedIn ni formularios) para 1 a 3 de esos contactos, priorizando tipo "verificado", luego "probable", luego "general" (a un correo general dirígete al área: "Estimados, equipo de abastecimiento/medio ambiente"). Si ya hubo respuesta, redacta la contestación. Termina el texto con la firma "Miguel Fuenzalida\nHidro Fresh · +56 9 7850 8983 · hidrofresh.cl" y una línea final: "Si prefiere no recibir más correos, respóndame «no» y no le volveré a escribir." Devuelve {"mensajes":[{"persona":"","cargo":"","para":"<correo exacto de la lista>","asunto":"","texto":"","por_que":"<por qué este correo a esta persona>"}],"leccion":"<si aprendiste algo de los descartes o respuestas, una lección corta; si no, vacío>"}`, "redaccion", 2500);
   const okPara = new Map(disp.map((x: any) => [x.email.toLowerCase(), x]));
-  const M = (r.r.mensajes ?? []).filter((x: any) => x?.texto && okPara.has(String(x.para ?? "").toLowerCase().trim())).slice(0, 3);
+  const M = (r.r.mensajes ?? []).filter((x: any) => x?.texto && okPara.has(String(x.para ?? "").toLowerCase().trim()) && !/sin\s+costo|gratis|gratuit|sin\s+cargo|libre de costo/i.test(`${x.asunto ?? ""} ${x.texto}`)).slice(0, 3);
+  if ((r.r.mensajes ?? []).length && !M.length) await log(sb, "Vendedor", id, "Borradores rechazados por ofrecer algo gratis", "", "Se reintenta en el próximo turno");
   if (M.length) await sb.from("eq_mensajes").insert(M.map((x: any) => { const k: any = okPara.get(String(x.para).toLowerCase().trim()); return { cuenta_id: id, persona: x.persona || k.nombre || null, cargo: x.cargo || k.cargo || null, canal: "correo", para: k.email, tipo_contacto: k.tipo, asunto: x.asunto || `Hidro Fresh · ${c.empresa}`, texto: x.texto, por_que: x.por_que || null }; }));
   if (r.r.leccion) await sb.from("eq_memoria").insert({ leccion: String(r.r.leccion).slice(0, 400), fuente: "Vendedor" });
   await sb.from("eq_cuentas").update({ estado: M.length ? "mensajes listos" : c.estado, actualizado_en: new Date().toISOString() }).eq("id", id);
@@ -235,6 +236,7 @@ async function gmail(sb: any, b: any) {
     for (const it of b.items ?? []) {
       const u: any = {};
       if (it.draft_id) u.gmail_draft_id = it.draft_id;
+      if (it.actualizado) u.actualizar_gmail = false;
       if (it.thread_id) u.gmail_thread_id = it.thread_id;
       if (it.enviado) { u.estado = "enviado"; u.enviado_en = new Date().toISOString(); u.error = null; }
       if (it.borrado) u.estado = "descartado";
@@ -248,13 +250,14 @@ async function gmail(sb: any, b: any) {
   const hoy = new Date(Date.now() - 3 * 3600e3).toISOString().slice(0, 10);
   const { count: enviadosHoy } = await sb.from("eq_mensajes").select("id", { count: "exact", head: true }).eq("estado", "enviado").gte("enviado_en", hoy + "T03:00:00Z");
   const cupo = Math.max(0, 30 - (enviadosHoy ?? 0));
-  const [{ data: crear }, { data: enviar }, { data: vigilar }, { data: resp }] = await Promise.all([
+  const [{ data: crear }, { data: enviar }, { data: vigilar }, { data: actualizar }, { data: resp }] = await Promise.all([
     sb.from("eq_mensajes").select("id,para,asunto,texto").eq("estado", "borrador").eq("canal", "correo").is("gmail_draft_id", null).not("para", "is", null).limit(20),
     sb.from("eq_mensajes").select("id,para,asunto,texto,gmail_draft_id").eq("estado", "aprobado").limit(cupo),
     sb.from("eq_mensajes").select("id,para,asunto,gmail_draft_id").eq("estado", "borrador").not("gmail_draft_id", "is", null).limit(100),
+    sb.from("eq_mensajes").select("id,para,asunto,texto,gmail_draft_id").eq("estado", "borrador").eq("actualizar_gmail", true).not("gmail_draft_id", "is", null).limit(30),
     sb.from("eq_mensajes").select("id,para,asunto,gmail_thread_id,enviado_en").eq("estado", "enviado").is("respuesta", null).gte("enviado_en", new Date(Date.now() - 30 * 864e5).toISOString()).limit(100),
   ]);
-  return { ok: true, cupo, crear: crear ?? [], enviar: enviar ?? [], vigilar: vigilar ?? [], respuestas: resp ?? [] };
+  return { ok: true, cupo, crear: crear ?? [], enviar: enviar ?? [], vigilar: vigilar ?? [], actualizar: actualizar ?? [], respuestas: resp ?? [] };
 }
 
 // ---------- TURNO (cron) ----------
