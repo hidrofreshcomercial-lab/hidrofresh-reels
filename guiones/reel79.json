@@ -3,7 +3,7 @@
  "gancho": "¿Cuánto cuesta? Depende de 3 cosas",
  "segmentos": [
   {
-   "texto": "¿Cuánto cuesta una planta de tratamiento?",
+   "texto": "¿Cuánto cuesta tu planta de tratamiento?",
    "foto": 12,
    "fotos": [
     25
@@ -17,11 +17,11 @@
    ]
   },
   {
-   "texto": "Diseñamos a la medida, sin pagar de más.",
+   "texto": "A la medida, para que no pagues de más.",
    "video": "videos/fab_a.mp4"
   },
   {
-   "texto": "Escríbenos y te cotizamos sin costo.",
+   "texto": "Escríbenos y recibe tu cotización sin costo.",
    "foto": 253,
    "fotos": [
     254
@@ -36,5 +36,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel79k",
- "rev": 4
+ "rev": 5
 }

@@ -10,14 +10,14 @@
    ]
   },
   {
-   "texto": "Hacemos el proyecto completo, del diseño a la puesta en marcha.",
+   "texto": "Del diseño a la puesta en marcha, con un solo responsable.",
    "foto": 11,
    "fotos": [
     12
    ]
   },
   {
-   "texto": "Instalamos y dejamos todo funcionando.",
+   "texto": "Tu planta instalada y funcionando.",
    "foto": 246,
    "fotos": [
     247
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel90k",
- "rev": 4
+ "rev": 5
 }

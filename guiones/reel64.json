@@ -24,7 +24,7 @@
    ]
   },
   {
-   "texto": "Hacemos la mantención y te dejamos el informe listo.",
+   "texto": "Y con el informe listo, llegas a la asamblea con respuestas.",
    "foto": 133,
    "fotos": [
     134
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel64k",
- "rev": 4
+ "rev": 5
 }

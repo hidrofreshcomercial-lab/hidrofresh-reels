@@ -24,7 +24,7 @@
    ]
   },
   {
-   "texto": "Si ves una, llámanos antes de que sea tarde.",
+   "texto": "Si ves una, revísala antes de que te salga caro.",
    "foto": 103,
    "fotos": [
     104
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel71k",
- "rev": 3
+ "rev": 4
 }

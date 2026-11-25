@@ -10,19 +10,19 @@
    ]
   },
   {
-   "texto": "No la dejes así: cada día sin tratar es un riesgo.",
+   "texto": "No la dejes así: cada día sin tratar es un riesgo para ti.",
    "foto": 110,
    "fotos": []
   },
   {
-   "texto": "Diagnosticamos la falla en terreno.",
+   "texto": "Con un diagnóstico en terreno, sabes exactamente qué falló.",
    "foto": 107,
    "fotos": [
     110
    ]
   },
   {
-   "texto": "Y la reparamos para que vuelva a cumplir.",
+   "texto": "Y tu planta vuelve a cumplir, para que operes tranquilo.",
    "foto": 104,
    "fotos": [
     157
@@ -37,6 +37,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel62v",
- "rev": 3,
+ "rev": 4,
  "molde": "historia"
 }

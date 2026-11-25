@@ -10,18 +10,18 @@
    ]
   },
   {
-   "texto": "En temporada se multiplican los trabajadores, y el agua también.",
+   "texto": "En temporada se multiplican tus trabajadores, y el agua también.",
    "foto": 525,
    "fotos": [
     203
    ]
   },
   {
-   "texto": "Por eso diseñamos la planta para el peak.",
+   "texto": "Con una planta calculada para tu peak…",
    "video": "videos/fab_b.mp4"
   },
   {
-   "texto": "Y la instalamos antes de que parta la cosecha.",
+   "texto": "tu cosecha parte sin que el baño sea un problema.",
    "foto": 246,
    "fotos": [
     248
@@ -36,6 +36,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel78v",
- "rev": 4,
+ "rev": 5,
  "molde": "advertencia"
 }

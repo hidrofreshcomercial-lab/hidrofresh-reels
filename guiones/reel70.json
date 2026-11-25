@@ -24,7 +24,7 @@
    ]
   },
   {
-   "texto": "Revisamos y reparamos sopladores.",
+   "texto": "Revisar tu soplador a tiempo te evita ese olor.",
    "foto": 104,
    "fotos": [
     105
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel70k",
- "rev": 3
+ "rev": 4
 }

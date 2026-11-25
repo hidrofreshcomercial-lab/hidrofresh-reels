@@ -17,14 +17,14 @@
    ]
   },
   {
-   "texto": "Fabricamos plantas compactas en fibra de vidrio.",
+   "texto": "Una planta compacta de fibra de vidrio no se oxida con el ambiente marino.",
    "foto": 555,
    "fotos": [
     556
    ]
   },
   {
-   "texto": "Y hacemos la mantención donde estés.",
+   "texto": "Y su mantención llega hasta tu centro.",
    "foto": 104,
    "fotos": [
     105
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel86k",
- "rev": 3
+ "rev": 4
 }

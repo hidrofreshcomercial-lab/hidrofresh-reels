@@ -17,14 +17,14 @@
    ]
   },
   {
-   "texto": "Sin alumnos, trabajamos sin interrumpir clases.",
+   "texto": "Sin alumnos, se trabaja sin interrumpir tus clases.",
    "foto": 105,
    "fotos": [
     107
    ]
   },
   {
-   "texto": "Y en marzo la planta parte funcionando bien.",
+   "texto": "Y en marzo tu planta parte funcionando bien.",
    "foto": 101,
    "fotos": [
     102
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel72k",
- "rev": 3
+ "rev": 4
 }

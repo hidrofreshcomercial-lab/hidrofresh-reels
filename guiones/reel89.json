@@ -17,7 +17,7 @@
    ]
   },
   {
-   "texto": "Revisamos la causa y la dejamos funcionando.",
+   "texto": "Encontrar la causa evita que se repita.",
    "foto": 104,
    "fotos": [
     103
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel89k",
- "rev": 3
+ "rev": 4
 }

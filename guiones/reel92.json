@@ -1,27 +1,27 @@
 {
  "nombre": "reel92",
- "gancho": "18 años en 30 segundos",
+ "gancho": "¿Va a durar tu planta?",
  "segmentos": [
   {
-   "texto": "Dieciocho años tratando agua en Chile, en treinta segundos.",
+   "texto": "¿Tu planta de tratamiento va a durar?",
    "foto": 246,
    "fotos": [
     248
    ]
   },
   {
-   "texto": "Diseñamos y fabricamos plantas de tratamiento.",
+   "texto": "Diseñada y fabricada a tu medida.",
    "video": "videos/fab_c.mp4"
   },
   {
-   "texto": "Las instalamos del desierto al sur.",
+   "texto": "Instalada donde estés, del desierto al sur.",
    "foto": 142,
    "fotos": [
     248
    ]
   },
   {
-   "texto": "Y las mantenemos funcionando año tras año.",
+   "texto": "Y funcionando año tras año.",
    "foto": 104,
    "fotos": [
     105
@@ -36,6 +36,6 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel92v",
- "rev": 4,
+ "rev": 5,
  "molde": "prueba"
 }

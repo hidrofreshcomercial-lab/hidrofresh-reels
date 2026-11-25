@@ -10,21 +10,21 @@
    ]
   },
   {
-   "texto": "Retiramos lodos y ajustamos el aire.",
+   "texto": "Retirar lodos y ajustar el aire.",
    "foto": 551,
    "fotos": [
     2
    ]
   },
   {
-   "texto": "Sumamos bacterias para recuperar el proceso.",
+   "texto": "Sumar bacterias para recuperar el proceso.",
    "foto": 560,
    "fotos": [
     203
    ]
   },
   {
-   "texto": "Y el agua vuelve a salir clara.",
+   "texto": "Y tu agua vuelve a salir clara.",
    "foto": 231,
    "fotos": [
     527
@@ -39,5 +39,5 @@
  "voz": "Kore + Lorena (cierre)",
  "vocera": "Lorena",
  "voz_kore": "reel81k",
- "rev": 3
+ "rev": 4
 }
