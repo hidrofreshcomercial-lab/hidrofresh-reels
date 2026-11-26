@@ -162,6 +162,30 @@ async function contactos(sb: any, id: number) {
   return { ok: true, empresa: c.empresa, correos: out.length };
 }
 
+// Regla de Miguel: el cliente es el héroe → nada de presentarse antes de plantear su problema.
+function clienteHeroe(t: string) {
+  const cuerpo = String(t ?? "").replace(/^\s*(estimad[oa]s?|hola|buen(os|as) (días|tardes))[^\n:]*:?\s*/i, "");
+  const ini = cuerpo.slice(0, 160).toLowerCase();
+  if (/hidro ?fresh|soy miguel|le saluda|les saluda|les escribo|le escribo|te escribo|mi nombre es/.test(ini)) return false;
+  const iYo = cuerpo.toLowerCase().indexOf("soy miguel"), iQ = cuerpo.indexOf("¿");
+  return iYo === -1 || iQ === -1 || iYo < cuerpo.lastIndexOf("¿");
+}
+// Reescribe un borrador existente con la regla (mismos hechos, mismo destinatario) y lo marca para actualizar en Gmail.
+async function reescribir(sb: any, id: number) {
+  const { data: m } = await sb.from("eq_mensajes").select("*").eq("id", id).single();
+  const { data: c } = await sb.from("eq_cuentas").select("empresa,sector").eq("id", m.cuenta_id).single();
+  for (let i = 0; i < 2; i++) {
+    const r = await ia(`Eres el VENDEDOR del equipo de ${HF}`, `Reescribe este correo a ${c?.empresa ?? ""} manteniendo los MISMOS hechos, destinatario, firma y línea final para darse de baja. ORDEN OBLIGATORIO del cuerpo (después del saludo): 1) su problema o situación concreta, 2) cómo se resuelve, 3) "Soy Miguel Fuenzalida, de Hidro Fresh: le(s) ayudamos a …" (una sola frase), 4) una pregunta concreta. Nunca abras presentándote ni a la empresa. Nada "sin costo" ni "gratis": lo sin costo es solo una videollamada o revisar antecedentes que envíen; la visita técnica con informe es a costo acotado. Máximo 130 palabras sin contar la firma.\nASUNTO ACTUAL: ${m.asunto}\nTEXTO ACTUAL:\n${m.texto}\n\nDevuelve {"asunto":"<centrado en el problema del cliente, sin 'Hidro Fresh' al inicio>","texto":""}`, "redaccion", 1500);
+    const t = String(r.r.texto ?? "");
+    if (t && clienteHeroe(t) && !/sin\s+costo|gratis|gratuit/i.test(t)) {
+      await sb.from("eq_mensajes").update({ texto: t, asunto: r.r.asunto || m.asunto, actualizar_gmail: !!m.gmail_draft_id }).eq("id", id);
+      await log(sb, "Vendedor", m.cuenta_id, `Reescribió el correo a ${m.para} (el cliente primero)`, "", "", r.motor);
+      return { ok: true, id };
+    }
+  }
+  return { ok: false, id, error: "no logró una versión que cumpla la regla" };
+}
+
 // ---------- VENDEDOR ----------
 async function vender(sb: any, id: number) {
   const { data: c } = await sb.from("eq_cuentas").select("*").eq("id", id).single();
@@ -173,10 +197,10 @@ async function vender(sb: any, id: number) {
   const yaPara = new Set((yaEnv ?? []).map((x: any) => String(x.para ?? "").toLowerCase()));
   const disp = C.filter((x: any) => !yaPara.has(x.email.toLowerCase()) || (prev ?? []).some((m: any) => m.respuesta));
   if (!disp.length) { await sb.from("eq_cuentas").update({ estado: C.length ? "contactada" : "sin correo" }).eq("id", id); await log(sb, "Vendedor", id, `${c.empresa}: sin correos nuevos para escribir`, "", C.length ? "Ya se escribió a todos sus contactos" : "Falta un correo: la cuenta queda para el Buscador de correos / Director"); return { ok: true, mensajes: 0 }; }
-  const r = await ia(`Eres el VENDEDOR del equipo de ${HF}\nEscribes como Miguel: directo, cordial, chileno profesional, breve (correo máx. 120 palabras; WhatsApp/LinkedIn máx. 60). Siempre partes por el motivo concreto de esa cuenta y propones un paso pequeño: videollamada de 15-20 min, o que envíen antecedentes (fotos de la planta, caudal o número de personas, último informe de monitoreo DS 90) para darles una primera opinión técnica, o una visita técnica con informe A COSTO ACOTADO. PROHIBIDO ofrecer nada "sin costo", "gratis" o "gratuito": Miguel está en Santiago y las faenas quedan lejos. Nunca prometas cosas que no estén en el mapa.`,
+  const r = await ia(`Eres el VENDEDOR del equipo de ${HF}\nEscribes como Miguel: directo, cordial, chileno profesional, breve (correo máx. 120 palabras; WhatsApp/LinkedIn máx. 60). ORDEN OBLIGATORIO del cuerpo (después del saludo "Estimados…:" o "Hola <nombre>:"): 1) SU problema o situación concreta (la sanción, el proyecto, el campamento, el riesgo que corre), 2) cómo se resuelve, 3) recién ahí "Soy Miguel Fuenzalida, de Hidro Fresh: le(s) ayudamos a …" (una sola frase sobre nosotros), 4) una pregunta concreta. NUNCA abras presentándote ni a la empresa ("les escribo de Hidro Fresh", "soy Miguel de Hidro Fresh", "en Hidro Fresh diseñamos…"). Como paso pequeño propones: videollamada de 15-20 min, o que envíen antecedentes (fotos de la planta, caudal o número de personas, último informe de monitoreo DS 90) para darles una primera opinión técnica, o una visita técnica con informe A COSTO ACOTADO. PROHIBIDO ofrecer nada "sin costo", "gratis" o "gratuito": Miguel está en Santiago y las faenas quedan lejos. Nunca prometas cosas que no estén en el mapa.`,
     `${ctx}\n\nCUENTA: ${c.empresa} (${c.sector})\nMAPA: ${JSON.stringify(c.mapa ?? {}).slice(0, 7000)}\nNOTAS DE MIGUEL SOBRE ESTA CUENTA (respuestas recibidas, contexto): ${c.notas ?? "(ninguna)"}\nMENSAJES ANTERIORES A ESTA CUENTA: ${JSON.stringify(prev ?? [])}\nMENSAJES QUE MIGUEL DESCARTÓ (aprende qué no le gusta): ${JSON.stringify(descartes ?? []).slice(0, 1500)}\n\nCONTACTOS CON CORREO (usa SOLO estos, campo "para" = el correo exacto): ${JSON.stringify(disp)}\n\nRedacta CORREOS (nada de LinkedIn ni formularios) para 1 a 3 de esos contactos, priorizando tipo "verificado", luego "probable", luego "general" (a un correo general dirígete al área: "Estimados, equipo de abastecimiento/medio ambiente"). Si ya hubo respuesta, redacta la contestación. Termina el texto con la firma "Miguel Fuenzalida\nHidro Fresh · +56 9 7850 8983 · hidrofresh.cl" y una línea final: "Si prefiere no recibir más correos, respóndame «no» y no le volveré a escribir." Devuelve {"mensajes":[{"persona":"","cargo":"","para":"<correo exacto de la lista>","asunto":"","texto":"","por_que":"<por qué este correo a esta persona>"}],"leccion":"<si aprendiste algo de los descartes o respuestas, una lección corta; si no, vacío>"}`, "redaccion", 2500);
   const okPara = new Map(disp.map((x: any) => [x.email.toLowerCase(), x]));
-  const M = (r.r.mensajes ?? []).filter((x: any) => x?.texto && okPara.has(String(x.para ?? "").toLowerCase().trim()) && !/sin\s+costo|gratis|gratuit|sin\s+cargo|libre de costo/i.test(`${x.asunto ?? ""} ${x.texto}`)).slice(0, 3);
+  const M = (r.r.mensajes ?? []).filter((x: any) => x?.texto && okPara.has(String(x.para ?? "").toLowerCase().trim()) && !/sin\s+costo|gratis|gratuit|sin\s+cargo|libre de costo/i.test(`${x.asunto ?? ""} ${x.texto}`) && clienteHeroe(x.texto)).slice(0, 3);
   if ((r.r.mensajes ?? []).length && !M.length) await log(sb, "Vendedor", id, "Borradores rechazados por ofrecer algo gratis", "", "Se reintenta en el próximo turno");
   if (M.length) await sb.from("eq_mensajes").insert(M.map((x: any) => { const k: any = okPara.get(String(x.para).toLowerCase().trim()); return { cuenta_id: id, persona: x.persona || k.nombre || null, cargo: x.cargo || k.cargo || null, canal: "correo", para: k.email, tipo_contacto: k.tipo, asunto: x.asunto || `Hidro Fresh · ${c.empresa}`, texto: x.texto, por_que: x.por_que || null }; }));
   if (r.r.leccion) await sb.from("eq_memoria").insert({ leccion: String(r.r.leccion).slice(0, 400), fuente: "Vendedor" });
@@ -298,6 +322,7 @@ Deno.serve(async (req) => {
     if (b.investigar) return json(await investigar(sb, Number(b.investigar)));
     if (b.vender) return json(await vender(sb, Number(b.vender)));
     if (b.correos) return json(await contactos(sb, Number(b.correos)));
+    if (b.reescribir) return json(await reescribir(sb, Number(b.reescribir)));
     if (b.licitaciones) return json(await licitaciones(sb));
     if (b.estratega) return json(await estratega(sb));
     return json({ error: "Falta parámetro" }, 400);

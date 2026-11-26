@@ -1,5 +1,5 @@
 // deno-lint-ignore-file no-explicit-any
-// ia-router v1.7 (+ panel de León: acepta ia_externo_token con cabecera x-ia-externo, solo para este enrutador) v1.6 (+ proveedores estilo FreeLLMAPI: Cerebras, NVIDIA NIM, Mistral, GitHub Models y un FreeLLMAPI propio opcional; se descubren solos en el catálogo diario cuando hay clave) v1.5 (plazo por modelo cubre también la lectura de la respuesta; Google saturado → sus "lite" primero; 403 de un modelo no pausa todo el proveedor) v1.4 (chat: proveedores intercalados y 25 s máx. por modelo; si Google está saturado salta a Groq/OpenRouter) v1.3 (+ vigilancia de gasto en OpenRouter con aviso al celular) v1.2 (conversación: rápidos primero, 15 s máx. por modelo) v1.1 (+ conversación con herramientas para el bot de WhatsApp) — enrutador de IA SOLO GRATIS para Hidro Fresh (presupuesto obligatorio USD 0).
+// ia-router v1.8 (+ regla única "el cliente es el héroe" para todo mensaje a clientes) v1.7 (+ panel de León: acepta ia_externo_token con cabecera x-ia-externo, solo para este enrutador) v1.6 (+ proveedores estilo FreeLLMAPI: Cerebras, NVIDIA NIM, Mistral, GitHub Models y un FreeLLMAPI propio opcional; se descubren solos en el catálogo diario cuando hay clave) v1.5 (plazo por modelo cubre también la lectura de la respuesta; Google saturado → sus "lite" primero; 403 de un modelo no pausa todo el proveedor) v1.4 (chat: proveedores intercalados y 25 s máx. por modelo; si Google está saturado salta a Groq/OpenRouter) v1.3 (+ vigilancia de gasto en OpenRouter con aviso al celular) v1.2 (conversación: rápidos primero, 15 s máx. por modelo) v1.1 (+ conversación con herramientas para el bot de WhatsApp) — enrutador de IA SOLO GRATIS para Hidro Fresh (presupuesto obligatorio USD 0).
 // Orden: Gemini (capa gratuita) → Groq (free tier) → Cerebras → OpenRouter (solo ":free", precio máx. 0) → Mistral (Experiment) → NVIDIA NIM
 // → GitHub Models → Cloudflare Workers AI → FreeLLMAPI propio → Ollama local/propio si está configurado.
 // Claves en app_config: gemini_api_key, groq_api_key, cerebras_api_key, openrouter_api_key, mistral_api_key, nvidia_api_key, github_api_key,
@@ -42,7 +42,13 @@ async function fetchTexto(url: string, init: RequestInit = {}, ms = 45_000): Pro
 
 // ---------- claves (nunca se devuelven ni se registran) ----------
 const CFG: Record<string, string> = {};
+// v1.8: REGLA ÚNICA "el cliente es el héroe" para TODO texto que va a un cliente (correos, WhatsApp, respuestas, bot, redes).
+// Se guarda en app_config.regla_mensajes (editable) y se agrega al sistema de cualquier llamada cuya "funcion" escriba a clientes.
+const REGLA_DEF = `REGLA OBLIGATORIA DE HIDRO FRESH PARA TODO MENSAJE A UN CLIENTE O PROSPECTO: el cliente es el héroe. Orden fijo: 1) su problema o situación (en sus palabras, concreto); 2) cómo se soluciona; 3) recién aquí quiénes somos: "Soy Miguel Fuenzalida, de Hidro Fresh: le ayudamos a…" (una sola frase sobre nosotros); 4) una pregunta o llamado concreto. PROHIBIDO abrir presentándonos ("le saluda Miguel…", "les escribo de Hidro Fresh", "soy Miguel de Hidro Fresh", "en Hidro Fresh diseñamos…") y PROHIBIDO ofrecer visitas, diagnósticos o levantamientos "sin costo"/"gratis" (la visita en terreno es a costo acotado; lo sin costo es una videollamada o revisar antecedentes que nos envíen).`;
+const FUNC_CLIENTE = /prospeccion|equipo-mineria|correos-entrantes|agentes-equipo|agente-investigador|ig-comentarios|wa-|whatsapp|respuesta|cotiz|redes|reel|caption|post/i;
+const REGLA = { txt: REGLA_DEF };
 async function cargarClaves(sb: any) {
+  try { const { data: rg } = await sb.from("app_config").select("valor").eq("clave", "regla_mensajes").maybeSingle(); if (rg?.valor) REGLA.txt = String(rg.valor); } catch (_) { /* usa la regla por defecto */ }
   const { data } = await sb.from("app_config").select("clave,valor").or("clave.like.%_api_key,clave.like.ollama_%,clave.like.cloudflare_%,clave.like.freellmapi_%,clave.eq.ia_presupuesto_usd");
   for (const x of data ?? []) CFG[x.clave] = String(x.valor ?? "").trim();
 }
@@ -189,6 +195,7 @@ async function chat(sb: any, c: any) {
   const quiereJson = c.json !== false;
   const maxTok = Math.min(Math.max(Number(c.max_tokens) || 4000, 64), 8000);
   let sistema = String(c.sistema ?? (quiereJson ? "Responde SOLO con JSON válido, sin texto adicional." : ""));
+  if (FUNC_CLIENTE.test(String(c.funcion ?? "")) || c.cliente === true) sistema = (sistema ? sistema + "\n\n" : "") + REGLA.txt;
   let prompt = String(c.prompt ?? ""); if (!prompt) throw new Error("Falta prompt");
   let web = false;
   if (c.web) {
@@ -255,7 +262,8 @@ function limpiarPara(prov: string, messages: any[]) {
   return messages.map((x) => x.tool_calls ? { ...x, tool_calls: x.tool_calls.map((t: any) => ({ id: t.id, type: t.type ?? "function", function: t.function })) } : x);
 }
 async function chatMensajes(sb: any, c: any) {
-  const messages = Array.isArray(c.messages) ? c.messages : []; if (!messages.length) throw new Error("Faltan messages");
+  let messages = Array.isArray(c.messages) ? c.messages : []; if (!messages.length) throw new Error("Faltan messages");
+  if (FUNC_CLIENTE.test(String(c.funcion ?? "")) || c.cliente === true) messages = [{ role: "system", content: "En esta conversación con un cliente: céntrate en su problema y en cómo se soluciona; no abras presentando a Hidro Fresh ni a Miguel y nunca ofrezcas visitas o diagnósticos en terreno sin costo (la visita es a costo acotado; lo sin costo es una videollamada o revisar antecedentes)." }, ...messages];
   const maxTok = Math.min(Math.max(Number(c.max_tokens) || 700, 64), 4000);
   const tokens = est(JSON.stringify(messages) + JSON.stringify(c.tools ?? [])) + maxTok;
   // en conversación manda la rapidez (el cliente espera en WhatsApp): Groq y Cerebras (~1 s) y los Gemini "lite" primero
