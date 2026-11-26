@@ -1,5 +1,8 @@
 # Filosofía: el cliente es el héroe (regla de Miguel)
-Al cliente no le importamos nosotros, ni el producto, ni la marca: le importa él. Cada reel, caption y artículo cuenta SU historia:
+Al cliente no le importamos nosotros, ni el producto, ni la marca: le importa él. Cada reel, caption, artículo, correo y WhatsApp cuenta SU historia.
+
+**Orden obligatorio (nunca al revés):** 1) su problema → 2) cómo se soluciona → 3) quiénes somos y cómo le ayudamos → 4) pregunta o llamado. Nunca abrir presentándonos ("le saluda Miguel, de Hidro Fresh…", "En Hidro Fresh diseñamos…"): la presentación va recién en el paso 3. Plantillas de WhatsApp en `plantillas/whatsapp_prospectos.js`.
+
 - Gancho = su problema o su meta, en segunda persona ("¿Tu planta huele mal?", "¿Vas a construir sin alcantarillado?"), nunca "Hidro Fresh hace…".
 - El centro es cómo le cambia el día: cero olor, cero reclamos de vecinos, la fiscalización pasa tranquila, la temporada parte sin fallas, plata ahorrada.
 - Hidro Fresh es el guía que lo ayuda, no el protagonista: como máximo una frase sobre nosotros, cerca del final ("Te ayudamos a…" mejor que "Somos expertos en…").
