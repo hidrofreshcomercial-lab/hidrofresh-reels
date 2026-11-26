@@ -5,10 +5,10 @@ const AG_YO = 'Soy Miguel Fuenzalida, de Hidro Fresh';
 /* Después del correo: parte por lo que gana el cliente, no por "le envié" */
 function agWaActivo(p){
   const c=p.correo?' a '+p.correo:'';
-  if(p.rama==1)return `Para que su planta nunca se quede sin cloro ni bacterias, le dejé por correo${c} una propuesta en tres puntos: despacho programado, dosis calculada según su consumo y mantención de la planta o del clorador. ¿Cuál de esos tres es el más urgente para usted, para partir por ahí esta semana? ${AG_YO}.`;
-  if(p.agente==='seremi'||p.agente==='sma'||p.agente==='mineras')return `Para que su planta cumpla y no quede expuesta en una fiscalización, le dejé por correo${c} tres pasos: diagnóstico en terreno, mejoras para cumplir el DS 90 y la documentación ante SEREMI/SMA. ¿Cuál de esos tres tiene mayor prioridad para usted, para empezar de inmediato? ${AG_YO}.`;
-  if(p.agente==='proyectistas'||p.agente==='sea'||p.agente==='lagos')return `Para que su proyecto no se trabe por la planta de tratamiento, le dejé por correo${c} lo que necesita: dimensionamiento de la planta, planos y memoria de cálculo sin costo, y apoyo en la tramitación ante la SEREMI. ¿Cuál de esos tres le sirve más ahora, para enviárselo primero? ${AG_YO}.`;
-  return `Para resolver las aguas servidas de su proyecto sin atrasos, le dejé por correo${c} una propuesta en tres puntos: diseño a la medida de su caudal, fabricación e instalación, y tramitación ante la SEREMI. ¿Qué es lo que más se acerca a lo que busca y qué le genera dudas? ${AG_YO}.`;
+  if(p.rama==1)return `para que su planta nunca se quede sin cloro ni bacterias, le dejé por correo${c} una propuesta en tres puntos: despacho programado, dosis calculada según su consumo y mantención de la planta o del clorador. ¿Cuál de esos tres es el más urgente para usted, para partir por ahí esta semana? ${AG_YO}.`;
+  if(p.agente==='seremi'||p.agente==='sma'||p.agente==='mineras')return `para que su planta cumpla y no quede expuesta en una fiscalización, le dejé por correo${c} tres pasos: diagnóstico en terreno, mejoras para cumplir el DS 90 y la documentación ante SEREMI/SMA. ¿Cuál de esos tres tiene mayor prioridad para usted, para empezar de inmediato? ${AG_YO}.`;
+  if(p.agente==='proyectistas'||p.agente==='sea'||p.agente==='lagos')return `para que su proyecto no se trabe por la planta de tratamiento, le dejé por correo${c} lo que necesita: dimensionamiento de la planta, planos y memoria de cálculo sin costo, y apoyo en la tramitación ante la SEREMI. ¿Cuál de esos tres le sirve más ahora, para enviárselo primero? ${AG_YO}.`;
+  return `para resolver las aguas servidas de su proyecto sin atrasos, le dejé por correo${c} una propuesta en tres puntos: diseño a la medida de su caudal, fabricación e instalación, y tramitación ante la SEREMI. ¿Qué es lo que más se acerca a lo que busca y qué le genera dudas? ${AG_YO}.`;
 }
 function agWaTexto0(p){
   const emp=String(p.empresa||'').trim();
